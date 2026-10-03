@@ -1,0 +1,1 @@
+import{C as e}from"./index-C45IE6e9.js";var t=e();function n({json:e}){return(0,t.jsx)(`script`,{type:`application/ld+json`,dangerouslySetInnerHTML:{__html:e}})}export{n as t};
