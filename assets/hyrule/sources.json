@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "project": "Hero of Time Archive",
+  "verified_on": "2026-10-03",
+  "use": "Editorial fan archive about The Legend of Zelda: Ocarina of Time.",
+  "rights_note": "Nintendo retains rights in the game imagery and marks. Public availability and source attribution do not constitute an open license. No ownership or endorsement is asserted.",
+  "assets": [
+    {
+      "id": "oot-switch2-keyart",
+      "description": "Young Link begins his journey through Kokiri Forest, holding an ocarina; official key artwork.",
+      "original_filename": "oot-switch2-keyart.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/intro/intro-keyart-large-up",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-keyart.webp",
+      "web_path": "/assets/hyrule/oot-switch2-keyart.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        2880,
+        1800
+      ],
+      "web_dimensions": [
+        2400,
+        1500
+      ],
+      "original_sha256": "03a3ebfe591eb6782c9fb5fd75f9177662f82f95724a632cedf53000b9757bdb",
+      "web_sha256": "d3443ad2f13b8e5a0d527d185b5e35d62cc9e64de56dcd49b007a1fd07eb82a9",
+      "web_bytes": 564416,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-logo",
+      "description": "The Legend of Zelda: Ocarina of Time official Switch 2 game logo; transparent.",
+      "original_filename": "oot-switch2-logo.png",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/intro/game-logo",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-logo.webp",
+      "web_path": "/assets/hyrule/oot-switch2-logo.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        1052,
+        786
+      ],
+      "web_dimensions": [
+        1052,
+        786
+      ],
+      "original_sha256": "06c04e5c1bc9276181a675a454d2add2fa5837bb72f92ec9b1d36c2d58c01609",
+      "web_sha256": "2683459c0b9eb7d33f4f17c977a708ac4d5e7fd09c069c1735e2ac94e8df6902",
+      "web_bytes": 194626,
+      "transparent": true,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-link-navi",
+      "description": "Young Link seated on a tree stump, reaching toward Navi; transparent official character artwork.",
+      "original_filename": "oot-switch2-link-navi.png",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/footer-decoration-section/tloz-oot-character-1",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-link-navi.webp",
+      "web_path": "/assets/hyrule/oot-switch2-link-navi.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        832,
+        924
+      ],
+      "web_dimensions": [
+        832,
+        924
+      ],
+      "original_sha256": "b3076c9a3d068448603be1584eb62d799c41ece0bd80e31ce47da09ea9b4fd76",
+      "web_sha256": "8ff275c9c64849184a353e23af268dbc9e6fa9362606c1e3e62f6f911e26e8b2",
+      "web_bytes": 196072,
+      "transparent": true,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-1",
+      "description": "Young Link raising the Master Sword in the Temple of Time.",
+      "original_filename": "oot-switch2-scene-1.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_1",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-1.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-1.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "53bf96889e6c107ad5dac68b7457ae7d808b0741b046fa5ae09a6aafec199d3f",
+      "web_sha256": "637cc8568a089acbeeee0e997185ebd91086df2030bd524a507804fce1459cb1",
+      "web_bytes": 246084,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-2",
+      "description": "Young Link and Saria in Kokiri Forest.",
+      "original_filename": "oot-switch2-scene-2.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_2",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-2.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-2.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "d23ed858dad94a7c747bc36e838451c8ad7500acf38ba376d34981027ea27bde",
+      "web_sha256": "5b32d9fbae3c3b427fe4f82434dc0a35dc870cb6599b2803022850dc1010f704",
+      "web_bytes": 445206,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-3",
+      "description": "Young Link plays the blue Ocarina of Time; Zelda's Lullaby gameplay interface visible.",
+      "original_filename": "oot-switch2-scene-3.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_3",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-3.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-3.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "a2d976b001232abf1e75340e4f635123ce6c0d1d13ffdb964cf85a28a85b5d83",
+      "web_sha256": "96863734a11d8d6276ee4fc045fd82b6868fa29bc3bae8c62b43945bab453b34",
+      "web_bytes": 223280,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-4",
+      "description": "Princess Zelda in a stone window.",
+      "original_filename": "oot-switch2-scene-4.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_4",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-4.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-4.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "ef72e42851a0e88ec186815d828c33523c724e26600697728357a2ed55e1b992",
+      "web_sha256": "5da3d3ae2dccfbc0c7b08f66932a67430ce3a59956dbc907609461886facfaec",
+      "web_bytes": 278484,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-5",
+      "description": "Ganondorf on horseback during a lightning storm.",
+      "original_filename": "oot-switch2-scene-5.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_5",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-5.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-5.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "f74a9bedcc6c631796c105f9526c4e25c172a2b84910f3cdb6925f0e1b755878",
+      "web_sha256": "1ea08855dd9d056fb094c4603ebe86efdfcb3d769fd3e5abf0cf58c71513be41",
+      "web_bytes": 71436,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-6",
+      "description": "Adult Link in magical combat.",
+      "original_filename": "oot-switch2-scene-6.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_6",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-6.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-6.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "b6a5aa43dc847f6ec4a1585f2edfc90d4b5dfd3e567fc517500a84c95b955aac",
+      "web_sha256": "dedc0b322c8625ddad6e517dfd76ea2f5a2367bd4d37fc25d89679e09d24941b",
+      "web_bytes": 238396,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-7",
+      "description": "Young Link faces the Great Deku Tree.",
+      "original_filename": "oot-switch2-scene-7.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_7",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-7.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-7.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "9c6f8e12ec6b195701534ec5f77c8271d37a13f117fa8fe12bc0f05e62fd30b6",
+      "web_sha256": "75fd827d8b4ab519ba556e1a63be3061ff12177f45cc4d5400cbae255dca1495",
+      "web_bytes": 477658,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-scene-8",
+      "description": "Adult Link rides Epona in Hyrule Field.",
+      "original_filename": "oot-switch2-scene-8.jpg",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/",
+      "source_asset_url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/Marketing2/3OKTBMay01784158342jwugZ3wp08zzZXCWrPOIiyNS7pQz0fYoQD300Z0LrEbNS/gallery-section/TLOZ-OOT_8",
+      "publisher": "Nintendo of America",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page artwork or screenshot",
+      "source_publication_date": null,
+      "source_publication_date_note": "The page does not provide publication dates for individual still images.",
+      "web_filename": "oot-switch2-scene-8.webp",
+      "web_path": "/assets/hyrule/oot-switch2-scene-8.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "ca738d6d5607fe5dd2f9e181f3c3ee7883e0e57db62f86a77b843defacf178ee",
+      "web_sha256": "d1c410ffd8b676f84b806f94da1d667d93b48868f9a9102892a50a9f9ed7b50e",
+      "web_bytes": 203360,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-switch2-link-ocarina",
+      "description": "Young Link playing an ocarina; transparent official Switch 2 character artwork.",
+      "original_filename": "oot-switch2-link-ocarina.png",
+      "source_page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-2-games/The-Legend-of-Zelda-Ocarina-of-Time-3115664.html",
+      "source_asset_url": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/thelegendofzeldaocarinaoftime/TheLegendOfZeldaOcarinaOfTime_character_YoungLinkOcarina_image500w.png",
+      "publisher": "Nintendo UK",
+      "copyright": "Nintendo",
+      "source_kind": "official product-page character artwork",
+      "source_publication_date": null,
+      "web_filename": "oot-switch2-link-ocarina.webp",
+      "web_path": "/assets/hyrule/oot-switch2-link-ocarina.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        500,
+        804
+      ],
+      "web_dimensions": [
+        500,
+        804
+      ],
+      "original_sha256": "c118b171ecee31e6d5d58edbe8cd5ea54358b4931dbd269f8e75b68d345b9bfb",
+      "web_sha256": "446ce940625aaadde0cf6faffdd19353f41f9443de1a313f8678ffe67aa9a719",
+      "web_bytes": 78178,
+      "transparent": true,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-ocarina-original-art",
+      "description": "Original N64 Ocarina of Time item artwork: blue-violet curved body, angled mouthpiece, seven visible holes, golden Triforce on a dark silver collar; transparent.",
+      "original_filename": "oot-ocarina-original-art.png",
+      "source_page": "https://www.zeldadungeon.net/wiki/File:OcarinaofTime_Large.png",
+      "source_asset_url": "https://www.zeldadungeon.net/wiki/images/9/9a/OcarinaofTime_Large.png",
+      "publisher": "Zelda Dungeon (archive host)",
+      "copyright": "Nintendo",
+      "source_kind": "historical Nintendo item artwork archived by a third party",
+      "source_publication_date": null,
+      "archive_revision_date": "2019-02-12",
+      "provenance_note": "The file is categorized as Ocarina of Time (N64) artwork. This is the historical artwork, not a newly published Switch 2 item render.",
+      "web_filename": "oot-ocarina-original-art.webp",
+      "web_path": "/assets/hyrule/oot-ocarina-original-art.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        503,
+        427
+      ],
+      "web_dimensions": [
+        503,
+        427
+      ],
+      "original_sha256": "8d4716f6a9afdb5c293036f3f0038f2bb394e69579400ef5969ff2f4ee67c441",
+      "web_sha256": "3cdc7e41c527441570da376297561335e85f424f7f3c7cf66ad43a2c08c14a20",
+      "web_bytes": 30322,
+      "transparent": true,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-oct01-jabu-entrance",
+      "description": "Young Link at the entrance to a chamber inside Jabu-Jabu.",
+      "original_filename": "oot-oct01-jabu-entrance.jpg",
+      "source_page": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "source_asset_url": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "publisher": "Perfectly Nintendo (video repost channel)",
+      "copyright": "Nintendo, as credited by the source video",
+      "source_kind": "frame extracted from Nintendo footage relayed by a third-party channel",
+      "source_publication_date": "2026-10-01",
+      "frame_timestamp_seconds": 1.2,
+      "corroborating_source": "https://www.perfectly-nintendo.com/the-legend-of-zelda-ocarina-of-time-switch-2-all-the-latest-details-and-pictures/#october1",
+      "original_video": "refs/oot-october1-source.mp4",
+      "video_title": "The Legend of Zelda: Ocarina of Time (Switch 2) - Inside Jabu-Jabu's Belly & Gerudo's Fortress",
+      "video_duration_seconds": 28,
+      "verification": "Channel, upload date, title and duration read from YouTube metadata and cross-checked with the dated article. The channel is not Nintendo of America.",
+      "web_filename": "oot-oct01-jabu-entrance.webp",
+      "web_path": "/assets/hyrule/oot-oct01-jabu-entrance.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        1920,
+        1080
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "c700b87409f660b9d25d2d27109a523b2d196e2a12af800297a93a6358934207",
+      "web_sha256": "f46bd2e15c0699e23f001069b3d30b43362d21f2192973aace6b1cb92b51a56c",
+      "web_bytes": 72316,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-oct01-jabu-chamber",
+      "description": "A wide chamber inside Jabu-Jabu with purple organic surfaces.",
+      "original_filename": "oot-oct01-jabu-chamber.jpg",
+      "source_page": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "source_asset_url": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "publisher": "Perfectly Nintendo (video repost channel)",
+      "copyright": "Nintendo, as credited by the source video",
+      "source_kind": "frame extracted from Nintendo footage relayed by a third-party channel",
+      "source_publication_date": "2026-10-01",
+      "frame_timestamp_seconds": 3.8,
+      "corroborating_source": "https://www.perfectly-nintendo.com/the-legend-of-zelda-ocarina-of-time-switch-2-all-the-latest-details-and-pictures/#october1",
+      "original_video": "refs/oot-october1-source.mp4",
+      "video_title": "The Legend of Zelda: Ocarina of Time (Switch 2) - Inside Jabu-Jabu's Belly & Gerudo's Fortress",
+      "video_duration_seconds": 28,
+      "verification": "Channel, upload date, title and duration read from YouTube metadata and cross-checked with the dated article. The channel is not Nintendo of America.",
+      "web_filename": "oot-oct01-jabu-chamber.webp",
+      "web_path": "/assets/hyrule/oot-oct01-jabu-chamber.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        1920,
+        1080
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "18128821667d3ed7bda7ce4b330bafedde7f343a948b4b08651c6dda12bb5b04",
+      "web_sha256": "ca1f86a72c32db45c8fa164331a096c2ec4004058870d6e12bacede55538fccd",
+      "web_bytes": 64172,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-oct01-gerudo-fortress",
+      "description": "Wide exterior establishing shot of Gerudo Fortress.",
+      "original_filename": "oot-oct01-gerudo-fortress.jpg",
+      "source_page": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "source_asset_url": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "publisher": "Perfectly Nintendo (video repost channel)",
+      "copyright": "Nintendo, as credited by the source video",
+      "source_kind": "frame extracted from Nintendo footage relayed by a third-party channel",
+      "source_publication_date": "2026-10-01",
+      "frame_timestamp_seconds": 12.8,
+      "corroborating_source": "https://www.perfectly-nintendo.com/the-legend-of-zelda-ocarina-of-time-switch-2-all-the-latest-details-and-pictures/#october1",
+      "original_video": "refs/oot-october1-source.mp4",
+      "video_title": "The Legend of Zelda: Ocarina of Time (Switch 2) - Inside Jabu-Jabu's Belly & Gerudo's Fortress",
+      "video_duration_seconds": 28,
+      "verification": "Channel, upload date, title and duration read from YouTube metadata and cross-checked with the dated article. The channel is not Nintendo of America.",
+      "web_filename": "oot-oct01-gerudo-fortress.webp",
+      "web_path": "/assets/hyrule/oot-oct01-gerudo-fortress.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        1920,
+        1080
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "26882766e9fcb0259d449233917ffe89c5a29a64117a2b64521b6311143d4007",
+      "web_sha256": "144bcaf4175d26b1496c0e19bab6849133f10ca802af7e98c5a891830d15bfca",
+      "web_bytes": 148404,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    },
+    {
+      "id": "oot-oct01-gerudo-rooftops",
+      "description": "Adult Link on the rooftops of Gerudo Fortress.",
+      "original_filename": "oot-oct01-gerudo-rooftops.jpg",
+      "source_page": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "source_asset_url": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "publisher": "Perfectly Nintendo (video repost channel)",
+      "copyright": "Nintendo, as credited by the source video",
+      "source_kind": "frame extracted from Nintendo footage relayed by a third-party channel",
+      "source_publication_date": "2026-10-01",
+      "frame_timestamp_seconds": 24.5,
+      "corroborating_source": "https://www.perfectly-nintendo.com/the-legend-of-zelda-ocarina-of-time-switch-2-all-the-latest-details-and-pictures/#october1",
+      "original_video": "refs/oot-october1-source.mp4",
+      "video_title": "The Legend of Zelda: Ocarina of Time (Switch 2) - Inside Jabu-Jabu's Belly & Gerudo's Fortress",
+      "video_duration_seconds": 28,
+      "verification": "Channel, upload date, title and duration read from YouTube metadata and cross-checked with the dated article. The channel is not Nintendo of America.",
+      "web_filename": "oot-oct01-gerudo-rooftops.webp",
+      "web_path": "/assets/hyrule/oot-oct01-gerudo-rooftops.webp",
+      "downloaded_at": "2026-10-03",
+      "original_dimensions": [
+        1920,
+        1080
+      ],
+      "web_dimensions": [
+        1920,
+        1080
+      ],
+      "original_sha256": "8aab5e38cc96c2366ace235e9162f6085e1dc3582a6845a4e6c754289fc840fe",
+      "web_sha256": "30ccd83ea6d980da7e9966a59109507c91385c97da0805b75bd7f298aadad5d7",
+      "web_bytes": 110978,
+      "transparent": false,
+      "processing": "WebP encoding at quality 90; official stills scaled to 1920 px width, main key art to 2400 px width, smaller transparent artwork kept at native dimensions. No generative modification, recoloring or cropping."
+    }
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=wuFfiTEr2yc",
+      "title": "The Legend of Zelda: Ocarina of Time – The Legend of Zelda 40th Anniversary Direct 9.8.2026",
+      "channel": "Nintendo of America",
+      "upload_date": "2026-09-08",
+      "duration_seconds": 206,
+      "kind": "official Nintendo trailer",
+      "verification": "YouTube oEmbed and yt-dlp public metadata."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=w-4yA7v69W8",
+      "title": "The Legend of Zelda: Ocarina of Time (Switch 2) - Inside Jabu-Jabu's Belly & Gerudo's Fortress",
+      "channel": "Perfectly Nintendo",
+      "upload_date": "2026-10-01",
+      "duration_seconds": 28,
+      "kind": "Nintendo footage reposted by an independent news channel",
+      "verification": "YouTube oEmbed, public metadata and dated Perfectly Nintendo article."
+    }
+  ]
+}

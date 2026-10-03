@@ -1,1 +1,0 @@
-import{S as e}from"./index-BjxligqO.js";var t=e();function n({json:e}){return(0,t.jsx)(`script`,{type:`application/ld+json`,dangerouslySetInnerHTML:{__html:e}})}export{n as t};
