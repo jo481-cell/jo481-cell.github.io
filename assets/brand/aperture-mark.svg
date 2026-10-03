@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Hero of Time Archive aperture mark">
+  <rect width="128" height="128" rx="24" fill="#07181b"/>
+  <circle cx="64" cy="64" r="39" fill="none" stroke="#c05a79" stroke-width="4"/>
+  <ellipse cx="64" cy="64" rx="24" ry="39" fill="none" stroke="#a5b0aa" stroke-width="2" transform="rotate(-22 64 64)" opacity=".9"/>
+  <path d="M42 64h44M64 42v44" fill="none" stroke="#edf0e7" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="64" cy="64" r="7" fill="#173034" stroke="#edf0e7" stroke-width="2"/>
+</svg>

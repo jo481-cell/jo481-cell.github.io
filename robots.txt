@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jo481-cell.github.io/sitemap.xml
