@@ -1,1 +1,0 @@
-import{n as e}from"./jsx-runtime-ChD_BG6p.js";import{f as t}from"./index-BfuDeTfu.js";import{t as n}from"./walkthrough-BxDreCUl.js";function r(){let r=t.useLoaderData();return e(n,{chapter:r},r.slug)}export{r as component};

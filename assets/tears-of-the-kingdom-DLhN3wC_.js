@@ -1,1 +1,0 @@
-import{n as e}from"./jsx-runtime-ChD_BG6p.js";import{t}from"./game-hub-MUE5AV29.js";var n=()=>e(t,{slug:`tears-of-the-kingdom`});export{n as component};

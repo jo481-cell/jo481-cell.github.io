@@ -1,1 +1,0 @@
-import{n as e}from"./journal-BKHEtao5.js";var t=e;export{t as component};

@@ -1,1 +1,0 @@
-import{t as e}from"./companion-Dc6ccOMk.js";var t=e;export{t as component};
