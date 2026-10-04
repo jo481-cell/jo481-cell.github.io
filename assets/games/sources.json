@@ -1,0 +1,37 @@
+{
+  "assets": [
+    {
+      "id": "breath-of-the-wild",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-switch/",
+      "source_asset": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000000025/7137262b5a64d921e193653f8aa0b722925abc5680380ca0e18a5cfd91697f58",
+      "publisher": "Nintendo",
+      "copyright": "Nintendo",
+      "kind": "Official Nintendo product social artwork",
+      "path": "/assets/games/breath-of-the-wild.webp",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "source_sha256": "0148e1bb582f1b0fb2ee2427457ed9fed7e90aacd589d40da03f12d74d9d76c5",
+      "web_sha256": "444e585903a5fda064af82e76abbbe0a0affc259620390bd0620a64fdd1d8ff9",
+      "processing": "Aspect-ratio-preserving downsize and WebP encoding only."
+    },
+    {
+      "id": "tears-of-the-kingdom",
+      "source_page": "https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-switch/",
+      "source_asset": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000063714/fb30eab428df3fc993b41c76e20f72e4d76d49734d17d31996b5ab61c414b117",
+      "publisher": "Nintendo",
+      "copyright": "Nintendo",
+      "kind": "Official Nintendo product social artwork",
+      "path": "/assets/games/tears-of-the-kingdom.webp",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "source_sha256": "5c0b6a090a5edf3b45c1cb1030cc08f51df51da26e84093c1fbab04eaaf4ba1d",
+      "web_sha256": "0082677d122c24515faf3cca414e639943adbad0b0cdf9b350c32a0981f03276",
+      "processing": "Aspect-ratio-preserving downsize and WebP encoding only."
+    }
+  ],
+  "rights_note": "Editorial fan reference. Attribution is not an open license or Nintendo endorsement."
+}

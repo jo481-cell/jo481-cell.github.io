@@ -1,0 +1,156 @@
+{
+  "title": "Then & Now artwork provenance",
+  "rights_note": "Artwork copyright Nintendo. Source credits retained; no claim of an open licence. Epona historical pair is Nintendo 3DS, not N64. Promotional artwork is not a gameplay comparison.",
+  "assets": [
+    {
+      "id": "adult-link-switch2",
+      "path": "/assets/comparisons/adult-link-switch2.webp",
+      "platform": "Nintendo Switch 2",
+      "source_page": "https://www.nintendolife.com/features/how-does-zelda-ocarina-of-times-old-and-new-art-compare-heres-a-side-by-side-face-off",
+      "asset_url": "https://images.nintendolife.com/fc9e0eda1bec3/oot-link-switch-2.original.jpg",
+      "copyright": "Nintendo",
+      "source_kind": "Nintendo promotional character artwork reproduced in Nintendo Life comparison feature",
+      "published": "2026-09-16",
+      "retrieved": "2026-10-04",
+      "source_sha256": "5b9dd09808cc8aee7dceb73840c28a44e549dc502d4bb1958e6cc34947300925",
+      "web_sha256": "a6efcf6f0ace08a386fe775b15e0b25cb8b4264700df82106762cc2d3ff3b39c",
+      "original_size": [
+        1878,
+        2504
+      ],
+      "web_size": [
+        825,
+        1100
+      ],
+      "web_bytes": 98066,
+      "processing": "Fit within 1400x1100 without cropping; WebP quality 90. No generative modification.",
+      "original_path": "/assets/comparisons/originals/adult-link-switch2.jpg",
+      "visual_review": "Inspected contact sheet: correct subjects and historical platform labels, all six images legible, no generated artwork."
+    },
+    {
+      "id": "adult-link-n64",
+      "path": "/assets/comparisons/adult-link-n64.webp",
+      "platform": "Nintendo 64",
+      "source_page": "https://www.nintendolife.com/features/how-does-zelda-ocarina-of-times-old-and-new-art-compare-heres-a-side-by-side-face-off",
+      "asset_url": "https://images.nintendolife.com/f854897fd7db0/oot-link-n64.original.jpg",
+      "copyright": "Nintendo",
+      "source_kind": "Nintendo promotional character artwork reproduced in Nintendo Life comparison feature",
+      "published": "2026-09-16",
+      "retrieved": "2026-10-04",
+      "source_sha256": "417711dd9d4eaf05943ccaf4ded8149c2bc879cd30dda92450fb9b55dca1361a",
+      "web_sha256": "9860e096ee45bb22a931bdf89208aad91f21137bc96576c2633e6663c0a9903b",
+      "original_size": [
+        1972,
+        2728
+      ],
+      "web_size": [
+        795,
+        1100
+      ],
+      "web_bytes": 83922,
+      "processing": "Fit within 1400x1100 without cropping; WebP quality 90. No generative modification.",
+      "original_path": "/assets/comparisons/originals/adult-link-n64.jpg",
+      "visual_review": "Inspected contact sheet: correct subjects and historical platform labels, all six images legible, no generated artwork."
+    },
+    {
+      "id": "young-link-switch2",
+      "path": "/assets/comparisons/young-link-switch2.webp",
+      "platform": "Nintendo Switch 2",
+      "source_page": "https://www.nintendolife.com/features/how-does-zelda-ocarina-of-times-old-and-new-art-compare-heres-a-side-by-side-face-off",
+      "asset_url": "https://images.nintendolife.com/7fb50ba5a16dc/oot-link-switch-2.original.jpg",
+      "copyright": "Nintendo",
+      "source_kind": "Nintendo promotional character artwork reproduced in Nintendo Life comparison feature",
+      "published": "2026-09-16",
+      "retrieved": "2026-10-04",
+      "source_sha256": "1722917d7e5de47562a7cac4c76065de1c719d4bcb0fae5af76c864c16b372b7",
+      "web_sha256": "4f3e71abbe2fdb6b3923bff6d8a0e35f79cff8fb4ebdd87a07ec9a4cc3d3bcfb",
+      "original_size": [
+        928,
+        1098
+      ],
+      "web_size": [
+        928,
+        1098
+      ],
+      "web_bytes": 172046,
+      "processing": "Fit within 1400x1100 without cropping; WebP quality 90. No generative modification.",
+      "original_path": "/assets/comparisons/originals/young-link-switch2.jpg",
+      "visual_review": "Inspected contact sheet: correct subjects and historical platform labels, all six images legible, no generated artwork."
+    },
+    {
+      "id": "young-link-n64",
+      "path": "/assets/comparisons/young-link-n64.webp",
+      "platform": "Nintendo 64",
+      "source_page": "https://www.nintendolife.com/features/how-does-zelda-ocarina-of-times-old-and-new-art-compare-heres-a-side-by-side-face-off",
+      "asset_url": "https://images.nintendolife.com/9e99e9086cb6d/oot-link-n64.original.jpg",
+      "copyright": "Nintendo",
+      "source_kind": "Nintendo promotional character artwork reproduced in Nintendo Life comparison feature",
+      "published": "2026-09-16",
+      "retrieved": "2026-10-04",
+      "source_sha256": "4a583fddd4aedb68b7edfc2bef1bc11ceed7cf3be81f85170253d08eae441871",
+      "web_sha256": "1a6ce6818bcda096eec629ebeb07ceb2103309e1a383db70a3205dc25ed64279",
+      "original_size": [
+        2171,
+        2441
+      ],
+      "web_size": [
+        978,
+        1100
+      ],
+      "web_bytes": 126478,
+      "processing": "Fit within 1400x1100 without cropping; WebP quality 90. No generative modification.",
+      "original_path": "/assets/comparisons/originals/young-link-n64.jpg",
+      "visual_review": "Inspected contact sheet: correct subjects and historical platform labels, all six images legible, no generated artwork."
+    },
+    {
+      "id": "epona-switch2",
+      "path": "/assets/comparisons/epona-switch2.webp",
+      "platform": "Nintendo Switch 2",
+      "source_page": "https://www.nintendolife.com/features/how-does-zelda-ocarina-of-times-old-and-new-art-compare-heres-a-side-by-side-face-off",
+      "asset_url": "https://images.nintendolife.com/8e542f76e6772/epona-switch-2.original.jpg",
+      "copyright": "Nintendo",
+      "source_kind": "Nintendo promotional character artwork reproduced in Nintendo Life comparison feature",
+      "published": "2026-09-16",
+      "retrieved": "2026-10-04",
+      "source_sha256": "cb449bfa1d7aed898f7567052e14e6e11e4d52c4ee0ffd3bb71c589660601ef2",
+      "web_sha256": "09e02f3aca54dadd5529dd2d4faf16c3a246cdad0e3b439f727875a2d1d1b990",
+      "original_size": [
+        2167,
+        2184
+      ],
+      "web_size": [
+        1091,
+        1100
+      ],
+      "web_bytes": 190188,
+      "processing": "Fit within 1400x1100 without cropping; WebP quality 90. No generative modification.",
+      "original_path": "/assets/comparisons/originals/epona-switch2.jpg",
+      "visual_review": "Inspected contact sheet: correct subjects and historical platform labels, all six images legible, no generated artwork."
+    },
+    {
+      "id": "epona-3ds",
+      "path": "/assets/comparisons/epona-3ds.webp",
+      "platform": "Nintendo 3DS",
+      "source_page": "https://www.nintendolife.com/features/how-does-zelda-ocarina-of-times-old-and-new-art-compare-heres-a-side-by-side-face-off",
+      "asset_url": "https://images.nintendolife.com/13dd836bed99a/epona-3ds.original.jpg",
+      "copyright": "Nintendo",
+      "source_kind": "Nintendo promotional character artwork reproduced in Nintendo Life comparison feature",
+      "published": "2026-09-16",
+      "retrieved": "2026-10-04",
+      "source_sha256": "f07c1d2151b4600e212703b9a7dfb3cc9f9e5119ea6f3fd941ae166845a29b4f",
+      "web_sha256": "955d23bbf7f592c6129666b417068de8ac90c623d41b1d2f3d54bf9197f454e7",
+      "original_size": [
+        2377,
+        2470
+      ],
+      "web_size": [
+        1059,
+        1100
+      ],
+      "web_bytes": 92028,
+      "processing": "Fit within 1400x1100 without cropping; WebP quality 90. No generative modification.",
+      "original_path": "/assets/comparisons/originals/epona-3ds.jpg",
+      "visual_review": "Inspected contact sheet: correct subjects and historical platform labels, all six images legible, no generated artwork."
+    }
+  ]
+}
