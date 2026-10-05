@@ -1,0 +1,1 @@
+import{n as e}from"./series-C5982C38.js";var t=e;export{t as component};

@@ -1,1 +1,0 @@
-import{t as e}from"./companion-B-70g22d.js";var t=e;export{t as component};
