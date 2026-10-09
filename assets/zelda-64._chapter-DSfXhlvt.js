@@ -1,1 +1,0 @@
-import{n as e}from"./jsx-runtime-DUM0pevI.js";import{p as t}from"./index-CHmp3Tyt.js";import{t as n}from"./walkthrough-BCoGFdmo.js";function r(){let r=t.useLoaderData();return e(n,{chapter:r},r.slug)}export{r as component};

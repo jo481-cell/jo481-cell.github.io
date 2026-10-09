@@ -1,1 +1,0 @@
-import{n as e}from"./journal-Ck_CpT-q.js";var t=e;export{t as component};
