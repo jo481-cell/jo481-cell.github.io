@@ -1,1 +1,0 @@
-import{t as e}from"./companion-Dpt87BQr.js";var t=e;export{t as component};
