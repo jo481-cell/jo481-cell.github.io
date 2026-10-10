@@ -1,0 +1,479 @@
+{
+  "source": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/",
+  "credit": "Cartes du jeu © Nintendo. Assemblage et annotations : Ian Albert.",
+  "permission": "Source explicitly allows reuse of these images. Underlying game artwork belongs to Nintendo.",
+  "assets": [
+    {
+      "file": "light_world-1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/light_world-1.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 2551873,
+      "sha256": "ef4fea4ee9cee5954f37d96cf09e8fc4727355542da69ce10583d6931eb7a3af"
+    },
+    {
+      "file": "dark_world.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dark_world.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 3356691,
+      "sha256": "86d96b34065920199f402f95607622589ca3dc91510a1bed308743e59b0a839c"
+    },
+    {
+      "file": "dungeon-C-2F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-C-2F.png",
+      "width": 1536,
+      "height": 3072,
+      "bytes": 41010,
+      "sha256": "61145f8d9e7bc6359eb1148a76f64b787942bd9e05505615cedfb65a56ae6cd9"
+    },
+    {
+      "file": "dungeon-C-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-C-1F.png",
+      "width": 1536,
+      "height": 3072,
+      "bytes": 97950,
+      "sha256": "091d758840e3d684ff9e9f722ab4f878f2871dc0f147b76201f02de2975e383a"
+    },
+    {
+      "file": "dungeon-C-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-C-B1.png",
+      "width": 1536,
+      "height": 3072,
+      "bytes": 103297,
+      "sha256": "c34946afc4a9293187fee80d86a1d929092d586099a240466327101a3637326c"
+    },
+    {
+      "file": "dungeon-C-B2.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-C-B2.png",
+      "width": 1536,
+      "height": 3072,
+      "bytes": 14573,
+      "sha256": "6fe479699af5637a7291812e705bbed25f82c1aa76e032d5907dacdbd71aa25e"
+    },
+    {
+      "file": "dungeon-C-B3.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-C-B3.png",
+      "width": 1536,
+      "height": 3072,
+      "bytes": 19838,
+      "sha256": "233553835091c0d7b4f130f088734ec508f03d6cb9685e4d7c9c0e7fb0a30ddd"
+    },
+    {
+      "file": "dungeon-L1-2F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L1-2F.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 44852,
+      "sha256": "264af79484841071616aa70eea6aba17d71400d980f46b20bcf006c354d75a74"
+    },
+    {
+      "file": "dungeon-L1-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L1-1F.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 141254,
+      "sha256": "8555840bf0d1b8dd7e3ec7b1ffed2bc3bff5893d351a56f70b66778ff84c34b4"
+    },
+    {
+      "file": "dungeon-L1-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L1-B1.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 14996,
+      "sha256": "2fc23a5820e3ef9decfc31e57e2fe2f8e1b47853c89209a587fa15fd24f857a5"
+    },
+    {
+      "file": "dungeon-L2-2F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L2-2F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 46661,
+      "sha256": "00a2c12ffa2d3083287edf53b16b6d2f086863c538899b630488d8ca62971921"
+    },
+    {
+      "file": "dungeon-L2-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L2-1F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 23829,
+      "sha256": "73d296a4b238e9f20f1eb56b8a30ffbac091b1306e90d96a2fed0632bcd7db71"
+    },
+    {
+      "file": "dungeon-L2-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L2-B1.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 83574,
+      "sha256": "743d840386995f32eeb865ce65b1ba098a9cf36b19842e905298640780747828"
+    },
+    {
+      "file": "dungeon-L3-6F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L3-6F.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 19025,
+      "sha256": "03299b02b45fd2eefbd0045cee20c096ba73d83b37e7aef240a9079ec3fc6a2c"
+    },
+    {
+      "file": "dungeon-L3-5F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L3-5F.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 21216,
+      "sha256": "5a6a403afb338514afb40d2df8aff5d8f9d14ce897bdcd391b30fcb9c97ede18"
+    },
+    {
+      "file": "dungeon-L3-4F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L3-4F.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 38262,
+      "sha256": "b40385574597a5f316a38d64d7b1f649bdef192fdd4377af7b68b202803035cf"
+    },
+    {
+      "file": "dungeon-L3-3F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L3-3F.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 23250,
+      "sha256": "47932261bf495afccd2e480327a8e6949a041a8249cfbab1c86106bb3a424e80"
+    },
+    {
+      "file": "dungeon-L3-2F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L3-2F.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 22806,
+      "sha256": "812ece0afb6ee420d0c5adff5649b5d286d36605bccb32b58c101917675dc8dc"
+    },
+    {
+      "file": "dungeon-L3-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L3-1F.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 19997,
+      "sha256": "717c7b2b229a2b3f4b5b493cb129f99208aad070d6bedf73f1f6c27514e861f6"
+    },
+    {
+      "file": "dungeon-L3-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-L3-B1.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 7335,
+      "sha256": "74b3866207dbf61c4682b2b30d35e8263b6a193c48cff90c353ac5a10a44051e"
+    },
+    {
+      "file": "dungeon-A1-7F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A1-7F.png",
+      "width": 512,
+      "height": 1024,
+      "bytes": 18242,
+      "sha256": "1a8b805cea9f7f273359acdcab19bec109a752efb79ef62f652551432ce8b604"
+    },
+    {
+      "file": "dungeon-A1-6F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A1-6F.png",
+      "width": 512,
+      "height": 1024,
+      "bytes": 19444,
+      "sha256": "d9826659c1b9dbcd331115dfaa1f7bee15b21a6a713c7d5066b0b8792438b602"
+    },
+    {
+      "file": "dungeon-A1-5F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A1-5F.png",
+      "width": 512,
+      "height": 1024,
+      "bytes": 24502,
+      "sha256": "925aa6d424361a0aa2f63cf8aeef703cb4b277a379abba3bc8ff17a3a9a75d8a"
+    },
+    {
+      "file": "dungeon-A1-4F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A1-4F.png",
+      "width": 512,
+      "height": 1024,
+      "bytes": 21154,
+      "sha256": "03964de1b672a8066079830f0b45ad6fcdfd46c709685ac41b5d4977069b1bd1"
+    },
+    {
+      "file": "dungeon-A1-3F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A1-3F.png",
+      "width": 512,
+      "height": 1024,
+      "bytes": 20983,
+      "sha256": "29302bb18891e7797f2f34897cb03e2b11ec7acada3b77bad2d30a192bd0f494"
+    },
+    {
+      "file": "dungeon-A1-2F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A1-2F.png",
+      "width": 512,
+      "height": 1024,
+      "bytes": 19743,
+      "sha256": "85d8cf08bcbb9e6f65d203e5b968e94e5d4e88986b82ffc0500124056ee71c48"
+    },
+    {
+      "file": "dungeon-D1-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D1-1F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 132702,
+      "sha256": "f6e0ab4eeda8dd208a97bf83b7c748dcbc8f5638c3d40eb7e7e7bf00c4a89f94"
+    },
+    {
+      "file": "dungeon-D1-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D1-B1.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 104949,
+      "sha256": "4c12bb8caacab1d2d634830848ee2a91552f977b974b01af2e871d82ff981858"
+    },
+    {
+      "file": "dungeon-D2-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D2-1F.png",
+      "width": 2560,
+      "height": 2560,
+      "bytes": 56001,
+      "sha256": "f7e4483842b4dbcd2df135e50707e622dc337f8a257d552101bf848800a6d9c1"
+    },
+    {
+      "file": "dungeon-D2-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D2-B1.png",
+      "width": 2560,
+      "height": 2560,
+      "bytes": 182387,
+      "sha256": "72d04e9cac1998898312692fd1bd703150315428499e8b4b1451c8a173952e42"
+    },
+    {
+      "file": "dungeon-D2-B2.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D2-B2.png",
+      "width": 2560,
+      "height": 2560,
+      "bytes": 73010,
+      "sha256": "89e448e0e1282b50e0d05beff1dad0dba44afdc3c18785e5edaea43278b990bc"
+    },
+    {
+      "file": "dungeon-D3-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D3-B1.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 222653,
+      "sha256": "6913eecb9dc2717ce8ee86ceed6c5f5a5d3cd5ed7cc42634a8e6e5906d45463f"
+    },
+    {
+      "file": "dungeon-D3-B2.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D3-B2.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 20795,
+      "sha256": "d40eb6eb320499ee859973fc8befd4581c8944a345852b439166fce4bb982b5d"
+    },
+    {
+      "file": "dungeon-D4-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D4-1F.png",
+      "width": 1024,
+      "height": 2048,
+      "bytes": 30740,
+      "sha256": "d1dbe50ea03d1f0a2ac5b7e390351e03090c2eb2f874ba744c60def98e104cef"
+    },
+    {
+      "file": "dungeon-D4-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D4-B1.png",
+      "width": 1024,
+      "height": 2048,
+      "bytes": 119964,
+      "sha256": "9f07d1e5d5bfef10d7104900ccc6b95519d7fd861ec3f5f9292b74b313b0e9e4"
+    },
+    {
+      "file": "dungeon-D4-B2.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D4-B2.png",
+      "width": 1024,
+      "height": 2048,
+      "bytes": 46816,
+      "sha256": "e3e448985c04ba1bbbc8b279b9d91eff5f8a5bb0ebf9852641a491aa3d7b35c3"
+    },
+    {
+      "file": "dungeon-D5-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-1F.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 20519,
+      "sha256": "16906b4e854294ee58572934a34f36f6f6c104bf1d16384f731ec072f9c70014"
+    },
+    {
+      "file": "dungeon-D5-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-B1.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 37479,
+      "sha256": "c48471abb037f1b9e106ebe94c77d3e45085dff542670f32c16779351c39ccca"
+    },
+    {
+      "file": "dungeon-D5-B2.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-B2.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 43550,
+      "sha256": "8464ccb2fa7bf41d69b143206b07e721379a904efa9193d034772468fb9f416e"
+    },
+    {
+      "file": "dungeon-D5-B3.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-B3.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 34291,
+      "sha256": "011104c07c43097f66e4fbdda040e292edafd85081952446687491d034a3c5d0"
+    },
+    {
+      "file": "dungeon-D5-B4.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-B4.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 42254,
+      "sha256": "cea946eb561aece4274d400b6b0fc3ddb4c4c1417db9326eca8d30d6bdc2e9f9"
+    },
+    {
+      "file": "dungeon-D5-B5.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-B5.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 42903,
+      "sha256": "e2ce9241d99455297dd21ba80b8a5398ac852dd8455c54343114637d446737c0"
+    },
+    {
+      "file": "dungeon-D5-B6.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-B6.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 34056,
+      "sha256": "4a43e4fdef443a89177afbdbc402a6346959fbfbc85207b0e13e9f4cc00b3d1b"
+    },
+    {
+      "file": "dungeon-D5-B7.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D5-B7.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 20862,
+      "sha256": "87120deaaeb4c17d938054398a74bf77a2f079622afe122a7788ba3e29e4d0a1"
+    },
+    {
+      "file": "dungeon-D6-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D6-1F.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 47969,
+      "sha256": "be33852c1828f63eb47ea5a1a6691c082369a973758f0d2739529ad73c16809a"
+    },
+    {
+      "file": "dungeon-D6-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D6-B1.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 248602,
+      "sha256": "ea491d7a393e8f9475e8e82d53f6cbdd64fbfd74c75e3b59bb854b1b64f3fc0b"
+    },
+    {
+      "file": "dungeon-D6-B2.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D6-B2.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 67992,
+      "sha256": "7c27132d1bf010aafc48fc2123f6e641eaf66e030393b7d9322315f8119af392"
+    },
+    {
+      "file": "dungeon-D7-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D7-1F.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 116115,
+      "sha256": "c37c96afec4b3397a355562bb85aa2621ba56059f70156ec921ae0dfcf7210ca"
+    },
+    {
+      "file": "dungeon-D7-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D7-B1.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 148027,
+      "sha256": "d4120514404aebaa015b68cf0aaa6083ac90b84ad50d9f33f80dcfd5b3679902"
+    },
+    {
+      "file": "dungeon-D7-B2.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D7-B2.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 115667,
+      "sha256": "c639f7fc95da3206eab69b3ee5259e877066b1d80d9bdf596cc8279be069fe8f"
+    },
+    {
+      "file": "dungeon-D7-B3.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-D7-B3.png",
+      "width": 2048,
+      "height": 2560,
+      "bytes": 35139,
+      "sha256": "45d16876da0f961740ac00347487c5da0176e35091a88be06e30191b21b56bff"
+    },
+    {
+      "file": "dungeon-A2-7F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-7F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 26626,
+      "sha256": "f10a0158320c29427fbf24190d984bfabcc9384ef7174098b16b4870f58f83f2"
+    },
+    {
+      "file": "dungeon-A2-6F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-6F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 59886,
+      "sha256": "fd6e6b58b6d698606b15c056a62d610ec9e6ea5108883c361528c9651cc70839"
+    },
+    {
+      "file": "dungeon-A2-5F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-5F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 58179,
+      "sha256": "8009ab575a26edde3edd903f9f8543c510dbad72122130c0cb7eda2d8cb932f4"
+    },
+    {
+      "file": "dungeon-A2-4F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-4F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 56819,
+      "sha256": "8f76c39fec626e9e81b4d5829386041c5f3ac05c51c9a26e8630f00c734f1646"
+    },
+    {
+      "file": "dungeon-A2-3F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-3F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 65533,
+      "sha256": "20ba44b6e8b710c05b7f5cfb50f8a9551d1afb93807643cf55f6d7934c8575de"
+    },
+    {
+      "file": "dungeon-A2-2F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-2F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 33639,
+      "sha256": "343654b22fcc2d9bf45c4fc91718804dc1661a25b9c51d7d160fe907dfefd7a4"
+    },
+    {
+      "file": "dungeon-A2-1F.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-1F.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 159584,
+      "sha256": "eae377a4720f79eeb78c83324fe13874b065ae60d1102349161562b82a492a67"
+    },
+    {
+      "file": "dungeon-A2-B1.png",
+      "url": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/dungeon-A2-B1.png",
+      "width": 1536,
+      "height": 2560,
+      "bytes": 31042,
+      "sha256": "0b764eea5fa86415225c6611bb481cbeacd32fd13e38eb295549caa21e922a0b"
+    }
+  ]
+}
