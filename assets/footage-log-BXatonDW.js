@@ -1,0 +1,1 @@
+var e=`Ocarina of Time Switch 2 Footage Log | Archive`,t=`Follow a dated log of Ocarina of Time Switch 2 footage and updates, with source links and clearly labeled observations for every reveal.`;export{e as n,t};

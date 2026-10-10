@@ -1,7 +1,7 @@
 {
-  "name": "Hero of Time Archive",
-  "short_name": "Time Archive",
-  "description": "A source-led fan archive for the Ocarina of Time remake.",
+  "name": "Hyrule Atlas",
+  "short_name": "Hyrule Atlas",
+  "description": "Independent Zelda guides, discovery checklists and an interactive A Link to the Past companion.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#07181b",

@@ -1,0 +1,1 @@
+var e=`/legacy/odyssey-of-hyrule`,t=`The Odyssey of Hyrule Legacy | Hero of Time Archive`,n=`Revisit The Odyssey of Hyrule and the 1998 Ocarina of Time fan-web era through an archival history connecting an early Zelda site with this new archive.`;export{e as n,t as r,n as t};

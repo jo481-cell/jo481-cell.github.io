@@ -1,0 +1,8 @@
+{
+  "purpose": "Transparent original fairy companion for living atlas and adventure journal",
+  "file": "fairy-guide.png",
+  "sha256": "83e09dfe7401d674a585722ee3db340309b8447547133f4e78221d7b907d901a",
+  "created": "2026-10-10",
+  "reference": "Original forest-fairy.png generated for this site; no Nintendo image input",
+  "tool": "built-in image_gen"
+}

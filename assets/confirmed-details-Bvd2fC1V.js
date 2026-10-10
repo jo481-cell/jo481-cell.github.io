@@ -1,0 +1,1 @@
+var e=`Confirmed Ocarina of Time Switch 2 Details | Archive`,t=`See every confirmed Ocarina of Time Switch 2 detail in one sourced guide, including platform, release date, official features and technical facts.`;export{e as n,t};

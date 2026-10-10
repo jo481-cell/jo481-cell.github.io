@@ -1,0 +1,1 @@
+import{n as e}from"./series-DozNnKvG.js";var t=e;export{t as component};

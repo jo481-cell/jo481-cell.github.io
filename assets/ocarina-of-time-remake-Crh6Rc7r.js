@@ -1,0 +1,1 @@
+var e=`Ocarina of Time Remake: Release Date, News & Trailers`,t=`Follow the Ocarina of Time remake with verified release details, trailer analysis, a dated footage log and original Nintendo artwork. Prepare with our N64 companion.`,n=`/ocarina-of-time-remake`;export{n,e as r,t};

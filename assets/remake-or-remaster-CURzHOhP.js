@@ -1,0 +1,1 @@
+var e=`Is Ocarina of Time Switch 2 a Remake? | Archive`,t=`Is Ocarina of Time on Switch 2 a remake or remaster? Compare Nintendo's confirmed wording, visible changes and the claims that remain unconfirmed.`;export{e as n,t};

@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-9kjVL_4z.js";import{t}from"./zelda-64._chapter-DNdN082E.js";import{t as n}from"./walkthrough-D2NpyDib.js";function r(){let r=t.useLoaderData();return e(n,{chapter:r},r.slug)}export{r as component};

@@ -1,0 +1,1 @@
+var e=`Ocarina of Time Switch 2 Release Guide | Archive`,t=`Find the confirmed release date, platform and official links for Ocarina of Time on Switch 2, with source notes for every verified detail.`;export{e as n,t};

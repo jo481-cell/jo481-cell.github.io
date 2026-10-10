@@ -1,0 +1,11 @@
+{
+  "created": "2026-10-10",
+  "tool": "built-in image_gen",
+  "reference_images": [
+    "Original generated forest scene, revised into 2D cartoon illustration. No Nintendo images used."
+  ],
+  "purpose": "Original decorative fairy, sword and shield in a forest. Not a game screenshot.",
+  "file": "forest-fairy.png",
+  "sha256": "e185f7cb3cfcd4b9368cf3fb36d3ed2129b6c56e080e5b083540099d74736723",
+  "rendering": "Original 2D cartoon fantasy illustration, revised at the user’s request. Not hand-painted by a human."
+}
