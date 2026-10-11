@@ -8,19 +8,19 @@
   "theme_color": "#07181b",
   "icons": [
     {
-      "src": "/assets/brand/icon-192.png",
+      "src": "/assets/brand/icon-192.png?v=20261011snes",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/brand/icon-512.png",
+      "src": "/assets/brand/icon-512.png?v=20261011snes",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/brand/icon-maskable-512.png",
+      "src": "/assets/brand/icon-maskable-512.png?v=20261011snes",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
