@@ -36,7 +36,13 @@ const emailCopy:Record<string,{account:string,continue:string,subscribe:string,c
  zh:{account:'继续前往你的 Hyrule Atlas 账户。',continue:'继续',subscribe:'接收 Hyrule Atlas 每周通讯？',confirm:'确认订阅',subject:'请确认订阅 Hyrule Atlas 通讯',intro:'请确认订阅我们的塞尔达每周通讯。',ignore:'如果你没有提出此请求，请忽略此邮件。链接将在48小时后失效。',unsubscribe:'取消订阅',cancelled:'你的通讯订阅已取消。'}
 };
 const localizedPath=(language:string,path:string)=>`${origin()}${language==='en'?'':`/${language}`}${path}`;
-function confirmationPage(res:VercelResponse, action:string, title:string, label:string,language='en'){res.setHeader('Content-Type','text/html; charset=utf-8');return res.send(`<html lang="${language==='zh'?'zh-Hans':language}"><meta name="viewport" content="width=device-width"><title>Hyrule Atlas · Confirmation</title><body style="font-family:Georgia,serif;max-width:600px;margin:10vh auto;padding:24px;color:#16352e"><h1>Hyrule Atlas</h1><p>${escape(title)}</p><form method="post" action="${escape(action)}"><button style="font:inherit;padding:12px 24px">${escape(label)}</button></form></body></html>`)}
+function confirmationPage(res:VercelResponse, action:string, title:string, label:string,language='en'){
+ // A no-referrer document sends Origin: null on a native form POST. Keep the
+ // strict Origin CSRF gate while revealing only the site origin, never tokens.
+ res.setHeader('Referrer-Policy','strict-origin');
+ res.setHeader('Content-Type','text/html; charset=utf-8');
+ return res.send(`<html lang="${language==='zh'?'zh-Hans':language}"><meta name="viewport" content="width=device-width"><title>Hyrule Atlas · Confirmation</title><body style="font-family:Georgia,serif;max-width:600px;margin:10vh auto;padding:24px;color:#16352e"><h1>Hyrule Atlas</h1><p>${escape(title)}</p><form method="post" action="${escape(action)}"><button style="font:inherit;padding:12px 24px">${escape(label)}</button></form></body></html>`);
+}
 export function newsletterHtml(body:string,sources:any[],language='fr'){
  const inline=(value:string)=>escape(value).replace(/\[([^\]\n]+)\]\((https:\/\/[^\s)]+)\)/g,(_all,label,url)=>`<a href="${url}" style="color:#17634e">${label}</a>`).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
  const blocks=body.split(/\n\s*\n/).map(block=>{if(/^#{1,3} /.test(block))return `<h2 style="font-size:23px;line-height:1.3">${inline(block.replace(/^#{1,3} /,''))}</h2>`;if(block.split('\n').every(line=>/^[-*] /.test(line)))return `<ul>${block.split('\n').map(line=>`<li>${inline(line.slice(2))}</li>`).join('')}</ul>`;return `<p>${inline(block).replace(/\n/g,'<br>')}</p>`});
