@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-BG4XuPw2.js";import{n as t}from"./series-C2MXPoAN.js";import{t as n}from"./series-DY20wdTW.js";var r=()=>e(n,{game:t(`tears-of-the-kingdom`)});export{r as component};

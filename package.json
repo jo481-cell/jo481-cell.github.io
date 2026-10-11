@@ -1,0 +1,21 @@
+{
+  "name": "hyrule-atlas-community",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "test": "bun test ./tests",
+    "test:sql": "bun test ./tests/sql-migration.test.ts"
+  },
+  "dependencies": {
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@types/node": "^22.0.0",
+    "@vercel/node": "^5.0.0",
+    "typescript": "^6.0.3"
+  }
+}
