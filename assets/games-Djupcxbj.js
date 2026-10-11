@@ -1,0 +1,1 @@
+import{n as e}from"./series-Qg_BD2KA.js";var t=e;export{t as component};

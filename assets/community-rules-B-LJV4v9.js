@@ -1,0 +1,1 @@
+import{t as e}from"./policies-eH5osjuR.js";var t=e;export{t as component};
