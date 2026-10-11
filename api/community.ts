@@ -21,7 +21,7 @@ const uuid = (v:unknown) => typeof v === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[
 class Failure extends Error { constructor(public status:number, message:string){super(message)} }
 function text(v:unknown, min:number, max:number){if(typeof v!=='string'||v.trim().length<min||v.trim().length>max)throw new Failure(400,'Please check the required fields.');return v.trim()}
 function email(v:unknown){const s=text(v,5,254).toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s))throw new Failure(400,'Please enter a valid email address.');return s}
-function password(v:unknown){const s=text(v,12,128);return s}
+function password(v:unknown){if(typeof v!=='string'||v.length<12||v.length>128)throw new Failure(400,'Please check the required fields.');return v}
 function locale(v:unknown){return languages.includes(String(v))?String(v):'en'}
 function consent(v:unknown){return v===true||v==='true'}
 function safeUrl(v:unknown){if(!v)return '';const s=text(v,0,500);try{const u=new URL(s);if(u.protocol!=='https:')throw 0;return u.href}catch{throw new Failure(400,'Portfolio links must use HTTPS.')}}
