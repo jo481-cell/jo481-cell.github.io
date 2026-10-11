@@ -1,0 +1,115 @@
+{
+  "created": "2026-10-11",
+  "project": "Hyrule Atlas",
+  "tool": "built-in image_gen",
+  "purpose": "Original decorative editorial illustrations for section headers and navigation cards.",
+  "rightsAndPresentation": {
+    "content": "Original imaginary fantasy scenes generated for this website. No Nintendo reference images were used. These are decorative illustrations, not game screenshots or fanart submitted by community members.",
+    "transformation": "WebP derivatives are technical resizes and encodings only; no visual compositing or generative editing was applied during optimization."
+  },
+  "assets": [
+    {
+      "name": "section-guides",
+      "description": "Original cartographer workshop with atlas, compass, four-point shield and imaginary valley.",
+      "master": {
+        "file": "/assets/original/section-guides.png",
+        "width": 1672,
+        "height": 941,
+        "bytes": 2715159,
+        "sha256": "60a2e22a924573ad7a328f082802e09e80dde4e7e819ba67fa6496daee565a9e"
+      },
+      "webVariants": [
+        {
+          "file": "/assets/original/section-guides.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 276912,
+          "sha256": "cabe04b7fc63e709181308b67cfb9df554b6905cdbfcad1ddf860168d9541b4d",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        },
+        {
+          "file": "/assets/original/section-guides-800.webp",
+          "width": 800,
+          "height": 450,
+          "bytes": 98860,
+          "sha256": "0e6a13bb62da38ce420681dd77df036d6ec904a15885b08d0b3e1ca86437fe7c",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        },
+        {
+          "file": "/assets/original/section-guides-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 67214,
+          "sha256": "d26157f517525721aac7bba2409d0160d20a8d9fae6d22abe978166cddf50edb",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        }
+      ]
+    },
+    {
+      "name": "section-community",
+      "description": "Original travelers refuge with shared table, lanterns and secondary travelers.",
+      "master": {
+        "file": "/assets/original/section-community.png",
+        "width": 1672,
+        "height": 941,
+        "bytes": 2537657,
+        "sha256": "eaf597ca49ccbbcc6dff000c56b7616068afc0a1103c50d91251024274e3a615"
+      },
+      "webVariants": [
+        {
+          "file": "/assets/original/section-community.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 257508,
+          "sha256": "bfd146f90953eddeddd5b80bbe76c1ffa28a1b1adb3638132c73f625629e8a6c",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        },
+        {
+          "file": "/assets/original/section-community-800.webp",
+          "width": 800,
+          "height": 450,
+          "bytes": 86546,
+          "sha256": "fcb4e6f1896ca5654ea247f5d65405de1be4b23395c05bd90ee37b58d614f143",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        },
+        {
+          "file": "/assets/original/section-community-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 58040,
+          "sha256": "f93610a3cad9374d13e47876a7adb687b76f0173dc85e1dedc32d6815eb75fa4",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        }
+      ]
+    },
+    {
+      "name": "forest-fairy",
+      "description": "Previously approved original woodland fairy, sword and shield scene.",
+      "master": {
+        "file": "/assets/original/forest-fairy.png",
+        "width": 1672,
+        "height": 941,
+        "bytes": 2624872,
+        "sha256": "e185f7cb3cfcd4b9368cf3fb36d3ed2129b6c56e080e5b083540099d74736723"
+      },
+      "webVariants": [
+        {
+          "file": "/assets/original/forest-fairy.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 285994,
+          "sha256": "7375b2660809704231fdf05033bc37172619baa6a64ca508edbc69161bfbc19d",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        },
+        {
+          "file": "/assets/original/forest-fairy-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 69482,
+          "sha256": "7730cfbb53cf73f1cc3135747d82777c28f2d479b9ac2099465579c1ebc34b9f",
+          "conversion": "sharp resize without enlargement and WebP encode quality 86; no visual compositing or generative editing"
+        }
+      ]
+    }
+  ]
+}
