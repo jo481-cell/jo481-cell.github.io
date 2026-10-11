@@ -1,1 +1,0 @@
-import{n as e}from"./jsx-runtime-9kjVL_4z.js";import{t}from"./journal._slug-DRD4KfgE.js";import{t as n}from"./journal-DvdhSwMF.js";function r(){let r=t.useLoaderData();return e(n,{guide:r},r.slug)}export{r as component};

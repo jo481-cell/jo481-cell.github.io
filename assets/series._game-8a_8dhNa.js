@@ -1,1 +1,0 @@
-import{n as e}from"./jsx-runtime-9kjVL_4z.js";import{t}from"./series._game-AseK_zkc.js";import{t as n}from"./series-DozNnKvG.js";function r(){let r=t.useLoaderData();return e(n,{game:r},r.slug)}export{r as component};
