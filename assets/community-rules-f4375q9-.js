@@ -1,0 +1,1 @@
+import{t as e}from"./policies-B3lgV4QW.js";var t=e;export{t as component};

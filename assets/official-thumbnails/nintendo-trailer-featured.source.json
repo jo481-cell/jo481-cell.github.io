@@ -1,0 +1,15 @@
+{
+  "asset": "/assets/official-thumbnails/nintendo-trailer-featured.jpg",
+  "sourceImage": "https://i.ytimg.com/vi/wuFfiTEr2yc/maxresdefault.jpg",
+  "sourcePage": "https://www.youtube.com/watch?v=wuFfiTEr2yc",
+  "publisher": "Nintendo of America",
+  "credit": "© Nintendo",
+  "rights": "All rights reserved. Credit and source attribution do not imply a reuse license.",
+  "retrievedOn": "2026-10-11",
+  "width": 1280,
+  "height": 720,
+  "bytes": 294300,
+  "sha256": "4429fbb38180b6e65da3906c04e2dd5ef6f403e24cfb9e5d22cc046f05a9dbb3",
+  "transformations": [],
+  "inspection": "Original official trailer thumbnail, Link in the forest with the Ocarina of Time title and Nintendo Switch 2 marks; inspected before use. No synthesized or upscaled image."
+}

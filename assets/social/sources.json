@@ -1,0 +1,53 @@
+{
+  "recorded_on": "2026-10-11",
+  "purpose": "Distinct Open Graph and Twitter images for three Hyrule Atlas editorial pages.",
+  "assets": [
+    {
+      "src": "/assets/social/ocarina-remake-editorial.jpg",
+      "page": "/ocarina-of-time-remake/",
+      "kind": "Original Hyrule Atlas decorative editorial illustration",
+      "generation_tool": "Built-in ImageGen",
+      "generation_asset_id": "exec-19d3db3d-d85c-4e63-92d8-857e3131b8f4.png",
+      "description": "The approved forest fairy, sword, shield and blue ocarina, with the complete Ocarina of Time title and a separate Remake label.",
+      "presentation": "Independent fan-brand illustration; not a gameplay screenshot, official Nintendo artwork or evidence of a game feature.",
+      "processing": "Technical PNG-to-JPEG conversion only, without resizing or cropping. PNG master preserved outside the website export.",
+      "width": 1890,
+      "height": 832,
+      "type": "image/jpeg",
+      "bytes": 512467,
+      "sha256": "c98a94c9bf1ca4ab2bf28a5e5accdb270071b5a5e101b9e2999bd3fa3fe023e7",
+      "qa": "Decoded and inspected: full title, blue ocarina and retained illustration are visible. Native Facebook link-card rendering is a separate post-deployment check."
+    },
+    {
+      "src": "/assets/official-thumbnails/nintendo-trailer-featured.jpg",
+      "page": "/confirmed-details/",
+      "kind": "Authentic official trailer poster",
+      "provenance_manifest": "/assets/official-thumbnails/nintendo-trailer-featured.source.json",
+      "description": "Nintendo's Ocarina of Time trailer poster for Nintendo Switch 2.",
+      "presentation": "Identifies the official trailer; does not independently demonstrate every feature discussed by the article.",
+      "rights": "Copyright Nintendo. No open licence or unrestricted reuse permission is asserted.",
+      "width": 1280,
+      "height": 720,
+      "type": "image/jpeg",
+      "bytes": 294300,
+      "sha256": "4429fbb38180b6e65da3906c04e2dd5ef6f403e24cfb9e5d22cc046f05a9dbb3"
+    },
+    {
+      "src": "/assets/social/then-and-now-editorial.png",
+      "page": "/then-and-now/",
+      "kind": "Original decorative editorial illustration",
+      "generation_tool": "Built-in ImageGen",
+      "generation_asset_id": "exec-5cd4516d-5b82-4d61-92d2-3070f960e828.png",
+      "description": "An open blank journal, archive books and a blue ocarina, with Then & Now / Artwork Source Notes lettering.",
+      "presentation": "Illustrates source notes. Does not recreate Nintendo comparison images, demonstrate an actual game scene or serve as evidence of graphical differences.",
+      "processing": "Generated PNG copied as the production social image; no synthetic comparison added.",
+      "width": 1731,
+      "height": 909,
+      "type": "image/png",
+      "bytes": 2286080,
+      "sha256": "93a26fa4bd945fc05625ff3bb71976d0568ef8eed1f258857e00a0f20be1c927",
+      "qa": "Decoded and inspected: blank journal and blue ocarina visible; no comparison frames or invented Nintendo artwork. Native Facebook link-card rendering remains a separate check."
+    }
+  ],
+  "scope": "English artwork reused across language variants; page title, description, alternative text and canonical URL are localized. No Facebook post or schedule was created by this asset registration."
+}

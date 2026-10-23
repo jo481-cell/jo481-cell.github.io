@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-C2eaPktR.js";import{t}from"./zelda-64._chapter-RwY_yNN6.js";import{t as n}from"./walkthrough-C87nk_-b.js";function r(){let r=t.useLoaderData();return e(n,{chapter:r},r.slug)}export{r as component};

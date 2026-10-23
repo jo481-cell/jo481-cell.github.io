@@ -1,0 +1,1 @@
+import{t as e}from"./companion-AGKCAO71.js";var t=e;export{t as component};
