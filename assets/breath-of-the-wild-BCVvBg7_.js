@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-BgJrP5Ku.js";import{n as t}from"./series-C2MXPoAN.js";import{t as n}from"./series-CZDgLiyI.js";var r=()=>e(n,{game:t(`breath-of-the-wild`)});export{r as component};
