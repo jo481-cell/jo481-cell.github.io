@@ -1,0 +1,30 @@
+{
+  "created": "2026-11-05",
+  "title": "Hyrule Atlas — living atlas",
+  "method": "Native image_gen tool; one original illustration. Technical WebP conversions with FFmpeg; no compositing or retouching.",
+  "sourceFile": "exec-7ffc80ce-1be4-4b8b-8589-2941afecbcb1.png",
+  "sourceDimensions": [
+    1586,
+    992
+  ],
+  "promptSummary": "Original editorial fantasy illustration: an ancient parchment atlas opens into a sunlit kingdom and a twilight world beneath. Oblique hand-painted relief, emerald woods, distant castle, paths and ruins; deep forest negative space to the left, warm parchment and brass accents. No text, logos, interface, false official stamp or copied existing artwork.",
+  "use": "Decorative editorial fan-site illustration; not a screenshot, official Nintendo artwork or an accurate navigable game map.",
+  "rightsNote": "Original generated illustration. Zelda names and game assets remain the property of their respective rights holders. No Nintendo endorsement or license is claimed.",
+  "assets": [
+    {
+      "src": "/assets/original/living-atlas-2026-11-05.webp",
+      "sha256": "f7861e2ae0cb9499763f71f3e4499cc4469e12f198bebfa836d39d6802195ebb",
+      "bytes": 400856
+    },
+    {
+      "src": "/assets/original/living-atlas-2026-11-05-960.webp",
+      "sha256": "d98e2d6b36aca1693d328e6e402cceea597cdfb1fa00840f937f7fa6a4fdefe1",
+      "bytes": 140724
+    },
+    {
+      "src": "/assets/original/living-atlas-2026-11-05-640.webp",
+      "sha256": "035d166ce9be7a25a05e31cee20ec6c67d22e41da930979358d68a118bbdda88",
+      "bytes": 83962
+    }
+  ]
+}

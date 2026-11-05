@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-05",
+  "transformation": "Technical proportional resizing only; no retouching or cropping.",
+  "credit": "© Nintendo",
+  "rightsNote": "All rights reserved. Derivatives retain the editorial source and rights status of ../sources.json. Attribution is not a license.",
+  "assets": [
+    {
+      "file": "a-link-to-the-past-80.webp",
+      "derivedFrom": "/assets/official-thumbnails/a-link-to-the-past.webp",
+      "width": 80,
+      "sha256": "f360a4546969bd120766e12317348595592e3060f30135d50d79f0cfbc283515",
+      "bytes": 2696
+    },
+    {
+      "file": "a-link-to-the-past-128.webp",
+      "derivedFrom": "/assets/official-thumbnails/a-link-to-the-past.webp",
+      "width": 128,
+      "sha256": "d6eed402bed8d4c8c67f0c89820f3ac7ff8e99d5332c2519eb0e7cd059e64a62",
+      "bytes": 5582
+    },
+    {
+      "file": "a-link-to-the-past-320.webp",
+      "derivedFrom": "/assets/official-thumbnails/a-link-to-the-past.webp",
+      "width": 320,
+      "sha256": "e3877eea7e121acdac9442f19bab229b163b12f749f519dd1fd5f4bfe556bb93",
+      "bytes": 24276
+    },
+    {
+      "file": "ocarina-of-time-80.webp",
+      "derivedFrom": "/assets/official-thumbnails/ocarina-of-time.webp",
+      "width": 80,
+      "sha256": "0e37557c64dbf2c7da5945310d550de4b1e493642153dcf314ef653e5bfed832",
+      "bytes": 3210
+    },
+    {
+      "file": "ocarina-of-time-128.webp",
+      "derivedFrom": "/assets/official-thumbnails/ocarina-of-time.webp",
+      "width": 128,
+      "sha256": "fa9f749f187dbb75a898b01523fbf7969cc4b176adc4a45c4c8fd336ef1c6332",
+      "bytes": 6698
+    },
+    {
+      "file": "ocarina-of-time-320.webp",
+      "derivedFrom": "/assets/official-thumbnails/ocarina-of-time.webp",
+      "width": 320,
+      "sha256": "90516f94e1c7cb841ec0e9db425909df375abad81c394700ef0c0b950d1198c3",
+      "bytes": 27752
+    },
+    {
+      "file": "majoras-mask-320.webp",
+      "derivedFrom": "/assets/official-thumbnails/majoras-mask.webp",
+      "width": 320,
+      "sha256": "2cc5ba43e3a665651fd0f6b5fdf7d75c33bc6e670e8bb57342c293423a4bf38d",
+      "bytes": 42898
+    },
+    {
+      "file": "breath-of-the-wild-320.webp",
+      "derivedFrom": "/assets/official-thumbnails/breath-of-the-wild.webp",
+      "width": 320,
+      "sha256": "8da844641276cc7434419692d4caaca477d864c39f703833a26d58b45a2fe736",
+      "bytes": 34060
+    },
+    {
+      "file": "tears-of-the-kingdom-320.webp",
+      "derivedFrom": "/assets/official-thumbnails/tears-of-the-kingdom.webp",
+      "width": 320,
+      "sha256": "1dce6f97d04cb59078edc43bb66cad5831c354f33e9d2566eddecd937f7d78d8",
+      "bytes": 18010
+    },
+    {
+      "file": "echoes-of-wisdom-320.webp",
+      "derivedFrom": "/assets/official-thumbnails/echoes-of-wisdom.webp",
+      "width": 320,
+      "sha256": "024a9a9143ca91c75075b76a04932d90c708a8835bda1e07f968ee24907b6ec7",
+      "bytes": 27332
+    }
+  ]
+}

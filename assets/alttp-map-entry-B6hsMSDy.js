@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-C_4jzYkC.js";import{t}from"./alttp-FRMfNVis.js";function n(){return e(t,{mapEntry:!0})}export{n as t};

@@ -475,5 +475,23 @@
       "bytes": 31042,
       "sha256": "0b764eea5fa86415225c6611bb481cbeacd32fd13e38eb295549caa21e922a0b"
     }
+  ],
+  "previewDerivatives": [
+    {
+      "file": "light-world-preview.webp",
+      "derivedFrom": "light_world-1.png",
+      "width": 768,
+      "height": 768,
+      "transformation": "FFmpeg resize and WebP conversion, no annotations added",
+      "sha256": "bca219acb4889ba1e92acd915575978f267477b42d21c1f9e396a0d88b8fe494"
+    },
+    {
+      "file": "dark-world-preview.webp",
+      "derivedFrom": "dark_world.png",
+      "width": 768,
+      "height": 768,
+      "transformation": "FFmpeg resize and WebP conversion, no annotations added",
+      "sha256": "d92cf9ae5434fbb0bf19d3bb8b60966e3917781906ecdd575364cad0ced6754d"
+    }
   ]
 }
