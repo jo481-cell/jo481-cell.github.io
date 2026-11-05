@@ -1,0 +1,1 @@
+import{c as e}from"./archive-shell-KdOlLxYZ.js";import{t}from"./alttp-BXxhMYhD.js";function n(){return e(t,{mapEntry:!0})}export{n as t};

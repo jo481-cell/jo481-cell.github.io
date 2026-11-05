@@ -1,0 +1,1 @@
+import{r as e}from"./collectible-map-D_xcThSQ.js";var t=e;export{t as component};

@@ -1,0 +1,1 @@
+import{c as e}from"./archive-shell-KdOlLxYZ.js";import{t}from"./journal._slug-BPTRoIyV.js";import{t as n}from"./journal-BaYvKRTF.js";function r(){let r=t.useLoaderData();return e(n,{guide:r},r.slug)}export{r as component};
