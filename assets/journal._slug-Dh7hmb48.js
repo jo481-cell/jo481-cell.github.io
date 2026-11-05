@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-DJN1MQ3L.js";import{t}from"./journal._slug-EHtbIW62.js";import{t as n}from"./journal-B0GEi1Bs.js";function r(){let r=t.useLoaderData();return e(n,{guide:r},r.slug)}export{r as component};

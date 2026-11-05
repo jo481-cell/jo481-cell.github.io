@@ -1,0 +1,1 @@
+import{t as e}from"./alttp-map-entry-C8VxMne1.js";var t=e;export{t as component};
