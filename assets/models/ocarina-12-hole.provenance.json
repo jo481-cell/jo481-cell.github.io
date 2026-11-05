@@ -1,0 +1,37 @@
+{
+  "asset": "/assets/models/ocarina-12-hole.glb",
+  "title": "Updated 12 Hole Ocarina",
+  "author": "RobSoundtrack",
+  "source": "https://www.thingiverse.com/thing:2755765",
+  "archive": "https://commons.wikimedia.org/wiki/File:Updated_12_Hole_Ocarina.stl",
+  "originalDownload": "https://upload.wikimedia.org/wikipedia/commons/2/21/Updated_12_Hole_Ocarina.stl",
+  "license": "CC BY 4.0 as declared on Wikimedia Commons",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "credit": "Updated 12 Hole Ocarina by RobSoundtrack, via Wikimedia Commons, CC BY 4.0. Based on the original ocarina design by nimaid according to the author description. Technical conversion and blue ceramic material for Hyrule Atlas.",
+  "changes": [
+    "Existing artist STL imported into Blender 5.2; no reconstructed geometry",
+    "Centered; millimetre source-unit assumption scaled to visual length 0.135",
+    "Rotated so the front hole surface faces +Z in glTF",
+    "35-degree smooth normals and constant blue glazed ceramic PBR material",
+    "Exported GLB and reimport checked: 176264 triangles preserved, COHERENT, no discrepancy"
+  ],
+  "geometry": {
+    "triangles": 176264,
+    "meshes": 1,
+    "materials": 1,
+    "front": "+Z",
+    "up": "+Y",
+    "dimensionsXYZ": [
+      0.08014307916164398,
+      0.13500000536441803,
+      0.0479995459318161
+    ],
+    "pivot": "Bounding-box center",
+    "mainHoles": 10,
+    "subHoles": 2
+  },
+  "bytes": 4378084,
+  "sha256": "b9608b8d71a0da23eec5e5786ece2a6ed9af0ad2b44d4254f850ba61c6cf0b55",
+  "tuning": "Illustration mesh. Actual acoustic tuning of this model has not been measured. A Bass C fingering reference may drive the illustration but does not establish physical tuning.",
+  "validation": "Export/reimport COHERENT; visual hole count and material inspected in Blender. Browser integration and physical fingering poses pending."
+}

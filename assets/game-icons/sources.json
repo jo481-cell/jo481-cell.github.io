@@ -1,0 +1,145 @@
+{
+  "createdAt": "2026-11-05T15:27:26.610660+00:00",
+  "purpose": "Editorial identification of Zelda game items and the Navi guide companion in the independent Hyrule Atlas fan hub",
+  "rightsNotice": "Nintendo artwork and game sprites remain copyrighted. Host fair-use claims are specific to their own use and do not grant a blanket license to Hyrule Atlas. This manifest records provenance and the editorial context authorized by Max, not a legal determination or a Nintendo license. No Nintendo affiliation or endorsement is implied.",
+  "newDownloads": {
+    "count": 5,
+    "bytes": 91641,
+    "limitBytes": 1000000
+  },
+  "assets": [
+    {
+      "id": "oot3d-navi",
+      "src": "/assets/game-icons/oot3d-navi.png",
+      "sourceFile": "File:OoT3D Navi Artwork.png",
+      "sourcePage": "https://zeldawiki.wiki/wiki/File:OoT3D_Navi_Artwork.png",
+      "sourceRevision": "https://zeldawiki.wiki/w/index.php?oldid=1326478",
+      "downloadUrl": "https://cdn.wikimg.net/en/zeldawiki/images/0/08/OoT3D_Navi_Artwork.png",
+      "game": "Ocarina of Time 3D",
+      "description": "Official Nintendo Navi character artwork",
+      "dimensions": [
+        404,
+        295
+      ],
+      "bytes": 87345,
+      "sha256": "27a60d3c381fc8d5e5e360ab6b56db52d9ef470c21e0b1375991a2bd28d2a5a3",
+      "alpha": true,
+      "copyright": "Nintendo",
+      "hostLicenseDeclaration": "Copyright",
+      "rightsStatus": "Copyrighted Nintendo game sprite/artwork; no open license or Nintendo reuse permission claimed",
+      "credit": "Nintendo; archived by Zelda Wiki; original official Ocarina of Time 3D website",
+      "processing": "Original archived image copied unchanged; no generative editing, crop, recolor or enlargement",
+      "originalOfficialSourceAsListedByArchive": "https://www.zelda.com/ocarina3d/#/characters/navi"
+    },
+    {
+      "id": "oot-bottle",
+      "src": "/assets/game-icons/oot-bottle.png",
+      "sourceFile": "File:OoT Bottle Icon.png",
+      "sourcePage": "https://zeldawiki.wiki/wiki/File:OoT_Bottle_Icon.png",
+      "sourceRevision": "https://zeldawiki.wiki/w/index.php?oldid=1322398",
+      "downloadUrl": "https://cdn.wikimg.net/en/zeldawiki/images/f/fc/OoT_Bottle_Icon.png",
+      "game": "Ocarina of Time",
+      "description": "Nintendo N64 empty bottle inventory icon",
+      "dimensions": [
+        32,
+        32
+      ],
+      "bytes": 1814,
+      "sha256": "29b4fbc0ccb2e73f7bf5843ae6c49ed32c43677ac411181a1fc63898ba5fdd02",
+      "alpha": true,
+      "copyright": "Nintendo",
+      "hostLicenseDeclaration": "Copyright",
+      "rightsStatus": "Copyrighted Nintendo game sprite/artwork; no open license or Nintendo reuse permission claimed",
+      "credit": "Nintendo; extracted by GaryCXJk / The Spriters Resource; archived by Zelda Wiki",
+      "processing": "Original archived image copied unchanged; no generative editing, crop, recolor or enlargement"
+    },
+    {
+      "id": "oot-heart-container",
+      "src": "/assets/game-icons/oot-heart-container.png",
+      "sourceFile": "File:OoT Heart Container Icon.png",
+      "sourcePage": "https://zeldawiki.wiki/wiki/File:OoT_Heart_Container_Icon.png",
+      "sourceRevision": "https://zeldawiki.wiki/w/index.php?oldid=1020314",
+      "downloadUrl": "https://cdn.wikimg.net/en/zeldawiki/images/5/5a/OoT_Heart_Container_Icon.png",
+      "game": "Ocarina of Time",
+      "description": "Nintendo N64 Heart Container inventory icon",
+      "dimensions": [
+        24,
+        24
+      ],
+      "bytes": 1516,
+      "sha256": "29d6ed4c3db6b4f03e8571d06df963071644611761d42805bbf07a7caee1d10a",
+      "alpha": true,
+      "copyright": "Nintendo",
+      "hostLicenseDeclaration": "Copyright",
+      "rightsStatus": "Copyrighted Nintendo game sprite/artwork; no open license or Nintendo reuse permission claimed",
+      "credit": "Nintendo; extracted by P-P / The Spriters Resource; archived by Zelda Wiki",
+      "processing": "Original archived image copied unchanged; no generative editing, crop, recolor or enlargement"
+    },
+    {
+      "id": "oot-dungeon-map",
+      "src": "/assets/game-icons/oot-dungeon-map.png",
+      "sourceFile": "File:OoT Dungeon Map Icon.png",
+      "sourcePage": "https://zeldawiki.wiki/wiki/File:OoT_Dungeon_Map_Icon.png",
+      "sourceRevision": "https://zeldawiki.wiki/w/index.php?oldid=1322013",
+      "downloadUrl": "https://cdn.wikimg.net/en/zeldawiki/images/b/b2/OoT_Dungeon_Map_Icon.png",
+      "game": "Ocarina of Time",
+      "description": "Nintendo N64 dungeon-map inventory icon",
+      "dimensions": [
+        24,
+        24
+      ],
+      "bytes": 802,
+      "sha256": "8540df465b1da48bb606ac3351fc4fba05944e133146f665d7dc855d2f637109",
+      "alpha": true,
+      "copyright": "Nintendo",
+      "hostLicenseDeclaration": "Copyright",
+      "rightsStatus": "Copyrighted Nintendo game sprite/artwork; no open license or Nintendo reuse permission claimed",
+      "credit": "Nintendo; retrieved by PhantomCaleb / Zelda Wiki",
+      "processing": "Original archived image copied unchanged; no generative editing, crop, recolor or enlargement"
+    },
+    {
+      "id": "alttp-treasure-chest",
+      "src": "/assets/game-icons/alttp-treasure-chest.png",
+      "sourceFile": "File:ALttP Treasure Chest Sprite.png",
+      "sourcePage": "https://zeldawiki.wiki/wiki/File:ALttP_Treasure_Chest_Sprite.png",
+      "sourceRevision": "https://zeldawiki.wiki/w/index.php?oldid=1130776",
+      "downloadUrl": "https://cdn.wikimg.net/en/zeldawiki/images/7/73/ALttP_Treasure_Chest_Sprite.png",
+      "game": "A Link to the Past",
+      "description": "Nintendo SNES treasure chest in-game sprite",
+      "dimensions": [
+        16,
+        16
+      ],
+      "bytes": 164,
+      "sha256": "2b45234a8688b089c8df9e55d9703bd36004f4d32161b21206f16c659eb4abca",
+      "alpha": false,
+      "copyright": "Nintendo",
+      "hostLicenseDeclaration": "Copyright",
+      "rightsStatus": "Copyrighted Nintendo game sprite/artwork; no open license or Nintendo reuse permission claimed",
+      "credit": "Nintendo; extracted by Deathbringer / The Spriters Resource; archived by Zelda Wiki",
+      "processing": "Original archived image copied unchanged; no generative editing, crop, recolor or enlargement",
+      "displayNote": "Original RGB sprite has a #202020 background; unchanged. Use within a dark frame; no background removal performed."
+    },
+    {
+      "id": "oot-ocarina",
+      "src": "/assets/game-icons/oot-ocarina.webp",
+      "sourceFile": "OcarinaofTime_Large.png",
+      "sourcePage": "https://www.zeldadungeon.net/wiki/File:OcarinaofTime_Large.png",
+      "downloadUrl": "https://www.zeldadungeon.net/wiki/images/9/9a/OcarinaofTime_Large.png",
+      "game": "Ocarina of Time",
+      "description": "Historical Nintendo Ocarina of Time item artwork, reused from Hyrule Atlas existing asset",
+      "dimensions": [
+        503,
+        427
+      ],
+      "bytes": 30322,
+      "sha256": "3cdc7e41c527441570da376297561335e85f424f7f3c7cf66ad43a2c08c14a20",
+      "alpha": true,
+      "copyright": "Nintendo",
+      "rightsStatus": "Copyrighted Nintendo game artwork; no open license or Nintendo reuse permission claimed",
+      "credit": "Nintendo; historical item artwork archived by Zelda Dungeon",
+      "processing": "Existing Hyrule Atlas WebP copied unchanged; original provenance in /assets/hyrule/sources.json. No new network download."
+    }
+  ],
+  "displayNotes": "N64/SNES icons are authentic small sprites; render at native size or integer enlargement with CSS image-rendering: pixelated. Navi and ocarina are artwork and should use normal interpolation. Keep textual labels accessible."
+}

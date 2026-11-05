@@ -1,0 +1,507 @@
+{
+  "checkedOn": "2026-11-05",
+  "decision": {
+    "preserveCurrentAudio": true,
+    "instrumentFamily": "12-hole transverse single-chamber Bass C ocarina, STL fingering system",
+    "whyBass": "STL's Tenor C sounds A4–F6, tonic C5; it cannot sound D4/F4. Its Bass C sounds A3–F5, tonic C4, covering the five existing app pitches.",
+    "referencePhysicalProduct": {
+      "manufacturer": "STL Ocarina",
+      "name": "Element Ocarina: Shadow in C Major (Bass)",
+      "url": "https://www.stlocarina.com/products/element-ocarina-shadow-in-c-major-bass",
+      "range": "A3–F5",
+      "material": "Ceramic",
+      "lengthInches": 9.75,
+      "lengthCm": 24.765,
+      "dimensionsLimit": "Manufacturer gives length only, not a dimensioned CAD drawing, hole diameters, hole coordinates or acoustic cavity dimensions. Do not transfer this dimension to a different Zelda-themed model."
+    },
+    "alternativeZeldaBassProduct": {
+      "name": "12 Hole Bass Ocarina with Zelda Songbook",
+      "url": "https://www.stlocarina.com/products/12-hole-bass-ocarina-with-zelda-songbook",
+      "range": "A3–F5",
+      "dimensionKnown": false
+    },
+    "nomenclature": "Use Bass C / Do basse with sounding scientific pitches. Do not infer octaves from the words alto/tenor alone. STL notes that its tenor sounds one octave above written notation; the Bass C chart labels are interpreted together with the manufacturer's stated sounding range.",
+    "presentationLimit": "The site's 3D ocarina may illustrate this fingering system. It is not a tuned, measured or acoustically calibrated replica. A 5D effect means artistic depth/lighting only, not a claim of five physical dimensions."
+  },
+  "holeConvention": {
+    "holeOrder": [
+      "left-index",
+      "left-middle",
+      "left-ring",
+      "left-little",
+      "right-index",
+      "right-middle",
+      "right-ring",
+      "right-little",
+      "left-subhole",
+      "right-subhole",
+      "left-thumb",
+      "right-thumb"
+    ],
+    "total": 12,
+    "mainFront": 8,
+    "subholesFront": 2,
+    "thumbsBack": 2,
+    "closed": "fully cover/seal the tone hole",
+    "open": "leave the tone hole uncovered",
+    "halfHoles": "None required for these five natural-note fingerings.",
+    "soundWindow": "The voicing/labium/sound window is not one of the 12 tone holes. Never cover it or count the mouthpiece/windway as a tone hole.",
+    "diagramCoordinates": "Approximate centers normalized to the enclosing instrument-diagram box of the inspected manufacturer holding page: origin top-left, x rightward, y downward. The two thumb circles are drawn below/outside the outline for explanation; their coordinates are diagram positions, not front-surface model coordinates.",
+    "coordinateAccuracy": "Rounded visual readings, not manufacturer dimensions and not measurements for mesh drilling. Match hole IDs to the model explicitly; do not blindly map diagram x/y onto a photograph or 3D surface.",
+    "handedness": "Player's left/right, using the manufacturer's looking-down-at-your-hands tab convention; not a mirrored audience view.",
+    "subholeCaution": "All requested notes leave both subholes open. Their middle-finger association is derived from adjacency and common operation, not separately labelled in the holding page. No subhole-closing animation is justified by these five mappings."
+  },
+  "holes": [
+    {
+      "id": "left-index",
+      "surface": "front",
+      "kind": "main",
+      "hand": "left",
+      "finger": "index",
+      "diagram": [
+        0.21,
+        0.6
+      ]
+    },
+    {
+      "id": "left-middle",
+      "surface": "front",
+      "kind": "main",
+      "hand": "left",
+      "finger": "middle",
+      "diagram": [
+        0.3,
+        0.56
+      ]
+    },
+    {
+      "id": "left-ring",
+      "surface": "front",
+      "kind": "main",
+      "hand": "left",
+      "finger": "ring",
+      "diagram": [
+        0.37,
+        0.49
+      ]
+    },
+    {
+      "id": "left-little",
+      "surface": "front",
+      "kind": "main",
+      "hand": "left",
+      "finger": "little",
+      "diagram": [
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "id": "right-index",
+      "surface": "front",
+      "kind": "main",
+      "hand": "right",
+      "finger": "index",
+      "diagram": [
+        0.57,
+        0.54
+      ]
+    },
+    {
+      "id": "right-middle",
+      "surface": "front",
+      "kind": "main",
+      "hand": "right",
+      "finger": "middle",
+      "diagram": [
+        0.6,
+        0.44
+      ]
+    },
+    {
+      "id": "right-ring",
+      "surface": "front",
+      "kind": "main",
+      "hand": "right",
+      "finger": "ring",
+      "diagram": [
+        0.67,
+        0.37
+      ]
+    },
+    {
+      "id": "right-little",
+      "surface": "front",
+      "kind": "main",
+      "hand": "right",
+      "finger": "little",
+      "diagram": [
+        0.76,
+        0.31
+      ]
+    },
+    {
+      "id": "left-subhole",
+      "surface": "front",
+      "kind": "subhole",
+      "hand": "left",
+      "finger": "middle",
+      "diagram": [
+        0.36,
+        0.62
+      ],
+      "assignmentBasis": "Small auxiliary hole adjacent to the left-middle main-hole area in the manufacturer diagram; all five requested notes leave it open.",
+      "fingerAssignmentConfidence": "derived from adjacency; the holding diagram does not label the subhole's finger explicitly"
+    },
+    {
+      "id": "right-subhole",
+      "surface": "front",
+      "kind": "subhole",
+      "hand": "right",
+      "finger": "middle",
+      "diagram": [
+        0.53,
+        0.39
+      ],
+      "assignmentBasis": "Small auxiliary hole adjacent to the right-middle main-hole area in the manufacturer diagram; all five requested notes leave it open.",
+      "fingerAssignmentConfidence": "derived from adjacency; the holding diagram does not label the subhole's finger explicitly"
+    },
+    {
+      "id": "left-thumb",
+      "surface": "back",
+      "kind": "thumb",
+      "hand": "left",
+      "finger": "thumb",
+      "diagram": [
+        0.37,
+        0.8
+      ]
+    },
+    {
+      "id": "right-thumb",
+      "surface": "back",
+      "kind": "thumb",
+      "hand": "right",
+      "finger": "thumb",
+      "diagram": [
+        0.65,
+        0.71
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "input": "a",
+      "pitch": "D4",
+      "midi": 62,
+      "frequencyHz": 293.6647679174076,
+      "roundedFrequencyHz": 293.66,
+      "chartLocation": {
+        "page": 1,
+        "row": "upper natural-note row",
+        "columnOneBased": 4
+      },
+      "states": {
+        "left-index": "closed",
+        "left-middle": "closed",
+        "left-ring": "closed",
+        "left-little": "closed",
+        "right-index": "closed",
+        "right-middle": "closed",
+        "right-ring": "closed",
+        "right-little": "open",
+        "left-subhole": "open",
+        "right-subhole": "open",
+        "left-thumb": "closed",
+        "right-thumb": "closed"
+      },
+      "closed": [
+        "left-index",
+        "left-middle",
+        "left-ring",
+        "left-little",
+        "right-index",
+        "right-middle",
+        "right-ring",
+        "left-thumb",
+        "right-thumb"
+      ],
+      "open": [
+        "right-little",
+        "left-subhole",
+        "right-subhole"
+      ],
+      "explanationFr": "Ré4 : main gauche complète, index/majeur/annulaire droits et les deux pouces fermés ; auriculaire droit et les deux sous-trous ouverts.",
+      "evidenceIds": [
+        "bass-chart",
+        "holding-diagram",
+        "beginner-lesson"
+      ]
+    },
+    {
+      "input": "down",
+      "pitch": "F4",
+      "midi": 65,
+      "frequencyHz": 349.2282314330039,
+      "roundedFrequencyHz": 349.23,
+      "chartLocation": {
+        "page": 1,
+        "row": "upper natural-note row",
+        "columnOneBased": 6
+      },
+      "states": {
+        "left-index": "closed",
+        "left-middle": "closed",
+        "left-ring": "closed",
+        "left-little": "closed",
+        "right-index": "closed",
+        "right-middle": "open",
+        "right-ring": "open",
+        "right-little": "open",
+        "left-subhole": "open",
+        "right-subhole": "open",
+        "left-thumb": "closed",
+        "right-thumb": "closed"
+      },
+      "closed": [
+        "left-index",
+        "left-middle",
+        "left-ring",
+        "left-little",
+        "right-index",
+        "left-thumb",
+        "right-thumb"
+      ],
+      "open": [
+        "right-middle",
+        "right-ring",
+        "right-little",
+        "left-subhole",
+        "right-subhole"
+      ],
+      "explanationFr": "Fa4 : main gauche complète, index droit et les deux pouces fermés ; majeur/annulaire/auriculaire droits et les deux sous-trous ouverts.",
+      "evidenceIds": [
+        "bass-chart",
+        "holding-diagram",
+        "beginner-lesson"
+      ]
+    },
+    {
+      "input": "right",
+      "pitch": "A4",
+      "midi": 69,
+      "frequencyHz": 440,
+      "roundedFrequencyHz": 440,
+      "chartLocation": {
+        "page": 1,
+        "row": "upper natural-note row",
+        "columnOneBased": 8
+      },
+      "states": {
+        "left-index": "closed",
+        "left-middle": "closed",
+        "left-ring": "open",
+        "left-little": "closed",
+        "right-index": "open",
+        "right-middle": "open",
+        "right-ring": "open",
+        "right-little": "open",
+        "left-subhole": "open",
+        "right-subhole": "open",
+        "left-thumb": "closed",
+        "right-thumb": "closed"
+      },
+      "closed": [
+        "left-index",
+        "left-middle",
+        "left-little",
+        "left-thumb",
+        "right-thumb"
+      ],
+      "open": [
+        "left-ring",
+        "right-index",
+        "right-middle",
+        "right-ring",
+        "right-little",
+        "left-subhole",
+        "right-subhole"
+      ],
+      "explanationFr": "La4 : index, majeur, auriculaire gauches et les deux pouces fermés ; annulaire gauche, quatre doigts droits et les deux sous-trous ouverts.",
+      "evidenceIds": [
+        "bass-chart",
+        "holding-diagram"
+      ]
+    },
+    {
+      "input": "left",
+      "pitch": "B4",
+      "midi": 71,
+      "frequencyHz": 493.8833012561241,
+      "roundedFrequencyHz": 493.88,
+      "chartLocation": {
+        "page": 1,
+        "row": "upper natural-note row",
+        "columnOneBased": 9
+      },
+      "states": {
+        "left-index": "closed",
+        "left-middle": "open",
+        "left-ring": "open",
+        "left-little": "closed",
+        "right-index": "open",
+        "right-middle": "open",
+        "right-ring": "open",
+        "right-little": "open",
+        "left-subhole": "open",
+        "right-subhole": "open",
+        "left-thumb": "closed",
+        "right-thumb": "closed"
+      },
+      "closed": [
+        "left-index",
+        "left-little",
+        "left-thumb",
+        "right-thumb"
+      ],
+      "open": [
+        "left-middle",
+        "left-ring",
+        "right-index",
+        "right-middle",
+        "right-ring",
+        "right-little",
+        "left-subhole",
+        "right-subhole"
+      ],
+      "explanationFr": "Si4 : index et auriculaire gauches, plus les deux pouces fermés ; majeur/annulaire gauches, quatre doigts droits et les deux sous-trous ouverts.",
+      "evidenceIds": [
+        "bass-chart",
+        "holding-diagram"
+      ]
+    },
+    {
+      "input": "up",
+      "pitch": "D5",
+      "midi": 74,
+      "frequencyHz": 587.3295358348151,
+      "roundedFrequencyHz": 587.33,
+      "chartLocation": {
+        "page": 1,
+        "row": "upper natural-note row",
+        "columnOneBased": 11
+      },
+      "states": {
+        "left-index": "open",
+        "left-middle": "open",
+        "left-ring": "open",
+        "left-little": "closed",
+        "right-index": "open",
+        "right-middle": "open",
+        "right-ring": "open",
+        "right-little": "open",
+        "left-subhole": "open",
+        "right-subhole": "open",
+        "left-thumb": "open",
+        "right-thumb": "closed"
+      },
+      "closed": [
+        "left-little",
+        "right-thumb"
+      ],
+      "open": [
+        "left-index",
+        "left-middle",
+        "left-ring",
+        "right-index",
+        "right-middle",
+        "right-ring",
+        "right-little",
+        "left-subhole",
+        "right-subhole",
+        "left-thumb"
+      ],
+      "explanationFr": "Ré5 : auriculaire gauche et pouce droit fermés ; index/majeur/annulaire gauches, quatre doigts droits, pouce gauche et les deux sous-trous ouverts.",
+      "evidenceIds": [
+        "bass-chart",
+        "holding-diagram",
+        "high-d-lesson"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "bass-chart",
+      "type": "Primary manufacturer PDF",
+      "url": "https://site.stlocarina.com/ocarinamaster/12bassC.pdf",
+      "title": "Complete Fingering Chart for 12 Hole C Major Bass Ocarina",
+      "printedCopyright": "©2015 by STL Ocarina",
+      "pageCount": 1,
+      "localPdfBytes": 535744,
+      "sha256": "568df16e906806e5df1e4b83eb1d382b2835dded4ba50113c7be571b785abe48",
+      "downloadedFor": "Internal research reference only; not licensed as a production website image.",
+      "visualInspection": true
+    },
+    {
+      "id": "chart-index",
+      "type": "Primary manufacturer page",
+      "url": "https://www.stlocarina.com/pages/ocarina-master",
+      "supports": "Direct Bass C chart link and sounding range A3–F5; separately lists Tenor C A4–F6."
+    },
+    {
+      "id": "holding-diagram",
+      "type": "Primary manufacturer booklet",
+      "url": "https://site.stlocarina.com/ebgames/Completebooklet.pdf",
+      "title": "How to Hold the Ocarina",
+      "page": 1,
+      "supports": "Explicit left/right index, middle, ring, pinky and thumb labels.",
+      "readMethod": "350204 bytes read in memory after web PDF screenshot endpoint returned a verification challenge. Only page1 rendered and inspected; no second PDF or chart saved locally.",
+      "visualInspection": true
+    },
+    {
+      "id": "beginner-lesson",
+      "type": "Primary manufacturer instruction",
+      "url": "https://www.stlocarina.com/blogs/news/beginners-lesson-1-for-12-hole-ocarina",
+      "supports": "C–G progression, right pinky opens D, additional right fingers lift through F, thumbs cover rear holes, sound hole must not be covered."
+    },
+    {
+      "id": "tab-convention",
+      "type": "Primary manufacturer instruction",
+      "url": "https://www.stlocarina.com/blogs/news/learn-the-ocarina-6-ocarina-tabs-tutorial-learn-how-to-read-ocarina-tabs",
+      "supports": "Looking down at player's hands; diagram right/left correspond to player's hands; filled=covered and empty=open."
+    },
+    {
+      "id": "high-d-lesson",
+      "type": "Primary manufacturer tutorial, indexed text",
+      "url": "https://www.stlocarina.com/blogs/news/animal-crossing-new-horizons-ocarina-tutorial-with-tabs-sheet-music",
+      "supports": "High D requires lifting left thumb; this agrees with the visually inspected Bass C chart.",
+      "limit": "Text available in primary search index; direct web page returned an older sparse version. The full hole pattern comes from the inspected PDF, not this text alone."
+    },
+    {
+      "id": "tenor-range",
+      "type": "Primary manufacturer product",
+      "url": "https://www.stlocarina.com/collections/plastic-12-hole-ocarinas/products/12-hole-plastic-tenor-ocarina-in-c-major-7-colors",
+      "supports": "Tenor C range A4–F6, length6.5in; not the proposed Bass model."
+    },
+    {
+      "id": "classification",
+      "type": "Primary manufacturer classification",
+      "url": "https://www.stlocarina.com/blogs/news/how-stl-ocarina-classifies-ocarinas-and-why-we-stand-by-our-system",
+      "supports": "Manufacturer-specific naming and C5 tonic for Tenor C."
+    },
+    {
+      "id": "notation",
+      "type": "Primary manufacturer notation",
+      "url": "https://site.stlocarina.com/bookletandchart/12HoleFinalPDF.pdf",
+      "page": 4,
+      "supports": "Tenor notation sounds one octave above written pitch. Not saved locally."
+    },
+    {
+      "id": "physical-product",
+      "type": "Primary manufacturer product",
+      "url": "https://www.stlocarina.com/products/element-ocarina-shadow-in-c-major-bass",
+      "supports": "12-hole Bass C, A3–F5, ceramic, length9.75in."
+    }
+  ],
+  "notice": "Fingering facts and source links. The manufacturer chart image/PDF is not republished here. The 3D model is illustrative, not an acoustically calibrated replica."
+}

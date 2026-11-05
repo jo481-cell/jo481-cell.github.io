@@ -1,0 +1,1 @@
+import{t as e}from"./policies-Cr_3h3ZV.js";var t=e;export{t as component};

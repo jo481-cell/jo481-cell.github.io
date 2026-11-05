@@ -1,0 +1,654 @@
+{
+  "method": "Connected dark cavity regions measured in authentic orthographic Cycles renders, then 24 exterior-rim raycasts per opening against the original mesh for depth and mean normal. No mesh construction.",
+  "uncertainty": "Projected center approximately \u00b10.6 mm; rim depth/normal approximately \u00b11 mm. These are measured visual contact targets, not a physical/acoustic calibration.",
+  "front": "GLB +Z; Blender -Y",
+  "up": "GLB +Y; Blender +Z",
+  "length": 0.135,
+  "pivot": "Bounding-box center at origin",
+  "longitudinalAxis": "GLB +Y toward tapered tip",
+  "blenderDimensions": [
+    0.08014307916164398,
+    0.0479995459318161,
+    0.13500000536441803
+  ],
+  "gltfDimensions": [
+    0.08014307916164398,
+    0.13500000536441803,
+    0.0479995459318161
+  ],
+  "holeCount": 12,
+  "mainHoles": 10,
+  "subHoles": 2,
+  "holes": [
+    {
+      "id": "right-little",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.010539039969444275,
+        0.00783978309482336,
+        0.05145565792918205
+      ],
+      "sourceBlenderNormal": [
+        -0.9563693404197693,
+        -0.10401835292577744,
+        0.27301639318466187
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.002537761978035641,
+      "imageCenterYX": [
+        81.25862068965517,
+        228.95258620689654
+      ],
+      "imagePixels": 232,
+      "blenderPosition": [
+        -0.007839784026145935,
+        -0.0105390390381217,
+        0.05145565792918205
+      ],
+      "blenderNormal": [
+        0.10401827841997147,
+        -0.9563693404197693,
+        0.27301639318466187
+      ],
+      "gltfPosition": [
+        -0.007839784026145935,
+        0.05145565792918205,
+        0.0105390390381217
+      ],
+      "gltfNormal": [
+        0.10401827841997147,
+        0.27301639318466187,
+        0.9563693404197693
+      ],
+      "normalizedGltfPosition": [
+        -0.05807247426774766,
+        0.3811530216976448,
+        0.07806695583793852
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "right",
+      "finger": "little"
+    },
+    {
+      "id": "right-ring",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.01563221961259842,
+        0.01175826694816351,
+        0.03554161265492439
+      ],
+      "sourceBlenderNormal": [
+        -0.9765818119049072,
+        0.05472695082426071,
+        0.20806939899921417
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.003217816762749091,
+      "imageCenterYX": [
+        135.14745308310992,
+        215.68364611260054
+      ],
+      "imagePixels": 373,
+      "blenderPosition": [
+        -0.011758267879486084,
+        -0.01563221961259842,
+        0.03554161265492439
+      ],
+      "blenderNormal": [
+        -0.05472702533006668,
+        -0.9765818119049072,
+        0.20806939899921417
+      ],
+      "gltfPosition": [
+        -0.011758267879486084,
+        0.03554161265492439,
+        0.01563221961259842
+      ],
+      "gltfNormal": [
+        -0.05472702533006668,
+        0.20806939899921417,
+        0.9765818119049072
+      ],
+      "normalizedGltfPosition": [
+        -0.0870982805887858,
+        0.2632712048512918,
+        0.11579421935258087
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": "right-middle",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.019530199468135834,
+        0.010442455299198627,
+        0.018113235011696815
+      ],
+      "sourceBlenderNormal": [
+        -0.986992597579956,
+        0.028206780552864075,
+        0.15827159583568573
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.0023621361307907787,
+      "imageCenterYX": [
+        194.16417910447763,
+        220.13930348258705
+      ],
+      "imagePixels": 201,
+      "blenderPosition": [
+        -0.010442457161843777,
+        -0.019530199468135834,
+        0.018113235011696815
+      ],
+      "blenderNormal": [
+        -0.028206855058670044,
+        -0.986992597579956,
+        0.15827159583568573
+      ],
+      "gltfPosition": [
+        -0.010442457161843777,
+        0.018113235011696815,
+        0.019530199468135834
+      ],
+      "gltfNormal": [
+        -0.028206855058670044,
+        0.15827159583568573,
+        0.986992597579956
+      ],
+      "normalizedGltfPosition": [
+        -0.07735153453217612,
+        0.13417211119775418,
+        0.14466814420841356
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": "right-index",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.021944358944892883,
+        0.0034988392144441605,
+        0.001361862407065928
+      ],
+      "sourceBlenderNormal": [
+        -0.991250216960907,
+        -0.10220419615507126,
+        0.08352997899055481
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.003561762801355422,
+      "imageCenterYX": [
+        250.88840262582056,
+        243.65207877461708
+      ],
+      "imagePixels": 457,
+      "blenderPosition": [
+        -0.003498840844258666,
+        -0.021944358944892883,
+        0.001361862407065928
+      ],
+      "blenderNormal": [
+        0.10220412164926529,
+        -0.991250216960907,
+        0.08352997899055481
+      ],
+      "gltfPosition": [
+        -0.003498840844258666,
+        0.001361862407065928,
+        0.021944358944892883
+      ],
+      "gltfNormal": [
+        0.10220412164926529,
+        0.08352997899055481,
+        0.991250216960907
+      ],
+      "normalizedGltfPosition": [
+        -0.02591733958710123,
+        0.010087869681969836,
+        0.16255080699920654
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": "left-little",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.01885182410478592,
+        0.02662344090640545,
+        -0.003087033983319998
+      ],
+      "sourceBlenderNormal": [
+        -0.9176570773124695,
+        0.38826221227645874,
+        0.08460430800914764
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.004012554004983413,
+      "imageCenterYX": [
+        265.95344827586206,
+        165.34655172413792
+      ],
+      "imagePixels": 580,
+      "blenderPosition": [
+        -0.026623442769050598,
+        -0.01885182224214077,
+        -0.003087033983319998
+      ],
+      "blenderNormal": [
+        -0.3882622718811035,
+        -0.9176570773124695,
+        0.08460430800914764
+      ],
+      "gltfPosition": [
+        -0.026623442769050598,
+        -0.003087033983319998,
+        0.01885182224214077
+      ],
+      "gltfNormal": [
+        -0.3882622718811035,
+        0.08460430800914764,
+        0.9176570773124695
+      ],
+      "normalizedGltfPosition": [
+        -0.19721068717815257,
+        -0.022866918394962944,
+        0.13964312771956125
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "left",
+      "finger": "little"
+    },
+    {
+      "id": "left-ring",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.02250547707080841,
+        0.01949675939977169,
+        -0.018020635470747948
+      ],
+      "sourceBlenderNormal": [
+        -0.9849765300750732,
+        0.17151066660881042,
+        0.020132876932621002
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.004325505236449518,
+      "imageCenterYX": [
+        316.52225519287833,
+        189.4792284866469
+      ],
+      "imagePixels": 674,
+      "blenderPosition": [
+        -0.01949676126241684,
+        -0.02250547520816326,
+        -0.018020635470747948
+      ],
+      "blenderNormal": [
+        -0.1715107411146164,
+        -0.9849765300750732,
+        0.020132876932621002
+      ],
+      "gltfPosition": [
+        -0.01949676126241684,
+        -0.018020635470747948,
+        0.02250547520816326
+      ],
+      "gltfNormal": [
+        -0.1715107411146164,
+        0.020132876932621002,
+        0.9849765300750732
+      ],
+      "normalizedGltfPosition": [
+        -0.14442045379568028,
+        -0.13348618867220702,
+        0.1667072237641723
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "left",
+      "finger": "ring"
+    },
+    {
+      "id": "left-middle",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.021669670939445496,
+        0.015221497975289822,
+        -0.033946793526411057
+      ],
+      "sourceBlenderNormal": [
+        -0.998476505279541,
+        0.04289089888334274,
+        -0.03471535071730614
+      ],
+      "rimSamples": 21,
+      "radiusApprox": 0.004064109275430327,
+      "imageCenterYX": [
+        370.45210084033613,
+        203.9563025210084
+      ],
+      "imagePixels": 595,
+      "blenderPosition": [
+        -0.01522149983793497,
+        -0.021669669076800346,
+        -0.033946793526411057
+      ],
+      "blenderNormal": [
+        -0.04289097338914871,
+        -0.998476505279541,
+        -0.03471535071730614
+      ],
+      "gltfPosition": [
+        -0.01522149983793497,
+        -0.033946793526411057,
+        0.021669669076800346
+      ],
+      "gltfNormal": [
+        -0.04289097338914871,
+        -0.03471535071730614,
+        0.998476505279541
+      ],
+      "normalizedGltfPosition": [
+        -0.11275185065137015,
+        -0.2514577298252671,
+        0.1605160672355581
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "left",
+      "finger": "middle"
+    },
+    {
+      "id": "left-index",
+      "kind": "main",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        -0.01704513281583786,
+        0.015207109972834587,
+        -0.05103934928774834
+      ],
+      "sourceBlenderNormal": [
+        -0.9211808443069458,
+        0.17262253165245056,
+        -0.34875109791755676
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.003323903676629788,
+      "imageCenterYX": [
+        428.3316582914573,
+        204.00502512562815
+      ],
+      "imagePixels": 398,
+      "blenderPosition": [
+        -0.015207110904157162,
+        -0.01704513095319271,
+        -0.05103934928774834
+      ],
+      "blenderNormal": [
+        -0.17262260615825653,
+        -0.9211808443069458,
+        -0.34875109791755676
+      ],
+      "gltfPosition": [
+        -0.015207110904157162,
+        -0.05103934928774834,
+        0.01704513095319271
+      ],
+      "gltfNormal": [
+        -0.17262260615825653,
+        -0.34875109791755676,
+        0.9211808443069458
+      ],
+      "normalizedGltfPosition": [
+        -0.11264526595671971,
+        -0.378069253983321,
+        0.12626022928290895
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "front",
+      "hand": "left",
+      "finger": "index"
+    },
+    {
+      "id": "right-subhole",
+      "kind": "subhole",
+      "sourceBlenderPosition": [
+        -0.01897687464952469,
+        0.017133217304944992,
+        0.016545986756682396
+      ],
+      "sourceBlenderNormal": [
+        -0.9672336578369141,
+        0.1996239870786667,
+        0.15687406063079834
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.001554055483705863,
+      "imageCenterYX": [
+        199.4712643678161,
+        197.48275862068965
+      ],
+      "imagePixels": 87,
+      "blenderPosition": [
+        -0.01713321916759014,
+        -0.01897687278687954,
+        0.016545986756682396
+      ],
+      "blenderNormal": [
+        -0.19962406158447266,
+        -0.9672336578369141,
+        0.15687406063079834
+      ],
+      "gltfPosition": [
+        -0.01713321916759014,
+        0.016545986756682396,
+        0.01897687278687954
+      ],
+      "gltfNormal": [
+        -0.19962406158447266,
+        0.15687406063079834,
+        0.9672336578369141
+      ],
+      "normalizedGltfPosition": [
+        -0.12691273457474178,
+        0.12256286486431403,
+        0.14056942805095954
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "surface": "front",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": "left-subhole",
+      "kind": "subhole",
+      "sourceBlenderPosition": [
+        -0.022005081176757812,
+        0.006122583523392677,
+        -0.033250126987695694
+      ],
+      "sourceBlenderNormal": [
+        -0.9880435466766357,
+        -0.09679687768220901,
+        -0.12000126391649246
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.0015450983169756234,
+      "imageCenterYX": [
+        368.09302325581393,
+        234.7674418604651
+      ],
+      "imagePixels": 86,
+      "blenderPosition": [
+        -0.0061225853860378265,
+        -0.022005081176757812,
+        -0.033250126987695694
+      ],
+      "blenderNormal": [
+        0.09679680317640305,
+        -0.9880435466766357,
+        -0.12000126391649246
+      ],
+      "gltfPosition": [
+        -0.0061225853860378265,
+        -0.033250126987695694,
+        0.022005081176757812
+      ],
+      "gltfNormal": [
+        0.09679680317640305,
+        -0.12000126391649246,
+        0.9880435466766357
+      ],
+      "normalizedGltfPosition": [
+        -0.04535248434102093,
+        -0.246297236945894,
+        0.16300060130931712
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "surface": "front",
+      "hand": "left",
+      "finger": "middle"
+    },
+    {
+      "id": "right-thumb",
+      "kind": "thumb",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        0.022735171020030975,
+        0.011509161442518234,
+        -0.006384656298905611
+      ],
+      "sourceBlenderNormal": [
+        0.996628999710083,
+        0.032466694712638855,
+        0.07534346729516983
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.005202465413866331,
+      "imageCenterYX": [
+        277.12,
+        294.47282051282053
+      ],
+      "imagePixels": 975,
+      "blenderPosition": [
+        -0.011509159579873085,
+        0.022735171020030975,
+        -0.006384656298905611
+      ],
+      "blenderNormal": [
+        -0.032466620206832886,
+        0.996628999710083,
+        0.07534346729516983
+      ],
+      "gltfPosition": [
+        -0.011509159579873085,
+        -0.006384656298905611,
+        -0.022735171020030975
+      ],
+      "gltfNormal": [
+        -0.032466620206832886,
+        0.07534346729516983,
+        -0.996628999710083
+      ],
+      "normalizedGltfPosition": [
+        -0.08525303392498582,
+        -0.047293750362263784,
+        -0.16840867422245165
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "back",
+      "hand": "right",
+      "finger": "thumb"
+    },
+    {
+      "id": "left-thumb",
+      "kind": "thumb",
+      "assignment": "Topological anatomical correspondence reviewed against the STL player-hand reference; no chart coordinates transferred.",
+      "sourceBlenderPosition": [
+        0.019396953284740448,
+        0.016223201528191566,
+        -0.043182313442230225
+      ],
+      "sourceBlenderNormal": [
+        0.9510456919670105,
+        0.1693296730518341,
+        -0.25853365659713745
+      ],
+      "rimSamples": 24,
+      "radiusApprox": 0.005110950861997516,
+      "imageCenterYX": [
+        401.7258235919235,
+        310.4357066950053
+      ],
+      "imagePixels": 941,
+      "blenderPosition": [
+        -0.016223199665546417,
+        0.019396955147385597,
+        -0.043182313442230225
+      ],
+      "blenderNormal": [
+        -0.16932959854602814,
+        0.9510456919670105,
+        -0.25853365659713745
+      ],
+      "gltfPosition": [
+        -0.016223199665546417,
+        -0.043182313442230225,
+        -0.019396955147385597
+      ],
+      "gltfNormal": [
+        -0.16932959854602814,
+        -0.25853365659713745,
+        -0.9510456919670105
+      ],
+      "normalizedGltfPosition": [
+        -0.1201718493744179,
+        -0.3198689884609646,
+        -0.1436811492398933
+      ],
+      "assignmentStatus": "validated-topological-stl-reference",
+      "surface": "back",
+      "hand": "left",
+      "finger": "thumb"
+    }
+  ],
+  "mouthApproxGltfPosition": [
+    0.04,
+    -0.028,
+    0.0
+  ],
+  "mouthApproxGltfDirection": [
+    1,
+    0,
+    0
+  ],
+  "musicalStatus": "Illustration mesh; actual tuning not verified. Subholes remain open in the five-note reference supplied by root.",
+  "assignmentStatus": "validated-topological-stl-reference",
+  "assignmentSource": {
+    "evidenceFile": "outputs/refonte-hyruleatlas/ocarina-mesh-finger-assignment.json",
+    "chartUrl": "https://site.stlocarina.com/ocarinamaster/12bassC.pdf",
+    "holdingUrl": "https://site.stlocarina.com/ebgames/Completebooklet.pdf",
+    "method": "Source tip, mouthpiece, main-hole groups, adjacent subholes and thumb surface compared topologically to labelled player-hand reference. Geometry and all measured coordinates unchanged."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "asset": "/assets/models/triforce-bevel.glb",
+  "title": "Triforce (BEVEL) 20220427 - Kopie.stl",
+  "author": "PantheraLeo1359531",
+  "authorUrl": "https://commons.wikimedia.org/wiki/User:PantheraLeo1359531",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Triforce_(BEVEL)_20220427_-_Kopie.stl",
+  "originalDownload": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Triforce_%28BEVEL%29_20220427_-_Kopie.stl",
+  "license": "CC0-1.0 as declared by the original artist for their model",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "rightsScope": "The artist can waive their own rights. This does not establish a Nintendo license or waive third-party copyright or trademark rights. No Nintendo affiliation or endorsement is implied.",
+  "credit": "Triforce (BEVEL) by PantheraLeo1359531, via Wikimedia Commons, CC0 1.0. Triforce / The Legend of Zelda: Nintendo. Independent fan site.",
+  "modifications": [
+    "Technical import of the existing artist STL in Blender 5.2",
+    "Centered bounding box and uniform scale to height 2.8",
+    "Outward face-winding repair: every existing vertex position and face preserved",
+    "35-degree smoothing, preserving sharp edges",
+    "Constant antique gold PBR material, metallic 1, roughness 0.25",
+    "glTF 2.0 binary export and reimport verification"
+  ],
+  "geometry": {
+    "meshes": 1,
+    "triangles": 25944,
+    "materials": 1,
+    "dimensionsXYZ": [
+      2.8050947189331055,
+      2.799999952316284,
+      0.36083418130874634
+    ],
+    "units": "Visual scene units, normalized height; no claim of canonical physical Zelda dimensions",
+    "up": "+Y",
+    "front": "+Z",
+    "pivot": "Bounding-box center at origin",
+    "rootNode": "Asset_Triforce",
+    "meshNode": "Triforce_Bevel"
+  },
+  "bytes": 468272,
+  "sha256": "9c09f985e9eb52f030544ca6da88e7c0452015f875fcb9dc9273e55ecd4978d1",
+  "validation": {
+    "exportReimportVerdict": "COHERENT",
+    "trianglesBefore": 25944,
+    "trianglesAfter": 25944,
+    "materialPreserved": true,
+    "dimensionsPreserved": true,
+    "sourceMeshInspectorVerdict": "RECEVABLE",
+    "remainingInspectorNote": "No UV map; intentionally uniform PBR material with no textures",
+    "browserRenderingAndAnimation": "To be checked in Hyrule Atlas; not established by Blender inspection"
+  }
+}

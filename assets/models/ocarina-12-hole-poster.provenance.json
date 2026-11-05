@@ -1,0 +1,104 @@
+{
+  "asset": "/assets/models/ocarina-12-hole-poster.webp",
+  "kind": "Actual studio render of the existing 3D mesh, transparent background",
+  "modelAsset": "/assets/models/ocarina-12-hole.glb",
+  "modelSha256": "b9608b8d71a0da23eec5e5786ece2a6ed9af0ad2b44d4254f850ba61c6cf0b55",
+  "author": "RobSoundtrack",
+  "source": "https://www.thingiverse.com/thing:2755765",
+  "archive": "https://commons.wikimedia.org/wiki/File:Updated_12_Hole_Ocarina.stl",
+  "license": "CC BY 4.0 as declared on Wikimedia Commons",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "credit": "Updated 12 Hole Ocarina by RobSoundtrack, via Wikimedia Commons, CC BY 4.0. Based on the original ocarina design by nimaid according to the author description. Technical conversion and blue ceramic material for Hyrule Atlas.",
+  "render": {
+    "renderer": "Blender 5.2 Cycles CPU",
+    "samples": 96,
+    "nativeDimensions": [
+      1600,
+      1000
+    ],
+    "transparentBackground": true,
+    "geometrySource": "ocarina-12-hole_v002.blend / original RobSoundtrack STL",
+    "meshTriangles": 176264,
+    "modelGeometryCreatedOrRebuilt": false,
+    "material": "Existing Ocarina_Blue_Glazed_Ceramic, metallic 0, roughness 0.17, coat 0.35",
+    "camera": {
+      "lensMm": 75,
+      "location": [
+        0.20855502784252167,
+        -0.37919095158576965,
+        0.11375729739665985
+      ],
+      "rotationQuaternionWXYZ": [
+        0.789360523223877,
+        0.5097630620002747,
+        0.3361957371234894,
+        -0.0634356141090393
+      ],
+      "distance": 0.4474613866191213,
+      "framing": "Existing mesh vertex projections, 86 percent maximum frame extent"
+    },
+    "lighting": [
+      {
+        "name": "Poster_Warm_Softbox",
+        "position": [
+          -0.12,
+          -0.18,
+          0.22
+        ],
+        "watts": 2.0,
+        "size": 0.14,
+        "color": [
+          1.0,
+          0.86,
+          0.7
+        ]
+      },
+      {
+        "name": "Poster_Cool_Fill",
+        "position": [
+          0.14,
+          -0.1,
+          0.04
+        ],
+        "watts": 0.8,
+        "size": 0.17,
+        "color": [
+          0.68,
+          0.8,
+          1.0
+        ]
+      },
+      {
+        "name": "Poster_Warm_Rim",
+        "position": [
+          0.1,
+          0.12,
+          0.18
+        ],
+        "watts": 2.5,
+        "size": 0.1,
+        "color": [
+          1.0,
+          0.9,
+          0.78
+        ]
+      }
+    ],
+    "editableScene": "ocarina-poster-studio_v002.blend",
+    "scope": "A true render of the existing 3D mesh and ceramic material; no hand pose, acoustic calibration, Nintendo affiliation, or measured browser improvement is implied."
+  },
+  "dimensions": [
+    1600,
+    1000
+  ],
+  "alpha": true,
+  "bytes": 46656,
+  "sha256": "20025f448ed3c4b5545414902644eaf1f25674bf243929ee2b35dddb28c94761",
+  "masterPng": {
+    "file": "ocarina-12-hole-poster.png",
+    "bytes": 766252,
+    "sha256": "fb53c0b8503db22873bcbb2063c67ba0a788cda0e060f3580d7025b34bd82a41"
+  },
+  "changes": "Technical STL-to-GLB conversion and ceramic material detailed in model provenance. This image is a Blender Cycles CPU render of that same model, then PNG-to-WebP encoding at quality 95; no generative image editing, mesh reconstruction or background replacement.",
+  "verification": "PNG visually inspected. WebP decoded dimensions and alpha checked. Browser integration is checked separately by root."
+}
