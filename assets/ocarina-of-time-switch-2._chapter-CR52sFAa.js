@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-DO7SzmY0.js";import{t}from"./ocarina-of-time-switch-2._chapter-ND0UVE6x.js";import{t as n}from"./walkthrough-Bv5ZOL9-.js";function r(){let r=t.useLoaderData();return e(n,{chapter:r},r.slug)}export{r as component};

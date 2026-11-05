@@ -1,0 +1,1 @@
+var e=`Ocarina of Time Remake: Release Date, News & Trailers`,t=`Explore the Ocarina of Time remake for Nintendo Switch 2: release details, official artwork, trailer analysis and a separate walkthrough with saved checklists.`,n=`/ocarina-of-time-remake`;export{n,e as r,t};

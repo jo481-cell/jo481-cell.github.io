@@ -1,0 +1,1 @@
+import{t as e}from"./alttp-map-entry-CCL0DkgL.js";var t=e;export{t as component};
