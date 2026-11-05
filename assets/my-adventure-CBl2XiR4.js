@@ -1,0 +1,1 @@
+import{t as e}from"./companion-Ds8QV5Ux.js";var t=e;export{t as component};

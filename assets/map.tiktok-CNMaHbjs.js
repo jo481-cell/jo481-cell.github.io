@@ -1,0 +1,1 @@
+import{t as e}from"./alttp-map-entry-1h7q0k2Q.js";var t=e;export{t as component};
