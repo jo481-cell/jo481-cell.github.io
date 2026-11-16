@@ -1,0 +1,1 @@
+import{c as e}from"./archive-shell-BorENuGI.js";import{t}from"./ocarina-of-time-switch-2._chapter-BU11KNrO.js";import{n}from"./walkthrough-DdnXDmyc.js";function r(){let r=t.useLoaderData();return e(n,{chapter:r},r.slug)}export{r as component};

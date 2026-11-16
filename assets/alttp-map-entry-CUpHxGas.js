@@ -1,0 +1,1 @@
+import{c as e}from"./archive-shell-BorENuGI.js";import{t}from"./alttp-B2c2D4l0.js";function n(){return e(t,{mapEntry:!0})}export{n as t};

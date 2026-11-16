@@ -1,0 +1,1 @@
+import{c as e}from"./archive-shell-BorENuGI.js";import{t}from"./zelda-64._chapter-mNaMxHuf.js";import{t as n}from"./walkthrough-Bn2i-ukp.js";function r(){let r=t.useLoaderData();return e(n,{chapter:r},r.slug)}export{r as component};

@@ -1,0 +1,1 @@
+import{t as e}from"./alttp-map-entry-CUpHxGas.js";var t=e;export{t as component};

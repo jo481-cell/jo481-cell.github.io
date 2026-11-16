@@ -1,0 +1,1 @@
+import{c as e}from"./archive-shell-BorENuGI.js";import{t}from"./series._game-DDPmDAbm.js";import{t as n}from"./series-CT1OB3sl.js";function r(){let r=t.useLoaderData();return e(n,{game:r},r.slug)}export{r as component};

@@ -1,0 +1,1 @@
+import{r as e}from"./collectible-map-BtIpZMsv.js";var t=e;export{t as component};
