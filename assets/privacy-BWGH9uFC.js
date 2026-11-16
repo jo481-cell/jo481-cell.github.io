@@ -1,0 +1,1 @@
+import{n as e}from"./policies-Cev0k-qj.js";var t=e;export{t as component};
