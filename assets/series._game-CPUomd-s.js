@@ -1,0 +1,1 @@
+import{d as e}from"./archive-shell-ByIeAbf6.js";import{t}from"./series._game-D2Zfs-AF.js";import{t as n}from"./series-Dk0YKyWa.js";function r(){let r=t.useLoaderData();return e(n,{game:r},r.slug)}export{r as component};

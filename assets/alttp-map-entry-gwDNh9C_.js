@@ -1,0 +1,1 @@
+import{d as e}from"./archive-shell-ByIeAbf6.js";import{t}from"./alttp-BtlB2_MG.js";function n(){return e(t,{mapEntry:!0})}export{n as t};
