@@ -1,0 +1,1 @@
+import{d as e}from"./archive-shell-WwSEL-G9.js";import{t}from"./journal._slug-HNjjlxFp.js";import{t as n}from"./journal-B39Jpbnb.js";function r(){let r=t.useLoaderData();return e(n,{guide:r},r.slug)}export{r as component};

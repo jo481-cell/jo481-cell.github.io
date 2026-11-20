@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="280" viewBox="0 0 400 280" shape-rendering="crispEdges">
+  <title>Hyrule Atlas — Ocarina of Time</title>
+  <desc>Original regional diagram. Twelve editorial landmarks in the coordinate system of the Hyrule Atlas schematic. Independently drawn terrain, symbols, and links. Regional positions are approximate.</desc>
+  <defs>
+    <g id="fir">
+      <path fill="#245042" d="M4 0h2v2h1v2h1v2h1v2h1v2H6v2H4v-2H0V8h1V6h1V4h1V2h1z"/>
+      <path fill="#3c8057" d="M4 1h1v3h1v2H4v1H2V6h1V4h1zM2 8h3v1H1z"/>
+      <path fill="#80a869" d="M4 2h1v2H4zM3 5h1v1H3z"/>
+    </g>
+    <g id="oak">
+      <path fill="#305442" d="M4 0h5v1h2v2h2v5h-2v2H8v3H6v-3H3V9H1V7H0V4h1V2h3z"/>
+      <path fill="#518655" d="M4 1h4v1h2v1h1v3H9v2H4V7H2V4h1V3h1z"/>
+      <path fill="#a5b963" d="M4 2h4v1H5v1H3V3h1z"/>
+    </g>
+    <pattern id="meadow" width="20" height="15" patternUnits="userSpaceOnUse">
+      <path fill="#88ad61" d="M0 0h20v15H0z"/><path fill="#779e58" d="M3 9h1V7h1v2h2v1H3zM13 3h2v1h-2z"/>
+      <path fill="#a2bc71" d="M4 7h1v1H4zM15 12h3v1h-3z"/>
+    </pattern>
+    <pattern id="grove" width="22" height="17" patternUnits="userSpaceOnUse">
+      <path fill="#466f4c" d="M0 0h22v17H0z"/>
+      <use xlink:href="#oak" x="-4" y="-2"/><use xlink:href="#oak" x="18" y="-2"/>
+      <use xlink:href="#fir" x="9" y="6"/><use xlink:href="#oak" x="-4" y="15"/><use xlink:href="#oak" x="18" y="15"/>
+    </pattern>
+    <pattern id="sand" width="26" height="13" patternUnits="userSpaceOnUse">
+      <path fill="#d5ae6d" d="M0 0h26v13H0z"/>
+      <path fill="#ebc785" d="M3 6h6V5h4v1H9v1H3zM19 12h4v1h-4z"/><path fill="#be9158" d="M14 2h2v1h-2z"/>
+    </pattern>
+    <pattern id="ripples" width="22" height="13" patternUnits="userSpaceOnUse">
+      <rect width="22" height="13" fill="#448c9d"/><path fill="#80c3be" d="M2 7h4V6h3v1H6v1H2z"/>
+      <path fill="#539eac" d="M14 2h5v1h-5zM18 11h3v1h-3z"/>
+    </pattern>
+    <g id="mount">
+      <path fill="#805d49" d="M0 23h3v-3h2v-3h3v-4h3V9h2V6h2V3h2V0h3v3h2v4h3v4h2v4h3v3h3v3h3v3z"/>
+      <path fill="#b88d68" d="M2 22l15-21 3 2-1 4-3 3 1 3-4 2-2 4-5 3z"/>
+      <path fill="#dcc4a0" d="m12 10 6-9h1l4 8-5-3-2 4-1-2z"/>
+      <path fill="#9b7256" d="m17 18 4-9 3 5-1 2 5 4-6-2-4 4z"/>
+    </g>
+    <g id="mesa">
+      <path fill="#9b6548" d="M0 10h2V6h3V2h4V0h15v2h4v3h2v4h3v4H0z"/>
+      <path fill="#bd8056" d="M2 9h3V5h4V3h14v1h4v3h2v3H8v1H2z"/>
+      <path fill="#edb879" d="M7 4h3V2h12v1h4v2H7z"/>
+      <path fill="#93593f" d="M8 7h2v4H8zm15 0h2v4h-2z"/>
+    </g>
+    <g id="house">
+      <path fill="#644c3b" d="M0 5h1V3h2V1h5v1h2v2h2v2h-1v5H2V6H0z"/>
+      <path fill="#d68a65" d="M2 4h1V3h1V2h4v2h2v1H2z"/><path fill="#f1cf91" d="M3 6h7v4H3z"/>
+      <path fill="#785d44" d="M6 7h2v4H6z"/><path fill="#a9d1b5" d="M3 7h2v2H3z"/>
+    </g>
+    <g id="tower">
+      <path fill="#4f5555" d="M0 0h2v2h2V0h2v2h2V0h2v5H9v11H1V5H0z"/>
+      <path fill="#d9d4b0" d="M1 3h8v2H1zM2 5h5v10H2z"/><path fill="#8a9b89" d="M7 5h1v10H7zM2 11h5v1H2z"/>
+      <path fill="#526e67" d="M4 7h2v3H4z"/>
+    </g>
+    <g id="gate">
+      <path fill="#445347" d="M0 5h34v14H0z"/><path fill="#a4b09a" d="M2 7h30v10H2z"/>
+      <path fill="#e7deba" d="M0 5h34v2H0zM0 10h34v1H0z"/>
+      <path fill="#495b51" d="M14 11h6v8h-6z"/><use xlink:href="#tower" x="-4"/><use xlink:href="#tower" x="28"/>
+    </g>
+  </defs>
+  <rect width="400" height="280" fill="url(#meadow)"/>
+  <!-- High ridges to the north. Terrace lines, cliff faces, and scattered peaks. -->
+  <path fill="#627b52" d="M90 0h310v47h-12v4h-19v5h-29v-4h-21v-5h-17v7h-23v9h-32v7h-21v-7h-23v-8h-19v-9h-22v4h-22v-9h-21V28H99z"/>
+  <path fill="#9d9471" d="M99 0h301v38h-21v5h-32v5h-27v-7h-22v5h-20v9h-31v9h-17v-6h-23v-7h-18v-9h-27v4h-17v-9h-18V23h-19z"/>
+  <path fill="#b7a07b" d="M134 0h266v28h-27v8h-36v4h-17v-7h-27v6h-25v12h-28v5h-13v-9h-21v-8h-17v-8h-27v3h-16V19z"/>
+  <path fill="#957358" d="M230 0h145v10h-25v9h-15v7h-26v8h-27v7h-29v-4h-14V22h-12z"/>
+  <use xlink:href="#mount" x="163" y="-8"/><use xlink:href="#mount" x="186" y="-6"/><use xlink:href="#mount" x="213" y="3"/>
+  <use xlink:href="#mount" x="240" y="9"/><use xlink:href="#mount" x="320" y="-5"/><use xlink:href="#mount" x="337" y="8"/><use xlink:href="#mount" x="368" y="0"/>
+  <path fill="#765044" d="M270 34h4v-5h5v-6h5v-6h4V8h5v-5h15v4h5v9h4v7h5v5h6v5h5v5h-63z"/>
+  <path fill="#bc7c58" d="M276 32l14-22 4-5h12l6 11-8-3-2 7-4-8-8 10-5 1-4 8z"/>
+  <path fill="#f2ac6d" d="M292 6h15v3h-4v2h-4V9h-7z"/><path fill="#9c4737" d="M296 5h9v2h-9z"/>
+  <!-- Arid west and the Gerudo canyon. -->
+  <path fill="#a58150" d="M0 0h125v20h-8v17h-9v12h-8v17h-9v17h2v14h8v14h4v14h-4v11h7v13h10v9h12v8h7v11h-8v12h-15v9H94v13H72v13H54v11H32v11H0z"/>
+  <path fill="url(#sand)" d="M0 0h119v19h-8v16h-9v13h-8v17h-9v18h2v16h8v14h4v11l-4 12 6 12 11 10 11 9 6 8-6 10-15 8-18 2-4 12-19 3-7 13-17 1-9 11-25 7H0z"/>
+  <use xlink:href="#mesa" x="1" y="24"/><use xlink:href="#mesa" x="56" y="8"/><use xlink:href="#mesa" x="19" y="46"/>
+  <use xlink:href="#mesa" x="4" y="110"/><use xlink:href="#mesa" x="40" y="149"/><use xlink:href="#mesa" x="1" y="175"/>
+  <path fill="none" stroke="#a66647" stroke-width="5" d="m71 104 8 7v8l12 6v8l-9 5-4 10 8 11 13 4 5 9 12 7"/>
+  <path fill="none" stroke="#e5ac73" stroke-width="2" d="m71 102 9 8v8l13 7v9l-9 6-4 9 7 8 14 4 6 10"/>
+  <!-- East and south woodland, with open clearings around the marked regions. -->
+  <path fill="#688e57" d="M400 124h-21v7h-22v7h-17v13h-18v10h-29v8h-18v10h-15v12h-11v18h-8v15h-12v12h-6v16h9v16h16v12h154z"/>
+  <path fill="url(#grove)" d="M400 129h-18v7h-22v8h-16v13h-20v10h-29v8h-17v10h-14v12h-9v16h-8v15h-11v13h-5v10h10v14h15v15h144z"/>
+  <path fill="#75a168" d="M295 184h17v-8h17v8h17v9h14v10h-8v10h-18v10h-14v-8h-16v-9h-13z"/>
+  <path fill="#87ae68" d="M9 236h23v-9h18v6h19v10h16v12H73v11H56v14H0v-30h9z"/>
+  <use xlink:href="#oak" x="13" y="243"/><use xlink:href="#fir" x="31" y="240"/><use xlink:href="#oak" x="46" y="250"/><use xlink:href="#oak" x="6" y="261"/>
+  <path fill="#6c9154" d="M118 68h17v-7h18v7h10v11h-16v8h-17v-7h-12zM253 105h13v-4h15v11h-12v5h-16zM133 190h15v-6h11v5h13v7h-19v4h-20z"/>
+  <!-- Lake basin and the eastern river system. -->
+  <path fill="#527c5c" d="M113 248v-11h12v-7h16v-6h22v2h14v-8h21v-6h18v5h18v7h12v11h-5v9h-14v9h-12v9h-14v6h-17v-6h-25v4h-20v-7h-17v-6z"/>
+  <path fill="#9ac9a2" d="M117 246v-7h12v-7h15v-5h17v3h19v-9h19v-5h15v6h19v6h9v6h-5v9h-15v8h-11v9h-12v5h-14v-6h-25v4h-20v-8h-18v-6z"/>
+  <path fill="url(#ripples)" d="M119 246v-6h12v-6h15v-5h13v3h23v-9h18v-5h13v6h19v6h8v3h-5v9h-15v8h-11v8h-10v5h-12v-6h-27v4h-18v-8h-18v-6z"/>
+  <path fill="#377c95" d="M149 238h14v-3h22v-8h13v-5h12v8h21v8h-13v9h-12v9h-17v-5h-26v4h-17v-8h-9v-6h12z"/>
+  <path fill="#92b984" d="M171 245h7v-3h6v3h2v4h-5v2h-10z"/>
+  <path fill="#7db79a" d="M333 73h6v-7h11v-6h13v2h10v8h5v8h-8v7h-12v5h-14v-4h-11z"/>
+  <path fill="url(#ripples)" d="M336 74h6v-6h10v-6h9v3h10v7h4v5h-8v6h-11v5h-10v-5h-10z"/>
+  <path fill="none" stroke="#6e955f" stroke-width="7" d="m352 84-9 9h-12l-5 7 6 8-6 10h-17l-10-5-9 5h-13l-12 8h-12"/>
+  <path fill="none" stroke="#539da8" stroke-width="4" d="m352 84-9 9h-12l-5 7 6 8-6 10h-17l-10-5-9 5h-13l-12 8h-12"/>
+  <path fill="none" stroke="#8fc6be" d="m352 83-9 9h-12l-6 8 6 8-6 9h-16l-10-5-9 5h-13l-12 8"/>
+  <!-- Regional connections: drawn as sand tracks, not exact walking directions. -->
+  <g stroke="#a18759" stroke-width="4" fill="none" stroke-linejoin="round">
+    <path id="roads" d="m205 113-10-15v-23l-2-18m12 56 19-9 14-12 20-13 17-8 12-16 15-15m-97 73 28-1 22 4 22 6 20 1 20-4 9-18 15-11 16-12m-152 35-11 18v15l3 18 7 18-2 20-7 33m10-122-21 8-22 14-12 16-27 17-17-9-8-17-11-19-11-16-12-14-11-9m152 29 21 19 16 8 25 13 14 15 15 11 13 15 23 20"/>
+  </g>
+  <use xlink:href="#roads" fill="none" stroke="#ddc78b" stroke-width="2"/>
+  <!-- Cartographic landmark symbols. -->
+  <g transform="translate(181 39)">
+    <path fill="#8a9c76" d="M-6 8h40v22H-6z"/><use xlink:href="#gate" x="-1" y="5"/>
+    <use xlink:href="#tower" x="10" y="-6"/><path fill="#c56647" d="M14-13h1v10h-1zm1 0 7 2-7 2z"/>
+  </g>
+  <g transform="translate(248 69)"><use xlink:href="#house" x="-7" y="2"/><use xlink:href="#house" x="8" y="-2"/><use xlink:href="#house" x="18" y="7"/><use xlink:href="#house" x="1" y="13"/></g>
+  <g transform="translate(186 157)">
+    <path fill="#b99f64" stroke="#846a45" d="M-3 4h33v16H-3z"/><path fill="#af9859" d="M1 7h29v11H1z"/>
+    <path stroke="#ddc889" fill="none" d="M-3 3h33v16H-3z" stroke-dasharray="3 2"/>
+    <use xlink:href="#house" x="13" y="-5"/><use xlink:href="#house" x="-4" y="1"/>
+  </g>
+  <g transform="translate(75 112)"><path fill="#aa7655" stroke="#795440" d="M-2 2h21v14H-2zM5-5h10v9H5z"/><path fill="#e0af78" d="M-2 2h21v2H-2zM5-5h10v2H5z"/><path fill="#6c493a" d="M6 9h4v7H6zm1-9h2v2H7z"/></g>
+  <g transform="translate(42 63)"><path fill="#ae865b" stroke="#815c45" d="M0 9h4V3h4v-5h4v5h4v6h4v6H0z"/><path fill="#e6c391" d="M1 9h18v2H1zm4-5h10v2H5z"/><path fill="#6e5c4a" d="M9 11h4v4H9z"/></g>
+  <g transform="translate(317 196)"><use xlink:href="#oak" x="-1" y="0"/><use xlink:href="#oak" x="9" y="-6"/><use xlink:href="#house" x="2" y="15"/><use xlink:href="#house" x="18" y="6"/></g>
+  <use xlink:href="#fir" x="143" y="88"/><use xlink:href="#oak" x="149" y="85"/><use xlink:href="#oak" x="152" y="93"/>
+  <use xlink:href="#oak" x="177" y="128"/><use xlink:href="#fir" x="171" y="134"/><use xlink:href="#fir" x="223" y="178"/><use xlink:href="#oak" x="230" y="172"/>
+  <use xlink:href="#oak" x="102" y="192"/><use xlink:href="#fir" x="111" y="197"/><use xlink:href="#oak" x="242" y="132"/>
+  <path fill="none" stroke="#6b604c" stroke-width="5" d="m119 163 9 6m187-55 1 9"/><path fill="none" stroke="#d4ac76" stroke-width="3" stroke-dasharray="1 1" d="m119 163 9 6m187-55 1 9"/>
+</svg>

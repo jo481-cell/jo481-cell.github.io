@@ -1,0 +1,24 @@
+{
+  "original": "light_world-1.png",
+  "source": "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/",
+  "credit": "Cartes du jeu © Nintendo. Assemblage et annotations : Ian Albert.",
+  "processing": "Two proportional display sizes from the published map. A transparent overlay displaces original open-water highlights by five source pixels to create a two-phase editorial animation.",
+  "wavePixels": 3966,
+  "files": [
+    {
+      "name": "light-field-960.webp",
+      "bytes": 304432,
+      "sha256": "5f8ea17ed945f0de4ed0924ecba79a10cfa5e5b30a3403807f5d2ca124baad43"
+    },
+    {
+      "name": "light-field-2048.webp",
+      "bytes": 1207896,
+      "sha256": "ad0f3b5175769192e8a9417604f1fed316d2e2262ca624c9d3eb878e4ef2f9a9"
+    },
+    {
+      "name": "light-field-water.webp",
+      "bytes": 3174,
+      "sha256": "ca2d089e56316ce13c24985c9d3addd541cef0722f8e285e7b2859c00d3c78f1"
+    }
+  ]
+}

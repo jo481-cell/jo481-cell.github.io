@@ -1,0 +1,342 @@
+/* The archive's inner leaves. Existing controls, routes and game art remain
+   the source of the content. Each surface gives a different job to the lead. */
+html[data-carnet-interieur] {
+  --carnet-encre: #232e24;
+  --carnet-mousse: #394737;
+  --carnet-papier: #f4ecd9;
+  --carnet-pierre: #e2dcc7;
+  --carnet-miel: #e9c783;
+  --carnet-texte: #354234;
+  --carnet-bord: #b2ae93;
+  --carnet-rouille: #754936;
+  --carnet-marge: max(clamp(1.25rem,5vw,5.25rem),calc((100vw - 1540px) / 2));
+  --carnet-titre: "Atlas Display", Georgia, "Yu Mincho", "Songti SC", serif;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead {
+  color: var(--carnet-papier);
+  border-block-end: 1px solid #7e816a;
+  overflow: clip;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead__copy { z-index: 2; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead h1,
+html[data-carnet-interieur] .atlas-shell .alttp-search-heading h1,
+html[data-carnet-interieur] .atlas-shell .alttp-hero h1 {
+  font-family: var(--carnet-titre);
+  font-weight: 400; letter-spacing: -.035em; line-height: 1;
+  text-wrap: balance; overflow-wrap: anywhere;
+}
+html[data-carnet-interieur]:is(:lang(ja),:lang(zh)) .atlas-shell .atlas-lead h1 {
+  letter-spacing: 0; line-height: 1.16; word-break: normal;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead .atlas-breadcrumb {
+  display: flex; flex-wrap: wrap; gap: .42rem .6rem;
+  margin: 0 0 clamp(1.25rem,2.9vw,3rem); font-size: .83rem; line-height: 1.45;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead .atlas-breadcrumb a { color: inherit; text-underline-offset: 4px; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead .atlas-eyebrow {
+  margin: 0 0 .8rem; font-size: .72rem; letter-spacing: .105em; line-height: 1.5;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead .atlas-intro {
+  font-size: clamp(1rem,1.32vw,1.22rem); line-height: 1.53; max-width: 52ch;
+  margin: 0; text-wrap: pretty;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art > figcaption {
+  font-size: .7rem; line-height: 1.45; max-width: 90%;
+  border-radius: 0; padding: 4px 9px;
+}
+
+/* The site's own landscape drawings can carry the spread from edge to edge. */
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) {
+  display: grid; grid-template-columns: minmax(0,1fr); align-items: end;
+  min-height: clamp(25rem,57svh,42rem); background: var(--carnet-encre);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) .atlas-lead__copy {
+  align-self: end; margin: 0; max-width: none;
+  padding: clamp(2.4rem,5.1vw,6rem) var(--carnet-marge) clamp(2.5rem,5.2vw,6rem);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) .atlas-lead__copy :is(.atlas-intro,.atlas-breadcrumb) {
+  color: #f1ead9;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead .atlas-eyebrow { color: var(--carnet-miel); }
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual h1 {
+  font-size: clamp(3.6rem,6.9vw,7rem); max-width: min(16ch,76%);
+  margin: 0 0 .22em; color: var(--carnet-papier);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art:not(.atlas-lead-art--official) {
+  position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; max-height: none;
+  z-index: 0; background: var(--carnet-encre);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art:not(.atlas-lead-art--official) > img {
+  object-fit: cover; object-position: 58% 49%; width: 100%; height: 100%;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art:not(.atlas-lead-art--official)::after {
+  position: absolute; z-index: 0; inset: 0; display: block;
+  content: ""; pointer-events: none;
+  background: linear-gradient(90deg,#14231bee 0%,#19271edb 28%,#17241c7a 60%,#14231b14 90%),
+              linear-gradient(0deg,#15251c80,transparent 63%);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art:not(.atlas-lead-art--official) > figcaption {
+  z-index: 1; right: var(--carnet-marge); bottom: 12px; color: #f7f0df;
+  background: #1b291fe8; border: 0;
+}
+
+/* Each illustration sits on a solid colour taken from its source. The entire
+   piece and credit stay visible, even on short screens and long translations. */
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) {
+  display: grid; grid-template-columns: minmax(0,1.08fr) minmax(0,1fr);
+  gap: clamp(1rem,3.5vw,4rem); align-items: center;
+  background: var(--carnet-papier); color: var(--carnet-encre);
+  padding: 0;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) .atlas-lead__copy {
+  min-width: 0; margin: 0; padding: clamp(2rem,4.4vw,4.7rem) 0 clamp(2rem,4.4vw,4.7rem) var(--carnet-marge);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) h1 {
+  max-width: 15ch; color: var(--carnet-encre); font-size: clamp(3.4rem,5.8vw,6.2rem);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) :is(.atlas-intro,.atlas-breadcrumb) { color: var(--carnet-texte); }
+html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) .atlas-eyebrow { color: var(--carnet-rouille); }
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official {
+  --plate-ground: #23443d;
+  align-self: stretch; display: grid; grid-template-rows: minmax(0,1fr) auto; place-items: center;
+  min-height: clamp(20rem,32vw,31rem); height: auto; max-height: none;
+  margin: 0; border: 0; background: var(--plate-ground);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official:has(img[src*="/ocarina-of-time.webp"]) { --plate-ground: #6a3024; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official:has(img[src*="/a-link-to-the-past.webp"]) { --plate-ground: #3f6951; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official:has(img:is([src*="/skyward-sword.webp"],[src*="/phantom-hourglass.webp"],[src*="/tears-of-the-kingdom.webp"])) { --plate-ground: #19576e; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official:has(img:is([src*="/majoras-mask.webp"],[src*="/oracle-of-ages.webp"])) { --plate-ground: #383862; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official:is([data-plate="poster"],[data-plate="map"]) { --plate-ground: #245147; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official[data-plate="instrument"] { --plate-ground: #334f71; }
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official img {
+  position: relative; inset: auto; display: block; width: auto; height: auto;
+  max-width: 100%; max-height: clamp(18rem,30vw,28rem); box-sizing: border-box;
+  object-fit: contain; object-position: center; padding: clamp(1.25rem,3vw,3.1rem) clamp(1.2rem,3vw,3.1rem) .65rem;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official[data-plate="map"] img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  object-position: 54% 47%; max-height: none; padding: 0;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official figcaption {
+  position: relative; inset: auto; grid-row: 2; justify-self: end; max-width: 100%; box-sizing: border-box;
+  margin: 0; padding: .55rem 1rem; background: var(--plate-ground); color: #fbf5e5; border: 0;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official figcaption a { text-decoration: underline; }
+
+/* Operational leads: make room for the playable instrument, the map and the
+   query field on the first screen. Preserve each tool's own state colours. */
+html[data-carnet-interieur] .atlas-shell .atlas-lead--compact {
+  background: var(--carnet-papier); color: var(--carnet-encre);
+  padding: clamp(1.3rem,2.8vw,3rem) var(--carnet-marge);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--compact .atlas-lead__copy {
+  width: 100%; max-width: none; padding: 0; margin: 0;
+  display: grid; align-items: end; grid-template-columns: minmax(0,1.35fr) minmax(0,.65fr);
+  column-gap: clamp(1rem,5vw,6rem);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--compact .atlas-breadcrumb {
+  grid-column: 1 / -1; color: #4c5846; margin-bottom: 1.2rem;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--compact h1 {
+  grid-column: 1; color: var(--carnet-encre); margin: 0;
+  font-size: clamp(2.85rem,4.8vw,5.25rem); max-width: 22ch;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-lead--compact .atlas-intro {
+  grid-column: 2; border-left: 1px solid var(--carnet-bord); padding-left: clamp(1rem,2.3vw,2.4rem);
+  color: var(--carnet-texte); font-size: clamp(.94rem,1.12vw,1.1rem); line-height: 1.57;
+}
+html[data-carnet-interieur] .atlas-shell main:has(.ocarina-atelier) .atlas-lead--compact {
+  background: var(--carnet-mousse);
+}
+html[data-carnet-interieur] .atlas-shell main:has(.ocarina-atelier) .atlas-lead--compact :is(h1,.atlas-intro,.atlas-breadcrumb) {
+  color: var(--carnet-papier);
+}
+html[data-carnet-interieur="communaute"] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) {
+  min-height: clamp(18rem,37svh,29rem);
+}
+html[data-carnet-interieur="communaute"] .atlas-shell .atlas-lead--visual h1 { font-size: clamp(3rem,5.4vw,5.7rem); }
+
+/* Reading folios. Only prose surfaces adopt the paper tokens; nested map,
+   progress, collection, editor and audio controls retain their own themes. */
+html[data-carnet-interieur][data-theme="default-dark"] .atlas-shell .atlas-content {
+  --archive-rose: #e9c783;
+  --archive-muted: #c5ceba;
+}
+html[data-carnet-interieur] .atlas-shell :is(.ed-prose,.archive-article__body,.journal-hints,.z64-steps,.s2-steps) {
+  --archive-line: #b4b49c; --archive-ink: #232e24; --archive-muted: #374737;
+  --archive-moss: #455b3d; --archive-rose: #7e5139;
+  --ed-ink: #232e24; --ed-muted: #374737; --ed-line: #b4b49c; --ed-gold: #754936;
+  --article-cream: #232e24; --article-muted: #374737; --article-line: #b4b49c; --article-gold: #754936;
+  --s2-ink: #232e24; --s2-muted: #374737; --s2-line: #b4b49c; --s2-blue: #455a3d; --s2-ruby: #754936;
+  color: var(--carnet-encre); background: var(--carnet-papier);
+  padding: clamp(1.3rem,3.55vw,4rem); min-width: 0;
+}
+html[data-carnet-interieur] .atlas-shell :is(.ed-prose,.archive-article__body,.journal-hints,.z64-steps,.s2-steps) :is(p,li,summary,dt,dd) {
+  color: var(--carnet-texte); line-height: 1.7;
+}
+html[data-carnet-interieur] .atlas-shell :is(.ed-prose,.archive-article__body,.journal-hints,.z64-steps,.s2-steps) :is(h2,h3) {
+  color: var(--carnet-encre); font-family: var(--carnet-titre); letter-spacing: -.022em;
+  font-weight: 400; text-wrap: pretty; overflow-wrap: anywhere;
+}
+html[data-carnet-interieur] .atlas-shell :is(.ed-prose,.archive-article__body,.journal-hints) h2 {
+  font-size: clamp(2.1rem,3.25vw,3.5rem); line-height: 1.1;
+}
+html[data-carnet-interieur] .atlas-shell :is(.z64-steps,.s2-steps) h2 {
+  font-size: clamp(1.7rem,2.35vw,2.6rem); line-height: 1.12;
+}
+html[data-carnet-interieur] .atlas-shell :is(.ed-prose,.archive-article__body,.journal-hints,.z64-steps,.s2-steps) a {
+  color: #67452c; text-decoration: underline; text-underline-offset: .2em;
+}
+html[data-carnet-interieur] .atlas-shell :is(.ed-prose,.archive-article__body,.journal-hints,.z64-steps,.s2-steps) :focus-visible {
+  outline-color: #734724;
+}
+html[data-carnet-interieur] .atlas-shell :is(.z64-steps,.s2-steps) > li:first-child { padding-top: 0; border-top: 0; }
+html[data-carnet-interieur] .atlas-shell :is(.z64-steps,.s2-steps) > li:last-child { padding-bottom: 0; }
+html[data-carnet-interieur] .atlas-shell :is(.z64-steps,.s2-steps) .is-checked h2 { color: #3d603d; }
+html[data-carnet-interieur] .atlas-shell :is(.z64-steps,.s2-steps) input[type=checkbox] { accent-color: #46603f; }
+html[data-carnet-interieur] .atlas-shell .journal-hints .journal-hint {
+  color: var(--carnet-encre); background: transparent; border-color: var(--carnet-bord);
+}
+html[data-carnet-interieur] .atlas-shell .journal-hints summary { min-height: 44px; }
+html[data-carnet-interieur] .atlas-shell .archive-article__body .archive-article__number,
+html[data-carnet-interieur] .atlas-shell .ed-prose .ed-kicker { color: var(--carnet-rouille); }
+html[data-carnet-interieur] .atlas-shell .archive-article__body :is(figure,blockquote) { margin-inline: 0; }
+html[data-carnet-interieur] .atlas-shell .ed-prose p,
+html[data-carnet-interieur] .atlas-shell .archive-article__body p { max-width: 68ch; }
+html[data-carnet-interieur] .atlas-shell .ed-prose--centered { max-width: 52rem; }
+html[data-carnet-interieur] .atlas-shell :is(.alttp-search-heading h1,.alttp-hero h1) { font-size: clamp(3.3rem,6.25vw,6.8rem); }
+html[data-carnet-interieur] .atlas-shell .alttp-search-heading {
+  border-block-end: 1px solid var(--alttp-line); margin-block-end: 1.5rem;
+}
+html[data-carnet-interieur] .atlas-shell .alttp-search-table-wrap {
+  border: 1px solid var(--alttp-line); scrollbar-color: var(--carnet-mousse) var(--carnet-pierre);
+}
+html[data-carnet-interieur] .atlas-shell .atlas-content :is(.series-era,.z64-section-head,.forum-section-head,.journal-section-head) {
+  border-top: 1px solid #77856c; padding-block-start: 1.3rem;
+}
+html[data-carnet-interieur] .atlas-shell .atlas-content :is(.series-era,.journal-related,.series-walkthrough,.z64-section-head,.series-catalogue,.ed-next,.guide-collections,.journal-facts,.s2-sidebar,.z64-reader__sidebar) h2 {
+  font-family: var(--carnet-titre); font-weight: 400; line-height: 1.08; letter-spacing: -.025em;
+}
+html[data-carnet-interieur] .atlas-shell :is(.series-card-art,.series-card,.z64-card,.ed-post-card,.s2-directory a) {
+  border-radius: 0;
+}
+html[data-carnet-interieur] .atlas-shell .series-card-art { background: var(--carnet-pierre); }
+html[data-carnet-interieur] .atlas-shell .series-card-copy > strong { font-family: var(--carnet-titre); font-size: clamp(1.45rem,2.3vw,2.25rem); line-height: 1.12; }
+html[data-carnet-interieur] .atlas-shell .atlas-content :is(.series-controls,.s2-map-toolbar) {
+  border-block: 1px solid #7e8a74; padding-block: 1rem;
+}
+html[data-carnet-interieur] .system-page h1 { font-family: var(--carnet-titre); }
+
+@supports (animation-timeline: view()) and (animation-range: exit 0% exit 100%) {
+  @media (prefers-reduced-motion: no-preference) {
+    html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) {
+      view-timeline-name: --carnet-feuillet;
+    }
+    html[data-carnet-interieur] .atlas-shell .atlas-lead-art:not(.atlas-lead-art--official) > img {
+      animation: carnet-image-depth 1s linear both;
+      animation-timeline: --carnet-feuillet;
+      animation-range: exit 0% exit 100%;
+    }
+  }
+}
+@keyframes carnet-image-depth {
+  from { transform: scale(1); }
+  to   { transform: scale(1.065); }
+}
+@supports (animation-timeline: view()) and (animation-range: exit 0% exit 100%) {
+  @media (prefers-reduced-motion: no-preference) {
+    html[data-carnet-interieur] .atlas-lead--visual:has(> .atlas-lead-art--official),
+    html[data-carnet-interieur] .alttp-hero { view-timeline-name: --atlas-plate-exit; }
+    html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official img,
+    html[data-carnet-interieur] .alttp-world-plate {
+      animation: atlas-lift-plate 1s linear both;
+      animation-timeline: --atlas-plate-exit; animation-range: exit 0% exit 100%;
+    }
+    html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official[data-plate="map"] img,
+    html[data-carnet-interieur] .alttp-world-plate { animation-name: atlas-read-map; }
+  }
+}
+@keyframes atlas-lift-plate { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+@keyframes atlas-read-map { from { transform: scale(1); } to { transform: scale(1.08); } }
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-carnet-interieur] .atlas-shell .atlas-lead .atlas-breadcrumb a:hover { text-decoration: underline; }
+  html[data-carnet-interieur] .atlas-shell .series-card-art img { transition: transform 200ms cubic-bezier(.2,.7,.25,1); }
+  html[data-carnet-interieur] .atlas-shell .series-card:hover .series-card-art img { transform: scale(1.025); }
+}
+@media (min-width: 1600px) {
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) h1 { max-width: 19ch; }
+}
+@media (max-width: 720px) {
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) {
+    min-height: 25rem;
+  }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> figure:not(.atlas-lead-art--official)) .atlas-lead__copy {
+    padding-block: 3.7rem 3.15rem;
+  }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead-art:not(.atlas-lead-art--official)::after {
+    background: linear-gradient(0deg,#16261bf5,#19281dee 33%,#16261b9c 63%,#16261b22);
+  }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead-art:not(.atlas-lead-art--official)>img { object-position: 66% 45%; }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--visual h1 { font-size: clamp(3.2rem,10.5vw,5rem); max-width: 100%; }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) {
+    grid-template-columns: minmax(0,1fr); gap: 0; padding: 0;
+  }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) .atlas-lead__copy {
+    padding: 1.8rem var(--carnet-marge) 1.5rem;
+  }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--visual:has(> .atlas-lead-art--official) h1 {
+    font-size: clamp(3rem,9vw,4.3rem); max-width: none;
+  }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official { min-height: clamp(13rem,51vw,19rem); }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official img { max-height: clamp(11.5rem,49vw,17rem); padding: 1rem 1.2rem .25rem; }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead-art--official[data-plate="map"] img { max-height: none; padding: 0; }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--compact .atlas-lead__copy { display: block; }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--compact h1 { font-size: clamp(2.65rem,8.1vw,4rem); }
+  html[data-carnet-interieur] .atlas-shell .atlas-lead--compact .atlas-intro { border: 0; padding: 0; margin-top: .75rem; }
+  html[data-carnet-interieur] .atlas-shell :is(.ed-prose,.archive-article__body,.journal-hints,.z64-steps,.s2-steps) { padding: 1.2rem; }
+}
+
+/* Section covers function as navigation. Their title and source sit on solid
+   paper so the artwork itself needs neither a tint nor overlaid typography. */
+.atlas-directory-grid .atlas-directory-cover[data-plate] {
+  display: grid; grid-template-rows: minmax(0,1fr) auto; height: auto; min-height: 0; background: #263e34;
+}
+.atlas-directory-grid .atlas-directory-cover[data-plate]::after { content: none; }
+.atlas-directory-grid .atlas-directory-cover[data-plate] img {
+  position: static; z-index: auto; width: 100%; height: clamp(6rem,11vw,10rem);
+  object-fit: contain; object-position: center; padding: .45rem;
+}
+.atlas-directory-grid .atlas-directory-cover[data-plate="map"] img { object-fit: cover; padding: 0; }
+.atlas-directory-grid .atlas-directory-cover[data-plate] h2 {
+  position: static; margin: 0; padding: .65rem .8rem .15rem; background: #263e34;
+}
+.atlas-directory-grid a.atlas-directory-credit {
+  display: block; padding: .18rem .8rem .55rem; font-size: .7rem; line-height: 1.5;
+  background: #263e34; color: #e6ebdc; text-decoration: underline; text-underline-offset: 2px;
+}
+.alttp-hero .alttp-lead-credit {
+  position: absolute; bottom: .8rem; right: 1rem; z-index: 1; padding: .35rem .55rem;
+  background: #14372d; color: #f5efd8; font: 400 .74rem/1.4 var(--atlas-ui); text-underline-offset: 2px;
+}
+.alttp-hero .alttp-world-plate { object-position: 56% 39%; }
+.alttp-hero:has(> .alttp-world-plate)::after {
+  background: linear-gradient(90deg,#102419fa 0%,#102419ed 27%,#1024199c 46%,transparent 76%);
+}
+@media (max-width: 720px) {
+  .alttp-hero:has(> .alttp-world-plate) {
+    display: flex; flex-direction: column; align-items: stretch; min-height: 0; background: #183327;
+  }
+  .alttp-hero:has(> .alttp-world-plate)::after { content: none; }
+  .alttp-hero:has(> .alttp-world-plate) .alttp-hero-copy {
+    order: 0; width: auto; margin: 0; padding: 1.6rem var(--carnet-marge) 1.4rem;
+  }
+  .alttp-hero:has(> .alttp-world-plate) .alttp-kicker { margin-block: 1.5rem .8rem; }
+  .alttp-hero .alttp-world-plate {
+    position: relative; inset: auto; z-index: 0; order: 1; width: 100%; height: clamp(12rem,50vw,19rem);
+    object-position: 50% 45%; transform-origin: center top;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-carnet-interieur] .atlas-shell .series-card-art img { transition: none; transform: none; }
+}

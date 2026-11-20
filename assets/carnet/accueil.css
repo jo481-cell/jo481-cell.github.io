@@ -1,0 +1,447 @@
+/* Entry spreads. Everything interactive belongs to the original archive. */
+.atlas-home #atlas-main,
+.remake-hub #atlas-main,
+.s2-guide #atlas-main:has(.s2-directory) {
+  --atlas-entry-gutter: clamp(22px, 5.7vw, 114px);
+  --atlas-entry-display: "Atlas Display", "Palatino Linotype", Georgia, serif;
+  --atlas-entry-shadow: #10231bbd;
+}
+
+/* The atlas opens on the cartographer's desk. The two edition choices stay
+   with the title; the existing search, Navi and Triforce share the next spread. */
+#atlas-main > .atlas-frontier {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  grid-template-rows: minmax(clamp(320px, 49svh, 635px), auto) auto auto;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--atlas-forest-ink, #232e24);
+  color: var(--atlas-linen, #f4ecd9);
+}
+#atlas-main .atlas-frontier::before { content: none; }
+#atlas-main .atlas-frontier-copy { display: contents; }
+#atlas-main .atlas-frontier-art {
+  grid-area: 1 / 1 / 3 / -1;
+  position: relative;
+  display: block;
+  inset: auto;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+#atlas-main .atlas-frontier-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 64% 54%; }
+#atlas-main .atlas-frontier-art::before, #atlas-main .atlas-frontier-art::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+#atlas-main .atlas-frontier-art::after {
+  background: linear-gradient(90deg, #12241af5 0%, #192d22d9 25%, #1d30246b 52%, transparent 78%),
+              linear-gradient(0deg, #15281cbd 0%, transparent 41%);
+}
+#atlas-main .atlas-frontier-title {
+  grid-area: 1 / 1 / 2 / -1;
+  z-index: 1;
+  align-self: end;
+  position: relative;
+  padding: clamp(55px, 10svh, 135px) var(--atlas-entry-gutter) 0;
+  margin: 0;
+  width: auto;
+}
+#atlas-main .atlas-frontier-title h1,
+.remake-hub #atlas-main .atlas-lead--visual h1,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual h1 {
+  margin: 0;
+  max-width: 13.3ch;
+  font: 400 clamp(4.9rem, 7.2vw, 8.4rem)/.92 var(--atlas-entry-display);
+  letter-spacing: -.037em;
+  color: #fff5d9;
+  text-wrap: balance;
+}
+#atlas-main .atlas-frontier-title > p {
+  max-width: 40ch;
+  margin: 24px 0 0;
+  color: #f3eedf;
+  font-size: clamp(1rem, 1.23vw, 1.25rem);
+  line-height: 1.52;
+  text-wrap: pretty;
+}
+#atlas-main .atlas-frontier-doors {
+  grid-area: 2 / 1 / 3 / -1;
+  z-index: 1;
+  position: relative;
+  inset: auto;
+  width: min(40rem, calc(100% - 2 * var(--atlas-entry-gutter)));
+  margin: 27px var(--atlas-entry-gutter) clamp(68px, 10svh, 120px);
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 11px;
+}
+#atlas-main .atlas-frontier-doors > a {
+  min-height: 67px; padding: 9px 12px; display: flex; flex-direction: row;
+  align-items: center; gap: 12px; background: #1e3129f2;
+  border: 1px solid #dbca8a8f; color: #fff2d9;
+}
+#atlas-main .atlas-frontier-doors img { width: 32px; height: 43px; object-fit: contain; flex: 0 0 auto; }
+#atlas-main .atlas-frontier-doors small { color: #efce8f; font: 600 .63rem/1.35 var(--archive-body,sans-serif); letter-spacing: .045em; }
+#atlas-main .atlas-frontier-doors strong { margin-top: 3px; font: 400 clamp(1.12rem,1.65vw,1.56rem)/1.08 var(--atlas-entry-display); }
+#atlas-main .atlas-frontier-doors svg { width: 17px; height: 17px; display: inline-block; margin-left: auto; }
+#atlas-main .atlas-frontier-credit {
+  grid-area: 2 / 1 / 3 / -1; justify-self: end; align-self: end; z-index: 1;
+  inset: auto; position: relative; margin: 0 var(--atlas-entry-gutter) 13px; padding: 4px 6px;
+  width: fit-content; font-size: .68rem; line-height: 1.25; color: #fff3d7;
+  background: #17261ede; text-decoration: underline; text-underline-offset: 3px;
+}
+#atlas-main .atlas-frontier-tools {
+  grid-area: 3 / 1 / 4 / 2;
+  padding: clamp(42px,6.5vw,100px) clamp(14px,2vw,32px) clamp(42px,6.5vw,100px) var(--atlas-entry-gutter);
+  align-self: center; min-width: 0; z-index: 2; position: relative;
+}
+#atlas-main .atlas-frontier .atlas-finder { max-width: none; }
+#atlas-main .atlas-frontier .atlas-finder__input-wrap { color: #fff5de; background: #18271ed9; }
+#atlas-main .atlas-frontier .atlas-navi__heading {
+  display: block; position: static; width: auto; height: auto;
+  margin: 0 0 14px; padding: 0; overflow: visible; clip-path: none; white-space: normal;
+}
+#atlas-main .atlas-frontier .atlas-navi__heading h2 {
+  margin: 0; font: 400 clamp(2.4rem,4vw,4.4rem)/1.03 var(--atlas-entry-display); color: #fff0cf;
+}
+#atlas-main .atlas-frontier .atlas-navi__heading p { font-size: .92rem; color: #dedcc9; }
+#atlas-main .atlas-frontier > .atlas-triforce-stage {
+  grid-area: 3 / 2 / 4 / 3; position: relative; inset: auto;
+  align-self: center; justify-self: center; width: min(100%, 670px);
+  height: clamp(360px,35vw,555px); margin: 25px 0 47px;
+}
+#atlas-main .atlas-frontier .atlas-triforce-controls { bottom: 0; left: 4%; right: 4%; }
+#atlas-main .atlas-frontier .atlas-triforce-source { bottom: -24px; }
+
+/* Keep the editorial dossier and the practical Switch 2 contents distinct.
+   Only its directory gets this treatment; chapters keep their reading layout. */
+.remake-hub #atlas-main .atlas-lead--visual,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual {
+  position: relative; isolation: isolate; display: grid;
+  grid-template-columns: 1fr; align-items: center;
+  min-height: clamp(430px, 74svh, 850px);
+  margin: 0; padding: 0; max-width: none; overflow: clip;
+  background: var(--atlas-forest-ink,#232e24); color: var(--atlas-linen,#f4ecd9);
+}
+.remake-hub #atlas-main .atlas-lead--visual .atlas-lead__copy,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead__copy {
+  position: relative; z-index: 2; grid-area: 1 / 1; align-self: center;
+  margin: 0; width: 100%; max-width: none;
+  padding: clamp(55px,8vw,110px) var(--atlas-entry-gutter);
+}
+.remake-hub #atlas-main .atlas-lead--visual .atlas-breadcrumb,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-breadcrumb {
+  margin: 0 0 22px; color: #eee1bb; font-size: .86rem;
+}
+.remake-hub #atlas-main .atlas-lead--visual .atlas-breadcrumb a,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-breadcrumb a { color: inherit; }
+.remake-hub #atlas-main .atlas-lead--visual .atlas-eyebrow { display: none; }
+.remake-hub #atlas-main .atlas-lead--visual .atlas-intro,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-intro {
+  color: #fcf3da; max-width: 40ch; margin: 20px 0 0; font-size: clamp(1rem,1.23vw,1.24rem); line-height: 1.55;
+}
+.remake-hub #atlas-main .atlas-lead--visual .atlas-lead-art,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art {
+  display: block; position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; max-height: none; margin: 0;
+  overflow: hidden; background: transparent; border: 0;
+}
+.remake-hub #atlas-main .atlas-lead--visual .atlas-lead-art img,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art img {
+  display: block; width: 100%; height: 100%; min-height: 0; max-height: none;
+  object-fit: cover; object-position: 70% 45%; filter: none;
+}
+.remake-hub #atlas-main .atlas-lead-art::after,
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead-art::after {
+  content: ""; pointer-events: none; position: absolute; inset: 0;
+  background: linear-gradient(90deg,#14271ff2 0%,#14261fe0 27%,#162a207d 52%,transparent 80%),
+              linear-gradient(0deg,#10221b87,transparent 36%);
+}
+.remake-hub #atlas-main .atlas-lead-art figcaption {
+  position: absolute; right: var(--atlas-entry-gutter); bottom: 13px; left: auto; z-index: 1;
+  width: auto; background: #17261edc; padding: 4px 6px; font-size: .68rem; color: #fff3db;
+}
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual { min-height: clamp(375px,59svh,680px); }
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual h1 { font-size: clamp(4rem,6.1vw,7.1rem); max-width: 14.7ch; }
+.remake-hub #atlas-main .remake-return { border-color: #b8aa80; }
+.remake-hub #atlas-main .remake-return h2,
+.remake-hub #atlas-main .remake-section-head h2,
+.s2-guide #atlas-main .s2-directory h2,
+#atlas-main .atlas-home-section-heading h2,
+#atlas-main .atlas-home-answers h2,
+#atlas-main .atlas-home-beyond h2 { font-family: var(--atlas-entry-display); font-weight: 400; }
+:is(.remake-hub,.s2-guide,.atlas-home):lang(ja) #atlas-main,
+:is(.remake-hub,.s2-guide,.atlas-home):lang(zh) #atlas-main {
+  --atlas-entry-display: "Yu Mincho","Hiragino Mincho ProN","Noto Serif CJK JP","Songti SC","SimSun",serif;
+}
+#atlas-main:lang(ja) .atlas-frontier-title h1, #atlas-main:lang(zh) .atlas-frontier-title h1 { max-width: 10em; line-height: 1.14; }
+.remake-hub #atlas-main:lang(ja) .atlas-lead--visual h1,
+.remake-hub #atlas-main:lang(zh) .atlas-lead--visual h1 { max-width: 10em; line-height: 1.2; }
+
+@supports (animation-timeline: view()) and (animation-range: exit 0% exit 100%) {
+  @media (prefers-reduced-motion: no-preference) {
+    #atlas-main .atlas-frontier-art { view-timeline: --opening-spread block; }
+    #atlas-main .atlas-frontier-art::before {
+      z-index: 1; background: url("/assets/original/section-guides.webp") 64% 50% / cover no-repeat;
+      animation: atlas-carnet-unfold linear both; animation-timeline: --opening-spread;
+      animation-range: exit 0% exit 78%; transform-origin: 62% 60%;
+    }
+    #atlas-main .atlas-frontier-art::after { z-index: 2; }
+    .remake-hub #atlas-main .atlas-lead--visual,
+    .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual { view-timeline: --dossier-cover block; }
+    .remake-hub #atlas-main .atlas-lead--visual .atlas-lead-art img,
+    .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art img {
+      animation: atlas-carnet-approach linear both; animation-timeline: --dossier-cover; animation-range: exit 0% exit 90%; transform-origin: 72% 44%;
+    }
+    .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art img {
+      animation-name: atlas-carnet-poster; transform-origin: center;
+    }
+    @keyframes atlas-carnet-poster { from { transform: scale(1); } to { transform: scale(.94); } }
+    @keyframes atlas-carnet-unfold {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(1.12); }
+    }
+    @keyframes atlas-carnet-approach { from { transform: scale(1); } to { transform: scale(1.12); } }
+  }
+  @media (max-width: 700px) and (prefers-reduced-motion: no-preference) {
+    #atlas-main .atlas-frontier-art::before { background-image: url("/assets/original/section-guides-800.webp"); background-position: 64% 35%; }
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  #atlas-main .atlas-frontier-doors > a:hover { background: #34473af5; border-color: #f6d49a; transform: translateY(-2px); }
+}
+@media (max-width: 900px) {
+  #atlas-main .atlas-frontier-doors { margin-bottom: 56px; }
+  #atlas-main .atlas-frontier-title h1, .remake-hub #atlas-main .atlas-lead--visual h1 { font-size: clamp(4.15rem,8vw,5.4rem); }
+}
+@media (max-width: 700px) {
+  #atlas-main > .atlas-frontier { grid-template-columns: minmax(0,1fr); grid-template-rows: minmax(335px,54svh) auto auto auto; }
+  #atlas-main .atlas-frontier-title { display: block; padding-top: 100px; align-self: end; }
+  #atlas-main .atlas-frontier-art img { object-position: 65% 40%; }
+  #atlas-main .atlas-frontier-art::after {
+    background: linear-gradient(0deg,#172b20fa 1%,#172b20ec 18%,#172b20ad 48%,#172b2045 76%,#172b201a);
+  }
+  #atlas-main .atlas-frontier-title h1 { font-size: clamp(3.65rem,12vw,5.5rem); line-height:.96; max-width: 14ch; }
+  #atlas-main .atlas-frontier-title > p { max-width: 37ch; margin-top: 14px; font-size: 1rem; }
+  #atlas-main .atlas-frontier-doors { gap: 7px; margin-top: 18px; margin-bottom: 52px; }
+  #atlas-main .atlas-frontier-doors > a { flex-direction: row; min-height: 57px; padding: 8px; gap: 7px; }
+  #atlas-main .atlas-frontier-doors img { width: 23px; height: 28px; }
+  #atlas-main .atlas-frontier-doors small { font-size: .57rem; }
+  #atlas-main .atlas-frontier-doors strong { font-size: 1.12rem; }
+  #atlas-main .atlas-frontier-doors svg { display: none; }
+  #atlas-main .atlas-frontier-tools { grid-area: 3 / 1; padding: 37px var(--atlas-entry-gutter) 0; }
+  #atlas-main .atlas-frontier > .atlas-triforce-stage { grid-area: 4 / 1; width: min(100%,510px); height: clamp(305px,73vw,395px); margin: 0 0 42px; }
+  #atlas-main .atlas-frontier .atlas-triforce-controls { left: var(--atlas-entry-gutter); right: var(--atlas-entry-gutter); }
+  #atlas-main .atlas-frontier .atlas-triforce-source { right: var(--atlas-entry-gutter); }
+  .remake-hub #atlas-main .atlas-lead--visual, .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual { min-height: min(690px,78svh); align-items: end; }
+  .remake-hub #atlas-main .atlas-lead--visual .atlas-lead__copy,
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead__copy { align-self: end; padding-block: 120px 43px; }
+  .remake-hub #atlas-main .atlas-lead--visual h1,
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual h1 { font-size: clamp(3.4rem,11.5vw,5.05rem); max-width: 14ch; }
+  .remake-hub #atlas-main .atlas-lead-art::after,
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead-art::after { background: linear-gradient(0deg,#13271df7,#15291ff0 23%,#162b20a6 55%,#172c2029 85%); }
+  .remake-hub #atlas-main .atlas-lead--visual .atlas-breadcrumb,
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-breadcrumb { margin-bottom: 14px; }
+  .remake-hub #atlas-main .atlas-lead--visual .atlas-intro,
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-intro { font-size: 1rem; margin-top: 15px; }
+}
+@media (max-width: 355px) {
+  #atlas-main .atlas-frontier-doors > a { align-items: start; }
+  #atlas-main .atlas-frontier-doors img { display: none; }
+}
+
+/* The official key art carries its own titling. Give the complete poster a
+   dedicated plate and keep the live directory title on its facing page. */
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual {
+  grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr);
+  gap: clamp(28px,4vw,74px);
+  padding: clamp(48px,7vw,100px) var(--atlas-entry-gutter);
+}
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead__copy {
+  grid-area: 1 / 1; align-self: center; padding: 0;
+}
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art {
+  grid-area: 1 / 2; position: relative; inset: auto; align-self: center;
+  aspect-ratio: 16 / 9; height: auto; width: 100%;
+}
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art::after { content: none; }
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art img {
+  position: absolute; inset: 0; width: 100%; height: 100%; padding: 0;
+  object-fit: contain; object-position: center;
+}
+.s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual h1 {
+  font-size: clamp(3.5rem,5.45vw,6.5rem);
+}
+@media (max-width: 850px) {
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual {
+    min-height: 0; grid-template-columns: minmax(0,1fr); gap: 26px;
+    padding-block: clamp(34px,7vw,56px);
+  }
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual .atlas-lead-art { grid-area: 2 / 1; }
+  .s2-guide #atlas-main:has(.s2-directory) .atlas-lead--visual h1 { font-size: clamp(3rem,9.2vw,5.3rem); max-width: 16ch; }
+}
+
+/* Hyrule is printed on the left leaf and explored on the facing map. */
+#atlas-main > .atlas-frontier {
+  grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr);
+  grid-template-rows: minmax(clamp(320px,47svh,550px),max-content) max-content auto;
+}
+#atlas-main .atlas-frontier::after {
+  content:""; grid-area:1 / 1 / 3 / -1; position:relative; inset:auto; z-index:0;
+  background:#f4edd9; pointer-events:none;
+}
+#atlas-main .atlas-frontier-title {
+  grid-area:1 / 1; padding:clamp(42px,7vh,88px) clamp(22px,3vw,56px) 0 var(--atlas-entry-gutter);
+  align-self:end; min-width:0;
+}
+#atlas-main .atlas-frontier-title h1 {
+  color:#243c31; font-size:clamp(3.8rem,6.7vw,7.6rem); line-height:.94;
+  max-width:10.8ch; letter-spacing:-.035em; text-shadow:none;
+}
+#atlas-main .atlas-frontier-title > p {color:#374b40;max-width:35ch;margin-top:22px}
+#atlas-main .atlas-frontier-doors {
+  grid-area:2 / 1; margin:24px 0 clamp(42px,6.5vh,82px) var(--atlas-entry-gutter);
+  padding:0; width:calc(100% - var(--atlas-entry-gutter) - clamp(18px,3vw,54px));
+  align-self:start; gap:8px;
+}
+#atlas-main .atlas-frontier-doors > a {
+  border:1px solid #a1997b;border-radius:0;background:#fcf7e8;color:#253f33;
+  gap:9px;padding:8px;min-height:65px;text-shadow:none;
+}
+#atlas-main .atlas-frontier-doors strong {font-size:clamp(1.08rem,1.47vw,1.6rem);color:inherit}
+#atlas-main .atlas-frontier-doors small {color:#68502d}
+#atlas-main .atlas-frontier-doors svg {width:14px; flex:none}
+@media(hover:hover) {
+  #atlas-main .atlas-frontier-doors > a:hover {background:#f2dda4;border-color:#826937;color:#283e30}
+}
+.field-chart {
+  --chart-ink:#112d2a;grid-area:1 / 2 / 3 / 3;z-index:1;isolation:isolate;
+  display:grid;grid-template-rows:minmax(0,1fr) auto;align-self:stretch;min-width:0;
+  min-height:0;margin:0;background:var(--chart-ink);
+}
+.field-chart__window {position:relative;overflow:hidden;container-type:size;min-height:0}
+.field-chart__camera {
+  position:absolute;inset:0;
+  --map-size:max(211cqw,255cqh);
+}
+.field-chart__sheet {
+  width:var(--map-size);height:var(--map-size);position:absolute;
+  left:clamp(calc(100% - var(--map-size)), calc(50% - var(--map-size) * var(--place-x)), 0px);
+  top:clamp(calc(100% - var(--map-size)), calc(50% - var(--map-size) * var(--place-y)), 0px);
+}
+.field-chart__sheet picture,.field-chart__sheet img {display:block;width:100%;height:100%;max-width:none}
+.field-chart__water {position:absolute;inset:0;pointer-events:none;opacity:0}
+.field-chart__legend,.field-chart__pause {
+  position:absolute;top:16px;background:#142a24f5;color:#fff3d1;
+}
+.field-chart__legend {
+  left:16px;max-width:calc(100% - 86px);padding:7px 11px;font:600 .76rem/1.34 var(--atlas-ui);
+}
+.field-chart__legend i {color:#e9c783;font-style:normal;padding-inline:4px}
+.field-chart__pause {
+  right:16px;display:grid;place-items:center;width:44px;height:44px;
+  border:1px solid #c9bc92;cursor:pointer;padding:0;border-radius:2px;
+}
+.field-chart__pause[hidden] {display:none}
+.field-chart__pause svg {width:15px;fill:currentColor}
+.field-chart__strip,.remake-plates figcaption {
+  display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;
+  background:#142d28;color:#f8f1dd;padding:8px clamp(12px,1.35vw,24px);position:relative;
+  text-transform:none;letter-spacing:normal;
+}
+.field-chart__places,.edition-selector {display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.field-chart__places button,.edition-selector button {
+  appearance:none;background:none;color:#f1e9d4;border:1px solid transparent;border-radius:0;
+  padding:6px clamp(6px,.8vw,14px);min-height:42px;cursor:pointer;font:600 .85rem/1.15 var(--atlas-ui);
+}
+.field-chart__places button[aria-pressed=true],.edition-selector button[aria-pressed=true] {
+  background:#e9c783;color:#21382b;border-color:#e9c783;
+}
+.field-chart__places button:not([aria-pressed=true]):hover,.edition-selector button:not([aria-pressed=true]):hover {border-color:#b3b89c}
+.field-chart__credit,.remake-plates figcaption a {
+  color:#e2d9bb;white-space:nowrap;font:400 .7rem/1.35 var(--atlas-ui);
+  text-decoration:underline;text-underline-offset:3px;
+}
+@media(prefers-reduced-motion:no-preference) {
+  .field-chart__sheet {transition:left 850ms cubic-bezier(.28,.07,.20,1), top 850ms cubic-bezier(.28,.07,.20,1)}
+  .field-chart__water {
+    background:url("/assets/alttp/light-field-water.webp") center/100% 100%;
+    animation:field-water 1400ms steps(1,end) infinite;
+  }
+  .field-chart[data-rest=true] .field-chart__water {animation-play-state:paused}
+  .field-chart[data-rest=true] .field-chart__sheet {transition:none}
+  .field-chart__camera {animation:field-arrival 1900ms cubic-bezier(.21,.66,.22,1) both}
+  .field-chart[data-rest=true] .field-chart__camera {animation:none}
+  @keyframes field-arrival {from{transform:scale(1.08) translateY(1.9%)}to{transform:none}}
+  @keyframes field-water {0%,100%{opacity:0}50%{opacity:1}}
+  @supports(animation-timeline:view()) {
+    .field-chart {view-timeline:--field-atlas block}
+    .field-chart[data-rest=false] .field-chart__sheet {animation:field-exit linear both;animation-timeline:--field-atlas;animation-range:exit 0% exit 95%}
+    @keyframes field-exit {from{transform:scale(1)}to{transform:scale(1.035)}}
+  }
+}
+.remake-hub #atlas-main .atlas-lead--visual {
+  background:#17352e;min-height:clamp(460px,67svh,720px);
+  grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);gap:clamp(20px,3vw,64px);
+  padding:clamp(36px,5.5vw,96px) var(--atlas-entry-gutter);
+}
+.remake-hub #atlas-main .atlas-lead--visual .atlas-lead__copy {padding:0;align-self:center;width:auto}
+.remake-hub #atlas-main .atlas-lead--visual h1 {font-size:clamp(3.65rem,6vw,7.2rem);max-width:12ch}
+.remake-plates {grid-area:1 / 2;position:relative;display:block;margin:0;width:100%;max-width:880px;justify-self:end}
+.remake-plates__images {
+  position:relative;aspect-ratio:16/9;overflow:hidden;background:#1b2924;
+  border:1px solid #697564;
+}
+.remake-plates__images img {position:absolute;display:block;inset:0;width:100%;height:100%;object-fit:contain;max-width:none}
+.remake-plates__images .remake-plates__old {opacity:0}
+.remake-plates[data-classic=true] .remake-plates__old {opacity:1}
+.remake-plates[data-classic=true] .remake-plates__new {opacity:0}
+.remake-plates figcaption {border:1px solid #697564;border-top:0;padding:7px 10px}
+@media(prefers-reduced-motion:no-preference) {
+  .remake-plates__images img {transition:opacity 250ms ease-out}
+  @supports(animation-timeline:view()) {
+    .remake-hub #atlas-main .atlas-lead--visual {view-timeline:--remake-archive block}
+    .remake-plates {animation:remake-shelf linear both;animation-timeline:--remake-archive;animation-range:exit 0% exit 90%}
+    @keyframes remake-shelf {from{transform:translateY(0)}to{transform:translateY(20px)}}
+  }
+}
+@media(max-width:1000px) and (min-width:901px) {
+  #atlas-main .atlas-frontier-doors {grid-template-columns:1fr;max-width:280px}
+  #atlas-main .atlas-frontier-doors > a {min-height:46px}
+  #atlas-main .atlas-frontier-doors img {width:28px;height:30px}
+}
+@media(max-width:900px) {
+  #atlas-main > .atlas-frontier {grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto auto}
+  #atlas-main .atlas-frontier::after {grid-area:1 / 1 / 4 / 2}
+  #atlas-main .atlas-frontier-title {grid-area:1 / 1;padding:32px var(--atlas-entry-gutter) 0}
+  #atlas-main .atlas-frontier-title h1 {font-size:clamp(3.35rem,10.8vw,5.3rem);max-width:14ch;line-height:.96}
+  #atlas-main .atlas-frontier-title > p {margin-top:12px;max-width:48ch}
+  #atlas-main .atlas-frontier-doors {grid-area:2 / 1;width:auto;max-width:none;grid-template-columns:1fr 1fr;margin:16px var(--atlas-entry-gutter) 24px}
+  #atlas-main .atlas-frontier-doors > a {min-height:55px}
+  #atlas-main .atlas-frontier-doors img {height:30px;width:23px}
+  .field-chart {grid-area:3 / 1;margin:0;min-height:0}
+  .field-chart__window {height:clamp(230px,34svh,340px)}
+  .field-chart__camera {--map-size:max(212cqw,226cqh)}
+  .field-chart__strip {padding:5px 12px;gap:2px 8px}
+  .field-chart__places button {font-size:.82rem;padding:6px 8px}
+  .field-chart__credit {margin-left:auto}
+  #atlas-main .atlas-frontier-tools {grid-area:4 / 1;padding-inline:var(--atlas-entry-gutter)}
+  #atlas-main .atlas-frontier > .atlas-triforce-stage {grid-area:5 / 1}
+  .remake-hub #atlas-main .atlas-lead--visual {min-height:0;grid-template-columns:minmax(0,1fr);gap:22px;padding:32px var(--atlas-entry-gutter)}
+  .remake-hub #atlas-main .atlas-lead--visual .atlas-lead__copy {padding:0}
+  .remake-hub #atlas-main .atlas-lead--visual h1 {max-width:15ch;font-size:clamp(3.2rem,10.4vw,5.3rem)}
+  .remake-plates {grid-area:2 / 1}
+  .remake-plates figcaption {gap:4px}
+}
+@media(max-width:365px) {
+  #atlas-main .atlas-frontier-doors {gap:5px}
+  #atlas-main .atlas-frontier-doors img {display:none}
+}

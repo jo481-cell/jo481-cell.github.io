@@ -1,0 +1,1 @@
+var e=`Ocarina of Time Switch 2 Trailer Analysis | Hyrule Atlas`,t=`Watch the official Ocarina of Time Switch 2 trailer and explore sourced analysis separating confirmed details from careful observations.`;export{e as n,t};
