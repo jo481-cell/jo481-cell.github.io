@@ -58,8 +58,21 @@ Les tests automatisés du Worker utilisent leurs propres fixtures.
    saisie des secrets, la réponse attendue est 503 et `{"configured":false}`.
    Après leur saisie, elle passe à 200 et `{"configured":true}`. Sans cet en-tête,
    une réponse 503 ne permet pas de confirmer que le Worker a été atteint.
-   Les autres appels y sont bloqués. Le statut confirme le raccordement et la
-   présence des paramètres. Valider les parcours avec écriture dans un environnement
+   Les sondes `/api/community?probe=threads` et `/api/community?probe=fan-art`
+   vérifient les lectures anonymes du forum francophone et de la galerie. Elles
+   renvoient 204 après lecture réussie ou 503 en cas d’indisponibilité, avec un
+   corps vide et sans cookie. Toute écriture reste bloquée. Pour vérifier à la
+   fois l’alias stable et l’URL immuable du déploiement, installer le module
+   Python `requests`, puis exécuter depuis la racine :
+
+   ```powershell
+   python cloudflare/verify/pages-live.py --deployment <empreinte>.hyrule-atlas.pages.dev --api-only --expect-configured
+   ```
+
+   Retirer `--expect-configured` pour vérifier l’état initial, avant les secrets,
+   ou `--api-only` pour inclure le sitemap, les redirections et les ressources.
+   Le reçu local est écrit dans `cloudflare/verify/checks/`. Valider les parcours
+   avec écriture dans un environnement
    dédié disposant d’une base et d’un transport de courriels de test.
 4. Une fois la bascule autorisée, conserver le domaine canonique `hyruleatlas.com`
    et ajouter la [règle de redirection www](pages/www-redirect-rule.json) aux règles

@@ -83,3 +83,48 @@ test('the production binding passes the request, session cookies and API headers
   assert.equal(response.headers.get('referrer-policy'), 'strict-origin');
   assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
 });
+
+test('public read probes validate each anonymous response and discard all returned records and headers', async () => {
+  const cases = [
+    ['threads', '?op=threads&locale=fr', { threads: [{ title: 'private fixture' }], categories: ['help'], stats: {} }],
+    ['fan-art', '?op=fan-art', { artworks: [{ displayName: 'private fixture' }] }],
+  ];
+  for (const [probe, query, data] of cases) {
+    for (const method of ['GET', 'HEAD']) {
+      const request = new Request(`https://${stableHost}/api/community?probe=${probe}`, {
+        method, headers: { Cookie: 'secret=fixture', Authorization: 'Bearer fixture' },
+      });
+      const statuses = [200, 503, 'malformed', 'throw'];
+      for (const upstream of statuses) {
+        let calls = 0;
+        const env = { PAGES_PROJECT_HOST: stableHost, COMMUNITY: { async fetch(req) {
+          calls++;
+          assert.equal(req.method, 'GET');
+          assert.equal(req.url, 'https://hyruleatlas.com/api/community' + query);
+          assert.deepEqual([...req.headers], []);
+          if (upstream === 'throw') throw new Error('fixture');
+          return Response.json(upstream === 'malformed' ? {} : data, {
+            status: upstream === 503 ? 503 : 200, headers: { 'Set-Cookie': 'fixture=x' },
+          });
+        } } };
+        const response = await onRequest({ request, env });
+        assert.equal(calls, 1);
+        assert.equal(response.status, upstream === 200 ? 204 : 503);
+        assert.equal(await response.text(), '');
+        assert.equal(response.headers.has('set-cookie'), false);
+        assert.equal(response.headers.get('Cache-Control'), 'no-store');
+      }
+    }
+    let calls = 0;
+    const env = { PAGES_PROJECT_HOST: stableHost, COMMUNITY: { fetch() { calls++; } } };
+    for (const [host, method, queryString] of [
+      [`branch.${stableHost}`, 'GET', `?probe=${probe}`],
+      [stableHost, 'POST', `?probe=${probe}`], [stableHost, 'GET', `?probe=${probe}&locale=en`],
+      [stableHost, 'GET', `?probe=${probe}&op=contact`], [stableHost, 'GET', query],
+    ]) {
+      const response = await onRequest({ request: new Request(`https://${host}/api/community${queryString}`, { method }), env });
+      assert.equal(response.status, 503);
+    }
+    assert.equal(calls, 0);
+  }
+});
