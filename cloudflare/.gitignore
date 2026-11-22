@@ -1,0 +1,10 @@
+.dev.vars*
+.env*
+.wrangler/
+.build-*/
+node_modules/
+__pycache__/
+*.pem
+*.key
+*.p12
+*.pfx

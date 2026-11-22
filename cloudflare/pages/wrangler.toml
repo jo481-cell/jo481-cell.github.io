@@ -1,0 +1,16 @@
+name = "hyrule-atlas"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-13"
+
+[vars]
+PAGES_PROJECT_HOST = "hyrule-atlas.pages.dev"
+
+[[services]]
+binding = "COMMUNITY"
+service = "hyrule-atlas-community"
+
+[env.preview.vars]
+PAGES_PROJECT_HOST = "hyrule-atlas.pages.dev"
+
+[env.preview]
+services = []

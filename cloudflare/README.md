@@ -1,0 +1,67 @@
+# Hyrule Atlas sur Cloudflare
+
+La branche `migration/cloudflare-pages` réunit le site exporté et les sources Cloudflare.
+GitHub Pages historique publie le dossier racine de `main` avec `.nojekyll`.
+Garder cet hébergement sur sa branche de fichiers publics. Pour reprendre un nouvel
+export, intégrer `origin/main` **dans la branche de migration**, puis reconstruire.
+Une fusion en sens inverse rendrait les outils et les fixtures accessibles sur
+l’hébergement historique. Seul le dossier `cloudflare/pages/dist` est destiné au
+service statique Cloudflare. Le Worker et les Pages Functions se déploient séparément.
+
+## Construire et tester
+
+Depuis la racine du dépôt avec Python 3.12+ et Node 22.12+ :
+
+```powershell
+python cloudflare/build-pages.py
+npm ci --prefix cloudflare/api
+npm --prefix cloudflare/api test
+npm --prefix cloudflare/api run check
+node --test cloudflare/pages/verify-binding.mjs
+```
+
+Le générateur lit les objets du commit Git courant, y compris les anciens actifs
+encore référencés par les navigateurs. Le sitemap sélectionne les pages publiques.
+La liste complémentaire couvre le forum, la recherche et les autres routes publiques
+volontairement hors sitemap. Un nouveau format de média ou une nouvelle route hors
+sitemap demande une mise à jour de cette liste. Les fichiers de configuration,
+les sources du Worker et les tests restent hors de la distribution.
+
+Pour le test local du frontal, ouvrir un terminal dans `cloudflare/api` et lancer
+`npm run dev`. Dans un second terminal, depuis `cloudflare/pages`, lancer
+`../api/node_modules/.bin/wrangler pages dev dist --port 8789`.
+Le serveur local applique la politique de prévisualisation. En test d’intégration,
+configurer le Worker avec des services de test et transmettre au serveur local
+l’en-tête HTTP `Host: hyruleatlas.com` pour exercer le routage de production.
+Les tests automatisés du Worker utilisent leurs propres fixtures.
+
+## Publication et vérification
+
+1. Consulter [la configuration du Worker](api/README.md). Garder les secrets
+   existants dans les secrets Cloudflare et préserver la clé des liens de
+   désabonnement. Déployer le service privé `hyrule-atlas-community` depuis
+   `cloudflare/api` avec `npx --no-install wrangler deploy`.
+2. Vérifier le nom du projet Pages et sa branche de production. Le nom prévu est
+   `hyrule-atlas` et son hôte stable est `hyrule-atlas.pages.dev`. En cas de
+   changement de nom, ajuster les deux valeurs dans `pages/wrangler.toml`.
+   Depuis `cloudflare/pages`, utiliser
+   `../api/node_modules/.bin/wrangler pages deploy dist --project-name hyrule-atlas --branch main`
+   **si la branche de production configurée sur Pages est `main`**. Pour une autre
+   branche de production Pages, donner son nom à `--branch`. Ce paramètre sélectionne
+   l’environnement de déploiement Pages. Il n’effectue aucun push Git.
+3. Vérifier sur l’hôte stable un guide, ses traductions, la 404, les redirections
+   de jeux et de contact, le cache et l’en-tête `X-Robots-Tag`. Le GET anonyme
+   `/api/community?op=status` doit retourner 200 et `{"configured":true}`.
+   Les autres appels y sont bloqués. Le statut confirme le raccordement et la
+   présence des paramètres. Valider les parcours avec écriture dans un environnement
+   dédié disposant d’une base et d’un transport de courriels de test.
+4. Une fois la bascule autorisée, conserver le domaine canonique `hyruleatlas.com`
+   et ajouter la [règle de redirection www](pages/www-redirect-rule.json) aux règles
+   existantes de redirection de zone, en conservant chemins et paramètres. Garder
+   les enregistrements DNS du courrier et les autres règles de la zone. L’export
+   inclut déjà sa balise Web Analytics ; laisser l’injection automatique de Pages
+   désactivée afin de conserver un seul collecteur.
+5. Sur le domaine canonique, vérifier l’API avec
+   `node cloudflare/verify/community-smoke.mjs https://hyruleatlas.com`, les redirections
+   de `www`, l’absence de `noindex` sur les guides et l’indexation interdite sur les
+   alias. Garder le déploiement précédent accessible pour la réversibilité.

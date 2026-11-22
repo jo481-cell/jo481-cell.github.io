@@ -1,0 +1,13 @@
+{
+  "description": "Hyrule Atlas www to canonical apex",
+  "expression": "(http.host eq \"www.hyruleatlas.com\")",
+  "action": "redirect",
+  "action_parameters": {
+    "from_value": {
+      "status_code": 308,
+      "target_url": { "expression": "concat(\"https://hyruleatlas.com\", http.request.uri.path)" },
+      "preserve_query_string": true
+    }
+  },
+  "enabled": true
+}
