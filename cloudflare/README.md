@@ -7,6 +7,8 @@ export, intégrer `origin/main` **dans la branche de migration**, puis reconstru
 Une fusion en sens inverse rendrait les outils et les fixtures accessibles sur
 l’hébergement historique. Seul le dossier `cloudflare/pages/dist` est destiné au
 service statique Cloudflare. Le Worker et les Pages Functions se déploient séparément.
+Le `vercel.json` de cette branche désactive son déploiement Git automatique vers
+Vercel. Le fichier `.vercelignore` écarte le répertoire `cloudflare/` des envois CLI.
 
 ## Construire et tester
 

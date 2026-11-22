@@ -1,5 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "migration/cloudflare-pages": false
+    }
+  },
   "framework": null,
   "buildCommand": "",
   "installCommand": "npm ci --omit=dev",
