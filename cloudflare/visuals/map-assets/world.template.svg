@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <title>{{title}}</title>
+  <desc>Hyrule Atlas editorial coordinate grid. The buttons on the map identify guide locations.</desc>
+  <defs>
+    <pattern id="minor" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0V25" fill="none" stroke="{{fine}}" stroke-width=".9"/>
+    </pattern>
+    <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M100 0H0V100" fill="none" stroke="{{line}}" stroke-width="1.3"/>
+      <path d="M46 50h8m-4-4v8" stroke="{{line}}" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="1000" fill="{{paper}}"/>
+  <rect width="1000" height="1000" fill="url(#minor)"/>
+  <rect width="1000" height="1000" fill="url(#major)"/>
+  <g font-family="system-ui,sans-serif" font-size="16" font-weight="550" fill="{{ink}}">
+    {{coordinates}}
+  </g>
+  <g fill="none" stroke="{{line}}" stroke-width="2">
+    <path d="M28 84V28h56M916 28h56v56M972 916v56h-56M84 972H28v-56"/>
+  </g>
+  {{focus}}
+</svg>

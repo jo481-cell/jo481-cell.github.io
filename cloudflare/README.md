@@ -29,6 +29,16 @@ volontairement hors sitemap. Un nouveau format de média ou une nouvelle route h
 sitemap demande une mise à jour de cette liste. Les fichiers de configuration,
 les sources du Worker et les tests restent hors de la distribution.
 
+Le build remplace les anciens visuels par les fichiers originaux de
+`cloudflare/visuals/`. Les cartes du Monde de la Lumière et du Monde des
+Ténèbres sont des grilles de repères. Les étages sont présentés par un index
+vertical et les détails du parcours restent dans le guide. La bibliothèque
+utilise des illustrations éditoriales de l’Atlas. Un visuel Nintendo de 1998
+figure uniquement dans l’analyse comparative, avec son crédit et la source
+officielle. Les fichiers JavaScript et
+CSS affectés reçoivent de nouvelles URL de cache avec des redirections pour
+les modules demandés par un onglet ouvert sur l’ancienne version.
+
 Pour le test local du frontal, ouvrir un terminal dans `cloudflare/api` et lancer
 `npm run dev`. Dans un second terminal, depuis `cloudflare/pages`, lancer
 `../api/node_modules/.bin/wrangler pages dev dist --port 8789`.
@@ -95,8 +105,8 @@ référence de l’éditeur pour `hyruleatlas.com`. Construire avec
 `python cloudflare/build-pages.py --adsense-publisher-id <référence-ca-pub>` pour
 insérer la balise de vérification dans l’en-tête de l’accueil. Ajouter
 `--adsense-ads-txt` pour générer aussi l’enregistrement Google recommandé dans
-`/ads.txt`. Ces paramètres publient des métadonnées de vérification. Un build
-sans option conserve l’export d’origine.
+`/ads.txt`. Ces paramètres publient des métadonnées de vérification. Le build
+standard publie la révision visuelle sans ces métadonnées.
 
 Après publication, vérifier la balise sur `https://hyruleatlas.com/` et, le cas
 échéant, la référence inscrite dans `/ads.txt`. Valider la propriété dans

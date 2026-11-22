@@ -9,6 +9,7 @@ import tempfile
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree.ElementTree import fromstring
+from visuals import editorial, identity, maps, release
 
 
 HERE = Path(__file__).resolve().parent
@@ -100,6 +101,9 @@ def make_headers(config, assets):
     # Local HTTP, stable Pages aliases and branch deployments are inert. Only
     # the canonical production hostname enables telemetry and external embeds.
     production_policy = next(e["value"] for e in common if e["key"] == "Content-Security-Policy")
+    production_policy = production_policy.replace(" https://www.youtube.com", "").replace(
+        "https://www.youtube-nocookie.com ", ""
+    )
     policy = ("default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; "
               "img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; frame-src 'none'; "
               "frame-ancestors 'self'; base-uri 'self'; form-action 'self'")
@@ -157,7 +161,6 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
     missing = (PUBLIC_ROOT_FILES | pages) - public.keys()
     if missing:
         raise ValueError(f"Public files missing from the Git tree: {sorted(missing)}")
-    headers, security = make_headers(config, [p.removeprefix("assets/") for p in public if p.startswith("assets/")])
     redirects = expand_redirects(config)
     dist = PAGES / "dist"
     tmp = Path(tempfile.mkdtemp(prefix=".build-", dir=PAGES))
@@ -185,6 +188,18 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
                     destination.write_bytes(data)
             finally:
                 blobs.stdin.close()
+        before_visuals = release.digests(tmp)
+        maps.apply(tmp)
+        editorial.apply(tmp, official_comparison=True)
+        identity.apply(tmp)
+        bundle_urls = release.rekey_bundles(tmp, before_visuals)
+        for old, new in bundle_urls.items():
+            # Existing tabs can still request a module by its previous URL.
+            # The new HTML always refers directly to the new module URLs.
+            redirects[f"/assets/{old}"] = f"/assets/{new} 302"
+        assets = [(p.relative_to(tmp / "assets")).as_posix()
+                  for p in (tmp / "assets").rglob("*") if p.is_file()]
+        headers, security = make_headers(config, assets)
         if adsense_ads_txt:
             publisher = adsense_publisher_id.removeprefix("ca-")
             (tmp / "ads.txt").write_text(

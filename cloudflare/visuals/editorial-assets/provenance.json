@@ -1,0 +1,70 @@
+{
+  "created": "2026-11-22",
+  "method": "Original generated editorial still lifes with the built-in OpenAI ImageGen tool. No source images were supplied. WebP derivatives use Lanczos resizing without retouching.",
+  "placement": "Catalogue and editorial context on Hyrule Atlas. Illustrations of general unbranded tools, not game footage.",
+  "assets": [
+    {
+      "file": "catalogue-1.webp",
+      "master": "exec-6e56a209-746a-41cd-a450-1c883b119b48.png",
+      "prompt": "Photorealistic natural editorial still life for an independent fantasy game guide library, as if photographed for a serious book about explorers' studio tools. Original newly staged real objects only. Decor for a forest-green, parchment and oxblood website library, no titles in the image. Soft cinematic natural light, tactile surfaces, clean grouped composition, one strong material hero, restrained fantasy atmosphere in color and craft. Camera 45 degrees from overhead, horizontal composition, main subjects safely in middle 62% for small website crops, generous calm edges, grain from real material, no digital bling. Do not include humans, drawings of any existing game world, maps tracing actual game geography, costumes, characters, game artifacts, crests, shields, triangles assembled in a triangular emblem, branded hardware, marks or text, no franchise visual references; no uploaded or outside reference images.\nLandscape 3:2 image.\nA brass folding field compass with an old needle dial (no legible letters), unfolded hand-made blank cream notebook and pressed wild grasses. Forest green linen and off-white rag paper, a quiet North Atlantic daylight study.",
+      "source_sha256": "ea7d7c89ef5159128cfb58a4584d050b8fe1440e67a541b37f7f2d33c499d299",
+      "final_sha256": "4b946f0b286aba65f7bfa8bc1cb23702f16277219ff05ee9dff4d4a366673869",
+      "bytes": 136834,
+      "dimensions": "1200x800"
+    },
+    {
+      "file": "catalogue-2.webp",
+      "master": "exec-bcd83388-8335-4c73-b47b-ccc32854e0c5.png",
+      "prompt": "Photorealistic natural editorial still life for an independent fantasy game guide library, as if photographed for a serious book about explorers' studio tools. Original newly staged real objects only. Decor for a forest-green, parchment and oxblood website library, no titles in the image. Soft cinematic natural light, tactile surfaces, clean grouped composition, one strong material hero, restrained fantasy atmosphere in color and craft. Camera 45 degrees from overhead, horizontal composition, main subjects safely in middle 62% for small website crops, generous calm edges, grain from real material, no digital bling. Do not include humans, drawings of any existing game world, maps tracing actual game geography, costumes, characters, game artifacts, crests, shields, triangles assembled in a triangular emblem, branded hardware, marks or text, no franchise visual references; no uploaded or outside reference images.\nLandscape 3:2 image.\nA dark teal glazed ceramic oil lamp beside coarse black-blue linen and a closed forest-green field journal with unmarked binding. Elegant low-key photograph, softened rain reflections, moody teal and weathered brass.",
+      "source_sha256": "ca73bb16831613fe46dfbf33ef7a58e1a979a2717731bf9f64d3fc7f4d580716",
+      "final_sha256": "49273d429e2a7ce6dc6d480eb6823216bf567c323b5c168b7996d4abf7aae27b",
+      "bytes": 137342,
+      "dimensions": "1200x800"
+    },
+    {
+      "file": "catalogue-3.webp",
+      "master": "exec-6d4a9830-26a4-4c4d-8554-4a1deb404d16.png",
+      "prompt": "Photorealistic natural editorial still life for an independent fantasy game guide library, as if photographed for a serious book about explorers' studio tools. Original newly staged real objects only. Decor for a forest-green, parchment and oxblood website library, no titles in the image. Soft cinematic natural light, tactile surfaces, clean grouped composition, one strong material hero, restrained fantasy atmosphere in color and craft. Camera 45 degrees from overhead, horizontal composition, main subjects safely in middle 62% for small website crops, generous calm edges, grain from real material, no digital bling. Do not include humans, drawings of any existing game world, maps tracing actual game geography, costumes, characters, game artifacts, crests, shields, triangles assembled in a triangular emblem, branded hardware, marks or text, no franchise visual references; no uploaded or outside reference images.\nLandscape 3:2 image.\nCopper mapmaking dividers, a fine calligraphy nib and a circle of moss, on neutral pale cream stock on a weathered pin-oak workbench. Late morning warm natural light; clean geometric rhythm.",
+      "source_sha256": "5269cba945fba97c9ff96a09ed139b209419555ad7af9f43f8bdc4b32dbd8f30",
+      "final_sha256": "eeaef6722a8ea18955a422e4c684b960586a76b94eb26840ec54e14808c3ec40",
+      "bytes": 135292,
+      "dimensions": "1200x800"
+    },
+    {
+      "file": "catalogue-4.webp",
+      "master": "exec-bd37bce6-490c-4241-94e2-e5eeca26187b.png",
+      "prompt": "Photorealistic natural editorial still life for an independent fantasy game guide library, as if photographed for a serious book about explorers' studio tools. Original newly staged real objects only. Decor for a forest-green, parchment and oxblood website library, no titles in the image. Soft cinematic natural light, tactile surfaces, clean grouped composition, one strong material hero, restrained fantasy atmosphere in color and craft. Camera 45 degrees from overhead, horizontal composition, main subjects safely in middle 62% for small website crops, generous calm edges, grain from real material, no digital bling. Do not include humans, drawings of any existing game world, maps tracing actual game geography, costumes, characters, game artifacts, crests, shields, triangles assembled in a triangular emblem, branded hardware, marks or text, no franchise visual references; no uploaded or outside reference images.\nLandscape 3:2 image.\nA small honey-amber lantern with blown glass, one acorn twig and a slim unmarked beaten-brass ruler on a walnut desk; distant shadow no characters. Autumn rust accents and dark moss.",
+      "source_sha256": "728968fc39644f6777607fe8baf9ae38d6cf197c505cab76a065300be0b38a46",
+      "final_sha256": "470b02974750880b4c98083dfa56a9977e5e213b9c6c83a04021a61454d0e608",
+      "bytes": 117166,
+      "dimensions": "1200x800"
+    },
+    {
+      "file": "catalogue-5.webp",
+      "master": "exec-cc98e12e-5334-43bd-bfcf-9151d5a7d5e0.png",
+      "prompt": "Photorealistic natural editorial still life for an independent fantasy game guide library, as if photographed for a serious book about explorers' studio tools. Original newly staged real objects only. Decor for a forest-green, parchment and oxblood website library, no titles in the image. Soft cinematic natural light, tactile surfaces, clean grouped composition, one strong material hero, restrained fantasy atmosphere in color and craft. Camera 45 degrees from overhead, horizontal composition, main subjects safely in middle 62% for small website crops, generous calm edges, grain from real material, no digital bling. Do not include humans, drawings of any existing game world, maps tracing actual game geography, costumes, characters, game artifacts, crests, shields, triangles assembled in a triangular emblem, branded hardware, marks or text, no franchise visual references; no uploaded or outside reference images.\nLandscape 3:2 image.\nA turned, unmarked wooden flute with simple round holes, a quiet length of deep cobalt cotton fabric, a smooth river pebble, slanting reflected daybreak. Generic physical instrument without distinctive logos or colored designs.",
+      "source_sha256": "525d99ddc0ee463e7a7405b91f5aa6a0103976ba53ecbc4de61f41ceaddb2f49",
+      "final_sha256": "2203571c3f39ee0fb0b6db39c3a170ab65e172203546f642fd473c06ddce3f40",
+      "bytes": 133546,
+      "dimensions": "1200x800"
+    },
+    {
+      "file": "catalogue-6.webp",
+      "master": "exec-ecd0a0cb-f64a-4c20-a62f-0fa9b0fae734.png",
+      "prompt": "Photorealistic natural editorial still life for an independent fantasy game guide library, as if photographed for a serious book about explorers' studio tools. Original newly staged real objects only. Decor for a forest-green, parchment and oxblood website library, no titles in the image. Soft cinematic natural light, tactile surfaces, clean grouped composition, one strong material hero, restrained fantasy atmosphere in color and craft. Camera 45 degrees from overhead, horizontal composition, main subjects safely in middle 62% for small website crops, generous calm edges, grain from real material, no digital bling. Do not include humans, drawings of any existing game world, maps tracing actual game geography, costumes, characters, game artifacts, crests, shields, triangles assembled in a triangular emblem, branded hardware, marks or text, no franchise visual references; no uploaded or outside reference images.\nLandscape 3:2 image.\nAn open linen-bound field notebook with plain cream sheets, graphite pencil/shavings, fern casts of indirect daylight, one small blank translucent vellum bookmark. Rich dark sage and warm ivory.",
+      "source_sha256": "a67bc280f14f9645ce35198adf00817f96b7d7c7dd3954bb203c62dfb7c0fae4",
+      "final_sha256": "4fbc31989d3709531d4435dfa840dec2e43b3c62f9bd77281242aefcaad3a3a1",
+      "bytes": 124604,
+      "dimensions": "1200x800"
+    },
+    {
+      "file": "observation.webp",
+      "master": "exec-f87de625-6bfc-4200-ba79-f9b89c2dbfb9.png",
+      "prompt": "Photorealistic natural editorial still life for an independent fantasy game guide library, as if photographed for a serious book about explorers' studio tools. Original newly staged real objects only. Decor for a forest-green, parchment and oxblood website library, no titles in the image. Soft cinematic natural light, tactile surfaces, clean grouped composition, one strong material hero, restrained fantasy atmosphere in color and craft. Camera 45 degrees from overhead, horizontal composition, main subjects safely in middle 62% for small website crops, generous calm edges, grain from real material, no digital bling. Do not include humans, drawings of any existing game world, maps tracing actual game geography, costumes, characters, game artifacts, crests, shields, triangles assembled in a triangular emblem, branded hardware, marks or text, no franchise visual references; no uploaded or outside reference images.\nWide 16:9 image.\nWide still life of an independent editorial desk. A brass loupe above blank field notes, waxed green linen folio, two corners of thin unmarked graph paper, and bokeh wooded light on the left. Quiet afternoon practice of careful observation and evidence, deeply layered but orderly.",
+      "source_sha256": "1b99bc7364672c2710ee5dff21bbdbf32bbba4a07491f2fa0e7d5d90384d684c",
+      "final_sha256": "7fa73e9b0dc57e9c1d236fc0d359e76b21d954c824f2d82837ce2a9cd1436326",
+      "bytes": 140334,
+      "dimensions": "1280x720"
+    }
+  ]
+}

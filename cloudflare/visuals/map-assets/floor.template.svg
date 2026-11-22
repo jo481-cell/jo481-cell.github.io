@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <title>{{title}}</title>
+  <desc>Hyrule Atlas floor index. Floor {{selected}} is highlighted within the listed floors.</desc>
+  <rect width="800" height="480" fill="#142c2b"/>
+  <rect x="20" y="20" width="760" height="440" rx="3" fill="none" stroke="#55746a"/>
+  <path d="M442 60v360" stroke="#48635a" stroke-width="1"/>
+  <g font-family="system-ui,sans-serif" font-weight="500">{{stack}}</g>
+  <g text-anchor="middle" font-family="system-ui,sans-serif" fill="#f3deb1">
+    <text x="610" y="270" font-size="88" font-weight="500">{{selected}}</text>
+    <text x="610" y="327" font-size="28" fill="#b2c6b3">{{position}} / {{total}}</text>
+  </g>
+</svg>
