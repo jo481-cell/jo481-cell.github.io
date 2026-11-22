@@ -76,11 +76,14 @@ Les tests automatisés du Worker utilisent leurs propres fixtures.
    dédié disposant d’une base et d’un transport de courriels de test.
 4. Une fois la bascule autorisée, conserver le domaine canonique `hyruleatlas.com`
    et ajouter la [règle de redirection www](pages/www-redirect-rule.json) aux règles
-   existantes de redirection de zone, en conservant chemins et paramètres. Garder
+   existantes de redirection de zone, en conservant chemins et paramètres.
+   L’exception `/.well-known/` permet la validation des certificats TLS. Garder
    les enregistrements DNS du courrier et les autres règles de la zone. L’export
    inclut déjà sa balise Web Analytics ; laisser l’injection automatique de Pages
    désactivée afin de conserver un seul collecteur.
 5. Sur le domaine canonique, vérifier l’API avec
    `node cloudflare/verify/community-smoke.mjs https://hyruleatlas.com`, les redirections
    de `www`, l’absence de `noindex` sur les guides et l’indexation interdite sur les
-   alias. Garder le déploiement précédent accessible pour la réversibilité.
+   alias. `python cloudflare/verify/post-cutover.py` contrôle ces redirections,
+   les fichiers servis, le cache, les en-têtes et la 404. Garder le déploiement
+   précédent accessible pour la réversibilité.

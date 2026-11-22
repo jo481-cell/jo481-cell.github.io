@@ -1,6 +1,6 @@
 {
   "description": "Hyrule Atlas www to canonical apex",
-  "expression": "(http.host eq \"www.hyruleatlas.com\")",
+  "expression": "(http.host eq \"www.hyruleatlas.com\") and not starts_with(http.request.uri.path, \"/.well-known/\")",
   "action": "redirect",
   "action_parameters": {
     "from_value": {

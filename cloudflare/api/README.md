@@ -22,7 +22,7 @@ désactive l’adresse publique workers.dev et les URL publiques de prévisualis
 | `SUPABASE_PUBLISHABLE_KEY` ou `SUPABASE_ANON_KEY` | Clé publique actuelle ou ancienne clé anonyme. |
 | `SUPABASE_SECRET_KEY` ou `SUPABASE_SERVICE_ROLE_KEY` | Secret serveur pour les opérations communautaires autorisées. |
 | `TURNSTILE_SITE_KEY` et `TURNSTILE_SECRET_KEY` | Site public et secret de vérification associés au domaine du formulaire. |
-| `RESEND_API_KEY` et `EMAIL_FROM` | Secret Resend et expéditeur déjà vérifié. |
+| `RESEND_API_KEY` et `EMAIL_FROM` | Clé Resend d’envoi limitée à `lettres.hyruleatlas.com` et expéditeur `Hyrule Atlas <infolettre@lettres.hyruleatlas.com>`. Les courriels de compte utilisent le SMTP configuré dans Supabase. |
 | `EMAIL_REPLY_TO` | Adresse de réponse facultative. |
 | `NEWSLETTER_TOKEN_SECRET` | Secret HMAC existant de 32 caractères minimum. Réutiliser sa valeur actuelle pour préserver la validité des anciens liens de désabonnement. |
 | `IMAGES` | Binding Images Worker défini dans `wrangler.jsonc`. |
@@ -47,10 +47,10 @@ transmettre le service par son binding Wrangler.
 ## Points de contrôle en environnement hébergé
 
 - La conversion accepte les PNG, JPEG et WebP jusqu’à 3 Mio et 12 millions de pixels.
-  Elle produit un WebP fixe, plafonné à 1 800 px de chaque côté, sans agrandissement.
-  La qualité demandée est 88 avec suppression des métadonnées. Le service local
-  n’émule qu’une partie des options Images. Vérifier l’orientation EXIF, les
-  métadonnées et la qualité dans l’environnement de recette.
+  Elle produit un WebP fixe à qualité 88, plafonné à 1 800 px de chaque côté,
+  sans agrandissement. L’API retire les blocs EXIF et XMP du résultat avant
+  stockage et rejette un fichier réencodé qui dépasse les 3 Mio du bucket.
+  Vérifier l’orientation et la suppression des métadonnées sur Images hébergé.
 - Les courriels gardent les vérifications de consentement, le lien signé et
   l’approbation humaine de chaque édition. Le plafond de cinq destinataires par lot
   réside dans la fonction SQL Supabase existante. La recette hébergée doit mesurer
