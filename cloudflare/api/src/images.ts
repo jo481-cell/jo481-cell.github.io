@@ -1,4 +1,5 @@
 import { Failure } from "./http";
+import { stripWebpMetadata } from "./webp";
 
 type ImageOptions = { width: number; height: number; fit: "scale-down"; metadata: "none" };
 
@@ -32,9 +33,10 @@ export interface CommunityEnv {
 }
 
 const inputFormats = new Set(["image/png", "image/jpeg", "image/webp"]);
+const maxUploadBytes = 3 * 1024 * 1024;
 
 export async function convertFanArt(file: FormDataEntryValue | null, images?: ImageBinding) {
-  if (!file || typeof file === "string" || !inputFormats.has(file.type) || file.size > 3 * 1024 * 1024) {
+  if (!file || typeof file === "string" || !inputFormats.has(file.type) || file.size > maxUploadBytes) {
     throw new Failure(400, "Choose a JPG, PNG or WebP image up to 3 MB.");
   }
   if (!images) throw new Failure(503, "Image processing is temporarily unavailable.");
@@ -63,5 +65,9 @@ export async function convertFanArt(file: FormDataEntryValue | null, images?: Im
   if (!encoded.ok || encoded.headers.get("Content-Type")?.split(";")[0] !== "image/webp") {
     throw new Failure(503, "The image could not be converted. Please try again later.");
   }
-  return await encoded.arrayBuffer();
+  const image = stripWebpMetadata(await encoded.arrayBuffer());
+  if (image.byteLength > maxUploadBytes) {
+    throw new Failure(400, "The converted image is too large. Choose a smaller image.");
+  }
+  return image;
 }

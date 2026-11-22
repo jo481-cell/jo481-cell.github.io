@@ -1,3 +1,4 @@
+import { localizedCommunityUrl, mailConfigured, sendCommunityMail } from "./mail";
 import { randomBytes, createHash, createHmac, timingSafeEqual } from "node:crypto";
 import { Buffer } from "node:buffer";
 import { ApiResponse, Failure, input, cookies, multipart } from "./http";
@@ -207,15 +208,13 @@ export async function communityFetch(req: Request, env: CommunityEnv): Promise<R
       ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}),
     };
   }
-  const mailReady = () => Boolean(env.RESEND_API_KEY && env.EMAIL_FROM);
   const botProtectionReady = () => Boolean(env.TURNSTILE_SITE_KEY && env.TURNSTILE_SECRET_KEY);
   function unsubscribeToken(id: string) {
     if ((env.NEWSLETTER_TOKEN_SECRET || "").length < 32)
       throw new Failure(503, "Newsletter sending is not configured.");
     return createHmac("sha256", env.NEWSLETTER_TOKEN_SECRET!).update(`unsubscribe:${id}`).digest("hex");
   }
-  const localizedPath = (language: string, path: string) =>
-    `${origin()}${language === "en" ? "" : `/${language}`}${path}`;
+  const localizedPath = (language: string, path: string) => localizedCommunityUrl(env, language, path);
   async function removeArtImages(keys: string[]) {
     if (!keys.length) return;
     const failure = () =>
@@ -349,75 +348,6 @@ export async function communityFetch(req: Request, env: CommunityEnv): Promise<R
     if (!profiles?.[0]) throw new Failure(403, "Your profile is not ready. Please try again.");
     return { token, user, profile: profiles[0] };
   }
-  function configuredReplyTo() {
-    const value = env.EMAIL_REPLY_TO?.trim();
-    if (!value) return undefined;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
-      throw new Failure(503, "Email replies are not configured.");
-    return value;
-  }
-  async function mail(
-    to: string,
-    subject: string,
-    content: string,
-    unsubscribe?: string,
-    idempotency?: string,
-    language = "en",
-  ) {
-    if (!mailReady()) throw new Failure(503, "Email registration is not open yet.");
-    const plain = content
-      .replace(/<a[^>]+href="([^"]+)"[^>]*>(.*?)<\/a>/g, "$2 ($1)")
-      .replace(/<\/(p|h2|li)>/g, "\n\n")
-      .replace(/<br\s*\/?>/g, "\n")
-      .replace(/<[^>]*>/g, "")
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'");
-    const replyTo = configuredReplyTo(),
-      forum = localizedPath(language, "/forum"),
-      privacy = localizedPath(language, "/privacy");
-    const privateContactLabel: Record<string, string> = {
-      en: "Privacy & private contact",
-      fr: "Confidentialité et demande privée",
-      es: "Privacidad y contacto privado",
-      ja: "プライバシーと非公開のお問い合わせ",
-      zh: "隐私与私密联系",
-    };
-    const contactLabel = privateContactLabel[language] || privateContactLabel.en;
-    const r = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-        "User-Agent": "hyrule-atlas/1.0",
-        ...(idempotency ? { "Idempotency-Key": idempotency } : {}),
-      },
-      body: JSON.stringify({
-        from: env.EMAIL_FROM,
-        to: [to],
-        subject,
-        text: `Hyrule Atlas\n\n${plain}\n\nForum: ${forum}\n${contactLabel}: ${privacy}`,
-        html: `<div style="font-family:Georgia,serif;max-width:600px;margin:auto;line-height:1.7;color:#16352e"><h1>Hyrule Atlas</h1>${content}<hr><p>Hyrule Atlas · Independent fan community · <a href="${forum}">Forum</a> · <a href="${privacy}">${contactLabel}</a></p></div>`,
-        ...(replyTo ? { reply_to: replyTo } : {}),
-        ...(unsubscribe
-          ? {
-              headers: {
-                "List-Unsubscribe": `<${unsubscribe}>`,
-                "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
-              },
-            }
-          : {}),
-      }),
-      signal: AbortSignal.timeout(12000),
-    });
-    if (!r.ok) throw new Failure(503, "The email could not be sent. Please try again later.");
-    const result: any = await r.json().catch(() => null);
-    if (typeof result?.id !== "string" || !result.id.trim())
-      throw new Failure(503, "The email provider did not confirm this message.");
-    return result.id as string;
-  }
   async function verifyHuman(token: unknown, action: string) {
     if (!botProtectionReady()) throw new Failure(503, "Registration is not open yet.");
     const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -457,7 +387,7 @@ export async function communityFetch(req: Request, env: CommunityEnv): Promise<R
     if (op === "status" && method === "GET") {
       const s = databaseReady() ? await session(req, res, true) : null;
       return res.json({
-        configured: databaseReady() && mailReady() && botProtectionReady(),
+        configured: databaseReady() && mailConfigured(env) && botProtectionReady(),
         turnstileSiteKey: env.TURNSTILE_SITE_KEY || "",
         user: s
           ? { id: s.user.id, handle: s.profile.handle, emailVerified: true, role: s.profile.role }
@@ -504,7 +434,7 @@ export async function communityFetch(req: Request, env: CommunityEnv): Promise<R
       });
     }
     if (op === "signup" && method === "POST") {
-      if (!mailReady()) throw new Failure(503, "Registration is not open yet.");
+      if (!mailConfigured(env)) throw new Failure(503, "Registration is not open yet.");
       const b = await input(req);
       await verifyHuman(b.turnstileToken, "signup");
       if (!consent(b.termsAccepted)) throw new Failure(400, "Please accept the community rules.");
@@ -576,7 +506,7 @@ export async function communityFetch(req: Request, env: CommunityEnv): Promise<R
       await verifyHuman(b.turnstileToken, "newsletter");
       if (!consent(b.consent))
         throw new Failure(400, "Please confirm you want to receive the weekly newsletter.");
-      if (!mailReady()) throw new Failure(503, "Newsletter registration is not open yet.");
+      if (!mailConfigured(env)) throw new Failure(503, "Newsletter registration is not open yet.");
       const address = email(b.email),
         token = randomBytes(32).toString("hex");
       const record = await service("/rest/v1/rpc/request_newsletter", "POST", {
@@ -589,7 +519,8 @@ export async function communityFetch(req: Request, env: CommunityEnv): Promise<R
           copy = emailCopy[lang],
           link = `${origin()}/api/community?op=newsletter-confirm&locale=${lang}&token=${token}`;
         try {
-          await mail(
+          await sendCommunityMail(
+            env,
             address,
             copy.subject,
             `<p>${copy.intro}</p><p><a href="${link}">${copy.confirm}</a></p><p>${copy.ignore}</p>`,
@@ -986,14 +917,15 @@ export async function communityFetch(req: Request, env: CommunityEnv): Promise<R
           const link = `${origin()}/api/community?op=newsletter-unsubscribe&id=${recipient.id}&locale=${issue.locale}&token=${unsubscribeToken(recipient.id)}`;
           let providerId: string | undefined;
           try {
-            providerId = await mail(
+            providerId = (await sendCommunityMail(
+              env,
               recipient.email,
               issue.subject,
               html + `<p><a href="${link}">${emailCopy[issue.locale].unsubscribe}</a></p>`,
               link,
               `hyrule-${issue.id}-${recipient.id}`,
               issue.locale,
-            );
+            )).id;
             await service(
               `/rest/v1/newsletter_deliveries?issue_id=eq.${issue.id}&subscriber_id=eq.${recipient.id}`,
               "PATCH",
