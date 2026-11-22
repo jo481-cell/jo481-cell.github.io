@@ -181,8 +181,6 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
                         raise ValueError(f"Incomplete Git blob: {path}")
                     if path.endswith(".html") and len(re.findall(rb'<script\b[^>]*src="https://static\.cloudflareinsights\.com/beacon\.min\.js"[^>]*>', data)) != 1:
                         raise ValueError(f"Unexpected number of Web Analytics tags in {path}")
-                    if path == "index.html":
-                        data = with_adsense_verification(data, adsense_publisher_id)
                     destination = tmp / path
                     destination.parent.mkdir(exist_ok=True, parents=True)
                     destination.write_bytes(data)
@@ -200,6 +198,9 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
         assets = [(p.relative_to(tmp / "assets")).as_posix()
                   for p in (tmp / "assets").rglob("*") if p.is_file()]
         headers, security = make_headers(config, assets)
+        if adsense_publisher_id:
+            homepage = tmp / "index.html"
+            homepage.write_bytes(with_adsense_verification(homepage.read_bytes(), adsense_publisher_id))
         if adsense_ads_txt:
             publisher = adsense_publisher_id.removeprefix("ca-")
             (tmp / "ads.txt").write_text(
@@ -235,4 +236,8 @@ if __name__ == "__main__":
     parser.add_argument("--adsense-publisher-id", help="Add the AdSense verification tag to the homepage")
     parser.add_argument("--adsense-ads-txt", action="store_true", help="Also publish the Google ads.txt entry")
     args = parser.parse_args()
-    build((args.source or default_source()).resolve(), args.adsense_publisher_id, args.adsense_ads_txt)
+    settings_path = PAGES / "adsense.json"
+    settings = json.loads(settings_path.read_text(encoding="utf-8")) if settings_path.is_file() else {}
+    publisher = args.adsense_publisher_id or settings.get("publisherId")
+    ads_txt = args.adsense_ads_txt or (not args.adsense_publisher_id and settings.get("adsTxt", False))
+    build((args.source or default_source()).resolve(), publisher, ads_txt)

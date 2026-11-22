@@ -38,6 +38,10 @@ figure uniquement dans l’analyse comparative, avec son crédit et la source
 officielle. Les fichiers JavaScript et
 CSS affectés reçoivent de nouvelles URL de cache avec des redirections pour
 les modules demandés par un onglet ouvert sur l’ancienne version.
+La [règle de retrait des anciennes images](pages/retired-visuals-redirect-rule.json)
+intercepte les chemins des médias remplacés avant le cache Cloudflare. En cas
+de retour à une version qui a besoin de ces médias, désactiver cette règle
+sur la zone avant de rétablir la version.
 
 Pour le test local du frontal, ouvrir un terminal dans `cloudflare/api` et lancer
 `npm run dev`. Dans un second terminal, depuis `cloudflare/pages`, lancer
@@ -105,8 +109,9 @@ référence de l’éditeur pour `hyruleatlas.com`. Construire avec
 `python cloudflare/build-pages.py --adsense-publisher-id <référence-ca-pub>` pour
 insérer la balise de vérification dans l’en-tête de l’accueil. Ajouter
 `--adsense-ads-txt` pour générer aussi l’enregistrement Google recommandé dans
-`/ads.txt`. Ces paramètres publient des métadonnées de vérification. Le build
-standard publie la révision visuelle sans ces métadonnées.
+`/ads.txt`. Le build normal utilise la référence enregistrée pour ce projet
+dans `cloudflare/pages/adsense.json`. Ces paramètres produisent les
+métadonnées de vérification.
 
 Après publication, vérifier la balise sur `https://hyruleatlas.com/` et, le cas
 échéant, la référence inscrite dans `/ads.txt`. Valider la propriété dans
