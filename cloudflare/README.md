@@ -37,6 +37,11 @@ utilise des illustrations éditoriales de l’Atlas. L’analyse comparative cit
 son article de référence par des liens dans le texte. Les fichiers JavaScript et
 CSS affectés reçoivent de nouvelles URL de cache avec des redirections pour
 les modules demandés par un onglet ouvert sur l’ancienne version.
+L’accueil utilise une illustration de vallée créée pour Hyrule Atlas. Les
+versions WebP et leurs empreintes sont consignées dans le
+[registre de l’illustration](visuals/studio-assets/provenance.json). Les étapes
+des schémas de donjon renvoient directement aux sections correspondantes des
+guides.
 La [règle du domaine](pages/retired-visuals-redirect-rule.json) et la
 [liste de redirections des alias Pages](pages/retired-media-aliases.csv)
 interceptent les anciens chemins avant le cache Cloudflare. La liste

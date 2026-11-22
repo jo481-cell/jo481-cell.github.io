@@ -1,15 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" xml:lang="{{language}}">
   <title>{{title}}</title>
   <desc>{{description}}</desc>
-  <path d="M0 0h800v480H0Z" fill="#152d2c"/>
-  <path d="M160 29v422" stroke="#47675e"/>
+  <path d="M0 0h800v480H0Z" fill="#1a2d24"/>
+  <path d="M14 14h772v452H14Z" fill="none" stroke="#596955" stroke-width=".8"/>
+  <path d="M158 24v432M24 64h752" fill="none" stroke="#667658" stroke-opacity=".65"/>
   <g font-family="system-ui,sans-serif">
-    <g font-weight="600" fill="#afc5b8" font-size="22">
+    <g font-weight="560" fill="#cab98e" font-size="21">
       <text x="25" y="47">{{level_title}}</text>
       <text x="205" y="47">{{route_title}}</text>
     </g>
     <g text-anchor="middle" font-weight="650" font-size="28">{{stack}}</g>
-    <path d="M223 112V409" stroke="#769188" stroke-width="3" stroke-dasharray="7 9"/>
-    <g font-size="29" font-weight="600" fill="#f6f0dc">{{route}}</g>
+    <path d="M223 112V409" stroke="#b6a070" stroke-width="1.8" stroke-dasharray="4 8"/>
+    <g font-size="28" font-weight="570" fill="#f5e9cf">{{route}}</g>
   </g>
 </svg>

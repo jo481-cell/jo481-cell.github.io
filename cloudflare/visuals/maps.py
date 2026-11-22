@@ -11,24 +11,30 @@ from unicodedata import east_asian_width
 ART = Path(__file__).with_name("map-assets")
 OLD = "/assets/alttp/"
 NEW = "/assets/atlas-charts/"
-SCHEMATICS = NEW + "schematics/"
+SCHEMATIC_DIR = "terrain"
+SCHEMATICS = NEW + SCHEMATIC_DIR + "/"
 NOTES = NEW + "provenance.json"
 LEGACY_SOURCE = "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/"
 FLOOR = re.compile(r"dungeon-([A-Z]\d?)-(B\d+|\d+F)\.png$")
 EMBEDDED = re.compile(r"\{source:`" + re.escape(LEGACY_SOURCE) +
                       r"`,credit:`[^`]*`,permission:`[^`]*`,assets:\[.*?\](?:,previewDerivatives:\[.*?\])?\}")
 FORMATS = {".html", ".css", ".js", ".json", ".xml", ".txt", ".webmanifest", ".md"}
+FLOOR_HTML = re.compile(r'(<div\b[^>]*\bclass="alttp-floor[^"]*"[^>]*>)(<img\b[^>]*>)(</div>)')
+FLOOR_JS = re.compile(
+    r'(className:`alttp-floor [^,]+,tabIndex:0,role:`region`,"aria-label":`[^`]+`,children:)'
+    r'(?P<jsx>\w+)\(`img`,\{(?P<image>.*?)\}\)(?=\}\),\w+\(`small`)'
+)
 LANGUAGES = ("en", "fr", "es", "ja", "zh")
 GUIDE_ROOT = Path("series/a-link-to-the-past")
 WORLD_COLORS = {
-    "light": dict(paper="#ece6d0", ink="#273e35", grid="#76877b",
-        landline="#6a7a5e", green="#b7c8a3", wood="#6f9b78", sand="#e9c78d",
-        stone="#c8bca5", peak="#dccfb9", water="#a6c7cb", waterline="#59838a",
-        building="#dccda4", buildingline="#665c46"),
-    "dark": dict(paper="#26343e", ink="#f4e7c8", grid="#899599",
-        landline="#9a927c", green="#536c5a", wood="#2e504a", sand="#94775d",
-        stone="#65596a", peak="#958091", water="#42616b", waterline="#8ca5aa",
-        building="#b49074", buildingline="#eed4a6"),
+    "light": dict(paper="#e8dec3", ink="#253c32", grid="#697960", shade="#cbb998",
+        landline="#6e7860", green="#b4c29c", wood="#72926c", woodshade="#597758", sand="#d5b383",
+        stone="#c7b494", peak="#bcab91", water="#9fb8ad", waterline="#547c75",
+        building="#e6cf9f", buildingline="#67563d"),
+    "dark": dict(paper="#233732", ink="#f1e1bd", grid="#899583", shade="#38463f",
+        landline="#83917d", green="#496253", wood="#678171", woodshade="#354f48", sand="#6c674b",
+        stone="#635e53", peak="#726b58", water="#3d5e61", waterline="#8fa6a0",
+        building="#a78e61", buildingline="#e3cda0"),
 }
 WORLD_DESCRIPTION = {
     "en": ("Light World", "Dark World", "Editorial map showing regions and approximate positions."),
@@ -57,10 +63,11 @@ def _render(name, **values):
 
 
 def _world(world, language, regions, places=False):
-    coords = [
-        f'<text x="{col * 100 + 22}" y="{row * 100 + 32}">{ascii_uppercase[col]}{row + 1}</text>'
-        for col in range(10) for row in range(10)
-    ]
+    coords = []
+    for index, letter in enumerate(ascii_uppercase[:10]):
+        offset = index * 100 + 50
+        coords.append(f'<text x="{offset}" y="12" text-anchor="middle">{letter}</text>'
+                      f'<text x="8" y="{offset + 3}" text-anchor="middle">{index + 1}</text>')
     terrain = []
     labels = []
     for kind, x, y, label_x, label_y, translations in regions:
@@ -119,11 +126,13 @@ def _floor_svg(title, floors, selected, language, steps):
     for index, (number, label) in enumerate(steps):
         y = 112 + index * 98
         lines = _wrap(label)
-        route.append(f'<circle cx="223" cy="{y}" r="28" fill="#284a42" stroke="#b3c9b3" stroke-width="2"/>'
-                     f'<text x="223" y="{y + 10}" text-anchor="middle" fill="#edcf8b">{number}</text>')
+        route.append(f'<path d="M200 {y + 44}H767" stroke="#5e6b55" stroke-opacity=".55"/>'
+                     f'<circle cx="223" cy="{y}" r="24" fill="#314839" stroke="#b6a070" stroke-width="1.5"/>'
+                     f'<text x="223" y="{y + 9}" text-anchor="middle" fill="#ead3a0">{number}</text>'
+                     f'<path d="M735 {y}h23m-8-8 8 8-8 8" fill="none" stroke="#dbc28b" stroke-width="2.6"/>')
         for line, text in enumerate(lines):
             baseline = y + 10 + 33 * (line - (len(lines) - 1) / 2)
-            length = ' textLength="478" lengthAdjust="spacingAndGlyphs"' if _measure(text) > 31 else ""
+            length = ' textLength="435" lengthAdjust="spacingAndGlyphs"' if _measure(text) > 29 else ""
             route.append(f'<text x="274" y="{baseline:g}"{length}>{html.escape(text)}</text>')
     levels_label, route_label = FLOOR_HEADINGS[language]
     return _render("floor", title=f"{html.escape(title)} · {selected}", language=language,
@@ -142,7 +151,7 @@ def _chapter(root, language, slug, references):
     for reference in references:
         text = html.unescape(re.sub(r"<[^>]+>", "", steps[reference]))
         number, label = text.split(".", 1)
-        highlights.append((int(number), label.strip()))
+        highlights.append((int(number), label.strip(), reference))
     return html.unescape(title), sorted(highlights)
 
 
@@ -162,15 +171,64 @@ def _image_files(root, manifest):
     if set(routes) != set(groups):
         raise ValueError("Each dungeon needs a walkthrough diagram")
     result = {}
+    walkthroughs = {}
     for language in LANGUAGES:
+        prefix = "" if language == "en" else f"/{language}"
+        walkthroughs[language] = {
+            "label": FLOOR_HEADINGS[language][1], "dungeons": {}
+        }
         result[f"{language}/light.svg"] = _world("light", language, landmarks["light"])
         result[f"{language}/dark.svg"] = _world("dark", language, landmarks["dark"])
         result[f"{language}/places.svg"] = _world("light", language, landmarks["light"], places=True)
         for code, levels in groups.items():
-            title, steps = _chapter(root, language, *routes[code])
+            slug, references = routes[code]
+            title, steps = _chapter(root, language, slug, references)
+            overview = f"{prefix}/{GUIDE_ROOT.as_posix()}/{slug}/"
+            walkthroughs[language]["dungeons"][code] = [
+                (f"{number}. {label}", f"{overview}#step-{reference}") for number, label, reference in steps
+            ]
             for floor in levels:
-                result[f"{language}/dungeon-{code}-{floor}.svg"] = _floor_svg(title, levels, floor, language, steps)
-    return result
+                result[f"{language}/dungeon-{code}-{floor}.svg"] = _floor_svg(
+                    title, levels, floor, language, [(number, label) for number, label, _ in steps]
+                )
+    return result, walkthroughs
+
+
+def _floor_html(source, language, walkthroughs):
+    routes = walkthroughs[language]
+
+    def with_links(match):
+        opening, image, closing = match.groups()
+        code = re.search(r"dungeon-([A-Z]\d?)-(?:B\d+|\d+F)\.svg", image)[1]
+        links = "".join(
+            f'<a href="{href}" aria-label="{html.escape(label, quote=True)}"></a>'
+            for label, href in routes["dungeons"][code]
+        )
+        heading = html.escape(routes["label"], quote=True)
+        return (f'{opening}<div class="atlas-floor-board">{image}'
+                f'<nav class="atlas-step-links" aria-label="{heading}">{links}</nav></div>{closing}')
+
+    return FLOOR_HTML.sub(with_links, source)
+
+
+def _floor_js(source, route_data):
+    def with_links(match):
+        prefix = match[1]
+        call = match["jsx"]
+        image = match["image"]
+        code = re.search(r"dungeon-\$\{(\w+)\}-", image)[1]
+        return (prefix + "(()=>{const locale=atlasDungeonRoutes[document.documentElement.lang.split('-')[0]]"
+                "??atlasDungeonRoutes.en;"
+                f"return {call}(`div`,{{className:`atlas-floor-board`,children:[{call}(`img`,{{{image}}}),"
+                f"{call}(`nav`,{{className:`atlas-step-links`,\"aria-label\":locale.label,"
+                f"children:locale.dungeons[{code}].map(([label,href])=>"
+                f"{call}(`a`,{{href,\"aria-label\":label}},href))}})]}})"
+                "})()")
+
+    source, replaced = FLOOR_JS.subn(with_links, source)
+    if replaced != 1:
+        raise ValueError(f"Expected one dungeon renderer in a shared chunk, found {replaced}")
+    return "const atlasDungeonRoutes=" + route_data + ";\n" + source
 
 
 def _messages():
@@ -200,7 +258,7 @@ def apply(root: Path):
             return
         raise ValueError("Missing ALttP map manifest")
     legacy=json.loads((old/"sources.json").read_text(encoding="utf8"))
-    diagrams=_image_files(root, legacy)
+    diagrams,walkthroughs=_image_files(root, legacy)
     existing={p.name for p in old.iterdir() if p.is_file()}
     supported=set(WORLD_FILES)|{"light-field-water.webp","sources.json","light-field-source.json"}|{
         Path(n).name.replace(".svg",".png") for n in diagrams if Path(n).name.startswith("dungeon-")
@@ -212,7 +270,7 @@ def apply(root: Path):
     rows=[]
     for relative,svg in diagrams.items():
         language,name = relative.split("/")
-        path=out/"schematics"/relative
+        path=out/SCHEMATIC_DIR/relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(svg,encoding="utf8")
         w,h=(800,480) if name.startswith("dungeon-") else (1000,1000)
@@ -223,7 +281,7 @@ def apply(root: Path):
                    "es":"Las regiones y los símbolos indican posiciones aproximadas. Los marcadores conservan las coordenadas asignadas originalmente sobre el montaje de Ian Albert. El índice de plantas acompaña cuatro pasos numerados del recorrido de la mazmorra.",
                    "ja":"地域と地形記号はおおよその位置を示します。地点には、イアン・アルバートの地図に付けた既存の座標を使用しています。階層一覧と、攻略記事から選んだ4つの手順を表示します。",
                    "zh":"区域和地形符号只表示大致位置。标记沿用最初在 Ian Albert 拼接地图上设定的坐标。迷宫示意图同时显示楼层索引和对应攻略章节的四个关键步骤。"},
-         "assets":rows}
+         "historical_reference":LEGACY_SOURCE,"assets":rows}
     (out/"provenance.json").write_text(json.dumps(doc,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
     # Keep the original manifest's presentation order: it also supplies the default selected
     # floor for the one tower whose published range starts above 1F.
@@ -231,6 +289,8 @@ def apply(root: Path):
     floor_rows=[lookup[r["file"][:-4]+".svg"] for r in legacy["assets"] if FLOOR.fullmatch(r["file"])]
     bundle=json.dumps({"source":NOTES,"credit":"Hyrule Atlas","permission":doc["permission"],"assets":floor_rows,"previewDerivatives":[]},
                       separators=(",",":"),ensure_ascii=False)
+    route_data=json.dumps(walkthroughs,separators=(",",":"),ensure_ascii=False)
+    styles=(ART/"map-interface.css").read_text(encoding="utf8")
     mapping=_messages()
     mapping.update(WORLD_FILES)
     mapping.update({"-world-1024.webp":".svg","-world-4096.webp":".svg",
@@ -241,7 +301,7 @@ def apply(root: Path):
         mapping[n["file"][:-4]+".png"]=n["file"]
     keys=sorted(mapping,key=len,reverse=True)
     clean_floor_ext=re.compile(r'(replace\(`dungeon-\$\{\w+\}-`,``\)\.replace\(\x60)\.png(\x60)')
-    size=re.compile(r'<img\b(?=[^>]*?/assets/atlas-charts/schematics/[a-z]{2}/dungeon-)[^>]*>')
+    size=re.compile(r'<img\b(?=[^>]*?'+re.escape(SCHEMATICS)+r'[a-z]{2}/dungeon-)[^>]*>')
     charts_pattern=re.compile(re.escape(SCHEMATICS)+r"(?![a-z]{2}/|\$\{document\.)")
     srcset_pattern=re.compile(r"("+re.escape(SCHEMATICS)+r"(?:light|dark|\$\{\w+\})\.svg) 1024w, \1 4096w")
     for p in sorted(root.rglob("*")):
@@ -256,11 +316,12 @@ def apply(root: Path):
         if p.suffix==".css" and "light-field-water.webp" in s:
             s=re.sub(r'background\s*:\s*url\(["\']?/assets/alttp/light-field-water\.webp["\']?\)\s*center/100%\s+100%',"background:none",s)
         if p.suffix==".css" and ".alttp-floor.is-large" in s:
-            s+=("\n.alttp-floor:not(.is-large) img{width:min(100%,940px);height:auto;margin-inline:auto;image-rendering:auto}"
-                ".alttp-floor.is-large img{width:max(125%,1000px);max-width:none;height:auto;image-rendering:auto}\n")
+            s += "\n" + styles
         if p.suffix == ".css":
             s = s.replace(".alttp-search-page .atlas-shell .alttp-plans[open]>p{display:none}", "")
         if p.suffix==".js":
+            if 'className:`alttp-floor ' in s:
+                s = _floor_js(s, route_data)
             s=clean_floor_ext.sub(r'\1.svg\2',s)
             s=re.sub(r"Le Miroir compare la géographie ; les repères restent ceux du \$\{[^}]+\}\.",
                      "Le Miroir superpose les deux cartes. Les repères indiquent les accès du monde actif.",s)
@@ -277,6 +338,8 @@ def apply(root: Path):
             s=charts_pattern.sub(SCHEMATICS+(locale if locale in LANGUAGES else "en")+"/",s)
         if p.suffix==".html":
             s=size.sub(lambda m:re.sub(r'\b(width|height)="\d+"',lambda a:'width="800"' if a[1]=='width' else 'height="480"',m[0]),s)
+            locale = p.relative_to(root).parts[0]
+            s = _floor_html(s, locale if locale in LANGUAGES else "en", walkthroughs)
         revised=s.encode("utf8")
         if content!=revised:
             p.write_bytes(revised)

@@ -2,75 +2,112 @@
   <title>{{title}}</title>
   <desc>{{description}}</desc>
   <defs>
-    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
-      <path d="M100 0H0V100" fill="none" stroke="{{grid}}" stroke-opacity=".36" stroke-width="1.25"/>
+    <clipPath id="plate"><rect x="18" y="18" width="964" height="964"/></clipPath>
+    <pattern id="paper-grain" width="31" height="29" patternUnits="userSpaceOnUse">
+      <path d="M2 5h1m19 3h1M13 13h1m14 7h1M4 23h2m12 4h1" fill="none" stroke="{{ink}}" stroke-opacity=".13" stroke-width=".8"/>
     </pattern>
-    <style>
-      .terrain{stroke:{{landline}};stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-      .relief{fill:none;stroke:{{landline}};stroke-width:1.5;stroke-opacity:.65}
-      .water{stroke:{{waterline}}}
-      .structure{fill:{{building}};stroke:{{buildingline}};stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-      .landmark{fill:{{ink}};stroke:{{paper}};stroke-width:7;stroke-linejoin:round;paint-order:stroke;letter-spacing:.02em}
-    </style>
-    <g id="trees">
-      <path d="M0-43 17-12H10L24 11H5V24H-5V11H-24L-10-12H-17Z" fill="{{wood}}" class="terrain"/>
+    <pattern id="coordinate-rules" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M100 0H0V100" fill="none" stroke="{{grid}}" stroke-opacity=".22"/>
+      <path d="M46 50h8m-4-4v8" fill="none" stroke="{{grid}}" stroke-opacity=".24"/>
+    </pattern>
+    <pattern id="scree" width="48" height="39" patternUnits="userSpaceOnUse" patternTransform="rotate(-14)">
+      <path d="m7 9 2 5m7-3 2 6m7 10 2 5m5-8 2 4m9-23 2 5M1 29l2 6"
+        fill="none" stroke="{{landline}}" stroke-opacity=".51" stroke-width="1.2" stroke-linecap="round"/>
+    </pattern>
+    <pattern id="forest" width="89" height="76" patternUnits="userSpaceOnUse">
+      <use href="#pine" transform="translate(13 23) scale(.75)"/>
+      <use href="#pine" transform="translate(39 33) scale(1.03)"/>
+      <use href="#pine" transform="translate(71 18) scale(.6)"/>
+      <use href="#pine" transform="translate(22 64) scale(.59)"/>
+      <use href="#pine" transform="translate(63 61) scale(.81)"/>
+    </pattern>
+    <g id="pine">
+      <path d="M2-15 11 0H7L16 12H4v7h-3v-7H-12L-4 0h-4Z" fill="{{wood}}"/>
+      <path d="M2-15v27H-12L-4 0h-4Z" fill="{{woodshade}}" opacity=".78"/>
+      <path d="M2-15 11 0H7l9 12H4v7H1v-7h-13L-4 0h-4Z" fill="none" stroke="{{landline}}" stroke-width=".9" stroke-linejoin="round"/>
     </g>
+    <style>
+      .contour{fill:none;stroke:{{landline}};stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+      .waterline{fill:none;stroke:{{waterline}};stroke-width:1.25;stroke-linecap:round}
+      .building{fill:{{building}};stroke:{{buildingline}};stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+      .landmark{fill:{{ink}};stroke:{{paper}};stroke-opacity:.94;stroke-width:5;stroke-linejoin:round;paint-order:stroke}
+    </style>
     <g id="wood">
-      <path d="M-109 7C-112-42-84-69-36-67C9-79 74-68 92-40C127-7 108 45 67 58C26 74-24 72-55 60C-90 55-113 32-109 7Z" fill="{{green}}" class="terrain"/>
-      <path d="M-87 17C-61 43-28 34-1 51S52 45 78 32M-87-2C-61 24-41 26-16 24" class="relief"/>
-      <use href="#trees" x="-67" y="-13"/><use href="#trees" x="-21" y="-25"/>
-      <use href="#trees" x="32" y="-15"/><use href="#trees" x="75" y="-4"/>
+      <path d="M-122-71c55-35 102-26 152-3s73 35 110 28q48 39 18 92c-37 22-64 8-89 20-32 16-79 31-114 7-29-20-57-22-77-9Z" fill="{{green}}" opacity=".78"/>
+      <path d="M-122-71c55-35 102-26 152-3s73 35 110 28q48 39 18 92c-37 22-64 8-89 20-32 16-79 31-114 7-29-20-57-22-77-9Z" fill="url(#forest)"/>
+      <path d="M-126 72c50-10 59 23 100 28 37 1 54-14 88-19 42-7 71 4 108-26M-129 81c35-10 55 14 80 24 47 15 70 5 113-12 39-11 76 5 101-17" class="contour" opacity=".6"/>
     </g>
     <g id="grove">
-      <path d="M-79 4C-79-28-34-55 0-53C34-57 76-32 78 2C81 40 39 57 4 52C-39 56-79 37-79 4Z" fill="{{green}}" class="terrain"/>
-      <use href="#trees" x="-51" y="5"/><use href="#trees" x="45" y="1"/>
-      <path d="M-19 22Q-5 14 3 24T19 22M-16 33Q-7 27 0 34T16 33" class="relief"/>
+      <path d="M-103-14c29-37 59-57 94-48 33 7 65-9 87-11 31 1 51 36 33 66-18 24-28 34-54 42s-51 30-82 24c-10-4-6-24-20-25-25 6-57-4-58-48Z" fill="{{green}}" opacity=".61"/>
+      <path d="M-103-14c29-37 59-57 94-48 33 7 65-9 87-11 31 1 51 36 33 66-18 24-28 34-54 42s-51 30-82 24c-10-4-6-24-20-25-25 6-57-4-58-48Z" fill="url(#forest)"/>
+      <path d="M-75 29c25-12 36 11 54 15q23 14 57-4" class="contour"/>
     </g>
     <g id="mountain">
-      <path d="M-213 21C-171-64-135-73-91-65C-53-94-8-103 38-85C86-92 122-77 158-68C188-62 223-21 214 23C189 49 165 45 149 49C70 88-23 85-73 64C-113 62-148 45-174 49C-191 47-208 38-213 21Z" fill="{{stone}}" class="terrain"/>
-      <path d="M-188 32q39-14 67 7t76 5t80 2t90-6t64-11M-144 50q39-8 73 5t86 9t109-15" class="relief"/>
-      <path d="m-172 13 44-62 46 62zm55 16 77-98 63 98zm100-7 47-67 52 67zm57 8 71-99 61 99z" fill="{{peak}}" class="terrain"/>
-      <path d="m-55-50 14 16 15-14m120-5 16 20 16-17m-264 17 10 11 12-11m144 1 14 11 15-11" class="relief"/>
+      <path d="M-238-41q-9-31 34-55l414 3c-1 33 78 27 92 69 26 80-43 109-98 105-32-3-67 10-94 20-44 21-68 20-108 10-37-9-65-4-102 2s-67-33-104-37c-27-4-55-10-41-31 17-24 1-35 7-86Z" fill="{{stone}}" opacity=".6"/>
+      <path d="M-223 15c-12-60 42-70 67-84 31-17 57-3 90-21l236-12c44 19 72 44 89 72 19 43-3 64-55 73-45 9-81 6-103 25-36 20-64 24-90 17-36-11-61-14-89-3-35 10-53-7-78-18-49-20-65-8-67-49Z" fill="{{peak}}" opacity=".68"/>
+      <path d="M-227 40c24 29 45 11 80 34s35 17 70 18c43-13 68-13 94-2 48 21 69 15 97-1 44-29 53-19 107-26 59-6 78-46 69-78M-232 56c24 25 47 19 79 32 47 24 57 23 86 14s63-10 98 4c44 23 83-8 114-18 38-15 72-6 103-20M-237 74c25 22 62 20 85 31 28 11 57 23 94 12 58-19 91-2 117 6 34 7 79-25 117-29s67-2 111-39" class="contour" opacity=".7"/>
+      <path d="M-212 59c-35-86 12-106 77-111 25-6 24-20 51-16l55-38 43 33c28 3 43-12 65-6l33-33 34 15c28 9 31 24 52 42 18 15 31 18 43 54-9 22-34 36-80 42-45 4-69 23-93 25-32 2-64-28-98-20-33 9-46 20-74 17-34-5-59-31-108-4Z" fill="url(#scree)"/>
+      <path d="m-191 36 40-58 20 11 28-23 17 10 51-71 36 32 34 38 16-17 36 10 43-69 31 43 23 3 37 48M-175 29l24-26 13 5 20-13m63-44 22-29 18 15m-107 92 38-21 37-40 16 18 17-14 29 24 37 12m27-61 17-23 20 27m-52 38 34 12 32-28 34 8 23 26m-194 4 15-28 15 13 11-16 17 17m129 24 27-19 19 11 21-20" class="contour"/>
+      <path d="m-75-43 15 15 14-9 16 10 19-17-25-26Zm173 1 10 7 17-9 25 13 17-12-29-44Z" fill="{{paper}}" opacity=".65"/>
     </g>
     <g id="falls">
-      <path d="M-77-13C-76-47-46-61-13-59C21-65 62-49 70-24C96 8 69 40 42 43C13 55-27 46-45 42C-72 34-80 11-77-13Z" fill="{{water}}" class="terrain water"/>
-      <path d="M-44-20q14-7 24 0t26 0t26 0t25 0m-99 16q14-7 24 0t26 0t26 0t23 0m-85 18q14-7 24 0t26 0t20 0" class="relief water"/>
+      <path d="M114-58c-30-41-60-44-86-15-17 20-38 1-50 15-16 13-8 29-23 39-27 14-49 26-40 60 9 41 51 47 75 26 21-20 22-41 53-39 35 2 65-16 72-47Z" fill="{{water}}"/>
+      <path d="M105-53C68-87 60-61 36-46 15-31 0-58-14-35s-4 36-30 48-38 23-28 41c11 16 47 17 60 2s25-34 48-34c50 4 67-7 68-52M72-40C59-23 37-32 13-15-13-4-7 22-34 28s-29 17-18 23M-68 69c23 11 43 8 60-5m54-47c21-10 36-4 54-13" class="waterline"/>
+      <path d="M-86 68q32 29 65 8m-64-88q24-6 33-21m83 68q38 4 61-10" class="contour" opacity=".58"/>
     </g>
     <g id="water">
-      <path d="M-135-17C-132-65-69-91-10-83C28-94 101-68 112-43C144-12 132 35 108 50C84 72 30 69 4 83C-52 82-104 65-119 36C-130 16-139 1-135-17Z" fill="{{water}}" class="terrain water"/>
-      <path d="M-102-34q20-9 36 0t31 0m52-17q24-10 40 0t31 0M-112 8q24-8 40 0t31 0m74 13q21-8 36 0t32 0M-72 46q23-9 43 0t37 0m24 4q19-8 34 0t28 0" class="relief water"/>
-      <path d="M-28 20C-43 8-30-10-8-12C19-24 42-9 42 7C37 23 3 30-28 20Z" fill="{{green}}" class="terrain"/>
+      <path d="M-146-43c25-30 51-53 78-45 41 13 84-13 113-2 25 10 53 6 77 19 12 6 48 18 44 51-5 25-29 24-33 43-4 18 22 37 8 51-24 20-69 16-95 31-38 20-85-2-109-4-77-9-118-58-83-144Z" fill="{{water}}"/>
+      <path d="M-146-43c25-30 51-53 78-45 41 13 84-13 113-2 25 10 53 6 77 19 12 6 48 18 44 51-5 25-29 24-33 43-4 18 22 37 8 51-24 20-69 16-95 31-38 20-85-2-109-4-77-9-118-58-83-144Z" class="waterline" stroke-width="2"/>
+      <path d="M-133-29c28-48 57-50 85-40 31 9 66-12 87-6 35 11 62 10 84 28 26 19 22 37 4 51-25 22-5 45 0 57-13 22-61 16-90 32-25 15-79-1-103-8-57-6-89-57-67-114Z" class="waterline" opacity=".64"/>
+      <path d="M-120-39q13-8 23 0t19 0m-31 18q15-9 28 0t26 0m-66 24q13-9 23 0t20 0m-18 20q14-8 26 0t23 0m-37 24q19-12 35 0t29 0m102-62q11-7 23 0t20 0m-29 25q12-7 21 0t16 0m-63 21q12-6 22 0t20 0m-24 23q13-7 26 0t2 0m-129 7q19-9 36 1t31 0m-19 17q18-8 31 1t28 0" class="waterline" opacity=".65"/>
+      <path d="M-39 7C-37-19-2-33 15-26c18 8 41 4 49 21 13 23-17 42-37 45-20 8-65-3-66-33Z" fill="{{green}}" stroke="{{waterline}}" stroke-width="1.3"/>
+      <use href="#pine" transform="translate(-14 5) scale(.43)"/><use href="#pine" transform="translate(45 4) scale(.37)"/>
     </g>
     <g id="sand">
-      <path d="M-101-26C-90-71-45-90 6-73C46-77 110-42 112 5C121 47 56 76 5 72C-32 89-83 61-99 38C-118 20-111-11-101-26Z" fill="{{sand}}" class="terrain"/>
-      <path d="M-77-23q31-25 55-11t51 10t54 0M-89-1q29-25 59-11t92 5M-79 21q25-23 45-10t49 16t65-5m-137 20q25-17 46-3t63-3" class="relief"/>
+      <path d="M-159-109c39 8 63-16 91-1 41 23 65 38 95 25s65-23 106-9c38 14 66 52 58 82-10 42-45 46-64 78-14 24-17 58-37 73H-171Z" fill="{{sand}}" opacity=".76"/>
+      <path d="M-145-49q36-33 73-17t68 9t71-5t91 0M-151-34q53-34 96-6t72-3t69-10t80 36M-150-13q30-28 54-16t51 16t84-11t65-1t66 13M-154 7q55-37 91-11t74 4t72-13t59 19M-152 24q43-32 72-18t41 14t93-12t75 19M-140 46q39-27 64-18t56 14t54-8t61-7m-237 48q40-31 66-22t53 12t53-14t55 3M-134 101q36-24 66-18t53 12t59-16m-182 45q37-20 65-16t51 7m-67 21q54-10 89-14" class="contour"/>
     </g>
     <g id="marsh">
-      <path d="M-96-16C-107-49-65-75-26-67C15-93 79-63 96-34C124-14 119 28 78 49C47 62 4 71-25 57C-55 60-112 29-96-16Z" fill="{{water}}" class="terrain water"/>
-      <path d="M-75 5q24-17 51-4t48 3t50-4m-131 21q22-13 44-2t60 4M-55-20v-22m0 13-9-8m9 2 9-8M34-14v-24m0 13-10-9m10 1 10-8m28 42v-24m0 13-11-8m11 1 11-8" class="relief water"/>
+      <path d="M-143-53c41-8 71 9 105-1 43-19 66-36 95-9 24 24 64-2 84 19 20 23 2 50-12 62-17 16-13 48-50 60-37 7-69 15-113 17-41-9-72-4-101-20Z" fill="{{green}}" opacity=".8"/>
+      <path d="M-144-32q40-17 74 5t63 4t66-21t47 5q34 18 5 33t-15 35t-28 28q-33 14-58 2t-56 10q-48 18-100-1Z" fill="{{water}}" opacity=".94"/>
+      <path d="M-148-20q54-22 91-2t74 6t54-21m-195 43q39-26 76-7t52 14t59-22t42 3m-236 33q52-14 100 7t71-7t50-8M-103 33v-19m0 8-8-6m8 3 7-8m82 29V18m0 11-6-5m6-1 7-6m99-1V-1m0 8 8-6" class="waterline"/>
     </g>
     <g id="village">
-      <path d="M-101-12C-94-58-59-69-16-60C14-76 41-52 70-51C99-47 111-21 106 13C99 40 63 60 24 56C-31 70-95 43-101-12Z" fill="{{green}}" class="terrain"/>
-      <path d="M-77-3-57-24-35-3V19H-77Z M-19-19 4-47 28-19V9H-19Z M38 9 66-22 92 9V35H38Z M-17 36 1 15 18 36V48H-17Z" class="structure"/>
+      <path d="M-64-18h3v-8h8l9 10v15h-19zm47-19h18V-19h-19Zm37 51h-20V-1l9-9 11 10zm30-25h-19v-17l10-6 9 10zm21 48H53V23l8-10 10 10zm-120 4h-17v-13l8-9 9 9z" class="building"/>
+      <path d="M-96 4q55 14 82-17T61-18m-62-25q-32 20-23 46t-1 48m50-15q13-14 44-10" class="contour" opacity=".78"/>
+      <use href="#pine" transform="translate(-86 -28) scale(.49)"/><use href="#pine" transform="translate(81 7) scale(.49)"/>
     </g>
     <g id="keep">
-      <path d="M-94-35C-88-64-47-71-1-63C38-68 77-62 92-31C114 2 86 40 48 49C7 66-34 48-61 44C-89 39-107 4-94-35Z" fill="{{green}}" class="terrain"/>
-      <path d="M-71 30V-25H-53V-42H-36V-25H-18V-8H18V-25H36V-42H53V-25H70V30H-15V12Q0-3 15 12V30Z" class="structure"/>
+      <path d="M-90 8c-15-31 5-63 45-70 32-11 82-12 114 8 31 21 35 52 17 70-14 22-75 33-118 22-32-7-54-14-58-30Z" fill="{{green}}" opacity=".6"/>
+      <path d="M-65 9q-17-51 20-58c46-18 79-21 113 19 34 37-35 62-67 55-23 0-42-7-66-16Z" class="contour" stroke-dasharray="4 6"/>
+      <path d="M-38 16V-24H-28V-34H-16V-24H-7v15H7V-24h10v-10h12v10h10V16H7V6q-7-11-14 0v10Z" class="building"/>
+      <path d="M-38 17H39m-69-37v24m60-24v24m-19-6v16m-23-16v16" class="contour" opacity=".7"/>
     </g>
     <g id="ruins">
-      <path d="M-81-35C-73-62-39-68-10-54C28-67 70-46 82-20C93 8 81 44 43 48C15 61-18 46-44 50C-80 40-102-3-81-35Z" fill="{{stone}}" class="terrain"/>
-      <path d="M-62-24H62L0-47Z M-56-15h18v43h-18zM-9-15H9v43H-9zM39-15h18v43H39zM-66 28H66v10H-66Z" class="structure"/>
+      <path d="M-97-36q21-42 59-52c29-2 30 23 58 22s39-2 53 15q13 25-10 52t-30 47c-43 14-80-25-92-40-12-13-44-15-38-44Z" fill="{{stone}}" opacity=".59"/>
+      <path d="M-62-55c52 4 84 54 118 52m-82-65c1 22 38 27 58 54m-67 34q30 5 52 26m-69-44 29 11" class="contour" opacity=".8"/>
+      <path d="M-37-15h73L0-34zm6 7h9v23h-9zm26 0h9v23h-9zm26 0h9v23h-9zm-63 24h81v6h-81z" class="building"/>
     </g>
     <g id="pyramid">
-      <path d="M-108 31C-96-12-62-48-22-59C31-75 75-50 108 28C87 51 59 67 0 62C-50 64-84 52-108 31Z" fill="{{stone}}" class="terrain"/>
-      <path d="M-82 28 0-61 82 28H-82Z M-51-5H51m-66-38h30m-79 54H65m-66-70L13 29" class="structure"/>
+      <path d="M-127 37q34-56 74-72c34-22 76-24 117-4q52 26 78 80c-59 20-110 54-157 37-40-3-76-37-112-41Z" fill="{{stone}}" opacity=".7"/>
+      <path d="M-102 37q76-46 119-92M-70 47q66-30 89-60m10 14 50 45m-30 14 59-30M-101 50q73 1 112 27" class="contour" opacity=".63"/>
+      <path d="M-51 20 2-45l54 65H-51Z M-37 1h76m-22-26h-31m-25 38h80m-52-35L9 20" class="building"/>
     </g>
   </defs>
   <path d="M0 0h1000v1000H0Z" fill="{{paper}}"/>
-  <path d="M14 14h972v972H14Z" fill="none" stroke="{{grid}}" stroke-width="2"/>
-  {{terrain}}
-  <path d="M0 0h1000v1000H0Z" fill="url(#grid)"/>
-  <g font-family="system-ui,sans-serif" font-weight="550" font-size="14" fill="{{ink}}" opacity=".66">{{coordinates}}</g>
-  <g font-family="system-ui,sans-serif" font-size="27" font-weight="700" text-anchor="middle">{{labels}}</g>
+  <g clip-path="url(#plate)">
+    <path d="M0 236c121-89 205-6 323-51 111-41 240 24 337-40 72-49 175-79 340-51V0H0Z" fill="{{green}}" opacity=".27"/>
+    <path d="M0 504c72-116 229-126 351-190 132-68 175 15 288-16 120-36 187-44 361-108v122c-91 47-226 36-289 96-66 63-145 20-271 60-114 34-202 82-330 66L0 579Z" fill="{{shade}}" opacity=".5"/>
+    <path d="M0 675c144-67 286 39 427-36 85-44 194-74 277-58 114 22 188-34 296-58v102c-90 56-207 49-301 40-132-9-175 73-270 103-190 59-261-20-429 39Z" fill="{{green}}" opacity=".3"/>
+    <path d="M0 908c145-47 245-2 348-46 143-68 232-79 339-38 109 42 158 4 313-22v198H0Z" fill="{{sand}}" opacity=".25"/>
+    <path d="M0 326c96-93 221-76 319-125 72-33 153 3 215-5s96-64 147-54m-674 207c86-82 237-91 322-130 76-30 146 9 210-4s83-35 143-49M0 557c146-97 220-54 340-98 111-41 190-28 257-15 140 28 167-58 257-54 45-5 101 6 146-19M0 585c155-110 225-64 355-105 100-33 175-22 237-15 140 23 169-54 250-48 54 0 107-5 158-27m-955 233c118-96 203-59 309-91 103-34 175-12 250-12 125 5 143-59 214-57 57-2 111 8 182-26M22 785c91-84 228 25 397-43 87-32 168-77 245-54 93 27 171 14 336-67m-949 184c103-64 219 28 374-45 100-43 162-71 239-50 88 26 187 8 336-64M104 918c110-25 227 20 370-69 100-63 172-48 214-32m-570 120c103-22 234 19 383-79 82-52 138-40 180-25" class="contour" opacity=".49"/>
+    {{terrain}}
+    <path d="M0 0h1000v1000H0Z" fill="url(#paper-grain)"/>
+    <path d="M0 0h1000v1000H0Z" fill="url(#coordinate-rules)"/>
+  </g>
+  <path d="M14 14h972v972H14Z" fill="none" stroke="{{grid}}" stroke-width="1.3"/>
+  <path d="M19 19h962v962H19Z" fill="none" stroke="{{grid}}" stroke-width=".7"/>
+  <g font-family="system-ui,sans-serif" font-weight="600" font-size="11" fill="{{ink}}" opacity=".8">{{coordinates}}</g>
+  <g font-family="Georgia,serif" font-size="28" font-weight="700" text-anchor="middle">{{labels}}</g>
   {{focus}}
 </svg>

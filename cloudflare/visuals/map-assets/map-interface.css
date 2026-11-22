@@ -1,0 +1,111 @@
+.alttp-workbench {
+  --alttp-panel: #15261f;
+  --alttp-ink: #0e1c17;
+  --alttp-line: #3b5145;
+  --alttp-muted: #afc0b3;
+  --alttp-gold: #dcc18a;
+}
+
+.alttp-map-board .alttp-world-image {
+  image-rendering: auto;
+}
+
+.alttp-map-board .alttp-pin {
+  border-width: 1.5px;
+  box-shadow: 0 1px 4px #13221880;
+}
+
+.alttp-map-board .alttp-pin.item {
+  background: #eee4cf;
+}
+
+.alttp-map-board .alttp-pin.item.is-found {
+  background: #527056;
+}
+
+.alttp-map-board .alttp-pin.is-selected {
+  box-shadow: 0 0 0 5px #12251e91;
+  outline-color: #f8e4b7;
+}
+
+.alttp-workbench :is(.alttp-world-tabs, .alttp-map-controls, .alttp-categories) button:focus-visible,
+.alttp-map-board .alttp-pin:focus-visible {
+  outline: 2px solid #f9e8b6;
+  outline-offset: 3px;
+}
+
+.alttp-map-controls button:not(:disabled),
+.alttp-plan-tools button {
+  transition: background-color 150ms cubic-bezier(.23, 1, .32, 1);
+}
+
+@media (hover: hover) {
+  .alttp-map-controls button:not(:disabled):hover,
+  .alttp-plan-tools button:hover {
+    background-color: #3b5145;
+  }
+}
+
+.alttp-map-controls button:not(:disabled):active,
+.alttp-plan-tools button:active {
+  background-color: #526451;
+}
+
+.alttp-floor > .atlas-floor-board {
+  position: relative;
+  width: min(100%, 940px);
+  margin-inline: auto;
+  isolation: isolate;
+}
+
+.alttp-floor.is-large > .atlas-floor-board {
+  width: max(125%, 1000px);
+}
+
+.alttp-floor > .atlas-floor-board > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  margin: 0;
+  image-rendering: auto;
+}
+
+.atlas-step-links {
+  position: absolute;
+  inset: 13% 3.5% 5.3% 24.5%;
+  display: grid;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+.atlas-step-links > a {
+  display: block;
+  border-radius: 3px;
+}
+
+@media (hover: hover) {
+  .atlas-step-links > a:hover {
+    background-color: #dcc18a18;
+  }
+}
+
+.atlas-step-links > a:focus-visible {
+  background-color: #dcc18a18;
+  outline: 2px solid #e3c890;
+  outline-offset: -2px;
+}
+
+.atlas-step-links > a:active {
+  background-color: #dcc18a2c;
+}
+
+.alttp-search-page li[id^="step-"] {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alttp-map-controls button,
+  .alttp-plan-tools button {
+    transition: none;
+  }
+}

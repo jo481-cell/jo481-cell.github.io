@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree.ElementTree import fromstring
-from visuals import editorial, identity, map_entry_links, maps, release, share_images
+from visuals import editorial, identity, map_entry_links, maps, release, share_images, studio
 
 
 HERE = Path(__file__).resolve().parent
@@ -192,6 +192,7 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
         editorial.apply(tmp)
         share_images.apply(tmp)
         identity.apply(tmp)
+        studio.apply(tmp)
         bundle_urls = release.rekey_bundles(tmp, before_visuals)
         for old, new in bundle_urls.items():
             # Existing tabs can still request a module by its previous URL.

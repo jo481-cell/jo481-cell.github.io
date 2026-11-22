@@ -1,0 +1,510 @@
+/* Editorial and walkthrough pages share a linen reading surface and forest navigation. */
+#atlas-main {
+  --reading-paper: var(--studio-paper, #f0e8d3);
+  --reading-ink: #233027;
+  --reading-copy: #3a483b;
+  --reading-brass: #755224;
+  --reading-rule: #c5b89e;
+  --reading-done: #e1e5d0;
+  --reading-panel: var(--studio-panel, #101e17);
+  --reading-line: var(--studio-line, #455340);
+  --reading-gold: var(--studio-gold, #e6c384);
+  --reading-muted: var(--studio-muted, #bec4ab);
+  --reading-serif: var(--studio-serif, Marcellus, Georgia, serif);
+}
+
+#atlas-main > .atlas-content:has(> :is(.guide-bar, .series-walkthrough, .ed-comparisons)) {
+  box-sizing: border-box;
+  width: min(100%, 1440px);
+  max-width: none;
+  padding-inline: clamp(1.25rem, 5.5vw, 5.5rem);
+  padding-block-start: clamp(1.65rem, 4vw, 3.5rem);
+  margin-inline: auto;
+}
+
+#atlas-main > .atlas-content > :is(.alttp-search-links, .z64-breadcrumbs, .s2-shortcuts, .series-page-nav) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .65rem clamp(.95rem, 2.1vw, 1.75rem);
+  padding: 0 0 .95rem;
+  margin: 0 0 1.25rem;
+  border-block-end: 1px solid var(--reading-line);
+  color: var(--reading-muted);
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+#atlas-main > .atlas-content > :is(.alttp-search-links, .z64-breadcrumbs, .s2-shortcuts, .series-page-nav) a {
+  color: var(--reading-gold);
+  border: 0;
+  padding: .4rem 0;
+  text-decoration: underline;
+  text-underline-offset: .27em;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 160ms ease-out;
+}
+
+#atlas-main > .atlas-content > :is(.alttp-search-links, .z64-breadcrumbs, .s2-shortcuts, .series-page-nav) a:hover {
+  text-decoration-color: currentColor;
+}
+
+#atlas-main .alttp-search-edition {
+  color: var(--reading-muted);
+  margin: 0 0 1rem;
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+#atlas-main .guide-bar {
+  --guide-bar-ink: var(--reading-paper);
+  --guide-bar-muted: var(--reading-muted);
+  --guide-bar-gold: var(--reading-gold);
+  --guide-bar-surface: var(--reading-panel);
+  --guide-bar-line: var(--reading-line);
+  margin-block: 0 clamp(1.65rem, 3vw, 2.5rem);
+  border: 1px solid var(--reading-line);
+  border-radius: .65rem;
+  box-shadow: none;
+}
+
+#atlas-main .guide-bar :is(.guide-bar__next, .guide-bar__toggle, .guide-bar__top) {
+  border-radius: .3rem;
+  transition: background-color 160ms ease-out, transform 160ms ease-out;
+}
+
+#atlas-main .guide-bar :is(.guide-bar__next, .guide-bar__toggle, .guide-bar__top):active {
+  transform: scale(.98);
+}
+
+#atlas-main .guide-bar .guide-bar__count {
+  font-variant-numeric: tabular-nums;
+}
+
+#atlas-main :is(.z64-reader, .s2-reader) {
+  display: grid;
+  grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4.6rem);
+  margin-block-start: 0;
+}
+
+#atlas-main :is(.z64-reader__sidebar, .s2-sidebar) {
+  color: var(--reading-muted);
+  padding-block-start: .3rem;
+}
+
+#atlas-main :is(.z64-reader__article, .s2-article) {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+}
+
+#atlas-main :is(.z64-reader__sidebar, .s2-sidebar) h2 {
+  max-width: 15ch;
+  color: var(--reading-paper);
+  font: 400 1.7rem/1.2 var(--reading-serif);
+  margin-block: 0 .7rem;
+}
+
+#atlas-main :is(.z64-toc, .s2-toc, .s2-backup) {
+  color: var(--reading-paper);
+  border-color: var(--reading-line);
+}
+
+#atlas-main :is(.z64-toc, .s2-toc, .s2-backup) summary {
+  min-height: 2.75rem;
+  align-content: center;
+}
+
+#atlas-main :is(.z64-reader-intro, .s2-description) {
+  color: var(--reading-paper);
+  max-width: 67ch;
+  margin: 0 0 clamp(1.4rem, 3.1vw, 2.4rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.24rem);
+  line-height: 1.65;
+}
+
+#atlas-main :is(.alttp-search-answer, .alttp-search-toc, .z64-boss, .s2-boss, .s2-sources, .z64-notes) {
+  background: var(--reading-panel);
+  color: var(--reading-paper);
+  border: 1px solid var(--reading-line);
+  border-radius: .875rem;
+  padding: clamp(1.25rem, 3.1vw, 2.4rem);
+  margin-block: 1.65rem;
+}
+
+#atlas-main :is(.alttp-search-answer, .alttp-search-toc, .z64-boss, .s2-boss, .s2-sources, .z64-notes) h2 {
+  color: var(--reading-paper);
+  font: 400 clamp(1.6rem, 2.65vw, 2.35rem)/1.15 var(--reading-serif);
+  margin: 0 0 .7rem;
+  text-wrap: balance;
+}
+
+#atlas-main :is(.alttp-search-answer, .z64-boss, .s2-boss, .s2-sources, .z64-notes) p {
+  max-width: 66ch;
+  color: var(--reading-muted);
+  line-height: 1.7;
+}
+
+#atlas-main .alttp-chapter-facts > p {
+  border-color: var(--reading-line);
+}
+
+#atlas-main .alttp-chapter-facts strong,
+#atlas-main :is(.z64-kicker, .z64-reward strong, .s2-sidebar strong) {
+  color: var(--reading-gold);
+}
+
+#atlas-main .alttp-search-toc ol {
+  column-gap: clamp(1.2rem, 3.8vw, 3rem);
+}
+
+#atlas-main .alttp-search-toc ol li {
+  break-inside: avoid;
+}
+
+#atlas-main .alttp-search-toc a {
+  display: inline-block;
+  padding: .35rem 0;
+  line-height: 1.45;
+  color: var(--reading-gold);
+  text-underline-offset: .23em;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) {
+  color: var(--reading-ink);
+  background: var(--reading-paper);
+  border: 1px solid var(--reading-rule);
+  border-radius: .9rem;
+  scroll-margin-block-start: 4.5rem;
+  padding: .3rem clamp(1rem, 3.2vw, 2.5rem);
+  margin: clamp(1.6rem, 4.5vw, 3.1rem) 0;
+  list-style: none;
+  max-width: none;
+}
+
+#atlas-main :is(.z64-steps, .s2-steps) {
+  margin-block-start: 0;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) > li {
+  scroll-margin-block-start: 5.2rem;
+  padding: clamp(1.25rem, 3vw, 2.1rem) 0;
+  border: 0;
+  border-block-start: 1px solid var(--reading-rule);
+  border-radius: 0;
+  background: transparent;
+  margin: 0;
+}
+
+#atlas-main :is(.z64-steps, .s2-steps) > li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: clamp(.75rem, 2.4vw, 1.35rem);
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) > li:first-child {
+  border-block-start: 0;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) > li.is-done {
+  background: var(--reading-done);
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) > li:target {
+  outline: 1px solid var(--reading-brass);
+  outline-offset: .45rem;
+  border-radius: .3rem;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) h2,
+#atlas-main .alttp-search-step-heading h2 label {
+  color: var(--reading-ink);
+  font: 400 clamp(1.3rem, 2.1vw, 1.9rem)/1.2 var(--reading-serif);
+  letter-spacing: -.015em;
+  margin: 0 0 .45rem;
+  text-wrap: pretty;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) li p {
+  max-width: 67ch;
+  color: var(--reading-copy);
+  margin-block: 0;
+  line-height: 1.68;
+  font-size: clamp(.94rem, 1.35vw, 1.03rem);
+}
+
+#atlas-main .alttp-search-step-heading {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: clamp(.75rem, 2.4vw, 1.35rem);
+  margin-block-end: .25rem;
+}
+
+#atlas-main .alttp-search-steps > li > p {
+  margin-inline-start: calc(2.5rem + clamp(.75rem, 2.4vw, 1.35rem));
+}
+
+#atlas-main :is(.z64-step-marker, .s2-check) {
+  color: var(--reading-brass);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) input[type="checkbox"] {
+  width: 1.28rem;
+  height: 1.28rem;
+  accent-color: #365442;
+  color-scheme: light;
+  cursor: pointer;
+}
+
+#atlas-main :is(.z64-check, .s2-check, .alttp-search-step-heading label) {
+  cursor: pointer;
+}
+
+#atlas-main :is(.z64-check, .s2-check) {
+  min-block-size: 2.75rem;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) input[type="checkbox"]:disabled {
+  cursor: default;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--reading-brass);
+  outline-offset: .25rem;
+}
+
+#atlas-main :is(.alttp-search-steps, .z64-steps, .s2-steps) ::selection,
+#atlas-main .ed-comparisons ::selection {
+  background: #d6be82;
+  color: #18271d;
+}
+
+#atlas-main .atlas-content #floor-plans .alttp-plans {
+  background: var(--reading-panel);
+  border-color: var(--reading-line);
+  border-radius: .875rem;
+}
+
+#atlas-main .atlas-content #floor-plans .alttp-floor {
+  border-color: var(--reading-line);
+  border-radius: .45rem;
+}
+
+#atlas-main .atlas-content #floor-plans .alttp-floor img {
+  image-rendering: auto;
+}
+
+#atlas-main :is(.alttp-chapter-nav, .z64-chapter-nav, .s2-adjacent) {
+  gap: .8rem 1.3rem;
+  flex-wrap: wrap;
+}
+
+#atlas-main :is(.alttp-chapter-nav, .z64-chapter-nav, .s2-adjacent) a {
+  color: var(--reading-gold);
+  min-height: 2.75rem;
+  text-underline-offset: .27em;
+}
+
+#atlas-main .series-introduction {
+  gap: clamp(1.75rem, 5vw, 4.2rem);
+  align-items: center;
+  padding-block: clamp(1.1rem, 3vw, 2.4rem) clamp(3rem, 7vw, 6rem);
+}
+
+#atlas-main .series-hero-art {
+  min-width: 0;
+  background: var(--reading-panel);
+  border-color: var(--reading-line);
+  border-radius: .8rem;
+  padding: clamp(.8rem, 2vw, 1.35rem);
+}
+
+#atlas-main .series-hero-art > a {
+  display: block;
+  padding: 0;
+  min-block-size: 0;
+}
+
+#atlas-main .series-hero-art .source-panel {
+  display: none;
+}
+
+#atlas-main .series-hero-art figcaption {
+  padding: .85rem .15rem 0;
+  margin-block-start: .85rem;
+  border-color: var(--reading-line);
+  color: var(--reading-muted);
+  font-size: .72rem;
+}
+
+#atlas-main .series-hero-art img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  margin: 0;
+  transform: none;
+  position: static;
+}
+
+#atlas-main :is(.series-start, .series-section-head) h2 {
+  color: var(--reading-paper);
+  font-family: var(--reading-serif);
+  line-height: 1.13;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+
+#atlas-main :is(.series-start, .series-section-head) p:not(.atlas-eyebrow) {
+  color: var(--reading-muted);
+  max-width: 64ch;
+  line-height: 1.7;
+}
+
+#atlas-main :is(.series-progress, .series-contents, .series-chapter) {
+  background: var(--reading-panel);
+  border-color: var(--reading-line);
+  border-radius: .65rem;
+}
+
+#atlas-main .series-progress {
+  padding: .85rem clamp(1rem, 2.5vw, 1.85rem);
+  font-variant-numeric: tabular-nums;
+}
+
+#atlas-main .series-chapter > summary {
+  min-height: 3.7rem;
+}
+
+#atlas-main .series-chapter > summary:focus-visible {
+  outline: 2px solid var(--reading-gold);
+  outline-offset: .2rem;
+}
+
+#atlas-main .series-chapter[open] {
+  border-color: var(--reading-gold);
+}
+
+#atlas-main .series-chapter-body :is(.guide-passage, .guide-route, .series-objective, .series-tip) {
+  max-width: 67ch;
+}
+
+#atlas-main .ed-intro-line {
+  gap: 1rem 2rem;
+  border-color: var(--reading-line);
+  line-height: 1.65;
+}
+
+#atlas-main .ed-intro-line p {
+  max-width: 68ch;
+}
+
+#atlas-main .ed-comparisons {
+  display: grid;
+  gap: 0;
+  padding: clamp(1.25rem, 4vw, 3.8rem);
+  margin-block: clamp(1.8rem, 4.5vw, 3.75rem);
+  background: var(--reading-paper);
+  border-radius: .9rem;
+}
+
+#atlas-main .ed-comparison {
+  display: grid;
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+  gap: .8rem clamp(1.5rem, 5vw, 4.5rem);
+  align-items: baseline;
+  margin: 0;
+  border: 0;
+  border-block-start: 1px solid var(--reading-rule);
+  padding-block: clamp(1.4rem, 3.7vw, 2.7rem);
+}
+
+#atlas-main .ed-comparison:first-child {
+  border-block-start: 0;
+}
+
+#atlas-main .ed-comparison h2 {
+  color: var(--reading-ink);
+  font: 400 clamp(1.65rem, 3vw, 2.55rem)/1.17 var(--reading-serif);
+  letter-spacing: -.02em;
+}
+
+#atlas-main .ed-comparison .ed-kicker,
+#atlas-main .ed-comparison__notes a {
+  color: var(--reading-brass);
+}
+
+#atlas-main .ed-comparison__notes {
+  display: block;
+}
+
+#atlas-main .ed-comparison__notes p {
+  color: var(--reading-copy);
+  max-width: 65ch;
+  line-height: 1.7;
+  margin: 0;
+}
+
+#atlas-main .ed-comparison__notes p + p {
+  margin-block-start: .7rem;
+}
+
+@media (max-width: 850px) {
+  #atlas-main :is(.z64-reader, .s2-reader) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  #atlas-main :is(.z64-reader__sidebar, .s2-sidebar) {
+    position: static;
+    padding-block-start: 0;
+  }
+
+  #atlas-main :is(.z64-reader__sidebar, .s2-sidebar) h2 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 620px) {
+  #atlas-main > .atlas-content > :is(.alttp-search-links, .z64-breadcrumbs, .s2-shortcuts, .series-page-nav) {
+    gap: .25rem 1rem;
+    margin-block-end: 1rem;
+    padding-block-end: .65rem;
+    font-size: .8rem;
+  }
+
+  #atlas-main :is(.z64-steps, .s2-steps) > li,
+  #atlas-main .alttp-search-step-heading {
+    grid-template-columns: 1.9rem minmax(0, 1fr);
+    column-gap: .55rem;
+  }
+
+  #atlas-main .alttp-search-steps > li > p {
+    margin-inline-start: 2.45rem;
+  }
+
+  #atlas-main .alttp-search-toc ol {
+    columns: 1;
+  }
+
+  #atlas-main .ed-comparison {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #atlas-main .guide-bar :is(.guide-bar__next, .guide-bar__toggle, .guide-bar__top),
+  #atlas-main > .atlas-content > :is(.alttp-search-links, .z64-breadcrumbs, .s2-shortcuts, .series-page-nav) a {
+    transition: none;
+  }
+
+  #atlas-main .guide-bar :is(.guide-bar__next, .guide-bar__toggle, .guide-bar__top):active {
+    transform: none;
+  }
+}

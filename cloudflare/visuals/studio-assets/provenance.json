@@ -1,0 +1,18 @@
+{
+  "creation": "Built-in ImageGen",
+  "master": "exec-0730276e-1425-44d2-b60a-2e7c9d871215.png",
+  "master_sha256": "c4974d66ca73ad7c58a398001bcc165b2e857d1007960653f15e430555b45684",
+  "placement": "Decorative fictional valley on the Hyrule Atlas home page",
+  "transformation": "Proportional FFmpeg WebP conversions, without cropping",
+  "derivatives": [
+    {
+      "path": "atlas-valley-1600.webp",
+      "sha256": "b1e10e96f2d4417085976dd4508245c56a9586cb6eb549618b3474cb7d670ebe"
+    },
+    {
+      "path": "atlas-valley-960.webp",
+      "sha256": "bdf451ea80fabdea7a5fc28c1a14611a9114bbbaf343c90f764888c1bc1a19eb"
+    }
+  ],
+  "prompt": "Use case: stylized-concept\nAsset type: full-bleed landscape key art for the Hyrule Atlas editorial website, a fan reference for maps and walkthroughs. Landscape wide 16:9. This must be an entirely original place and illustration.\nScene: from under an ancient mountain surveyor's stone shelter at dusk, looking across a tremendous mist-filled evergreen basin with a luminous meandering river and a distant weathered watchtower on a rocky ridge. A small abandoned brass field compass on a dark worn ledge in the right foreground, with physical detail visible at large size. Atmosphere of exploring a lost world, grand scale with intimate evidence of a cartographer. No living characters. \nArt direction: premium cinematographic environment still with convincing terrain, weathered tactile materials, richly detailed atmospheric perspective. Quiet dark forest greens, cold slate/teal in the distance with one restrained honey-gold band of natural sundown. The left 48% must remain a deep dark pine-green sheltered arch and soft shade, deliberately calm for white website copy applied later with HTML, with enough natural detail to read as actual environment. Put the view opening, key river bend, right foreground subject, mountains and light in the center-right half so a tall center-right crop still retains the core vista. Layer foreground midground and distant mountain silhouettes, no foggy artificial white fill, no falling dust or glitter. \nConstraints: no text, no writing, no frame, no UI, no logo, no iconography or symbols from any existing franchise, no sword, no on-screen map, no existing game architecture, no shields, no triangles or triangular insignia. Original fantasy world terrain from this brief, no references or licensed material."
+}
