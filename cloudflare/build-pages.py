@@ -188,7 +188,7 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
                 blobs.stdin.close()
         before_visuals = release.digests(tmp)
         maps.apply(tmp)
-        editorial.apply(tmp, official_comparison=True)
+        editorial.apply(tmp)
         identity.apply(tmp)
         bundle_urls = release.rekey_bundles(tmp, before_visuals)
         for old, new in bundle_urls.items():

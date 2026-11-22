@@ -33,9 +33,8 @@ Le build remplace les anciens visuels par les fichiers originaux de
 `cloudflare/visuals/`. Les cartes du Monde de la Lumière et du Monde des
 Ténèbres sont des grilles de repères. Les étages sont présentés par un index
 vertical et les détails du parcours restent dans le guide. La bibliothèque
-utilise des illustrations éditoriales de l’Atlas. Un visuel Nintendo de 1998
-figure uniquement dans l’analyse comparative, avec son crédit et la source
-officielle. Les fichiers JavaScript et
+utilise des illustrations éditoriales de l’Atlas. L’analyse comparative cite
+son article de référence par des liens dans le texte. Les fichiers JavaScript et
 CSS affectés reçoivent de nouvelles URL de cache avec des redirections pour
 les modules demandés par un onglet ouvert sur l’ancienne version.
 La [règle de retrait des anciennes images](pages/retired-visuals-redirect-rule.json)

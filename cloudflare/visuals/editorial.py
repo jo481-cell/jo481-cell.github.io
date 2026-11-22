@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import html
-import importlib.util
 import json
 import re
 import shutil
@@ -38,6 +37,21 @@ OLD_ROSE = "M150 20 214 131H86ZM82 138l64 111H18Zm136 0 64 111H154Z"
 TRAILER = re.compile(r'<section\b[^>]*\bclass="official-trailer"[^>]*>.*?</section>', re.S)
 IMAGE_TAG = re.compile(r'<(?:img|link|meta|a)\b(?:[^>"\']|"[^"]*"|\'[^\']*\')*>')
 TEXT_ELEMENT = re.compile(r'<[^>]+>')
+SHELF_CREDIT = {
+    "en": "Illustrations by Hyrule Atlas · Credits",
+    "fr": "Illustrations de Hyrule Atlas · Crédits",
+    "es": "Ilustraciones de Hyrule Atlas · Créditos",
+    "ja": "イラスト：Hyrule Atlas · クレジット",
+    "zh": "Hyrule Atlas 插画 · 制作信息",
+}
+COMPARISON_LINK = {
+    "en": "See Nintendo Life’s comparison ↗",
+    "fr": "Voir la comparaison de Nintendo Life ↗",
+    "es": "Ver la comparación de Nintendo Life ↗",
+    "ja": "Nintendo Lifeの比較記事を見る ↗",
+    "zh": "查看 Nintendo Life 的对比文章 ↗",
+}
+SOURCE_PANEL = re.compile(r'<a class="source-panel"[^>]*>[^<]*</a>')
 
 
 def compact(value):
@@ -107,12 +121,18 @@ def replacement_table(root):
         r'<a class="atlas-triforce-source"[^>]*>(.*?)</a>',
     )
     for lang, words in COPY.items():
-        page = root / ("" if lang == "en" else lang) / "index.html"
+        base = root / ("" if lang == "en" else lang)
+        page = base / "index.html"
         source = page.read_text(encoding="utf-8")
         for index, pattern in enumerate(patterns):
             old = captured(pattern, source)
             if old:
                 table[old] = words[index]
+        shelf_credit = captured(r'<p class="atlas-shelf-credit"><a[^>]*>(.*?)</a>',source)
+        table[shelf_credit] = table[html.escape(shelf_credit)] = SHELF_CREDIT[lang]
+        comparison = (base / "then-and-now/index.html").read_text(encoding="utf-8")
+        link = captured(r'<a class="source-panel"[^>]*>(.*?)</a>',comparison)
+        table[link] = table[html.escape(link)] = COMPARISON_LINK[lang]
         guide = root / ("" if lang == "en" else lang) / "sources/index.html"
         source = guide.read_text(encoding="utf-8")
         for old_url, i in ((RETIRED[0]+"sources.json",11),(RETIRED[1]+"sources.json",12),("/assets/models/triforce-bevel.provenance.json",4)):
@@ -324,6 +344,10 @@ class EditorialExport:
     def html(self, source, lang):
         words = COPY[lang]
         source = localized_sections(source,lang,self.poster_width,self.poster_height)
+        if 'class="ed-comparison" id="adult-link"' in source:
+            # Each study already links to the source from its discussion.
+            source = SOURCE_PANEL.sub("",source)
+            source = re.sub(r'<p class="ed-smallprint">[^<]*</p>',"",source)
         og_old = re.search(r'<meta[^>]*(?:property|name)="(?:og|twitter):image"[^>]*content="[^"]*/assets/official-thumbnails/[^"]+"',source)
 
         def update_tag(match):
@@ -365,6 +389,9 @@ class EditorialExport:
         return source
 
     def javascript(self, path, source):
+        if path.name.startswith("then-and-now-"):
+            source = re.sub(r'\w+\(`a`,\{className:`source-panel`,href:\w+,target:`_blank`,rel:`noopener noreferrer`,children:`[^`]*`\}\),',"",source)
+            source = re.sub(r'\w+\(`p`,\{className:`ed-smallprint`,children:`Artwork © Nintendo\.[^`]*`\}\),',"",source)
         if path.name.startswith("official-trailer-"):
             # Each historical Rollup chunk uses a different local alias for the JSX
             # primitive. Keep that import, and preserve the chunk's public export.
@@ -412,23 +439,12 @@ class EditorialExport:
         return re.sub(r'triforce-scene-[\w-]{8}\.js', "editorial/compass-scene.js", source)
 
 
-def add_official_comparison(root: Path):
-    spec = importlib.util.spec_from_file_location("hyrule_editorial_study",UI/"official_study.py")
-    if spec is None or spec.loader is None:
-        raise RuntimeError("Cannot load editorial comparison")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    module.apply(root)
-
-
-def apply(root: Path, source_assets: Path | None = None, *, official_comparison: bool = False):
+def apply(root: Path, source_assets: Path | None = None):
     root = Path(root).resolve()
     if not (root/"sitemap.xml").is_file() or (root/".git").exists() or (root/"vercel.json").exists():
         raise ValueError("Expected a staged static site, not a source checkout")
     assets = root/"assets"
     if not (assets/"official-thumbnails").exists() and (assets/"editorial/sources.json").is_file():
-        if official_comparison and not (assets/"editorial/reference/ocarina-1998-study.webp").exists():
-            add_official_comparison(root)
         return
     export = EditorialExport(root,source_assets or HERE/"editorial-assets")
     export.install()
@@ -440,7 +456,8 @@ def apply(root: Path, source_assets: Path | None = None, *, official_comparison:
             save(path,updated)
     for path in assets.glob("*.js"):
         source = path.read_bytes().decode("utf-8")
-        relevant = any(s in source for s in (*RETIRED, TRAILER_VIDEO, "VideoObject", "triforce-scene-", OLD_ROSE, "Navi lights the way"))
+        relevant = path.name.startswith("then-and-now-") or any(s in source for s in (
+            *RETIRED, TRAILER_VIDEO, "VideoObject", "triforce-scene-", OLD_ROSE, "Navi lights the way", "atlas-shelf-credit"))
         if not relevant and not re.fullmatch(r'(?:en|fr|es|ja|zh)-[\w-]{8}\.js',path.name):
             continue
         updated = export.javascript(path,source)
@@ -457,5 +474,3 @@ def apply(root: Path, source_assets: Path | None = None, *, official_comparison:
         shutil.rmtree(assets/name)
     for path in [*(assets/"models").glob("triforce-bevel.*"), *assets.glob("triforce-scene-*.js")]:
         path.unlink()
-    if official_comparison:
-        add_official_comparison(root)
