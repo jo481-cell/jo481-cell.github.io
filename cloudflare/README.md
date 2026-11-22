@@ -87,3 +87,20 @@ Les tests automatisés du Worker utilisent leurs propres fixtures.
    alias. `python cloudflare/verify/post-cutover.py` contrôle ces redirections,
    les fichiers servis, le cache, les en-têtes et la 404. Garder le déploiement
    précédent accessible pour la réversibilité.
+
+## Préparation AdSense
+
+Après validation des droits sur les contenus du site, récupérer dans AdSense la
+référence de l’éditeur pour `hyruleatlas.com`. Construire avec
+`python cloudflare/build-pages.py --adsense-publisher-id <référence-ca-pub>` pour
+insérer la balise de vérification dans l’en-tête de l’accueil. Ajouter
+`--adsense-ads-txt` pour générer aussi l’enregistrement Google recommandé dans
+`/ads.txt`. Ces paramètres publient des métadonnées de vérification. Un build
+sans option conserve l’export d’origine.
+
+Après publication, vérifier la balise sur `https://hyruleatlas.com/` et, le cas
+échéant, la référence inscrite dans `/ads.txt`. Valider la propriété dans
+AdSense, puis demander l’examen. La diffusion des annonces constitue une étape
+distincte après le statut « Prêt ». Elle demande une mise à jour de la politique
+de confidentialité, de la politique de sécurité du contenu et du mécanisme de
+consentement pour les régions concernées. [Procédure de Google](https://support.google.com/adsense/answer/12169212?hl=fr)

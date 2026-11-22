@@ -15,6 +15,8 @@ HERE = Path(__file__).resolve().parent
 PAGES = HERE / "pages"
 PUBLIC_ROOT_FILES = {"404.html", "feed.xml", "robots.txt", "site.webmanifest", "sitemap.xml"}
 ASSET_CACHE = re.compile(r"[a-zA-Z0-9_-]+-[a-zA-Z0-9_-]{8,}\.(?:js|css)")
+ADSENSE_PUBLISHER_ID = re.compile(r"ca-pub-[0-9]{16}")
+ADSENSE_META_NAME = b"google-adsense-account"
 PRIVATE_ROOTS = {"api", "cloudflare", "functions", "node_modules", "workflows", "test", "tests"}
 ASSET_TYPES = {
     ".avif", ".bin", ".css", ".gif", ".glb", ".gltf", ".ico", ".jpeg", ".jpg", ".js",
@@ -112,7 +114,23 @@ def make_headers(config, assets):
     return "\n\n".join(blocks) + "\n", common
 
 
-def build(source):
+def with_adsense_verification(data, publisher_id):
+    if publisher_id is None:
+        return data
+    if ADSENSE_META_NAME in data.lower() or data.count(b"</head>") != 1:
+        raise ValueError("Expected one <head> without an AdSense verification tag in index.html")
+    tag = f'<meta name="google-adsense-account" content="{publisher_id}">'.encode("ascii")
+    return data.replace(b"</head>", tag + b"</head>", 1)
+
+
+def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
+    if adsense_publisher_id is not None and (
+        not ADSENSE_PUBLISHER_ID.fullmatch(adsense_publisher_id)
+        or adsense_publisher_id == "ca-pub-0000000000000000"
+    ):
+        raise ValueError("Use the AdSense publisher ID in the form ca-pub- followed by 16 digits")
+    if adsense_ads_txt and not adsense_publisher_id:
+        raise ValueError("An AdSense publisher ID is required to generate ads.txt")
     git = ["git", "-C", str(source)]
     commit = subprocess.check_output([*git, "rev-parse", "HEAD"]).decode().strip()
     config = json.loads(subprocess.check_output([*git, "show", f"{commit}:vercel.json"]))
@@ -160,11 +178,18 @@ def build(source):
                         raise ValueError(f"Incomplete Git blob: {path}")
                     if path.endswith(".html") and len(re.findall(rb'<script\b[^>]*src="https://static\.cloudflareinsights\.com/beacon\.min\.js"[^>]*>', data)) != 1:
                         raise ValueError(f"Unexpected number of Web Analytics tags in {path}")
+                    if path == "index.html":
+                        data = with_adsense_verification(data, adsense_publisher_id)
                     destination = tmp / path
                     destination.parent.mkdir(exist_ok=True, parents=True)
                     destination.write_bytes(data)
             finally:
                 blobs.stdin.close()
+        if adsense_ads_txt:
+            publisher = adsense_publisher_id.removeprefix("ca-")
+            (tmp / "ads.txt").write_text(
+                f"google.com, {publisher}, DIRECT, f08c47fec0942fa0\n", encoding="ascii", newline="\n"
+            )
         (tmp / "_headers").write_text(headers, encoding="utf-8", newline="\n")
         (tmp / "_redirects").write_text("".join(f"{src} {dst}\n" for src, dst in redirects.items()), encoding="utf-8", newline="\n")
         routes = {"version": 1, "include": ["/api/community", "/api/community/"], "exclude": []}
@@ -192,4 +217,7 @@ def build(source):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", nargs="?", type=Path)
-    build((parser.parse_args().source or default_source()).resolve())
+    parser.add_argument("--adsense-publisher-id", help="Add the AdSense verification tag to the homepage")
+    parser.add_argument("--adsense-ads-txt", action="store_true", help="Also publish the Google ads.txt entry")
+    args = parser.parse_args()
+    build((args.source or default_source()).resolve(), args.adsense_publisher_id, args.adsense_ads_txt)
