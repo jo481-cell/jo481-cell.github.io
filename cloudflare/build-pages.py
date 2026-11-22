@@ -16,6 +16,7 @@ HERE = Path(__file__).resolve().parent
 PAGES = HERE / "pages"
 PUBLIC_ROOT_FILES = {"404.html", "feed.xml", "robots.txt", "site.webmanifest", "sitemap.xml"}
 ASSET_CACHE = re.compile(r"[a-zA-Z0-9_-]+-[a-zA-Z0-9_-]{8,}\.(?:js|css)")
+ROUTE_RETRY = re.compile(rb"onClick:\(\)=>\{\w+\.invalidate\(\),\w+\(\)\}(?=,type:`button`,children:`Try again`)")
 ADSENSE_PUBLISHER_ID = re.compile(r"ca-pub-[0-9]{16}")
 ADSENSE_META_NAME = b"google-adsense-account"
 PRIVATE_ROOTS = {"api", "cloudflare", "functions", "node_modules", "workflows", "test", "tests"}
@@ -127,7 +128,19 @@ def with_adsense_verification(data, publisher_id):
     return data.replace(b"</head>", tag + b"</head>", 1)
 
 
-def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
+def fix_route_retry(root):
+    """Retry in a new document so failed imports are no longer cached in memory."""
+    count = 0
+    for bundle in (root / "assets").glob("index-*.js"):
+        updated, replacements = ROUTE_RETRY.subn(b"onClick:()=>window.location.reload()", bundle.read_bytes())
+        if replacements:
+            bundle.write_bytes(updated)
+            count += replacements
+    if not count:
+        raise ValueError("Could not find the archive route error retry handler")
+
+
+def build(source, adsense_publisher_id=None, adsense_ads_txt=False, retain_from=()):
     if adsense_publisher_id is not None and (
         not ADSENSE_PUBLISHER_ID.fullmatch(adsense_publisher_id)
         or adsense_publisher_id == "ca-pub-0000000000000000"
@@ -193,10 +206,16 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
         share_images.apply(tmp)
         identity.apply(tmp)
         studio.apply(tmp)
+        fix_route_retry(tmp)
         bundle_urls = release.rekey_bundles(tmp, before_visuals)
+        retained = set()
+        for index, snapshot in enumerate(retain_from):
+            retained.update(release.retain_previous_assets(tmp, snapshot, retain_dotted=index == 0))
         for old, new in bundle_urls.items():
-            # Existing tabs can still request a module by its previous URL.
-            # The new HTML always refers directly to the new module URLs.
+            if f"assets/{old}" in retained:
+                continue
+            # Original export aliases point to the new modules. Previously
+            # deployed edition URLs keep their exact bytes instead.
             redirects[f"/assets/{old}"] = f"/assets/{new} 302"
         assets = [(p.relative_to(tmp / "assets")).as_posix()
                   for p in (tmp / "assets").rglob("*") if p.is_file()]
@@ -231,6 +250,8 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False):
         if tmp.exists():
             shutil.rmtree(tmp)
     print(f"{commit}: {len(public)} published files; {sum(p.endswith('.html') for p in public)} HTML; {len(redirects)} redirects.")
+    if retain_from:
+        print(f"Retained {len(retained)} assets from {len(retain_from)} previous Pages exports.")
 
 
 if __name__ == "__main__":
@@ -238,9 +259,11 @@ if __name__ == "__main__":
     parser.add_argument("source", nargs="?", type=Path)
     parser.add_argument("--adsense-publisher-id", help="Add the AdSense verification tag to the homepage")
     parser.add_argument("--adsense-ads-txt", action="store_true", help="Also publish the Google ads.txt entry")
+    parser.add_argument("--retain-from", action="append", default=[], type=Path, metavar="DIST",
+                        help="Keep assets from a prior deployed Pages export (most recent first, repeatable)")
     args = parser.parse_args()
     settings_path = PAGES / "adsense.json"
     settings = json.loads(settings_path.read_text(encoding="utf-8")) if settings_path.is_file() else {}
     publisher = args.adsense_publisher_id or settings.get("publisherId")
     ads_txt = args.adsense_ads_txt or (not args.adsense_publisher_id and settings.get("adsTxt", False))
-    build((args.source or default_source()).resolve(), publisher, ads_txt)
+    build((args.source or default_source()).resolve(), publisher, ads_txt, args.retain_from)

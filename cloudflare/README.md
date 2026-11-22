@@ -39,7 +39,24 @@ La bibliothèque
 utilise des illustrations éditoriales de l’Atlas. L’analyse comparative cite
 son article de référence par des liens dans le texte. Les fichiers JavaScript et
 CSS affectés reçoivent de nouvelles URL de cache avec des redirections pour
-les modules demandés par un onglet ouvert sur l’ancienne version.
+les modules de l’export initial. Pour qu’un onglet ouvert continue à charger
+ses modules et ses cartes après une publication, reconstruire depuis un export
+Pages approuvé déjà en ligne avec `--retain-from` :
+
+```powershell
+python cloudflare/build-pages.py --retain-from C:/chemin/vers/ancien/dist
+```
+
+Utiliser le dossier généré à partir de la version publiée. Le build conserve
+les fichiers JS et CSS versionnés, la feuille de style Studio et les SVG
+originaux référencés par le registre cartographique, avec leurs URL et leurs
+octets d’origine. Si les octets d’une carte changent, donner une nouvelle URL à
+la nouvelle version pour conserver les deux. Pour inclure plusieurs versions,
+répéter `--retain-from` de la plus récente à la plus ancienne. Les anciennes URL
+qui servaient des modules différents selon la publication conservent les octets
+de la version la plus récente. Après le déploiement, ouvrir une carte ou un guide
+avec le cache désactivé dans un onglet encore chargé avec l’ancienne version.
+
 L’accueil utilise une illustration de vallée créée pour Hyrule Atlas. Les
 versions WebP et leurs empreintes sont consignées dans le
 [registre de l’illustration](visuals/studio-assets/provenance.json). Les étapes

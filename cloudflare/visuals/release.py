@@ -1,13 +1,23 @@
-"""Link changed export bundles under fresh URLs after an editorial revision."""
+"""Version changed bundles and retain the assets needed by open tabs."""
 
 from hashlib import sha256
+import json
 from pathlib import Path
 import re
 
 
 TEXT_SUFFIXES = {".html", ".js", ".css", ".json", ".webmanifest", ".xml"}
-FINGERPRINTED_BUNDLE = re.compile(r"[-_A-Za-z0-9]+-[A-Za-z0-9_-]{8,}\.(?:js|css)\Z")
-BUNDLE_REFERENCE = re.compile(rb"(?<![.\w-])[-A-Za-z0-9_]+\.(?:js|css)(?![.\w-])")
+BUNDLE_STEM = r"[-_A-Za-z0-9]+(?:\.[-_A-Za-z0-9]+)*"
+FINGERPRINTED_BUNDLE = re.compile(rf"{BUNDLE_STEM}-[A-Za-z0-9_-]{{8,}}\.(?:js|css)\Z")
+BUNDLE_REFERENCE = re.compile(rf"(?<![.\w-]){BUNDLE_STEM}\.(?:js|css)(?![.\w-])".encode("ascii"))
+EDITION_URL = re.compile(rf"/assets/{BUNDLE_STEM}-edition-[0-9a-f]{{16}}\.(?:js|css)")
+STUDIO_STYLE = re.compile(r"studio-([0-9a-f]{16})\.css")
+CHART_URL = re.compile(
+    r"/assets/atlas-charts/(?:terrain|plans|schematics)/(?:en|fr|es|ja|zh)/"
+    r"(?:light|dark|places|dungeon-[A-Z]\d?-(?:B\d+|\d+F))\.svg"
+)
+CHART_CREDIT = "Original editorial maps and walkthrough diagrams by Hyrule Atlas."
+MAX_ASSET_SIZE = 25 * 1024 * 1024
 
 
 def digests(root: Path):
@@ -65,3 +75,75 @@ def rekey_bundles(root: Path, before):
     for old, new in rekeyed.items():
         bundles[old].rename(root / "assets" / new)
     return rekeyed
+
+
+def _require_ordinary_path(path: Path):
+    for part in (*reversed(path.parents), path):
+        if part.is_symlink() or part.is_junction():
+            raise ValueError(f"Previous Pages assets require ordinary paths: {part}")
+
+
+def _read_asset(path: Path):
+    _require_ordinary_path(path)
+    if not path.is_file() or path.stat().st_size > MAX_ASSET_SIZE:
+        raise ValueError(f"Invalid previous Pages asset: {path}")
+    return path.read_bytes()
+
+
+def retain_previous_assets(root: Path, previous: Path, *, retain_dotted=False) -> tuple[str, ...]:
+    """Copy the public edition graph and original chart files from a trusted Pages build."""
+    root, previous = root.absolute(), previous.absolute()
+    _require_ordinary_path(previous)
+    assets = previous / "assets"
+    _require_ordinary_path(assets)
+    if not assets.is_dir() or not (previous / "_routes.json").is_file():
+        raise ValueError(f"Expected a previous Pages distribution: {previous}")
+
+    redirects = _read_asset(previous / "_redirects").decode("utf-8")
+    paths = set()
+    for line in redirects.splitlines():
+        fields = line.split()
+        if len(fields) == 3 and fields[2] == "302" and EDITION_URL.fullmatch(fields[1]):
+            paths.add(fields[1][1:])
+    if not paths:
+        raise ValueError(f"Previous Pages distribution is missing edition redirects: {previous}")
+    for path in assets.iterdir():
+        if "." not in path.stem:
+            continue
+        url = f"/assets/{path.name}"
+        # A retained raw alias takes the place of a redirect, so that rule
+        # cannot identify the dotted edition when we build the next release.
+        if EDITION_URL.fullmatch(url) or (retain_dotted and FINGERPRINTED_BUNDLE.fullmatch(path.name)):
+            paths.add(url[1:])
+
+    studio = assets / "studio"
+    _require_ordinary_path(studio)
+    for path in studio.glob("studio-*.css"):
+        match = STUDIO_STYLE.fullmatch(path.name)
+        if match:
+            paths.add(path.relative_to(previous).as_posix())
+
+    provenance = json.loads(_read_asset(previous / "assets/atlas-charts/provenance.json"))
+    if provenance["credit"] != "Hyrule Atlas" or provenance["permission"] != CHART_CREDIT:
+        raise ValueError(f"Expected original Hyrule Atlas charts in {previous}")
+    for chart in provenance["assets"]:
+        if CHART_URL.fullmatch(chart["url"]):
+            paths.add(chart["url"][1:])
+
+    copied = []
+    for relative in sorted(paths):
+        data = _read_asset(previous / relative)
+        digest = sha256(data).hexdigest()
+        studio_digest = STUDIO_STYLE.fullmatch(Path(relative).name)
+        if studio_digest and not digest.startswith(studio_digest[1]):
+            raise ValueError(f"Previous Pages stylesheet fingerprint differs: {relative}")
+        dest = root / relative
+        _require_ordinary_path(dest)
+        if dest.exists():
+            if sha256(_read_asset(dest)).hexdigest() != digest:
+                raise ValueError(f"Previous Pages asset conflicts with the new build: {relative}")
+            continue
+        dest.parent.mkdir(exist_ok=True, parents=True)
+        dest.write_bytes(data)
+        copied.append(relative)
+    return tuple(copied)
