@@ -31,16 +31,18 @@ les sources du Worker et les tests restent hors de la distribution.
 
 Le build remplace les anciens visuels par les fichiers originaux de
 `cloudflare/visuals/`. Les cartes du Monde de la Lumière et du Monde des
-Ténèbres sont des grilles de repères. Les étages sont présentés par un index
-vertical et les détails du parcours restent dans le guide. La bibliothèque
+Ténèbres situent les grandes régions et les repères interactifs. Chaque donjon
+présente un index d’étages et les étapes clés de sa soluce. La bibliothèque
 utilise des illustrations éditoriales de l’Atlas. L’analyse comparative cite
 son article de référence par des liens dans le texte. Les fichiers JavaScript et
 CSS affectés reçoivent de nouvelles URL de cache avec des redirections pour
 les modules demandés par un onglet ouvert sur l’ancienne version.
-La [règle de retrait des anciennes images](pages/retired-visuals-redirect-rule.json)
-intercepte les chemins des médias remplacés avant le cache Cloudflare. En cas
-de retour à une version qui a besoin de ces médias, désactiver cette règle
-sur la zone avant de rétablir la version.
+La [règle du domaine](pages/retired-visuals-redirect-rule.json) et la
+[liste de redirections des alias Pages](pages/retired-media-aliases.csv)
+interceptent les anciens chemins avant le cache Cloudflare. La liste
+`hyrule_atlas_retired_media` s’applique uniquement aux hôtes du projet Pages.
+Pour rétablir une version qui utilise ces médias, désactiver les deux règles
+avant de la republier.
 
 Pour le test local du frontal, ouvrir un terminal dans `cloudflare/api` et lancer
 `npm run dev`. Dans un second terminal, depuis `cloudflare/pages`, lancer

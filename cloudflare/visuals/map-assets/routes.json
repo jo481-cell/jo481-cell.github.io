@@ -1,0 +1,15 @@
+{
+  "C": ["hyrule-castle", ["uncle", "cells", "zelda", "sewers"]],
+  "L1": ["eastern-palace", ["map", "big-key", "bow", "eyes"]],
+  "L2": ["desert-palace", ["book", "small-key", "glove", "ledge"]],
+  "L3": ["tower-of-hera", ["map", "big-key", "pearl", "boss"]],
+  "A1": ["master-sword-agahnim", ["barrier", "climb", "curtain", "duel"]],
+  "D1": ["palace-of-darkness", ["kiki", "big-key", "hammer", "statue"]],
+  "D2": ["swamp-palace", ["drain", "big-key", "hookshot", "waterfall"]],
+  "D3": ["skull-woods", ["big-key", "rod", "burn", "crystal"]],
+  "D4": ["thieves-town", ["big-key", "sunlight", "prison", "reveal"]],
+  "D5": ["ice-palace", ["freezor", "big-key", "block", "crystal"]],
+  "D6": ["misery-mire", ["ether", "big-key", "somaria", "dark-rooms"]],
+  "D7": ["turtle-rock", ["platform", "pipes", "shield", "maze"]],
+  "A2": ["ganons-tower", ["west", "east", "red-mail", "wizard"]]
+}

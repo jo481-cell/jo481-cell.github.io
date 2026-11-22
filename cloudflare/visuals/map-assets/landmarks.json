@@ -1,0 +1,25 @@
+{
+  "light": [
+    ["wood", 133, 111, 138, 207, ["Lost Woods", "Bois Perdus", "Bosque Perdido", "迷いの森", "迷失森林"]],
+    ["mountain", 544, 103, 550, 209, ["Death Mountain", "Montagne de la Mort", "Montaña de la Muerte", "ヘブラ山", "死亡之山"]],
+    ["falls", 893, 198, 852, 285, ["Zora’s Domain", "Domaine de Zora", "Dominio de Zora", "ゾーラの里", "卓拉领地"]],
+    ["village", 154, 455, 159, 373, ["Kakariko Village", "Village Cocorico", "Aldea Kakariko", "カカリコ村", "卡卡利科村"]],
+    ["keep", 502, 430, 495, 341, ["Hyrule Castle", "Château d’Hyrule", "Castillo de Hyrule", "ハイラル城", "海拉鲁城堡"]],
+    ["ruins", 885, 428, 849, 516, ["Eastern Palace", "Palais de l’Est", "Palacio del Este", "東の神殿", "东部神殿"]],
+    ["grove", 293, 657, 307, 735, ["Haunted Grove", "Bosquet", "Arboleda", "森の広場", "林间空地"]],
+    ["sand", 120, 858, 158, 959, ["Desert of Mystery", "Désert", "Desierto", "あやしの砂漠", "神秘沙漠"]],
+    ["water", 795, 830, 793, 957, ["Lake Hylia", "Lac Hylia", "Lago Hylia", "ハイリア湖", "海利亚湖"]]
+  ],
+  "dark": [
+    ["wood", 126, 110, 149, 207, ["Skull Woods", "Forêt des Squelettes", "Bosque de las Calaveras", "ドクロの森", "骷髅森林"]],
+    ["mountain", 563, 112, 552, 210, ["Dark Mountain", "Montagne sombre", "Montaña oscura", "闇の世界の山", "黑暗山脉"]],
+    ["falls", 883, 156, 853, 244, ["Lake of Ill Omen", "Lac du Poisson-Chat", "Lago del Mal Agüero", "不吉の池", "厄运之湖"]],
+    ["village", 153, 461, 157, 373, ["Village of Outcasts", "Village des Bandits", "Aldea de los Bandidos", "はぐれ者の村", "流放者村庄"]],
+    ["pyramid", 498, 454, 492, 344, ["Pyramid of Power", "Pyramide", "Pirámide del Poder", "ピラミッド", "力量金字塔"]],
+    ["ruins", 879, 428, 849, 516, ["Palace of Darkness", "Palais des Ténèbres", "Palacio de la Oscuridad", "闇の神殿", "黑暗神殿"]],
+    ["grove", 306, 675, 330, 740, ["Dark Grove", "Bosquet sombre", "Arboleda oscura", "闇の森の広場", "黑暗林间空地"]],
+    ["marsh", 119, 844, 159, 949, ["Misery Mire", "Bourbier de la Misère", "Ciénaga de la Desdicha", "悪魔の沼", "苦难沼泽"]],
+    ["marsh", 468, 875, 461, 981, ["Southern Marsh", "Marécages du sud", "Pantano del sur", "南の沼地", "南部沼泽"]],
+    ["water", 793, 831, 795, 956, ["Ice Palace", "Palais de Glace", "Palacio de Hielo", "氷の塔", "冰之神殿"]]
+  ]
+}

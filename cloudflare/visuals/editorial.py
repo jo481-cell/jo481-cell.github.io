@@ -13,13 +13,16 @@ HERE = Path(__file__).resolve().parent
 UI = HERE / "editorial-ui"
 COPY = json.loads((UI / "locale.json").read_text(encoding="utf-8"))
 DESCRIPTIONS = json.loads((UI / "descriptions.json").read_text(encoding="utf-8"))
+CREDIT_COPY = json.loads((UI / "credits.json").read_text(encoding="utf-8"))
 PREFIX = "/assets/editorial/"
 CREDITS = PREFIX + "sources.json"
+COMPARISON = "https://www.nintendolife.com/features/how-does-zelda-ocarina-of-times-old-and-new-art-compare-heres-a-side-by-side-face-off"
 GAME_PAGE = "https://www.nintendo.com/us/store/products/the-legend-of-zelda-ocarina-of-time-switch-2/"
 HISTORY = "https://www.nintendo.com/jp/character/zelda/en/history/index.html"
 TRAILER_VIDEO = "https://www.youtube.com/watch?v=wuFfiTEr2yc"
 OLD_POSTER = "/assets/official-thumbnails/nintendo-trailer-featured.jpg"
 RETIRED = ("/assets/official-thumbnails/", "/assets/game-icons/", "/assets/models/triforce-bevel")
+ARCHIVED_ART = ("series", "zelda64", "comparisons", "games", "hyrule")
 ICONS = {
     "guides": '<path d="M4 5c3-1 5-1 8 1 3-2 5-2 8-1v13c-3-1-5-1-8 1-3-2-5-2-8-1zM12 6v13"/>',
     "search": '<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>',
@@ -50,6 +53,20 @@ COMPARISON_LINK = {
     "es": "Ver la comparación de Nintendo Life ↗",
     "ja": "Nintendo Lifeの比較記事を見る ↗",
     "zh": "查看 Nintendo Life 的对比文章 ↗",
+}
+HISTORY_LINK = {
+    "en": "Nintendo’s Zelda history",
+    "fr": "L’histoire de Zelda chez Nintendo",
+    "es": "La historia de Zelda en Nintendo",
+    "ja": "任天堂のゼルダの歴史",
+    "zh": "任天堂的塞尔达系列历史",
+}
+SOURCE_REVIEW_DATES = {
+    "November 5, 2026": "November 22, 2026",
+    "5 novembre 2026": "22 novembre 2026",
+    "5 de noviembre de 2026": "22 de noviembre de 2026",
+    "2026年11月5日": "2026年11月22日",
+    "2026-11-05": "2026-11-22",
 }
 SOURCE_PANEL = re.compile(r'<a class="source-panel"[^>]*>[^<]*</a>')
 
@@ -130,9 +147,6 @@ def replacement_table(root):
                 table[old] = words[index]
         shelf_credit = captured(r'<p class="atlas-shelf-credit"><a[^>]*>(.*?)</a>',source)
         table[shelf_credit] = table[html.escape(shelf_credit)] = SHELF_CREDIT[lang]
-        comparison = (base / "then-and-now/index.html").read_text(encoding="utf-8")
-        link = captured(r'<a class="source-panel"[^>]*>(.*?)</a>',comparison)
-        table[link] = table[html.escape(link)] = COMPARISON_LINK[lang]
         guide = root / ("" if lang == "en" else lang) / "sources/index.html"
         source = guide.read_text(encoding="utf-8")
         for old_url, i in ((RETIRED[0]+"sources.json",11),(RETIRED[1]+"sources.json",12),("/assets/models/triforce-bevel.provenance.json",4)):
@@ -154,7 +168,17 @@ def replacement_table(root):
             doc = (root/("" if lang=="en" else lang)/route/"index.html").read_text(encoding="utf-8")
             for match in re.finditer(r'<a\b[^>]*href="'+re.escape(TRAILER_VIDEO)+r'"[^>]*>([^<>]+)</a>',doc):
                 table[html.unescape(match[1])] = words[9]
+    for lang in reversed(COPY):
+        for old, new in CREDIT_COPY[lang].items():
+            table[old] = new
+            table[html.escape(old)] = html.escape(new, quote=False)
     return table
+
+
+def sources_text(source):
+    for old, current in SOURCE_REVIEW_DATES.items():
+        source = source.replace(old, current)
+    return source
 
 
 def media_map(slugs, slot):
@@ -177,6 +201,37 @@ def media_map(slugs, slot):
         "/assets/models/triforce-bevel.provenance.json": CREDITS,
     })
     return paths
+
+
+def archived_media_map(assets, editorial_paths):
+    reads = {
+        "series": ("src", PREFIX + "observation.webp"),
+        "zelda64": ("src", "/assets/original/oot-nucleus-atlas.webp"),
+        "comparisons": ("path", PREFIX + "observation.webp"),
+        "games": ("path", PREFIX + "observation.webp"),
+        "hyrule": ("web_path", PREFIX + "observation.webp"),
+    }
+    paths = {}
+    alts = {}
+    for name, (key, default) in reads.items():
+        source = f"/assets/{name}/sources.json"
+        manifest = json.loads((assets / name / "sources.json").read_bytes())
+        paths[source] = COMPARISON if name == "comparisons" else CREDITS
+        for entry in manifest["assets"]:
+            image = entry[key]
+            catalogue = RETIRED[0] + Path(image).name
+            paths[image] = editorial_paths.get(catalogue, default)
+            if name == "series" and entry.get("alt"):
+                slot = paths[image].split("#")[0].removesuffix(".webp").rsplit("-", 1)[-1]
+                index = int(slot) - 1 if slot.isdigit() else 6
+                alts[entry["alt"]] = DESCRIPTIONS["en"][index]
+            if name == "zelda64":
+                alts[entry["alt"]] = "Original Hyrule Atlas map of the main regions in Ocarina of Time."
+                alts[entry["credit"]] = "Hyrule Atlas"
+                alts[entry["copyright"]] = "Original route diagram by Hyrule Atlas."
+            if name == "hyrule":
+                paths[str(Path(image).with_suffix(".jpg").as_posix())] = paths[image]
+    return paths, alts
 
 
 def replace_many(source, table, expression):
@@ -279,8 +334,11 @@ class EditorialExport:
         slugs = shelf + [a["slug"] for a in original if a["slug"] not in shelf]
         self.slots = {slug: i % 6 + 1 for i, slug in enumerate(slugs)}
         self.paths = media_map(slugs, self.slots)
+        archived, old_alts = archived_media_map(self.assets, self.paths)
+        self.paths.update(archived)
         self.paths_regex = alternatives(self.paths)
         self.words = replacement_table(root)
+        self.words.update(old_alts)
         self.social_alts = {}
         for lang, words in COPY.items():
             base = root / ("" if lang == "en" else lang)
@@ -311,9 +369,16 @@ class EditorialExport:
     def copy_in(self, source):
         # Only an entire DOM string, JS literal, or localized dictionary value.
         # A factual paragraph mentioning Nintendo artwork keeps its original text.
-        return self.words_regex.sub(lambda m:self.words[m[0]] if
-            (m.start()==0 or source[m.start()-1] in "\x60\"'>") and
-            (m.end()==len(source) or source[m.end()] in "\x60\"'<") else m[0],source)
+        def replace(match):
+            left, right = match.start() - 1, match.end()
+            while left >= 0 and source[left].isspace():
+                left -= 1
+            while right < len(source) and source[right].isspace():
+                right += 1
+            if (left < 0 or source[left] in "\x60\"'>") and (right == len(source) or source[right] in "\x60\"'<"):
+                return self.words[match[0]]
+            return match[0]
+        return self.words_regex.sub(replace, source)
 
     def install(self):
         self.public.mkdir(exist_ok=True)
@@ -328,6 +393,11 @@ class EditorialExport:
                                "sha256":sha256((self.public/url.rsplit('/',1)[1]).read_bytes()).hexdigest()}
                               for url,size in self.sizes.items()]
         public_registry["symbols"] = [PREFIX+name+".svg" for name in ICONS]
+        compass = self.public / "compass-scene.js"
+        shutil.copyfile(UI / compass.name, compass)
+        public_registry["interactiveCompass"] = {
+            "src": PREFIX + compass.name, "credit": "Hyrule Atlas", "sha256": sha256(compass.read_bytes()).hexdigest(),
+        }
         provenance = self.source_assets/"provenance.json"
         if provenance.is_file():
             evidence = json.loads(provenance.read_bytes())
@@ -339,15 +409,19 @@ class EditorialExport:
                     raise ValueError("Illustration does not match its provenance: "+item["file"])
                 recorded["masterSha256"] = item["source_sha256"]
         save(self.public/"sources.json",compact(public_registry)+"\n")
-        shutil.copyfile(UI/"compass-scene.js",self.public/"compass-scene.js")
 
     def html(self, source, lang):
         words = COPY[lang]
         source = localized_sections(source,lang,self.poster_width,self.poster_height)
+        if '<section id="record-6">' in source and 'href="' + HISTORY + '"' in source:
+            source = re.sub(r'(<li><a\b[^>]*href="' + re.escape(HISTORY) + r'"[^>]*>)[^<]+</a>',
+                            lambda m: m[1] + HISTORY_LINK[lang] + "</a>", sources_text(source))
         if 'class="ed-comparison" id="adult-link"' in source:
             # Each study already links to the source from its discussion.
             source = SOURCE_PANEL.sub("",source)
             source = re.sub(r'<p class="ed-smallprint">[^<]*</p>',"",source)
+            source = re.sub(r'(<a\b[^>]*href="' + re.escape(COMPARISON) + r'"[^>]*>)[^<]*</a>',
+                            lambda m: m[1] + COMPARISON_LINK[lang] + "</a>", source)
         og_old = re.search(r'<meta[^>]*(?:property|name)="(?:og|twitter):image"[^>]*content="[^"]*/assets/official-thumbnails/[^"]+"',source)
 
         def update_tag(match):
@@ -358,10 +432,10 @@ class EditorialExport:
                          "og:image:height":self.poster_height,"og:image:type":"image/webp"}.get(field)
                 if value is not None:
                     tag = attr(tag,"content",value)
-            if not any(path in tag for path in RETIRED):
+            if not self.paths_regex.search(tag):
                 return tag
             old = attribute(tag, "src")
-            if old in self.paths and old.startswith(RETIRED[0]):
+            if old in self.paths:
                 new = self.paths[old].split("#")[0]
                 if new in self.sizes:
                     width,height = self.sizes[new]
@@ -392,6 +466,9 @@ class EditorialExport:
         if path.name.startswith("then-and-now-"):
             source = re.sub(r'\w+\(`a`,\{className:`source-panel`,href:\w+,target:`_blank`,rel:`noopener noreferrer`,children:`[^`]*`\}\),',"",source)
             source = re.sub(r'\w+\(`p`,\{className:`ed-smallprint`,children:`Artwork © Nintendo\.[^`]*`\}\),',"",source)
+        if path.name.startswith("sources-"):
+            source = re.sub(r'(href:[`\"]' + re.escape(HISTORY) + r'[`\"],label:)[`\"][^`\"]+[`\"]',
+                            lambda m: m[1] + compact(HISTORY_LINK["en"]), sources_text(source))
         if path.name.startswith("official-trailer-"):
             # Each historical Rollup chunk uses a different local alias for the JSX
             # primitive. Keep that import, and preserve the chunk's public export.
@@ -428,6 +505,11 @@ class EditorialExport:
         dynamic = re.compile(r'/assets/official-thumbnails/(?:previews/)?\$\{([^{}]+)\}(?:-(?:80|128|320))?\.webp')
         slot_map = compact(self.slots)
         source = dynamic.sub(lambda m: PREFIX+"catalogue-${("+slot_map+")["+m[1]+"]}.webp#${"+m[1]+"}",source)
+        source = re.sub(r'/assets/zelda64/\$?\{[^{}]+\}\.webp', '/assets/original/oot-nucleus-atlas.webp', source)
+        # Source tables were emitted into many framework chunks. An old image URL
+        # retained as a dictionary key must no longer send readers to its old source.
+        archived_table = r'("/assets/(?:' + "|".join(ARCHIVED_ART) + r')/[^"\s]+"\s*:)[`"]https?://[^`"]+[`"]'
+        source = re.sub(archived_table, r'\1"' + CREDITS + '"', source)
         source = self.paths_in(source)
         source = self.copy_in(source)
         source = source.replace(TRAILER_VIDEO,GAME_PAGE)
@@ -457,7 +539,9 @@ def apply(root: Path, source_assets: Path | None = None):
     for path in assets.glob("*.js"):
         source = path.read_bytes().decode("utf-8")
         relevant = path.name.startswith("then-and-now-") or any(s in source for s in (
-            *RETIRED, TRAILER_VIDEO, "VideoObject", "triforce-scene-", OLD_ROSE, "Navi lights the way", "atlas-shelf-credit"))
+            *RETIRED, TRAILER_VIDEO, "VideoObject", "triforce-scene-", OLD_ROSE, "Navi lights the way", "atlas-shelf-credit",
+            "/assets/zelda64/"))
+        relevant = relevant or export.paths_regex.search(source) or export.words_regex.search(source)
         if not relevant and not re.fullmatch(r'(?:en|fr|es|ja|zh)-[\w-]{8}\.js',path.name):
             continue
         updated = export.javascript(path,source)
@@ -472,5 +556,7 @@ def apply(root: Path, source_assets: Path | None = None):
     # and original bytes stay available in the pre-migration checkout.
     for name in ("official-thumbnails","game-icons"):
         shutil.rmtree(assets/name)
+    for name in ARCHIVED_ART:
+        (assets / name / "sources.json").unlink()
     for path in [*(assets/"models").glob("triforce-bevel.*"), *assets.glob("triforce-scene-*.js")]:
         path.unlink()

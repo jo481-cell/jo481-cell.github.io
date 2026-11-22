@@ -1,23 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" xml:lang="{{language}}">
   <title>{{title}}</title>
-  <desc>Hyrule Atlas editorial coordinate grid. The buttons on the map identify guide locations.</desc>
+  <desc>{{description}}</desc>
   <defs>
-    <pattern id="minor" width="25" height="25" patternUnits="userSpaceOnUse">
-      <path d="M25 0H0V25" fill="none" stroke="{{fine}}" stroke-width=".9"/>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M100 0H0V100" fill="none" stroke="{{grid}}" stroke-opacity=".36" stroke-width="1.25"/>
     </pattern>
-    <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse">
-      <path d="M100 0H0V100" fill="none" stroke="{{line}}" stroke-width="1.3"/>
-      <path d="M46 50h8m-4-4v8" stroke="{{line}}" stroke-width="1.5"/>
-    </pattern>
+    <style>
+      .terrain{stroke:{{landline}};stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+      .relief{fill:none;stroke:{{landline}};stroke-width:1.5;stroke-opacity:.65}
+      .water{stroke:{{waterline}}}
+      .structure{fill:{{building}};stroke:{{buildingline}};stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .landmark{fill:{{ink}};stroke:{{paper}};stroke-width:7;stroke-linejoin:round;paint-order:stroke;letter-spacing:.02em}
+    </style>
+    <g id="trees">
+      <path d="M0-43 17-12H10L24 11H5V24H-5V11H-24L-10-12H-17Z" fill="{{wood}}" class="terrain"/>
+    </g>
+    <g id="wood">
+      <path d="M-109 7C-112-42-84-69-36-67C9-79 74-68 92-40C127-7 108 45 67 58C26 74-24 72-55 60C-90 55-113 32-109 7Z" fill="{{green}}" class="terrain"/>
+      <path d="M-87 17C-61 43-28 34-1 51S52 45 78 32M-87-2C-61 24-41 26-16 24" class="relief"/>
+      <use href="#trees" x="-67" y="-13"/><use href="#trees" x="-21" y="-25"/>
+      <use href="#trees" x="32" y="-15"/><use href="#trees" x="75" y="-4"/>
+    </g>
+    <g id="grove">
+      <path d="M-79 4C-79-28-34-55 0-53C34-57 76-32 78 2C81 40 39 57 4 52C-39 56-79 37-79 4Z" fill="{{green}}" class="terrain"/>
+      <use href="#trees" x="-51" y="5"/><use href="#trees" x="45" y="1"/>
+      <path d="M-19 22Q-5 14 3 24T19 22M-16 33Q-7 27 0 34T16 33" class="relief"/>
+    </g>
+    <g id="mountain">
+      <path d="M-213 21C-171-64-135-73-91-65C-53-94-8-103 38-85C86-92 122-77 158-68C188-62 223-21 214 23C189 49 165 45 149 49C70 88-23 85-73 64C-113 62-148 45-174 49C-191 47-208 38-213 21Z" fill="{{stone}}" class="terrain"/>
+      <path d="M-188 32q39-14 67 7t76 5t80 2t90-6t64-11M-144 50q39-8 73 5t86 9t109-15" class="relief"/>
+      <path d="m-172 13 44-62 46 62zm55 16 77-98 63 98zm100-7 47-67 52 67zm57 8 71-99 61 99z" fill="{{peak}}" class="terrain"/>
+      <path d="m-55-50 14 16 15-14m120-5 16 20 16-17m-264 17 10 11 12-11m144 1 14 11 15-11" class="relief"/>
+    </g>
+    <g id="falls">
+      <path d="M-77-13C-76-47-46-61-13-59C21-65 62-49 70-24C96 8 69 40 42 43C13 55-27 46-45 42C-72 34-80 11-77-13Z" fill="{{water}}" class="terrain water"/>
+      <path d="M-44-20q14-7 24 0t26 0t26 0t25 0m-99 16q14-7 24 0t26 0t26 0t23 0m-85 18q14-7 24 0t26 0t20 0" class="relief water"/>
+    </g>
+    <g id="water">
+      <path d="M-135-17C-132-65-69-91-10-83C28-94 101-68 112-43C144-12 132 35 108 50C84 72 30 69 4 83C-52 82-104 65-119 36C-130 16-139 1-135-17Z" fill="{{water}}" class="terrain water"/>
+      <path d="M-102-34q20-9 36 0t31 0m52-17q24-10 40 0t31 0M-112 8q24-8 40 0t31 0m74 13q21-8 36 0t32 0M-72 46q23-9 43 0t37 0m24 4q19-8 34 0t28 0" class="relief water"/>
+      <path d="M-28 20C-43 8-30-10-8-12C19-24 42-9 42 7C37 23 3 30-28 20Z" fill="{{green}}" class="terrain"/>
+    </g>
+    <g id="sand">
+      <path d="M-101-26C-90-71-45-90 6-73C46-77 110-42 112 5C121 47 56 76 5 72C-32 89-83 61-99 38C-118 20-111-11-101-26Z" fill="{{sand}}" class="terrain"/>
+      <path d="M-77-23q31-25 55-11t51 10t54 0M-89-1q29-25 59-11t92 5M-79 21q25-23 45-10t49 16t65-5m-137 20q25-17 46-3t63-3" class="relief"/>
+    </g>
+    <g id="marsh">
+      <path d="M-96-16C-107-49-65-75-26-67C15-93 79-63 96-34C124-14 119 28 78 49C47 62 4 71-25 57C-55 60-112 29-96-16Z" fill="{{water}}" class="terrain water"/>
+      <path d="M-75 5q24-17 51-4t48 3t50-4m-131 21q22-13 44-2t60 4M-55-20v-22m0 13-9-8m9 2 9-8M34-14v-24m0 13-10-9m10 1 10-8m28 42v-24m0 13-11-8m11 1 11-8" class="relief water"/>
+    </g>
+    <g id="village">
+      <path d="M-101-12C-94-58-59-69-16-60C14-76 41-52 70-51C99-47 111-21 106 13C99 40 63 60 24 56C-31 70-95 43-101-12Z" fill="{{green}}" class="terrain"/>
+      <path d="M-77-3-57-24-35-3V19H-77Z M-19-19 4-47 28-19V9H-19Z M38 9 66-22 92 9V35H38Z M-17 36 1 15 18 36V48H-17Z" class="structure"/>
+    </g>
+    <g id="keep">
+      <path d="M-94-35C-88-64-47-71-1-63C38-68 77-62 92-31C114 2 86 40 48 49C7 66-34 48-61 44C-89 39-107 4-94-35Z" fill="{{green}}" class="terrain"/>
+      <path d="M-71 30V-25H-53V-42H-36V-25H-18V-8H18V-25H36V-42H53V-25H70V30H-15V12Q0-3 15 12V30Z" class="structure"/>
+    </g>
+    <g id="ruins">
+      <path d="M-81-35C-73-62-39-68-10-54C28-67 70-46 82-20C93 8 81 44 43 48C15 61-18 46-44 50C-80 40-102-3-81-35Z" fill="{{stone}}" class="terrain"/>
+      <path d="M-62-24H62L0-47Z M-56-15h18v43h-18zM-9-15H9v43H-9zM39-15h18v43H39zM-66 28H66v10H-66Z" class="structure"/>
+    </g>
+    <g id="pyramid">
+      <path d="M-108 31C-96-12-62-48-22-59C31-75 75-50 108 28C87 51 59 67 0 62C-50 64-84 52-108 31Z" fill="{{stone}}" class="terrain"/>
+      <path d="M-82 28 0-61 82 28H-82Z M-51-5H51m-66-38h30m-79 54H65m-66-70L13 29" class="structure"/>
+    </g>
   </defs>
-  <rect width="1000" height="1000" fill="{{paper}}"/>
-  <rect width="1000" height="1000" fill="url(#minor)"/>
-  <rect width="1000" height="1000" fill="url(#major)"/>
-  <g font-family="system-ui,sans-serif" font-size="16" font-weight="550" fill="{{ink}}">
-    {{coordinates}}
-  </g>
-  <g fill="none" stroke="{{line}}" stroke-width="2">
-    <path d="M28 84V28h56M916 28h56v56M972 916v56h-56M84 972H28v-56"/>
-  </g>
+  <path d="M0 0h1000v1000H0Z" fill="{{paper}}"/>
+  <path d="M14 14h972v972H14Z" fill="none" stroke="{{grid}}" stroke-width="2"/>
+  {{terrain}}
+  <path d="M0 0h1000v1000H0Z" fill="url(#grid)"/>
+  <g font-family="system-ui,sans-serif" font-weight="550" font-size="14" fill="{{ink}}" opacity=".66">{{coordinates}}</g>
+  <g font-family="system-ui,sans-serif" font-size="27" font-weight="700" text-anchor="middle">{{labels}}</g>
   {{focus}}
 </svg>

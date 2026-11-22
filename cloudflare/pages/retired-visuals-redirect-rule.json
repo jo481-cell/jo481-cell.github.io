@@ -1,6 +1,6 @@
 {
   "description": "Hyrule Atlas · anciens visuels retirés",
-  "expression": "(http.host eq \"hyruleatlas.com\" and (starts_with(http.request.uri.path, \"/assets/alttp/\") or starts_with(http.request.uri.path, \"/assets/game-icons/\") or starts_with(http.request.uri.path, \"/assets/official-thumbnails/\") or starts_with(http.request.uri.path, \"/assets/brand/\") or starts_with(http.request.uri.path, \"/assets/models/triforce-bevel\") or starts_with(http.request.uri.path, \"/assets/editorial/reference/\")))",
+  "expression": "(http.host eq \"hyruleatlas.com\" and (starts_with(http.request.uri.path, \"/assets/alttp/\") or starts_with(http.request.uri.path, \"/assets/game-icons/\") or starts_with(http.request.uri.path, \"/assets/official-thumbnails/\") or starts_with(http.request.uri.path, \"/assets/brand/\") or starts_with(http.request.uri.path, \"/assets/models/triforce-bevel\") or starts_with(http.request.uri.path, \"/assets/editorial/reference/\") or http.request.uri.path eq \"/assets/social/then-and-now-editorial.png\" or http.request.uri.path eq \"/assets/series/sources.json\" or http.request.uri.path eq \"/assets/zelda64/sources.json\" or http.request.uri.path eq \"/assets/comparisons/sources.json\" or http.request.uri.path eq \"/assets/games/sources.json\" or http.request.uri.path eq \"/assets/hyrule/sources.json\"))",
   "action": "redirect",
   "action_parameters": {
     "from_value": {
