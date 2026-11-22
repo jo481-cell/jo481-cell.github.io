@@ -1,0 +1,2446 @@
+{
+  "edition": "snes",
+  "sources": {
+    "hera-walk": {
+      "url": "https://zeldacentral.com/games/a-link-to-the-past/walkthrough/tower-of-hera/",
+      "title": "Tower of Hera SNES walkthrough, Zelda Central"
+    },
+    "ice-walk": {
+      "url": "https://zeldacollection.de/en/walkthroughs/a-link-to-the-past/ice-palace/",
+      "title": "Ice Palace SNES walkthrough, ZeldaCollection"
+    },
+    "castle-walk": {
+      "url": "https://gamefaqs.gamespot.com/snes/588436-the-legend-of-zelda-a-link-to-the-past/faqs/77032/quick-guide",
+      "title": "A Link to the Past SNES quick guide, GameFAQs"
+    },
+    "thieves-walk": {
+      "url": "https://zeldacollection.de/en/walkthroughs/a-link-to-the-past/thieves-town/",
+      "title": "Thieves’ Town SNES walkthrough, ZeldaCollection"
+    },
+    "dark-palace-walk": {
+      "url": "https://zeldacentral.com/games/a-link-to-the-past/walkthrough/dark-palace/",
+      "title": "Palace of Darkness SNES walkthrough, Zelda Central"
+    },
+    "agahnim-walk": {
+      "url": "https://gamefaqs.gamespot.com/snes/588436-the-legend-of-zelda-a-link-to-the-past/faqs/81779",
+      "title": "A Link to the Past SNES walkthrough, kevos / GameFAQs"
+    },
+    "ganon-walk": {
+      "url": "https://zeldacentral.com/games/a-link-to-the-past/walkthrough/ganons-tower/",
+      "title": "Ganon’s Tower SNES walkthrough, Zelda Central"
+    },
+    "c-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/hyrule-castle/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    },
+    "l3-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/tower-of-hera/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    },
+    "a1-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/hyrule-castle-tower/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    },
+    "d1-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/palace-of-darkness/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    },
+    "d2-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/swamp-palace/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    },
+    "d4-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/thieves-town/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    },
+    "d5-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/ice-palace/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    },
+    "a2-inventory": {
+      "url": "https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/ganons-tower/",
+      "title": "SNES floor inventory, 101Leafy / Mt. Wildwood"
+    }
+  },
+  "dungeons": {
+    "C": {
+      "chapter": "hyrule-castle",
+      "floors": {
+        "2F": {
+          "stops": [
+            {
+              "id": "throne",
+              "kind": "room",
+              "labels": {
+                "en": "Throne room",
+                "fr": "Salle du trône",
+                "es": "Sala del trono",
+                "ja": "王座の間",
+                "zh": "王座厅"
+              },
+              "step": "sewers"
+            },
+            {
+              "id": "shelf-passage",
+              "kind": "exit",
+              "labels": {
+                "en": "Passage behind the shelf",
+                "fr": "Passage derrière le meuble",
+                "es": "Pasaje tras la estantería",
+                "ja": "飾り棚の裏の通路",
+                "zh": "架子后的通道"
+              },
+              "step": "sewers"
+            }
+          ],
+          "links": [
+            {
+              "from": "throne",
+              "to": "shelf-passage",
+              "kind": "door"
+            }
+          ],
+          "sources": [
+            "c-inventory",
+            "castle-walk"
+          ],
+          "emptyInventory": true
+        },
+        "1F": {
+          "stops": [
+            {
+              "id": "hall",
+              "kind": "entry",
+              "labels": {
+                "en": "Castle hall",
+                "fr": "Hall du château",
+                "es": "Vestíbulo del castillo",
+                "ja": "城の広間",
+                "zh": "城堡大厅"
+              },
+              "step": "cells"
+            },
+            {
+              "id": "dungeon-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Dungeon stairs",
+                "fr": "Escalier des cachots",
+                "es": "Escalera a las mazmorras",
+                "ja": "地下牢への階段",
+                "zh": "通往地牢的楼梯"
+              },
+              "step": "cells"
+            }
+          ],
+          "links": [
+            {
+              "from": "hall",
+              "to": "dungeon-stairs",
+              "kind": "sequence"
+            },
+            {
+              "from": "dungeon-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "B1"
+            },
+            {
+              "from": "hall",
+              "to": "throne",
+              "kind": "stairs",
+              "otherFloor": "2F"
+            }
+          ],
+          "sources": [
+            "c-inventory",
+            "castle-walk"
+          ],
+          "emptyInventory": true
+        },
+        "B1": {
+          "stops": [
+            {
+              "id": "boomerang",
+              "kind": "chest",
+              "labels": {
+                "en": "Boomerang",
+                "fr": "Boomerang",
+                "es": "Bumerán",
+                "ja": "ブーメラン",
+                "zh": "回旋镖"
+              },
+              "step": "cells"
+            },
+            {
+              "id": "map",
+              "kind": "chest",
+              "labels": {
+                "en": "Dungeon Map",
+                "fr": "Carte du donjon",
+                "es": "Mapa de la mazmorra",
+                "ja": "ダンジョンマップ",
+                "zh": "迷宫地图"
+              },
+              "step": "cells"
+            },
+            {
+              "id": "small-key-an-enemy-carries-it",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · enemy drop ×2",
+                "fr": "Petite clé · sur un ennemi ×2",
+                "es": "Llave pequeña · la suelta un enemigo ×2",
+                "ja": "小さなカギ · 敵が落とす ×2",
+                "zh": "小钥匙 · 敌人掉落 ×2"
+              }
+            },
+            {
+              "id": "lower-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs to the cells",
+                "fr": "Escalier des cellules",
+                "es": "Escalera a las celdas",
+                "ja": "牢への階段",
+                "zh": "通往牢房的楼梯"
+              },
+              "step": "cells"
+            }
+          ],
+          "links": [
+            {
+              "from": "lower-stairs",
+              "to": "lower-stairs",
+              "kind": "stairs",
+              "otherFloor": "B2"
+            }
+          ],
+          "sources": [
+            "c-inventory",
+            "castle-walk"
+          ]
+        },
+        "B2": {
+          "stops": [
+            {
+              "id": "lower-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs between cell levels",
+                "fr": "Escalier entre les sous-sols",
+                "es": "Escalera entre sótanos",
+                "ja": "地下階をつなぐ階段",
+                "zh": "连接地下层的楼梯"
+              },
+              "step": "cells"
+            }
+          ],
+          "links": [
+            {
+              "from": "lower-stairs",
+              "to": "lower-stairs",
+              "kind": "stairs",
+              "otherFloor": "B1"
+            },
+            {
+              "from": "lower-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "B3"
+            }
+          ],
+          "sources": [
+            "c-inventory",
+            "castle-walk"
+          ],
+          "emptyInventory": true
+        },
+        "B3": {
+          "stops": [
+            {
+              "id": "big-key",
+              "kind": "key",
+              "labels": {
+                "en": "Big Key",
+                "fr": "Grande clé",
+                "es": "Gran llave",
+                "ja": "大きなカギ",
+                "zh": "大钥匙"
+              },
+              "step": "zelda"
+            },
+            {
+              "id": "lamp",
+              "kind": "chest",
+              "labels": {
+                "en": "Lamp",
+                "fr": "Lanterne",
+                "es": "Lámpara",
+                "ja": "カンテラ",
+                "zh": "提灯"
+              }
+            },
+            {
+              "id": "zelda-cell",
+              "kind": "room",
+              "labels": {
+                "en": "Zelda’s cell",
+                "fr": "Cellule de Zelda",
+                "es": "Celda de Zelda",
+                "ja": "ゼルダの牢",
+                "zh": "塞尔达的牢房"
+              },
+              "step": "zelda"
+            }
+          ],
+          "links": [
+            {
+              "from": "big-key",
+              "to": "zelda-cell",
+              "kind": "door"
+            }
+          ],
+          "sources": [
+            "c-inventory",
+            "castle-walk"
+          ]
+        }
+      }
+    },
+    "L3": {
+      "chapter": "tower-of-hera",
+      "floors": {
+        "6F": {
+          "stops": [
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Moldorm",
+                "fr": "Moldorm",
+                "es": "Moldorm",
+                "ja": "デグテール",
+                "zh": "莫尔德姆"
+              },
+              "step": "boss"
+            },
+            {
+              "id": "antechamber",
+              "kind": "room",
+              "labels": {
+                "en": "Summit antechamber",
+                "fr": "Antichambre du sommet",
+                "es": "Antesala de la cima",
+                "ja": "最上階の前室",
+                "zh": "塔顶前厅"
+              },
+              "step": "boss"
+            }
+          ],
+          "links": [
+            {
+              "from": "antechamber",
+              "to": "boss",
+              "kind": "drop"
+            }
+          ],
+          "sources": [
+            "l3-inventory",
+            "hera-walk"
+          ],
+          "emptyInventory": true
+        },
+        "5F": {
+          "stops": [
+            {
+              "id": "star",
+              "kind": "switch",
+              "labels": {
+                "en": "Star switch",
+                "fr": "Dalle étoilée",
+                "es": "Interruptor estrella",
+                "ja": "星スイッチ",
+                "zh": "星形开关"
+              },
+              "step": "pearl"
+            },
+            {
+              "id": "pearl-pit",
+              "kind": "junction",
+              "labels": {
+                "en": "Northern approach to the drop",
+                "fr": "Approche nord du trou",
+                "es": "Acceso norte al agujero",
+                "ja": "北から入る落とし穴",
+                "zh": "由北侧进入的落口"
+              },
+              "step": "pearl"
+            },
+            {
+              "id": "summit-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs to the summit",
+                "fr": "Escalier du sommet",
+                "es": "Escalera a la cima",
+                "ja": "最上階への階段",
+                "zh": "通往塔顶的楼梯"
+              },
+              "step": "boss"
+            }
+          ],
+          "links": [
+            {
+              "from": "star",
+              "to": "pearl-pit",
+              "kind": "sequence"
+            },
+            {
+              "from": "pearl-pit",
+              "to": "moon-pearl",
+              "kind": "drop",
+              "otherFloor": "4F"
+            },
+            {
+              "from": "summit-stairs",
+              "to": "antechamber",
+              "kind": "stairs",
+              "otherFloor": "6F"
+            }
+          ],
+          "sources": [
+            "l3-inventory",
+            "hera-walk"
+          ],
+          "emptyInventory": true
+        },
+        "4F": {
+          "stops": [
+            {
+              "id": "compass",
+              "kind": "chest",
+              "labels": {
+                "en": "Compass",
+                "fr": "Boussole",
+                "es": "Brújula",
+                "ja": "コンパス",
+                "zh": "指南针"
+              },
+              "step": "climb"
+            },
+            {
+              "id": "moon-pearl",
+              "kind": "chest",
+              "labels": {
+                "en": "Moon Pearl",
+                "fr": "Perle de Lune",
+                "es": "Perla Lunar",
+                "ja": "ムーンパール",
+                "zh": "月之珠"
+              },
+              "step": "pearl"
+            },
+            {
+              "id": "northwest-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Northwest staircase",
+                "fr": "Escalier du nord-ouest",
+                "es": "Escalera del noroeste",
+                "ja": "北西の階段",
+                "zh": "西北楼梯"
+              },
+              "step": "pearl"
+            }
+          ],
+          "links": [
+            {
+              "from": "northwest-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "5F"
+            }
+          ],
+          "sources": [
+            "l3-inventory",
+            "hera-walk"
+          ]
+        },
+        "3F": {
+          "stops": [
+            {
+              "id": "beetles",
+              "kind": "room",
+              "labels": {
+                "en": "Beetle chamber",
+                "fr": "Salle des scarabées",
+                "es": "Sala de escarabajos",
+                "ja": "カブト虫の部屋",
+                "zh": "甲虫房"
+              },
+              "step": "climb"
+            },
+            {
+              "id": "stars",
+              "kind": "switch",
+              "labels": {
+                "en": "Star switches and pits",
+                "fr": "Dalles étoilées et fosses",
+                "es": "Interruptores estrella y fosos",
+                "ja": "星スイッチと穴",
+                "zh": "星形开关和地坑"
+              },
+              "step": "climb"
+            }
+          ],
+          "links": [
+            {
+              "from": "beetles",
+              "to": "stars",
+              "kind": "sequence"
+            }
+          ],
+          "sources": [
+            "l3-inventory",
+            "hera-walk"
+          ],
+          "emptyInventory": true
+        },
+        "2F": {
+          "stops": [
+            {
+              "id": "map",
+              "kind": "chest",
+              "labels": {
+                "en": "Dungeon Map",
+                "fr": "Carte du donjon",
+                "es": "Mapa de la mazmorra",
+                "ja": "ダンジョンマップ",
+                "zh": "迷宫地图"
+              },
+              "step": "map"
+            },
+            {
+              "id": "entry",
+              "kind": "entry",
+              "labels": {
+                "en": "Tower entrance",
+                "fr": "Entrée de la tour",
+                "es": "Entrada de la torre",
+                "ja": "塔の入口",
+                "zh": "塔的入口"
+              },
+              "step": "key"
+            },
+            {
+              "id": "northwest-door",
+              "kind": "junction",
+              "labels": {
+                "en": "Locked northwest door",
+                "fr": "Porte verrouillée au nord-ouest",
+                "es": "Puerta cerrada al noroeste",
+                "ja": "北西の鍵付き扉",
+                "zh": "西北上锁门"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "upper-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs to the upper tower",
+                "fr": "Escalier vers le haut de la tour",
+                "es": "Escalera a la parte alta",
+                "ja": "塔の上層への階段",
+                "zh": "通往塔上层的楼梯"
+              },
+              "step": "climb"
+            }
+          ],
+          "links": [
+            {
+              "from": "entry",
+              "to": "small-key-on-the-floor",
+              "kind": "stairs",
+              "otherFloor": "1F"
+            },
+            {
+              "from": "northwest-door",
+              "to": "tiles",
+              "kind": "stairs",
+              "otherFloor": "1F"
+            },
+            {
+              "from": "upper-stairs",
+              "to": "beetles",
+              "kind": "stairs",
+              "otherFloor": "3F"
+            }
+          ],
+          "sources": [
+            "l3-inventory",
+            "hera-walk"
+          ]
+        },
+        "1F": {
+          "stops": [
+            {
+              "id": "big-key",
+              "kind": "key",
+              "labels": {
+                "en": "Big Key",
+                "fr": "Grande clé",
+                "es": "Gran llave",
+                "ja": "大きなカギ",
+                "zh": "大钥匙"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "small-key-on-the-floor",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · on the floor",
+                "fr": "Petite clé · au sol",
+                "es": "Llave pequeña · en el suelo",
+                "ja": "小さなカギ · 床の上",
+                "zh": "小钥匙 · 地板上"
+              }
+            },
+            {
+              "id": "tiles",
+              "kind": "room",
+              "labels": {
+                "en": "Flying-tile chamber",
+                "fr": "Salle des dalles volantes",
+                "es": "Sala de baldosas voladoras",
+                "ja": "飛ぶ床の部屋",
+                "zh": "飞砖房"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "moldorms",
+              "kind": "room",
+              "labels": {
+                "en": "Mini-Moldorm chamber",
+                "fr": "Salle des petits Moldorm",
+                "es": "Sala de mini Moldorm",
+                "ja": "ミニデグテールの部屋",
+                "zh": "小莫尔德姆房"
+              },
+              "step": "big-key"
+            }
+          ],
+          "links": [
+            {
+              "from": "tiles",
+              "to": "moldorms",
+              "kind": "door",
+              "direction": "east"
+            },
+            {
+              "from": "moldorms",
+              "to": "big-key",
+              "kind": "door",
+              "direction": "south"
+            },
+            {
+              "from": "small-key-on-the-floor",
+              "to": "entry",
+              "kind": "stairs",
+              "otherFloor": "2F"
+            }
+          ],
+          "sources": [
+            "l3-inventory",
+            "hera-walk"
+          ]
+        }
+      }
+    },
+    "A1": {
+      "chapter": "master-sword-agahnim",
+      "floors": {
+        "7F": {
+          "stops": [
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Agahnim",
+                "fr": "Agahnim",
+                "es": "Agahnim",
+                "ja": "アグニム",
+                "zh": "阿格尼姆"
+              },
+              "step": "duel"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a1-inventory"
+          ],
+          "emptyInventory": true
+        },
+        "6F": {
+          "stops": [
+            {
+              "id": "west-statue",
+              "kind": "switch",
+              "labels": {
+                "en": "Push the western statue",
+                "fr": "Pousser la statue ouest",
+                "es": "Empujar la estatua del oeste",
+                "ja": "西の像を押す",
+                "zh": "推动西边的雕像"
+              },
+              "step": "climb"
+            },
+            {
+              "id": "curtain",
+              "kind": "junction",
+              "labels": {
+                "en": "Curtain concealing the way",
+                "fr": "Rideau qui cache le passage",
+                "es": "Cortina que oculta el paso",
+                "ja": "通路を隠すカーテン",
+                "zh": "遮挡通道的帘幕"
+              },
+              "step": "climb"
+            }
+          ],
+          "links": [
+            {
+              "from": "west-statue",
+              "to": "curtain",
+              "kind": "sequence"
+            }
+          ],
+          "sources": [
+            "a1-inventory",
+            "agahnim-walk"
+          ],
+          "emptyInventory": true
+        },
+        "5F": {
+          "stops": [
+            {
+              "id": "small-key-an-enemy-carries-it",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · enemy drop",
+                "fr": "Petite clé · sur un ennemi",
+                "es": "Llave pequeña · la suelta un enemigo",
+                "ja": "小さなカギ · 敵が落とす",
+                "zh": "小钥匙 · 敌人掉落"
+              },
+              "step": "climb"
+            },
+            {
+              "id": "upper-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs to 6F",
+                "fr": "Escalier vers le 6e étage",
+                "es": "Escalera a la 6.ª planta",
+                "ja": "6階への階段",
+                "zh": "通往6层的楼梯"
+              },
+              "step": "climb"
+            }
+          ],
+          "links": [
+            {
+              "from": "upper-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "6F"
+            }
+          ],
+          "sources": [
+            "a1-inventory",
+            "agahnim-walk"
+          ]
+        },
+        "4F": {
+          "stops": [
+            {
+              "id": "small-key-an-enemy-carries-it",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · enemy drop",
+                "fr": "Petite clé · sur un ennemi",
+                "es": "Llave pequeña · la suelta un enemigo",
+                "ja": "小さなカギ · 敵が落とす",
+                "zh": "小钥匙 · 敌人掉落"
+              },
+              "step": "climb"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a1-inventory"
+          ]
+        },
+        "3F": {
+          "stops": [
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key",
+                "fr": "Petite clé",
+                "es": "Llave pequeña",
+                "ja": "小さなカギ",
+                "zh": "小钥匙"
+              },
+              "step": "climb"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a1-inventory"
+          ]
+        },
+        "2F": {
+          "stops": [
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key",
+                "fr": "Petite clé",
+                "es": "Llave pequeña",
+                "ja": "小さなカギ",
+                "zh": "小钥匙"
+              },
+              "step": "climb"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a1-inventory"
+          ]
+        }
+      }
+    },
+    "D1": {
+      "chapter": "palace-of-darkness",
+      "floors": {
+        "1F": {
+          "stops": [
+            {
+              "id": "big-key",
+              "kind": "key",
+              "labels": {
+                "en": "Big Key",
+                "fr": "Grande clé",
+                "es": "Gran llave",
+                "ja": "大きなカギ",
+                "zh": "大钥匙"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "bombs",
+              "kind": "chest",
+              "labels": {
+                "en": "Bombs",
+                "fr": "Bombes",
+                "es": "Bombas",
+                "ja": "バクダン",
+                "zh": "炸弹"
+              }
+            },
+            {
+              "id": "compass",
+              "kind": "chest",
+              "labels": {
+                "en": "Compass",
+                "fr": "Boussole",
+                "es": "Brújula",
+                "ja": "コンパス",
+                "zh": "指南针"
+              },
+              "step": "turtles"
+            },
+            {
+              "id": "magic-hammer",
+              "kind": "chest",
+              "labels": {
+                "en": "Magic Hammer",
+                "fr": "Marteau magique",
+                "es": "Martillo mágico",
+                "ja": "ハンマー",
+                "zh": "魔法锤"
+              },
+              "step": "hammer"
+            },
+            {
+              "id": "map",
+              "kind": "chest",
+              "labels": {
+                "en": "Dungeon Map",
+                "fr": "Carte du donjon",
+                "es": "Mapa de la mazmorra",
+                "ja": "ダンジョンマップ",
+                "zh": "迷宫地图"
+              },
+              "step": "first-key"
+            },
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key ×3",
+                "fr": "Petite clé ×3",
+                "es": "Llave pequeña ×3",
+                "ja": "小さなカギ ×3",
+                "zh": "小钥匙 ×3"
+              }
+            },
+            {
+              "id": "5-rupees",
+              "kind": "chest",
+              "labels": {
+                "en": "5 rupees",
+                "fr": "5 rubis",
+                "es": "5 rupias",
+                "ja": "5ルピー",
+                "zh": "5 卢比"
+              }
+            },
+            {
+              "id": "foyer",
+              "kind": "entry",
+              "labels": {
+                "en": "Entrance hall with three doors",
+                "fr": "Hall d’entrée à trois portes",
+                "es": "Vestíbulo con tres puertas",
+                "ja": "3つの扉がある入口の広間",
+                "zh": "有三扇门的入口大厅"
+              },
+              "step": "first-key"
+            },
+            {
+              "id": "west-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Western wing stairs",
+                "fr": "Escalier de l’aile ouest",
+                "es": "Escalera del ala oeste",
+                "ja": "西の区画の階段",
+                "zh": "西翼楼梯"
+              },
+              "step": "first-key"
+            }
+          ],
+          "links": [
+            {
+              "from": "foyer",
+              "to": "west-stairs",
+              "kind": "sequence"
+            },
+            {
+              "from": "west-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "B1"
+            }
+          ],
+          "sources": [
+            "d1-inventory",
+            "dark-palace-walk"
+          ]
+        },
+        "B1": {
+          "stops": [
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key ×3",
+                "fr": "Petite clé ×3",
+                "es": "Llave pequeña ×3",
+                "ja": "小さなカギ ×3",
+                "zh": "小钥匙 ×3"
+              }
+            },
+            {
+              "id": "1-arrow",
+              "kind": "chest",
+              "labels": {
+                "en": "1 arrow",
+                "fr": "1 flèche",
+                "es": "1 flecha",
+                "ja": "矢 1本",
+                "zh": "1 支箭"
+              }
+            },
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Helmasaur King",
+                "fr": "Helmasaur",
+                "es": "Rey Helmasaur",
+                "ja": "ジークロック",
+                "zh": "盔甲兽王"
+              },
+              "step": "crystal"
+            },
+            {
+              "id": "west-key-switch",
+              "kind": "switch",
+              "labels": {
+                "en": "Western wing floor switch",
+                "fr": "Dalle au sol de l’aile ouest",
+                "es": "Interruptor de suelo del ala oeste",
+                "ja": "西の区画の床スイッチ",
+                "zh": "西翼地板开关"
+              },
+              "step": "first-key"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "d1-inventory",
+            "dark-palace-walk"
+          ]
+        }
+      }
+    },
+    "D2": {
+      "chapter": "swamp-palace",
+      "floors": {
+        "1F": {
+          "stops": [
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key",
+                "fr": "Petite clé",
+                "es": "Llave pequeña",
+                "ja": "小さなカギ",
+                "zh": "小钥匙"
+              }
+            },
+            {
+              "id": "canal",
+              "kind": "entry",
+              "labels": {
+                "en": "Flooded entrance canal",
+                "fr": "Canal inondé de l’entrée",
+                "es": "Canal inundado de la entrada",
+                "ja": "入口の水路",
+                "zh": "入口水道"
+              },
+              "step": "return"
+            },
+            {
+              "id": "entry-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs beyond the first lock",
+                "fr": "Escalier après la première serrure",
+                "es": "Escalera tras la primera puerta cerrada",
+                "ja": "最初の鍵付き扉の先の階段",
+                "zh": "第一扇锁门后的楼梯"
+              },
+              "step": "flood"
+            },
+            {
+              "id": "eastern-drop",
+              "kind": "junction",
+              "labels": {
+                "en": "Eastern hole above the Big Key route",
+                "fr": "Trou est vers la grande clé",
+                "es": "Agujero este en la ruta de la gran llave",
+                "ja": "大きなカギへの東の落とし穴",
+                "zh": "通往大钥匙的东侧落口"
+              },
+              "step": "big-key"
+            }
+          ],
+          "links": [
+            {
+              "from": "canal",
+              "to": "entry-stairs",
+              "kind": "sequence"
+            },
+            {
+              "from": "entry-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "B1"
+            },
+            {
+              "from": "eastern-drop",
+              "to": "hole-landing",
+              "kind": "drop",
+              "otherFloor": "B1"
+            }
+          ],
+          "sources": [
+            "d2-inventory",
+            "castle-walk"
+          ]
+        },
+        "B1": {
+          "stops": [
+            {
+              "id": "big-key",
+              "kind": "key",
+              "labels": {
+                "en": "Big Key",
+                "fr": "Grande clé",
+                "es": "Gran llave",
+                "ja": "大きなカギ",
+                "zh": "大钥匙"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "bombs",
+              "kind": "chest",
+              "labels": {
+                "en": "Bombs",
+                "fr": "Bombes",
+                "es": "Bombas",
+                "ja": "バクダン",
+                "zh": "炸弹"
+              }
+            },
+            {
+              "id": "compass",
+              "kind": "chest",
+              "labels": {
+                "en": "Compass ×2",
+                "fr": "Boussole ×2",
+                "es": "Brújula ×2",
+                "ja": "コンパス ×2",
+                "zh": "指南针 ×2"
+              }
+            },
+            {
+              "id": "hook-shot",
+              "kind": "chest",
+              "labels": {
+                "en": "Hookshot",
+                "fr": "Grappin",
+                "es": "Gancho",
+                "ja": "フックショット",
+                "zh": "钩索"
+              },
+              "step": "hookshot"
+            },
+            {
+              "id": "map",
+              "kind": "chest",
+              "labels": {
+                "en": "Dungeon Map",
+                "fr": "Carte du donjon",
+                "es": "Mapa de la mazmorra",
+                "ja": "ダンジョンマップ",
+                "zh": "迷宫地图"
+              }
+            },
+            {
+              "id": "small-key-in-a-pot",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · under a pot ×5",
+                "fr": "Petite clé · sous un pot ×5",
+                "es": "Llave pequeña · bajo una vasija ×5",
+                "ja": "小さなカギ · ツボの下 ×5",
+                "zh": "小钥匙 · 罐子下方 ×5"
+              }
+            },
+            {
+              "id": "20-rupees",
+              "kind": "chest",
+              "labels": {
+                "en": "20 rupees",
+                "fr": "20 rubis",
+                "es": "20 rupias",
+                "ja": "20ルピー",
+                "zh": "20 卢比"
+              }
+            },
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Arrghus",
+                "fr": "Arrghus",
+                "es": "Arrghus",
+                "ja": "ワート",
+                "zh": "阿古斯"
+              },
+              "step": "crystal"
+            },
+            {
+              "id": "bombable-wall",
+              "kind": "junction",
+              "labels": {
+                "en": "Bombable wall on the west",
+                "fr": "Mur ouest à faire sauter",
+                "es": "Pared oeste que se puede volar",
+                "ja": "爆破できる西の壁",
+                "zh": "可炸开的西墙"
+              },
+              "step": "flood"
+            },
+            {
+              "id": "hole-landing",
+              "kind": "room",
+              "labels": {
+                "en": "Lower room below the eastern hole",
+                "fr": "Salle sous le trou est",
+                "es": "Sala bajo el agujero este",
+                "ja": "東の穴の下の部屋",
+                "zh": "东侧落口下的房间"
+              },
+              "step": "big-key"
+            }
+          ],
+          "links": [
+            {
+              "from": "bombable-wall",
+              "to": "map",
+              "kind": "door",
+              "direction": "west"
+            },
+            {
+              "from": "hole-landing",
+              "to": "big-key",
+              "kind": "door",
+              "direction": "east"
+            }
+          ],
+          "sources": [
+            "d2-inventory",
+            "castle-walk"
+          ]
+        },
+        "B2": {
+          "stops": [
+            {
+              "id": "20-rupees",
+              "kind": "chest",
+              "labels": {
+                "en": "20 rupees ×3",
+                "fr": "20 rubis ×3",
+                "es": "20 rupias ×3",
+                "ja": "20ルピー ×3",
+                "zh": "20 卢比 ×3"
+              }
+            }
+          ],
+          "links": [],
+          "sources": [
+            "d2-inventory"
+          ]
+        }
+      }
+    },
+    "D4": {
+      "chapter": "thieves-town",
+      "floors": {
+        "1F": {
+          "stops": [
+            {
+              "id": "bombs",
+              "kind": "chest",
+              "labels": {
+                "en": "Bombs",
+                "fr": "Bombes",
+                "es": "Bombas",
+                "ja": "バクダン",
+                "zh": "炸弹"
+              }
+            },
+            {
+              "id": "attic",
+              "kind": "room",
+              "labels": {
+                "en": "Attic with the cracked floor",
+                "fr": "Grenier au sol fissuré",
+                "es": "Desván con suelo agrietado",
+                "ja": "ひび割れた床の屋根裏",
+                "zh": "有裂缝地板的阁楼"
+              },
+              "step": "sunlight"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "d4-inventory",
+            "thieves-walk"
+          ]
+        },
+        "B1": {
+          "stops": [
+            {
+              "id": "big-key",
+              "kind": "key",
+              "labels": {
+                "en": "Big Key",
+                "fr": "Grande clé",
+                "es": "Gran llave",
+                "ja": "大きなカギ",
+                "zh": "大钥匙"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "compass",
+              "kind": "chest",
+              "labels": {
+                "en": "Compass",
+                "fr": "Boussole",
+                "es": "Brújula",
+                "ja": "コンパス",
+                "zh": "指南针"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "map",
+              "kind": "chest",
+              "labels": {
+                "en": "Dungeon Map",
+                "fr": "Carte du donjon",
+                "es": "Mapa de la mazmorra",
+                "ja": "ダンジョンマップ",
+                "zh": "迷宫地图"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "small-key-in-a-pot",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · under a pot ×2",
+                "fr": "Petite clé · sous un pot ×2",
+                "es": "Llave pequeña · bajo una vasija ×2",
+                "ja": "小さなカギ · ツボの下 ×2",
+                "zh": "小钥匙 · 罐子下方 ×2"
+              }
+            },
+            {
+              "id": "20-rupees",
+              "kind": "chest",
+              "labels": {
+                "en": "20 rupees",
+                "fr": "20 rubis",
+                "es": "20 rupias",
+                "ja": "20ルピー",
+                "zh": "20 卢比"
+              }
+            },
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Blind the Thief",
+                "fr": "Blind",
+                "es": "Blind el Ladrón",
+                "ja": "ブラインド",
+                "zh": "布莱因德"
+              },
+              "step": "crystal"
+            },
+            {
+              "id": "light",
+              "kind": "room",
+              "labels": {
+                "en": "Sunbeam below the attic",
+                "fr": "Rayon de soleil sous le grenier",
+                "es": "Rayo de luz bajo el desván",
+                "ja": "屋根裏からの光",
+                "zh": "阁楼下的阳光"
+              },
+              "step": "reveal"
+            }
+          ],
+          "links": [
+            {
+              "from": "light",
+              "to": "boss",
+              "kind": "sequence"
+            }
+          ],
+          "sources": [
+            "d4-inventory",
+            "thieves-walk"
+          ]
+        },
+        "B2": {
+          "stops": [
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key",
+                "fr": "Petite clé",
+                "es": "Llave pequeña",
+                "ja": "小さなカギ",
+                "zh": "小钥匙"
+              }
+            },
+            {
+              "id": "titan-s-mitt",
+              "kind": "chest",
+              "labels": {
+                "en": "Titan's Mitt",
+                "fr": "Moufles du Titan",
+                "es": "Guante de Titán",
+                "ja": "パワフルグラブ",
+                "zh": "泰坦手套"
+              },
+              "step": "mitt"
+            },
+            {
+              "id": "cells",
+              "kind": "room",
+              "labels": {
+                "en": "Prison cells",
+                "fr": "Cellules de la prison",
+                "es": "Celdas de la prisión",
+                "ja": "牢の区画",
+                "zh": "牢房区"
+              },
+              "step": "prison"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "d4-inventory",
+            "thieves-walk"
+          ]
+        }
+      }
+    },
+    "D5": {
+      "chapter": "ice-palace",
+      "floors": {
+        "1F": {
+          "stops": [
+            {
+              "id": "small-key-an-enemy-carries-it",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · enemy drop",
+                "fr": "Petite clé · sur un ennemi",
+                "es": "Llave pequeña · la suelta un enemigo",
+                "ja": "小さなカギ · 敵が落とす",
+                "zh": "小钥匙 · 敌人掉落"
+              }
+            },
+            {
+              "id": "freezor",
+              "kind": "entry",
+              "labels": {
+                "en": "Freezor at the entrance",
+                "fr": "Freezor à l’entrée",
+                "es": "Freezor en la entrada",
+                "ja": "入口のフリザー",
+                "zh": "入口的冰怪"
+              },
+              "step": "freezor"
+            }
+          ],
+          "links": [
+            {
+              "from": "freezor",
+              "to": "small-key-an-enemy-carries-it",
+              "kind": "door"
+            },
+            {
+              "from": "small-key-an-enemy-carries-it",
+              "to": "zols",
+              "kind": "stairs",
+              "otherFloor": "B1"
+            }
+          ],
+          "sources": [
+            "d5-inventory",
+            "ice-walk"
+          ]
+        },
+        "B1": {
+          "stops": [
+            {
+              "id": "big-key",
+              "kind": "key",
+              "labels": {
+                "en": "Big Key",
+                "fr": "Grande clé",
+                "es": "Gran llave",
+                "ja": "大きなカギ",
+                "zh": "大钥匙"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "compass",
+              "kind": "chest",
+              "labels": {
+                "en": "Compass",
+                "fr": "Boussole",
+                "es": "Brújula",
+                "ja": "コンパス",
+                "zh": "指南针"
+              }
+            },
+            {
+              "id": "zols",
+              "kind": "room",
+              "labels": {
+                "en": "Zols and floor switch",
+                "fr": "Zols et dalle au sol",
+                "es": "Zols e interruptor del suelo",
+                "ja": "ゾルと床スイッチ",
+                "zh": "佐尔与地板开关"
+              },
+              "step": "descent"
+            },
+            {
+              "id": "block-room",
+              "kind": "junction",
+              "labels": {
+                "en": "Central moving block",
+                "fr": "Bloc mobile central",
+                "es": "Bloque móvil central",
+                "ja": "中央の動かせるブロック",
+                "zh": "中央可移动方块"
+              },
+              "step": "descent"
+            },
+            {
+              "id": "cracked-floor",
+              "kind": "room",
+              "labels": {
+                "en": "Crystal and cracked floor",
+                "fr": "Cristal et sol fissuré",
+                "es": "Cristal y suelo agrietado",
+                "ja": "クリスタルとひび割れた床",
+                "zh": "水晶与裂缝地板"
+              },
+              "step": "descent"
+            }
+          ],
+          "links": [
+            {
+              "from": "zols",
+              "to": "block-room",
+              "kind": "door",
+              "direction": "east"
+            },
+            {
+              "from": "block-room",
+              "to": "compass",
+              "kind": "door",
+              "direction": "south"
+            },
+            {
+              "from": "block-room",
+              "to": "cracked-floor",
+              "kind": "door",
+              "direction": "north"
+            },
+            {
+              "from": "cracked-floor",
+              "to": "stalfos",
+              "kind": "drop",
+              "otherFloor": "B2"
+            }
+          ],
+          "sources": [
+            "d5-inventory",
+            "ice-walk"
+          ]
+        },
+        "B2": {
+          "stops": [
+            {
+              "id": "map",
+              "kind": "chest",
+              "labels": {
+                "en": "Dungeon Map",
+                "fr": "Carte du donjon",
+                "es": "Mapa de la mazmorra",
+                "ja": "ダンジョンマップ",
+                "zh": "迷宫地图"
+              }
+            },
+            {
+              "id": "small-key-an-enemy-carries-it",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · enemy drop",
+                "fr": "Petite clé · sur un ennemi",
+                "es": "Llave pequeña · la suelta un enemigo",
+                "ja": "小さなカギ · 敵が落とす",
+                "zh": "小钥匙 · 敌人掉落"
+              }
+            },
+            {
+              "id": "small-key-in-a-pot",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · under a pot",
+                "fr": "Petite clé · sous un pot",
+                "es": "Llave pequeña · bajo una vasija",
+                "ja": "小さなカギ · ツボの下",
+                "zh": "小钥匙 · 罐子下方"
+              }
+            },
+            {
+              "id": "stalfos",
+              "kind": "room",
+              "labels": {
+                "en": "Stalfos Knights",
+                "fr": "Chevaliers Stalfos",
+                "es": "Caballeros Stalfos",
+                "ja": "スタルフォスナイト",
+                "zh": "骷髅骑士"
+              },
+              "step": "skeletons"
+            },
+            {
+              "id": "south-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs to B3",
+                "fr": "Escalier vers B3",
+                "es": "Escalera a B3",
+                "ja": "地下3階への階段",
+                "zh": "通往地下3层的楼梯"
+              },
+              "step": "skeletons"
+            },
+            {
+              "id": "key-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Stairs to the Big Key",
+                "fr": "Escalier de la grande clé",
+                "es": "Escalera hasta la gran llave",
+                "ja": "大きなカギへの階段",
+                "zh": "通往大钥匙的楼梯"
+              },
+              "step": "big-key"
+            }
+          ],
+          "links": [
+            {
+              "from": "stalfos",
+              "to": "small-key-an-enemy-carries-it",
+              "kind": "door",
+              "direction": "south"
+            },
+            {
+              "from": "south-stairs",
+              "to": "pengators",
+              "kind": "stairs",
+              "otherFloor": "B3"
+            },
+            {
+              "from": "map",
+              "to": "key-stairs",
+              "kind": "door",
+              "direction": "east"
+            },
+            {
+              "from": "key-stairs",
+              "to": "big-key",
+              "kind": "stairs",
+              "otherFloor": "B1"
+            }
+          ],
+          "sources": [
+            "d5-inventory",
+            "ice-walk"
+          ]
+        },
+        "B3": {
+          "stops": [
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key",
+                "fr": "Petite clé",
+                "es": "Llave pequeña",
+                "ja": "小さなカギ",
+                "zh": "小钥匙"
+              }
+            },
+            {
+              "id": "pengators",
+              "kind": "room",
+              "labels": {
+                "en": "Pengator chamber",
+                "fr": "Salle des Pengators",
+                "es": "Sala de Pengators",
+                "ja": "ペンギンの部屋",
+                "zh": "企鹅怪房"
+              },
+              "step": "skeletons"
+            },
+            {
+              "id": "spike-trap",
+              "kind": "room",
+              "labels": {
+                "en": "Long spike-trap corridor",
+                "fr": "Long couloir du piège à pointes",
+                "es": "Pasillo largo con trampa de pinchos",
+                "ja": "トゲ罠の長い通路",
+                "zh": "长刺陷阱走廊"
+              },
+              "step": "skeletons"
+            },
+            {
+              "id": "medusas",
+              "kind": "room",
+              "labels": {
+                "en": "Medusas above collapsing ice",
+                "fr": "Méduses et glace friable",
+                "es": "Medusas sobre hielo frágil",
+                "ja": "メデューサと崩れる床",
+                "zh": "美杜莎与坍塌冰面"
+              },
+              "step": "skeletons"
+            },
+            {
+              "id": "western-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Western room stairs",
+                "fr": "Escalier de la salle ouest",
+                "es": "Escalera de la sala oeste",
+                "ja": "西の部屋の階段",
+                "zh": "西侧房间楼梯"
+              },
+              "step": "mail"
+            }
+          ],
+          "links": [
+            {
+              "from": "pengators",
+              "to": "spike-trap",
+              "kind": "door",
+              "direction": "north"
+            },
+            {
+              "from": "spike-trap",
+              "to": "medusas",
+              "kind": "door",
+              "direction": "north"
+            },
+            {
+              "from": "medusas",
+              "to": "",
+              "kind": "drop",
+              "otherFloor": "B4"
+            },
+            {
+              "from": "spike-trap",
+              "to": "western-stairs",
+              "kind": "door",
+              "direction": "west"
+            },
+            {
+              "from": "western-stairs",
+              "to": "cracked-floor",
+              "kind": "stairs",
+              "otherFloor": "B4"
+            }
+          ],
+          "sources": [
+            "d5-inventory",
+            "ice-walk"
+          ]
+        },
+        "B4": {
+          "stops": [
+            {
+              "id": "bombs",
+              "kind": "chest",
+              "labels": {
+                "en": "Bombs",
+                "fr": "Bombes",
+                "es": "Bombas",
+                "ja": "バクダン",
+                "zh": "炸弹"
+              }
+            },
+            {
+              "id": "small-key-appears-later",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · appears later",
+                "fr": "Petite clé · apparaît plus tard",
+                "es": "Llave pequeña · aparece más tarde",
+                "ja": "小さなカギ · 後で出現",
+                "zh": "小钥匙 · 稍后出现"
+              }
+            },
+            {
+              "id": "cracked-floor",
+              "kind": "junction",
+              "labels": {
+                "en": "Cracked floor above the large chest",
+                "fr": "Sol fissuré au-dessus du grand coffre",
+                "es": "Suelo agrietado sobre el cofre grande",
+                "ja": "大きな宝箱の上のひび割れ",
+                "zh": "大宝箱上方的裂缝地板"
+              },
+              "step": "mail"
+            },
+            {
+              "id": "western-pit",
+              "kind": "junction",
+              "labels": {
+                "en": "Western return drop",
+                "fr": "Retour par le trou ouest",
+                "es": "Caída de regreso al oeste",
+                "ja": "西の戻り穴",
+                "zh": "西侧返回落口"
+              },
+              "step": "block"
+            }
+          ],
+          "links": [
+            {
+              "from": "cracked-floor",
+              "to": "blue-mail",
+              "kind": "drop",
+              "otherFloor": "B5"
+            },
+            {
+              "from": "western-pit",
+              "to": "",
+              "kind": "drop",
+              "otherFloor": "B5"
+            }
+          ],
+          "sources": [
+            "d5-inventory",
+            "ice-walk"
+          ]
+        },
+        "B5": {
+          "stops": [
+            {
+              "id": "blue-mail",
+              "kind": "chest",
+              "labels": {
+                "en": "Blue Mail",
+                "fr": "Tunique bleue",
+                "es": "Túnica azul",
+                "ja": "青い服",
+                "zh": "蓝色衣服"
+              },
+              "step": "mail"
+            },
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key",
+                "fr": "Petite clé",
+                "es": "Llave pequeña",
+                "ja": "小さなカギ",
+                "zh": "小钥匙"
+              }
+            },
+            {
+              "id": "small-key-in-a-pot",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · under a pot",
+                "fr": "Petite clé · sous un pot",
+                "es": "Llave pequeña · bajo una vasija",
+                "ja": "小さなカギ · ツボの下",
+                "zh": "小钥匙 · 罐子下方"
+              }
+            },
+            {
+              "id": "freezor-east",
+              "kind": "room",
+              "labels": {
+                "en": "Freezor east of the large chest",
+                "fr": "Freezor à l’est du grand coffre",
+                "es": "Freezor al este del cofre grande",
+                "ja": "大きな宝箱の東のフリザー",
+                "zh": "大宝箱东侧的冰怪"
+              },
+              "step": "block"
+            },
+            {
+              "id": "four-blocks",
+              "kind": "junction",
+              "labels": {
+                "en": "Four blocks and central hole",
+                "fr": "Quatre blocs et trou central",
+                "es": "Cuatro bloques y agujero central",
+                "ja": "4つのブロックと中央の穴",
+                "zh": "四个方块和中央落口"
+              },
+              "step": "block"
+            },
+            {
+              "id": "locked-descent",
+              "kind": "junction",
+              "labels": {
+                "en": "Locked stairs to B6",
+                "fr": "Escalier verrouillé vers B6",
+                "es": "Escalera cerrada hacia B6",
+                "ja": "地下6階への鍵付き階段",
+                "zh": "通往地下6层的上锁楼梯"
+              },
+              "step": "block"
+            }
+          ],
+          "links": [
+            {
+              "from": "blue-mail",
+              "to": "freezor-east",
+              "kind": "door",
+              "direction": "east"
+            },
+            {
+              "from": "four-blocks",
+              "to": "locked-descent",
+              "kind": "sequence"
+            },
+            {
+              "from": "four-blocks",
+              "to": "switch",
+              "kind": "drop",
+              "otherFloor": "B6"
+            },
+            {
+              "from": "locked-descent",
+              "to": "switch",
+              "kind": "stairs",
+              "otherFloor": "B6"
+            }
+          ],
+          "sources": [
+            "d5-inventory",
+            "ice-walk"
+          ]
+        },
+        "B6": {
+          "stops": [
+            {
+              "id": "switch",
+              "kind": "switch",
+              "labels": {
+                "en": "Hold-down floor switch",
+                "fr": "Dalle à maintenir enfoncée",
+                "es": "Interruptor que debe quedar pulsado",
+                "ja": "押し続ける床スイッチ",
+                "zh": "需持续压住的地板开关"
+              },
+              "step": "switch"
+            },
+            {
+              "id": "crystal",
+              "kind": "switch",
+              "labels": {
+                "en": "Crystal switch east of the floor switch",
+                "fr": "Cristal à l’est de la dalle",
+                "es": "Cristal al este del interruptor",
+                "ja": "床スイッチの東のクリスタル",
+                "zh": "地板开关东侧的水晶"
+              },
+              "step": "block"
+            },
+            {
+              "id": "last-room",
+              "kind": "room",
+              "labels": {
+                "en": "Final obstacle room",
+                "fr": "Dernière salle d’obstacles",
+                "es": "Última sala de obstáculos",
+                "ja": "最後の障害部屋",
+                "zh": "最后的障碍房"
+              },
+              "step": "switch"
+            }
+          ],
+          "links": [
+            {
+              "from": "switch",
+              "to": "crystal",
+              "kind": "door",
+              "direction": "east"
+            },
+            {
+              "from": "switch",
+              "to": "last-room",
+              "kind": "door",
+              "direction": "south"
+            },
+            {
+              "from": "last-room",
+              "to": "boss",
+              "kind": "drop",
+              "otherFloor": "B7"
+            }
+          ],
+          "sources": [
+            "d5-inventory",
+            "ice-walk"
+          ],
+          "emptyInventory": true
+        },
+        "B7": {
+          "stops": [
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Kholdstare",
+                "fr": "Kholdstare",
+                "es": "Kholdstare",
+                "ja": "シュアイズ",
+                "zh": "科霍德斯泰尔"
+              },
+              "step": "crystal"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "d5-inventory"
+          ],
+          "emptyInventory": true
+        }
+      }
+    },
+    "A2": {
+      "chapter": "ganons-tower",
+      "floors": {
+        "7F": {
+          "stops": [
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Agahnim II",
+                "fr": "Agahnim II",
+                "es": "Agahnim II",
+                "ja": "アグニム（再戦）",
+                "zh": "阿格尼姆（再战）"
+              },
+              "step": "wizard"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a2-inventory"
+          ],
+          "emptyInventory": true
+        },
+        "6F": {
+          "stops": [
+            {
+              "id": "bombs",
+              "kind": "chest",
+              "labels": {
+                "en": "Bombs ×2",
+                "fr": "Bombes ×2",
+                "es": "Bombas ×2",
+                "ja": "バクダン ×2",
+                "zh": "炸弹 ×2"
+              }
+            },
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key",
+                "fr": "Petite clé",
+                "es": "Llave pequeña",
+                "ja": "小さなカギ",
+                "zh": "小钥匙"
+              }
+            },
+            {
+              "id": "small-key-an-enemy-carries-it",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · enemy drop",
+                "fr": "Petite clé · sur un ennemi",
+                "es": "Llave pequeña · la suelta un enemigo",
+                "ja": "小さなカギ · 敵が落とす",
+                "zh": "小钥匙 · 敌人掉落"
+              }
+            },
+            {
+              "id": "20-rupees",
+              "kind": "chest",
+              "labels": {
+                "en": "20 rupees",
+                "fr": "20 rubis",
+                "es": "20 rupias",
+                "ja": "20ルピー",
+                "zh": "20 卢比"
+              }
+            },
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Moldorm",
+                "fr": "Moldorm",
+                "es": "Moldorm",
+                "ja": "デグテール",
+                "zh": "莫尔德姆"
+              },
+              "step": "moldorm"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a2-inventory"
+          ]
+        },
+        "5F": {
+          "stops": [
+            {
+              "id": "combat-rooms",
+              "kind": "room",
+              "labels": {
+                "en": "Combat rooms and pits",
+                "fr": "Salles de combat et fosses",
+                "es": "Salas de combate y fosos",
+                "ja": "戦闘部屋と落とし穴",
+                "zh": "战斗房间与地坑"
+              },
+              "step": "gauntlet"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a2-inventory",
+            "ganon-walk"
+          ],
+          "emptyInventory": true
+        },
+        "4F": {
+          "stops": [
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Lanmolas",
+                "fr": "Lanmolas",
+                "es": "Lanmolas",
+                "ja": "ラネモーラ",
+                "zh": "拉莫拉斯"
+              },
+              "step": "gauntlet"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a2-inventory"
+          ],
+          "emptyInventory": true
+        },
+        "3F": {
+          "stops": [
+            {
+              "id": "small-key-appears-later",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · appears later",
+                "fr": "Petite clé · apparaît plus tard",
+                "es": "Llave pequeña · aparece más tarde",
+                "ja": "小さなカギ · 後で出現",
+                "zh": "小钥匙 · 稍后出现"
+              }
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a2-inventory"
+          ]
+        },
+        "2F": {
+          "stops": [
+            {
+              "id": "entry",
+              "kind": "entry",
+              "labels": {
+                "en": "Entrance hall",
+                "fr": "Hall d’entrée",
+                "es": "Vestíbulo de entrada",
+                "ja": "入口の広間",
+                "zh": "入口大厅"
+              }
+            },
+            {
+              "id": "left-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Left staircase",
+                "fr": "Escalier de gauche",
+                "es": "Escalera izquierda",
+                "ja": "左の階段",
+                "zh": "左侧楼梯"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "right-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Right staircase",
+                "fr": "Escalier de droite",
+                "es": "Escalera derecha",
+                "ja": "右の階段",
+                "zh": "右侧楼梯"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "center-stairs",
+              "kind": "junction",
+              "labels": {
+                "en": "Central staircase · Big Key",
+                "fr": "Escalier central · grande clé",
+                "es": "Escalera central · gran llave",
+                "ja": "中央の階段（大きなカギ）",
+                "zh": "中央楼梯（需要大钥匙）"
+              },
+              "step": "gauntlet"
+            }
+          ],
+          "links": [
+            {
+              "from": "entry",
+              "to": "left-stairs",
+              "kind": "sequence"
+            },
+            {
+              "from": "entry",
+              "to": "right-stairs",
+              "kind": "sequence"
+            },
+            {
+              "from": "entry",
+              "to": "center-stairs",
+              "kind": "sequence"
+            },
+            {
+              "from": "left-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "1F"
+            },
+            {
+              "from": "right-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "1F"
+            },
+            {
+              "from": "center-stairs",
+              "to": "",
+              "kind": "stairs",
+              "otherFloor": "3F"
+            }
+          ],
+          "sources": [
+            "a2-inventory",
+            "ganon-walk"
+          ],
+          "emptyInventory": true
+        },
+        "1F": {
+          "stops": [
+            {
+              "id": "bombs",
+              "kind": "chest",
+              "labels": {
+                "en": "Bombs ×4",
+                "fr": "Bombes ×4",
+                "es": "Bombas ×4",
+                "ja": "バクダン ×4",
+                "zh": "炸弹 ×4"
+              }
+            },
+            {
+              "id": "compass",
+              "kind": "chest",
+              "labels": {
+                "en": "Compass",
+                "fr": "Boussole",
+                "es": "Brújula",
+                "ja": "コンパス",
+                "zh": "指南针"
+              }
+            },
+            {
+              "id": "map",
+              "kind": "chest",
+              "labels": {
+                "en": "Dungeon Map",
+                "fr": "Carte du donjon",
+                "es": "Mapa de la mazmorra",
+                "ja": "ダンジョンマップ",
+                "zh": "迷宫地图"
+              }
+            },
+            {
+              "id": "red-mail",
+              "kind": "chest",
+              "labels": {
+                "en": "Red Mail",
+                "fr": "Tunique rouge",
+                "es": "Túnica roja",
+                "ja": "赤い服",
+                "zh": "红色衣服"
+              },
+              "step": "red-mail"
+            },
+            {
+              "id": "small-key",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key ×2",
+                "fr": "Petite clé ×2",
+                "es": "Llave pequeña ×2",
+                "ja": "小さなカギ ×2",
+                "zh": "小钥匙 ×2"
+              }
+            },
+            {
+              "id": "small-key-falls-when-the-screen-shakes",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · dash into its stand",
+                "fr": "Petite clé · foncer dans le support",
+                "es": "Llave pequeña · embiste el soporte",
+                "ja": "小さなカギ · 台座に体当たり",
+                "zh": "小钥匙 · 冲撞底座"
+              }
+            },
+            {
+              "id": "small-key-in-a-pot",
+              "kind": "key",
+              "labels": {
+                "en": "Small Key · under a pot ×3",
+                "fr": "Petite clé · sous un pot ×3",
+                "es": "Llave pequeña · bajo una vasija ×3",
+                "ja": "小さなカギ · ツボの下 ×3",
+                "zh": "小钥匙 · 罐子下方 ×3"
+              }
+            },
+            {
+              "id": "1-rupees",
+              "kind": "chest",
+              "labels": {
+                "en": "1 rupee",
+                "fr": "1 rubis",
+                "es": "1 rupia",
+                "ja": "1ルピー",
+                "zh": "1 卢比"
+              }
+            },
+            {
+              "id": "10-arrows",
+              "kind": "chest",
+              "labels": {
+                "en": "10 arrows ×6",
+                "fr": "10 flèches ×6",
+                "es": "10 flechas ×6",
+                "ja": "矢 10本 ×6",
+                "zh": "10 支箭 ×6"
+              }
+            },
+            {
+              "id": "20-rupees",
+              "kind": "chest",
+              "labels": {
+                "en": "20 rupees ×3",
+                "fr": "20 rubis ×3",
+                "es": "20 rupias ×3",
+                "ja": "20ルピー ×3",
+                "zh": "20 卢比 ×3"
+              }
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a2-inventory"
+          ]
+        },
+        "B1": {
+          "stops": [
+            {
+              "id": "big-key",
+              "kind": "key",
+              "labels": {
+                "en": "Big Key",
+                "fr": "Grande clé",
+                "es": "Gran llave",
+                "ja": "大きなカギ",
+                "zh": "大钥匙"
+              },
+              "step": "big-key"
+            },
+            {
+              "id": "bombs",
+              "kind": "chest",
+              "labels": {
+                "en": "Bombs",
+                "fr": "Bombes",
+                "es": "Bombas",
+                "ja": "バクダン",
+                "zh": "炸弹"
+              }
+            },
+            {
+              "id": "10-arrows",
+              "kind": "chest",
+              "labels": {
+                "en": "10 arrows",
+                "fr": "10 flèches",
+                "es": "10 flechas",
+                "ja": "矢 10本",
+                "zh": "10 支箭"
+              }
+            },
+            {
+              "id": "boss",
+              "kind": "boss",
+              "labels": {
+                "en": "Armos Knights",
+                "fr": "Armos",
+                "es": "Caballeros Armos",
+                "ja": "デグアモス",
+                "zh": "阿莫斯骑士"
+              },
+              "step": "big-key"
+            }
+          ],
+          "links": [],
+          "sources": [
+            "a2-inventory"
+          ]
+        }
+      }
+    }
+  }
+}

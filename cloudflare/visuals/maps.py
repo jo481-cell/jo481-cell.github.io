@@ -7,11 +7,12 @@ from string import ascii_uppercase
 from functools import lru_cache
 from unicodedata import east_asian_width
 
+from . import dungeon_plans
 
 ART = Path(__file__).with_name("map-assets")
 OLD = "/assets/alttp/"
 NEW = "/assets/atlas-charts/"
-SCHEMATIC_DIR = "terrain"
+SCHEMATIC_DIR = "plans"
 SCHEMATICS = NEW + SCHEMATIC_DIR + "/"
 NOTES = NEW + "provenance.json"
 LEGACY_SOURCE = "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/"
@@ -21,8 +22,8 @@ EMBEDDED = re.compile(r"\{source:`" + re.escape(LEGACY_SOURCE) +
 FORMATS = {".html", ".css", ".js", ".json", ".xml", ".txt", ".webmanifest", ".md"}
 FLOOR_HTML = re.compile(r'(<div\b[^>]*\bclass="alttp-floor[^"]*"[^>]*>)(<img\b[^>]*>)(</div>)')
 FLOOR_JS = re.compile(
-    r'(className:`alttp-floor [^,]+,tabIndex:0,role:`region`,"aria-label":`[^`]+`,children:)'
-    r'(?P<jsx>\w+)\(`img`,\{(?P<image>.*?)\}\)(?=\}\),\w+\(`small`)'
+    r'(?P<region>\w+)\(`div`,\{(?P<props>className:`alttp-floor [^,]+,tabIndex:0,role:`region`,"aria-label":`[^`]+`,children:)'
+    r'(?P<jsx>\w+)\(`img`,\{(?P<image>.*?)\}\)\}\)(?=,\w+\(`small`)'
 )
 LANGUAGES = ("en", "fr", "es", "ja", "zh")
 GUIDE_ROOT = Path("series/a-link-to-the-past")
@@ -37,11 +38,11 @@ WORLD_COLORS = {
         building="#a78e61", buildingline="#e3cda0"),
 }
 WORLD_DESCRIPTION = {
-    "en": ("Light World", "Dark World", "Editorial map showing regions and approximate positions."),
-    "fr": ("Monde de la Lumière", "Monde des Ténèbres", "Carte schématique des régions et de leurs positions approximatives."),
-    "es": ("Mundo de la Luz", "Mundo de las Tinieblas", "Mapa esquemático de las regiones y sus posiciones aproximadas."),
-    "ja": ("光の世界", "闇の世界", "地域のおおよその位置を示す略図。"),
-    "zh": ("光明世界", "黑暗世界", "显示各区域大致位置的示意图。"),
+    "en": ("Light World", "Dark World", "Original illustrated terrain and documented guide locations."),
+    "fr": ("Monde de la Lumière", "Monde des Ténèbres", "Relief illustré original et emplacements documentés par les guides."),
+    "es": ("Mundo de la Luz", "Mundo de las Tinieblas", "Relieve ilustrado original y lugares documentados en las guías."),
+    "ja": ("光の世界", "闇の世界", "独自に描いた地形と、攻略ガイドに記載された地点。"),
+    "zh": ("光明世界", "黑暗世界", "原创地形插画与攻略中已记录的地点。"),
 }
 FLOOR_HEADINGS = {
     "en": ("Floors", "Walkthrough highlights"),
@@ -62,7 +63,7 @@ def _render(name, **values):
     return re.sub(r"\{\{(\w+)\}\}", lambda m:str(values[m[1]]), svg)
 
 
-def _world(world, language, regions, places=False):
+def _world(world, language, regions, sites, places=False):
     coords = []
     for index, letter in enumerate(ascii_uppercase[:10]):
         offset = index * 100 + 50
@@ -79,6 +80,18 @@ def _world(world, language, regions, places=False):
         else:
             extent = ""
         labels.append(f'<text class="landmark" x="{label_x}" y="{label_y}"{extent}>{html.escape(label)}</text>')
+    site_labels = []
+    if not places:
+        for point_id, x, y, label_x, label_y, anchor, translations in sites:
+            label = translations[LANGUAGES.index(language)]
+            tail_x = label_x + (5 if anchor == "end" else -5)
+            extent = label_x - 23 if anchor == "end" else 977 - label_x
+            fit = f' textLength="{extent}" lengthAdjust="spacingAndGlyphs"' if _measure(label) * 10 > extent else ""
+            site_labels.append(f'<g data-guide-location="{point_id}">'
+                               f'<path d="M{x} {y}L{tail_x} {label_y - 6}" class="site-leader"/>'
+                               f'<circle cx="{x}" cy="{y}" r="2.5" class="site-origin"/>'
+                               f'<text x="{label_x}" y="{label_y}" text-anchor="{anchor}"{fit}>'
+                               f'{html.escape(label)}</text></g>')
     pins = []
     if places:
         # These three guide anchors are the same existing fractional coordinates used by FieldChart.
@@ -90,7 +103,8 @@ def _world(world, language, regions, places=False):
     return _render("world", **WORLD_COLORS[world], language=language,
                    title=f"{light if world == 'light' else dark} · Hyrule Atlas",
                    description=description, coordinates="".join(coords),
-                   terrain="".join(terrain), labels="".join(labels), focus="".join(pins))
+                   terrain="".join(terrain), labels="".join(labels),
+                   site_labels="".join(site_labels), focus="".join(pins))
 
 
 def _height(floor):
@@ -152,7 +166,7 @@ def _chapter(root, language, slug, references):
         text = html.unescape(re.sub(r"<[^>]+>", "", steps[reference]))
         number, label = text.split(".", 1)
         highlights.append((int(number), label.strip(), reference))
-    return html.unescape(title), sorted(highlights)
+    return html.unescape(title), sorted(highlights), steps.keys()
 
 
 def _image_files(root, manifest):
@@ -167,9 +181,11 @@ def _image_files(root, manifest):
     if not groups:
         raise ValueError("The export contains no dungeon floor records")
     landmarks = json.loads((ART / "landmarks.json").read_text(encoding="utf8"))
+    sites = json.loads((ART / "world-sites.json").read_text(encoding="utf8"))
     routes = json.loads((ART / "routes.json").read_text(encoding="utf8"))
     if set(routes) != set(groups):
         raise ValueError("Each dungeon needs a walkthrough diagram")
+    plan_sources, plans = dungeon_plans.load(ART, groups, routes)
     result = {}
     walkthroughs = {}
     for language in LANGUAGES:
@@ -177,21 +193,30 @@ def _image_files(root, manifest):
         walkthroughs[language] = {
             "label": FLOOR_HEADINGS[language][1], "dungeons": {}
         }
-        result[f"{language}/light.svg"] = _world("light", language, landmarks["light"])
-        result[f"{language}/dark.svg"] = _world("dark", language, landmarks["dark"])
-        result[f"{language}/places.svg"] = _world("light", language, landmarks["light"], places=True)
+        result[f"{language}/light.svg"] = _world("light", language, landmarks["light"], sites["light"])
+        result[f"{language}/dark.svg"] = _world("dark", language, landmarks["dark"], sites["dark"])
+        result[f"{language}/places.svg"] = _world("light", language, landmarks["light"], sites["light"], places=True)
         for code, levels in groups.items():
             slug, references = routes[code]
-            title, steps = _chapter(root, language, slug, references)
+            title, steps, step_ids = _chapter(root, language, slug, references)
             overview = f"{prefix}/{GUIDE_ROOT.as_posix()}/{slug}/"
-            walkthroughs[language]["dungeons"][code] = [
+            walkthrough = {"steps": [
                 (f"{number}. {label}", f"{overview}#step-{reference}") for number, label, reference in steps
-            ]
+            ], "plans": {}}
+            walkthroughs[language]["dungeons"][code] = walkthrough
             for floor in levels:
-                result[f"{language}/dungeon-{code}-{floor}.svg"] = _floor_svg(
-                    title, levels, floor, language, [(number, label) for number, label, _ in steps]
-                )
-    return result, walkthroughs
+                filename = f"dungeon-{code}-{floor}.svg"
+                facts = plans.get(code, {}).get(floor)
+                if facts is not None:
+                    result[f"{language}/{filename}"] = dungeon_plans.drawing(title, floor, language, facts)
+                    walkthrough["plans"][filename] = {
+                        "__html": dungeon_plans.details(facts, plan_sources, language, overview, step_ids)
+                    }
+                else:
+                    result[f"{language}/{filename}"] = _floor_svg(
+                        title, levels, floor, language, [(number, label) for number, label, _ in steps]
+                    )
+    return result, walkthroughs, plan_sources, plans
 
 
 def _floor_html(source, language, walkthroughs):
@@ -199,10 +224,15 @@ def _floor_html(source, language, walkthroughs):
 
     def with_links(match):
         opening, image, closing = match.groups()
-        code = re.search(r"dungeon-([A-Z]\d?)-(?:B\d+|\d+F)\.svg", image)[1]
+        filename, code = re.search(r"(dungeon-([A-Z]\d?)-(?:B\d+|\d+F)\.svg)", image).group(1, 2)
+        guide = routes["dungeons"][code]
+        plan = guide["plans"].get(filename)
+        if plan is not None:
+            return (f'<div class="atlas-floor-layout">{opening}<div class="atlas-floor-board">{image}</div>{closing}'
+                    f'<div class="atlas-plan-detail">{plan["__html"]}</div></div>')
         links = "".join(
             f'<a href="{href}" aria-label="{html.escape(label, quote=True)}"></a>'
-            for label, href in routes["dungeons"][code]
+            for label, href in guide["steps"]
         )
         heading = html.escape(routes["label"], quote=True)
         return (f'{opening}<div class="atlas-floor-board">{image}'
@@ -213,16 +243,20 @@ def _floor_html(source, language, walkthroughs):
 
 def _floor_js(source, route_data):
     def with_links(match):
-        prefix = match[1]
+        props = match["props"]
+        region = match["region"]
         call = match["jsx"]
         image = match["image"]
         code = re.search(r"dungeon-\$\{(\w+)\}-", image)[1]
-        return (prefix + "(()=>{const locale=atlasDungeonRoutes[document.documentElement.lang.split('-')[0]]"
-                "??atlasDungeonRoutes.en;"
-                f"return {call}(`div`,{{className:`atlas-floor-board`,children:[{call}(`img`,{{{image}}}),"
-                f"{call}(`nav`,{{className:`atlas-step-links`,\"aria-label\":locale.label,"
-                f"children:locale.dungeons[{code}].map(([label,href])=>"
-                f"{call}(`a`,{{href,\"aria-label\":label}},href))}})]}})"
+        filename = re.search(r"src:`/assets/alttp/\$\{(\w+)\}`", image)[1]
+        return ("(()=>{const locale=atlasDungeonRoutes[document.documentElement.lang.split('-')[0]]"
+                f"??atlasDungeonRoutes.en;const guide=locale.dungeons[{code}],plan=guide.plans[{filename}];"
+                f"const board={region}(`div`,{{{props}{call}(`div`,{{className:`atlas-floor-board`,children:[{call}(`img`,{{{image}}}),"
+                f"!plan&&{call}(`nav`,{{className:`atlas-step-links`,\"aria-label\":locale.label,"
+                f"children:guide.steps.map(([label,href])=>"
+                f"{call}(`a`,{{href,\"aria-label\":label}},href))}})]}})}});"
+                f"return plan?{call}(`div`,{{className:`atlas-floor-layout`,children:[board,"
+                f"{call}(`div`,{{className:`atlas-plan-detail`,dangerouslySetInnerHTML:plan}},{filename})]}}):board;"
                 "})()")
 
     source, replaced = FLOOR_JS.subn(with_links, source)
@@ -258,7 +292,7 @@ def apply(root: Path):
             return
         raise ValueError("Missing ALttP map manifest")
     legacy=json.loads((old/"sources.json").read_text(encoding="utf8"))
-    diagrams,walkthroughs=_image_files(root, legacy)
+    diagrams,walkthroughs,plan_sources,plans=_image_files(root, legacy)
     existing={p.name for p in old.iterdir() if p.is_file()}
     supported=set(WORLD_FILES)|{"light-field-water.webp","sources.json","light-field-source.json"}|{
         Path(n).name.replace(".svg",".png") for n in diagrams if Path(n).name.startswith("dungeon-")
@@ -276,12 +310,14 @@ def apply(root: Path):
         w,h=(800,480) if name.startswith("dungeon-") else (1000,1000)
         rows.append({"file":name,"locale":language,"url":SCHEMATICS+relative,"width":w,"height":h})
     doc={"source":NOTES,"credit":"Hyrule Atlas","permission":"Original editorial maps and walkthrough diagrams by Hyrule Atlas.",
-         "method":{"en":"Regions and terrain symbols show approximate positions. The guide pins retain their earlier positions, originally placed over Ian Albert’s assembly. Dungeon diagrams highlight the selected floor and four numbered steps from the chapter. The floor index and steps are independent.",
-                   "fr":"Les régions et les symboles indiquent des positions approximatives. Les repères reprennent les coordonnées initialement placées sur l’assemblage d’Ian Albert. Chaque schéma de donjon associe un index d’étages et quatre étapes numérotées de la soluce. Les étapes couvrent le donjon dans son ensemble.",
-                   "es":"Las regiones y los símbolos indican posiciones aproximadas. Los marcadores conservan las coordenadas asignadas originalmente sobre el montaje de Ian Albert. El índice de plantas acompaña cuatro pasos numerados del recorrido de la mazmorra.",
-                   "ja":"地域と地形記号はおおよその位置を示します。地点には、イアン・アルバートの地図に付けた既存の座標を使用しています。階層一覧と、攻略記事から選んだ4つの手順を表示します。",
-                   "zh":"区域和地形符号只表示大致位置。标记沿用最初在 Ian Albert 拼接地图上设定的坐标。迷宫示意图同时显示楼层索引和对应攻略章节的四个关键步骤。"},
-         "historical_reference":LEGACY_SOURCE,"assets":rows}
+         "method":{"en":"Terrain is illustrative. Guide pins retain the locations recorded over Ian Albert’s map. Dungeon plans use documented SNES rooms, items and passages without distances. Solid lines show direct passages and dotted lines show guide order. Floors without enough facts retain the walkthrough highlights.",
+                   "fr":"Le relief est illustratif. Les repères gardent les positions relevées sur l’assemblage d’Ian Albert. Les schémas de donjon indiquent des salles, objets et passages documentés pour la Super NES, sans échelle. Les traits pleins montrent les passages directs et les pointillés l’ordre de la soluce. Les étages insuffisamment documentés gardent le récapitulatif de la soluce.",
+                   "es":"El relieve es ilustrativo. Los marcadores conservan las posiciones registradas sobre el mapa de Ian Albert. Los esquemas sin escala muestran salas, objetos y pasos de Super NES documentados. Las líneas continuas indican pasos directos y las punteadas, el orden de la guía.",
+                   "ja":"地形はイメージです。地点にはイアン・アルバートの地図に付けた既存の座標を使用しています。SFC版の部屋・アイテム・通路の確認済み情報を縮尺なしで示します。実線は直接の通路、点線は攻略順です。",
+                   "zh":"地形为示意。标记沿用在 Ian Albert 地图上设定的位置。迷宫示意图标明有出处的 SFC 版房间、道具和通道，不按比例绘制。实线为直接通道，虚线为攻略顺序。"},
+         "historical_reference":LEGACY_SOURCE,
+         "dungeon_plans": {"edition":"SNES", "scale":"schematic",
+                           "sources":plan_sources, "dungeons":plans}, "assets":rows}
     (out/"provenance.json").write_text(json.dumps(doc,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
     # Keep the original manifest's presentation order: it also supplies the default selected
     # floor for the one tower whose published range starts above 1F.

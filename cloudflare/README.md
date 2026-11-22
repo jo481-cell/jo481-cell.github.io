@@ -30,9 +30,12 @@ sitemap demande une mise à jour de cette liste. Les fichiers de configuration,
 les sources du Worker et les tests restent hors de la distribution.
 
 Le build remplace les anciens visuels par les fichiers originaux de
-`cloudflare/visuals/`. Les cartes du Monde de la Lumière et du Monde des
-Ténèbres situent les grandes régions et les repères interactifs. Chaque donjon
-présente un index d’étages et les étapes clés de sa soluce. La bibliothèque
+`cloudflare/visuals/`. Les cartes des deux mondes placent les repères aux
+coordonnées conservées sur un relief illustratif. Les schémas d’étage sont
+dessinés sans échelle à partir des fichiers `map-assets/dungeon-facts*.json`.
+Ils montrent les salles, objets et passages documentés pour la Super NES.
+Les étages sans données suffisantes proposent les étapes clés de la soluce.
+La bibliothèque
 utilise des illustrations éditoriales de l’Atlas. L’analyse comparative cite
 son article de référence par des liens dans le texte. Les fichiers JavaScript et
 CSS affectés reçoivent de nouvelles URL de cache avec des redirections pour

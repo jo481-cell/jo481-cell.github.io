@@ -1,0 +1,305 @@
+{
+  "edition": "snes",
+  "sources": {
+    "wildwood-east": {"url":"https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/eastern-palace/","title":"Eastern Palace · 101Leafy’s SNES floor survey"},
+    "thonky-east": {"url":"https://www.thonky.com/zelda-link-to-the-past/eastern-palace","title":"Eastern Palace · Thonky walkthrough"},
+    "wildwood-desert": {"url":"https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/desert-palace/","title":"Desert Palace · 101Leafy’s SNES floor survey"},
+    "thonky-desert": {"url":"https://www.thonky.com/zelda-link-to-the-past/desert-palace","title":"Desert Palace · Thonky walkthrough"},
+    "wildwood-skull": {"url":"https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/skull-woods/","title":"Skull Woods · 101Leafy’s SNES floor survey"},
+    "thonky-skull": {"url":"https://www.thonky.com/zelda-link-to-the-past/skull-woods","title":"Skull Woods · Thonky walkthrough"},
+    "wildwood-mire": {"url":"https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/misery-mire/","title":"Misery Mire · 101Leafy’s SNES floor survey"},
+    "thonky-mire": {"url":"https://www.thonky.com/zelda-link-to-the-past/misery-mire","title":"Misery Mire · Thonky walkthrough"},
+    "wildwood-turtle": {"url":"https://zelda.mtwildwood.net/a-link-to-the-past/dungeons/turtle-rock/","title":"Turtle Rock · 101Leafy’s SNES floor survey"},
+    "thonky-turtle": {"url":"https://www.thonky.com/zelda-link-to-the-past/turtle-rock","title":"Turtle Rock · Thonky walkthrough"},
+    "wikibooks-east": {"url":"https://en.wikibooks.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past/Eastern_Palace","title":"Eastern Palace · Wikibooks floor walkthrough"},
+    "wikibooks-desert": {"url":"https://en.wikibooks.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past/Desert_Palace","title":"Desert Palace · Wikibooks floor walkthrough"},
+    "collection-mire": {"url":"https://zeldacollection.de/en/walkthroughs/a-link-to-the-past/misery-mire/","title":"Misery Mire · ZeldaCollection floor walkthrough"},
+    "collection-turtle": {"url":"https://zeldacollection.de/en/walkthroughs/a-link-to-the-past/turtle-rock/","title":"Turtle Rock · ZeldaCollection floor walkthrough"}
+  },
+  "dungeons": {
+    "L1": {
+      "chapter": "eastern-palace",
+      "floors": {
+        "1F": {
+          "stops": [
+            {"id":"entrance","kind":"entry","labels":{"en":"Palace entrance","fr":"Entrée du palais","es":"Entrada del palacio","ja":"神殿入口","zh":"神殿入口"},"step":"entry"},
+            {"id":"pot-switch","kind":"switch","labels":{"en":"Switch beneath a pot","fr":"Interrupteur sous un pot","es":"Interruptor bajo una vasija","ja":"ツボの下のスイッチ","zh":"罐下机关"},"step":"entry"},
+            {"id":"boulder-hall","kind":"room","labels":{"en":"Rolling-ball hall","fr":"Couloir des boulets","es":"Pasillo de las bolas","ja":"鉄球が転がる通路","zh":"滚动铁球走廊"},"step":"entry"},
+            {"id":"dark-room-key","kind":"key","labels":{"en":"Small key in a pot","fr":"Petite clé sous un pot","es":"Llave pequeña bajo una vasija","ja":"ツボの下の小さなカギ","zh":"罐下小钥匙"},"step":"key"},
+            {"id":"big-key","kind":"key","labels":{"en":"Big Key","fr":"Grande clé","es":"Gran llave","ja":"大きなカギ","zh":"大钥匙"},"step":"big-key"},
+            {"id":"bow","kind":"chest","labels":{"en":"Bow chest","fr":"Coffre de l’arc","es":"Cofre del arco","ja":"弓の宝箱","zh":"弓宝箱"},"step":"bow"},
+            {"id":"eyegore-key","kind":"key","labels":{"en":"Key held by an Eyegore","fr":"Clé détenue par un Eyegore","es":"Llave de un Eyegore","ja":"アイゴールが持つカギ","zh":"眼怪持有的钥匙"},"step":"eyes"}
+          ],
+          "links": [
+            {"from":"entrance","to":"pot-switch","kind":"sequence"},
+            {"from":"pot-switch","to":"boulder-hall","kind":"sequence"},
+            {"from":"boulder-hall","to":"dark-room-key","kind":"sequence"},
+            {"from":"dark-room-key","to":"big-key","kind":"sequence"},
+            {"from":"big-key","to":"bow","kind":"sequence"},
+            {"from":"bow","to":"eyegore-key","kind":"door","direction":"north"},
+            {"from":"eyegore-key","to":"pot-switch","kind":"stairs","otherFloor":"2F"}
+          ],
+          "sources": ["wildwood-east","thonky-east","wikibooks-east"]
+        },
+        "2F": {
+          "stops": [
+            {"id":"pot-switch","kind":"switch","labels":{"en":"Switch beneath a pot","fr":"Interrupteur sous un pot","es":"Interruptor bajo una vasija","ja":"ツボの下のスイッチ","zh":"罐下机关"},"step":"eyes"},
+            {"id":"eyegore-switch","kind":"switch","labels":{"en":"Eyegore switch room","fr":"Salle des Eyegores et de l’interrupteur","es":"Sala de Eyegores con interruptor","ja":"アイゴールとスイッチの部屋","zh":"眼怪机关室"},"step":"eyes"},
+            {"id":"rolling-switch","kind":"switch","labels":{"en":"Rolling balls and switches","fr":"Boulets et interrupteurs","es":"Bolas e interruptores","ja":"鉄球とスイッチ","zh":"铁球与机关"},"step":"eyes"},
+            {"id":"red-eyegore","kind":"room","labels":{"en":"Red Eyegore","fr":"Eyegore rouge","es":"Eyegore rojo","ja":"赤いアイゴール","zh":"红色眼怪"},"step":"eyes"},
+            {"id":"archer-approach","kind":"room","labels":{"en":"Final Eyegore room","fr":"Dernière salle des Eyegores","es":"Última sala de Eyegores","ja":"最後のアイゴールの部屋","zh":"最后的眼怪房"},"step":"eyes"},
+            {"id":"armos","kind":"boss","labels":{"en":"Armos Knights","fr":"Chevaliers Armos","es":"Caballeros Armos","ja":"デグアモス","zh":"阿莫斯骑士"},"step":"pendant"}
+          ],
+          "links": [
+            {"from":"pot-switch","to":"eyegore-switch","kind":"door","direction":"west"},
+            {"from":"eyegore-switch","to":"rolling-switch","kind":"door","direction":"west"},
+            {"from":"rolling-switch","to":"red-eyegore","kind":"door","direction":"west"},
+            {"from":"red-eyegore","to":"archer-approach","kind":"door","direction":"north"},
+            {"from":"archer-approach","to":"armos","kind":"door","direction":"north"}
+          ],
+          "sources": ["wildwood-east","thonky-east","wikibooks-east"]
+        }
+      }
+    },
+    "L2": {
+      "chapter": "desert-palace",
+      "floors": {
+        "B1": {
+          "stops": [
+            {"id":"entrance","kind":"entry","labels":{"en":"Entrance hall","fr":"Hall d’entrée","es":"Vestíbulo","ja":"入口の大広間","zh":"入口大厅"},"step":"inscription"},
+            {"id":"lamp-key","kind":"key","labels":{"en":"Key balanced on a lamp","fr":"Clé posée sur une lampe","es":"Llave sobre una lámpara","ja":"灯り台の上のカギ","zh":"灯台上的钥匙"},"step":"small-key"},
+            {"id":"map","kind":"chest","labels":{"en":"Map chest","fr":"Coffre de la carte","es":"Cofre del mapa","ja":"地図の宝箱","zh":"地图宝箱"}},
+            {"id":"compass","kind":"chest","labels":{"en":"Compass chest","fr":"Coffre de la boussole","es":"Cofre de la brújula","ja":"コンパスの宝箱","zh":"罗盘宝箱"}},
+            {"id":"big-key","kind":"key","labels":{"en":"Big Key past the cannons","fr":"Grande clé après les canons","es":"Gran llave tras los cañones","ja":"砲台の先の大きなカギ","zh":"炮台后的大钥匙"},"step":"big-key"},
+            {"id":"glove-switch","kind":"switch","labels":{"en":"Switch by the statue","fr":"Interrupteur près de la statue","es":"Interruptor junto a la estatua","ja":"像のそばのスイッチ","zh":"雕像旁的机关"},"step":"glove"},
+            {"id":"power-glove","kind":"chest","labels":{"en":"Power Glove chest","fr":"Coffre du Gant de puissance","es":"Cofre del Guante de Poder","ja":"パワーグラブの宝箱","zh":"力量手套宝箱"},"step":"glove"},
+            {"id":"ledge-exit","kind":"exit","labels":{"en":"Southwest ledge exit","fr":"Sortie sud-ouest vers la corniche","es":"Salida suroeste a la cornisa","ja":"南西の崖への出口","zh":"西南峭壁出口"},"step":"ledge"}
+          ],
+          "links": [
+            {"from":"entrance","to":"lamp-key","kind":"sequence"},
+            {"from":"entrance","to":"map","kind":"sequence"},
+            {"from":"lamp-key","to":"compass","kind":"sequence"},
+            {"from":"compass","to":"big-key","kind":"door","direction":"north"},
+            {"from":"entrance","to":"glove-switch","kind":"sequence"},
+            {"from":"glove-switch","to":"power-glove","kind":"door","direction":"north"},
+            {"from":"power-glove","to":"ledge-exit","kind":"sequence"},
+            {"from":"ledge-exit","to":"north-entrance","kind":"sequence","otherFloor":"1F"}
+          ],
+          "sources": ["wildwood-desert","thonky-desert","wikibooks-desert"]
+        },
+        "1F": {
+          "stops": [
+            {"id":"north-entrance","kind":"entry","labels":{"en":"North entrance behind rocks","fr":"Entrée nord derrière les rochers","es":"Entrada norte tras las rocas","ja":"岩の先の北口","zh":"岩石后的北侧入口"},"step":"ledge"},
+            {"id":"block","kind":"switch","labels":{"en":"Block that opens the door","fr":"Bloc qui ouvre la porte","es":"Bloque que abre la puerta","ja":"扉を開けるブロック","zh":"开门石块"},"step":"torches"},
+            {"id":"tile-room-key","kind":"key","labels":{"en":"Key in the flying-tile room","fr":"Clé de la salle des dalles volantes","es":"Llave de la sala de baldosas voladoras","ja":"飛びタイルの部屋のカギ","zh":"飞砖房的钥匙"},"step":"torches"}
+          ],
+          "links": [
+            {"from":"north-entrance","to":"block","kind":"sequence"},
+            {"from":"block","to":"tile-room-key","kind":"door","direction":"north"},
+            {"from":"tile-room-key","to":"bridge","kind":"sequence","otherFloor":"2F"}
+          ],
+          "sources": ["wildwood-desert","thonky-desert","wikibooks-desert"]
+        },
+        "2F": {
+          "stops": [
+            {"id":"bridge","kind":"room","labels":{"en":"Bridge passage","fr":"Passage du pont","es":"Paso del puente","ja":"橋の通路","zh":"桥梁通道"},"step":"torches"},
+            {"id":"sentry","kind":"room","labels":{"en":"Sentry and Popos","fr":"Sentinelle et Popos","es":"Centinela y Popos","ja":"ビーム像とポポ","zh":"守卫像与波波"},"step":"torches"},
+            {"id":"pot-key-east","kind":"key","labels":{"en":"Key amid the sentries","fr":"Clé au milieu des sentinelles","es":"Llave entre los centinelas","ja":"ビーム像の間のカギ","zh":"守卫之间的钥匙"},"step":"torches"},
+            {"id":"pot-key-tiles","kind":"key","labels":{"en":"Key in the last tile room","fr":"Clé de la dernière salle de dalles","es":"Llave de la última sala de baldosas","ja":"最後の飛びタイル部屋のカギ","zh":"最后一间飞砖房的钥匙"},"step":"torches"},
+            {"id":"four-torches","kind":"switch","labels":{"en":"Four torches","fr":"Quatre torches","es":"Cuatro antorchas","ja":"四本のたいまつ","zh":"四支火把"},"step":"torches"},
+            {"id":"lanmolas","kind":"boss","labels":{"en":"Lanmolas","fr":"Lanmolas","es":"Lanmolas","ja":"ラネモーラ","zh":"拉内莫拉"},"step":"victory"}
+          ],
+          "links": [
+            {"from":"bridge","to":"sentry","kind":"door","direction":"south"},
+            {"from":"sentry","to":"pot-key-east","kind":"door","direction":"east"},
+            {"from":"pot-key-east","to":"pot-key-tiles","kind":"door","direction":"north"},
+            {"from":"pot-key-tiles","to":"four-torches","kind":"door","direction":"north"},
+            {"from":"four-torches","to":"lanmolas","kind":"door","direction":"west"}
+          ],
+          "sources": ["wildwood-desert","thonky-desert","wikibooks-desert"]
+        }
+      }
+    },
+    "D3": {
+      "chapter": "skull-woods",
+      "floors": {
+        "B1": {
+          "stops": [
+            {"id":"compass","kind":"chest","labels":{"en":"Compass chest by the shifting pits","fr":"Coffre de la boussole près des fosses mobiles","es":"Cofre de la brújula junto a los fosos cambiantes","ja":"位置が変わる穴のそばのコンパス","zh":"可移动陷坑旁的罗盘宝箱"}},
+            {"id":"bumper-key","kind":"key","labels":{"en":"Key among the bumpers","fr":"Clé dans la salle des butoirs","es":"Llave en la sala de rebotadores","ja":"バンパーの部屋のカギ","zh":"弹簧障碍房的钥匙"},"step":"keys"},
+            {"id":"star-map","kind":"chest","labels":{"en":"Map by the star switches","fr":"Carte près des interrupteurs étoilés","es":"Mapa junto a los interruptores de estrella","ja":"星スイッチのそばの地図","zh":"星形机关旁的地图"},"step":"keys"},
+            {"id":"fire-rod","kind":"chest","labels":{"en":"Fire Rod chest","fr":"Coffre de la Baguette de Feu","es":"Cofre del Cetro de Fuego","ja":"ファイアロッドの宝箱","zh":"火焰杖宝箱"},"step":"rod"},
+            {"id":"forest-exit","kind":"exit","labels":{"en":"Door back to the forest","fr":"Porte de retour vers la forêt","es":"Salida al bosque","ja":"森への出口","zh":"返回森林的门"},"step":"rod"},
+            {"id":"statue-switch","kind":"switch","labels":{"en":"Statue on the floor switch","fr":"Statue sur l’interrupteur au sol","es":"Estatua sobre el interruptor del suelo","ja":"床スイッチに載せる像","zh":"压住地板机关的雕像"},"step":"big-key"},
+            {"id":"big-key","kind":"key","labels":{"en":"Big Key behind the statue puzzle","fr":"Grande clé derrière l’énigme des statues","es":"Gran llave tras el acertijo de estatuas","ja":"像の仕掛けの先の大きなカギ","zh":"雕像谜题后的大钥匙"},"step":"big-key"},
+            {"id":"bush-entry","kind":"entry","labels":{"en":"Entrance through a hole under bushes","fr":"Entrée par un trou sous les buissons","es":"Entrada por un agujero bajo los arbustos","ja":"草むらの下の穴からの入口","zh":"从灌木下洞口进入"},"step":"rod"},
+            {"id":"last-skull","kind":"entry","labels":{"en":"Last skull entrance","fr":"Dernière entrée en forme de crâne","es":"Última entrada de la calavera","ja":"最後のドクロ入口","zh":"最后的骷髅入口"},"step":"burn"},
+            {"id":"four-torches","kind":"switch","labels":{"en":"Four timed torches","fr":"Quatre torches à allumer rapidement","es":"Cuatro antorchas que hay que encender deprisa","ja":"すばやく点火する四本のたいまつ","zh":"要迅速点燃的四支火把"},"step":"torches"},
+            {"id":"vine-door","kind":"room","labels":{"en":"Door behind the vines","fr":"Porte derrière les lianes","es":"Puerta tras las enredaderas","ja":"ツタの奥の扉","zh":"藤蔓后的门"},"step":"torches"},
+            {"id":"arena-drop","kind":"exit","labels":{"en":"Drop toward Mothula","fr":"Chute vers Mothula","es":"Caída hacia Mothula","ja":"ガモースの部屋へ落下","zh":"落入莫斯拉房间"},"step":"crystal"}
+          ],
+          "links": [
+            {"from":"compass","to":"bumper-key","kind":"sequence"},
+            {"from":"bumper-key","to":"star-map","kind":"door","direction":"northeast"},
+            {"from":"star-map","to":"fire-rod","kind":"door","direction":"west"},
+            {"from":"fire-rod","to":"forest-exit","kind":"door","direction":"south"},
+            {"from":"forest-exit","to":"statue-switch","kind":"sequence"},
+            {"from":"statue-switch","to":"big-key","kind":"door","direction":"north"},
+            {"from":"big-key","to":"bush-entry","kind":"sequence"},
+            {"from":"bush-entry","to":"fire-rod","kind":"sequence"},
+            {"from":"fire-rod","to":"last-skull","kind":"sequence"},
+            {"from":"last-skull","to":"four-torches","kind":"sequence"},
+            {"from":"four-torches","to":"vine-door","kind":"door","direction":"west"},
+            {"from":"vine-door","to":"arena-drop","kind":"sequence"},
+            {"from":"arena-drop","to":"mothula","kind":"drop","otherFloor":"B2"}
+          ],
+          "sources": ["wildwood-skull","thonky-skull"]
+        },
+        "B2": {
+          "stops": [
+            {"id":"mothula","kind":"boss","labels":{"en":"Mothula’s moving-floor arena","fr":"Arène de Mothula au sol mobile","es":"Arena de Mothula con suelo móvil","ja":"床が動くガモース戦","zh":"莫斯拉的移动地板战场"},"step":"crystal"}
+          ],
+          "links": [],
+          "sources": ["wildwood-skull","thonky-skull"]
+        }
+      }
+    },
+    "D6": {
+      "chapter": "misery-mire",
+      "floors": {
+        "1F": {
+          "stops": [
+            {"id":"entrance","kind":"entry","labels":{"en":"Entrance gap and Hookshot block","fr":"Fossé d’entrée et bloc pour le Grappin","es":"Foso de entrada y bloque para el gancho","ja":"入口の穴とフックショット用ブロック","zh":"入口深沟与钩索落点"},"step":"entry"},
+            {"id":"way-down","kind":"exit","labels":{"en":"Stairs to the first basement","fr":"Escalier vers le premier sous-sol","es":"Escalera al primer sótano","ja":"地下1階への階段","zh":"通往地下一层的楼梯"},"step":"entry"},
+            {"id":"double-torches","kind":"switch","labels":{"en":"Two rooms with four torches","fr":"Deux salles aux quatre torches","es":"Dos salas con cuatro antorchas","ja":"二部屋にある四本のたいまつ","zh":"两间房的四支火把"},"step":"big-key"},
+            {"id":"torch-drop","kind":"exit","labels":{"en":"Hole revealed by the sliding wall","fr":"Trou révélé par le mur mobile","es":"Agujero tras el muro móvil","ja":"動く壁が現す穴","zh":"移动墙露出的洞口"},"step":"big-key"}
+          ],
+          "links": [
+            {"from":"entrance","to":"way-down","kind":"sequence"},
+            {"from":"way-down","to":"main-room","kind":"stairs","otherFloor":"B1"},
+            {"from":"double-torches","to":"torch-drop","kind":"sequence"},
+            {"from":"torch-drop","to":"big-key","kind":"drop","otherFloor":"B1"}
+          ],
+          "sources": ["wildwood-mire","thonky-mire","collection-mire"]
+        },
+        "B1": {
+          "stops": [
+            {"id":"main-room","kind":"junction","labels":{"en":"Main branching room","fr":"Salle principale aux embranchements","es":"Sala central con desvíos","ja":"分岐する大広間","zh":"多岔路的主厅"},"step":"keys"},
+            {"id":"bridge-key","kind":"key","labels":{"en":"Key on the wooden bridge","fr":"Clé sur le pont de bois","es":"Llave del puente de madera","ja":"木の橋のカギ","zh":"木桥上的钥匙"},"step":"keys"},
+            {"id":"spike-keys","kind":"key","labels":{"en":"Two keys in the spike room","fr":"Deux clés dans la salle des pics","es":"Dos llaves en la sala de pinchos","ja":"トゲの部屋にある二本のカギ","zh":"尖刺房的两把钥匙"},"step":"keys"},
+            {"id":"compass","kind":"chest","labels":{"en":"Compass chest behind four torches","fr":"Coffre de la boussole derrière quatre torches","es":"Cofre de la brújula tras cuatro antorchas","ja":"四本のたいまつの先のコンパス","zh":"四支火把后的罗盘宝箱"}},
+            {"id":"torch-stairs","kind":"exit","labels":{"en":"Stairs to the upper torch rooms","fr":"Escalier vers les salles aux torches","es":"Escalera a las salas de antorchas","ja":"上階のたいまつ部屋への階段","zh":"通往楼上火把房的楼梯"},"step":"big-key"},
+            {"id":"big-key","kind":"key","labels":{"en":"Big Key below the torch rooms","fr":"Grande clé sous les salles des torches","es":"Gran llave bajo las salas de antorchas","ja":"たいまつ部屋の下の大きなカギ","zh":"火把房下方的大钥匙"},"step":"big-key"},
+            {"id":"bridge","kind":"room","labels":{"en":"Collapsing bridge","fr":"Passerelle qui s’effondre","es":"Puente que se derrumba","ja":"崩れる足場","zh":"坍塌的桥面"},"step":"somaria"},
+            {"id":"somaria","kind":"chest","labels":{"en":"Cane of Somaria chest","fr":"Coffre de la Canne de Somaria","es":"Cofre del Bastón de Somaria","ja":"ソマリアの杖の宝箱","zh":"索玛利亚之杖宝箱"},"step":"somaria"},
+            {"id":"lower-stairs","kind":"exit","labels":{"en":"Bridge to the B2 stairs","fr":"Pont vers l’escalier du B2","es":"Puente hacia las escaleras del B2","ja":"地下2階への木の橋","zh":"通向地下二层楼梯的桥"},"step":"dark-rooms"},
+            {"id":"boss-approach","kind":"entry","labels":{"en":"Fire roller at the top of the stairs","fr":"Rouleau de feu en haut de l’escalier","es":"Rodillo de fuego al subir la escalera","ja":"階段上の火のローラー","zh":"楼梯顶的火焰滚轮"},"step":"crystal"},
+            {"id":"vitreous","kind":"boss","labels":{"en":"Vitreous","fr":"Vitreous","es":"Vitreous","ja":"ゲルドーガ","zh":"维特里乌斯"},"step":"crystal"}
+          ],
+          "links": [
+            {"from":"main-room","to":"bridge-key","kind":"sequence"},
+            {"from":"main-room","to":"spike-keys","kind":"sequence"},
+            {"from":"spike-keys","to":"compass","kind":"sequence"},
+            {"from":"compass","to":"torch-stairs","kind":"sequence"},
+            {"from":"torch-stairs","to":"double-torches","kind":"stairs","otherFloor":"1F"},
+            {"from":"big-key","to":"bridge","kind":"sequence"},
+            {"from":"bridge","to":"somaria","kind":"sequence"},
+            {"from":"somaria","to":"lower-stairs","kind":"sequence"},
+            {"from":"lower-stairs","to":"somaria-switch","kind":"stairs","otherFloor":"B2"},
+            {"from":"boss-approach","to":"vitreous","kind":"door","direction":"north"}
+          ],
+          "sources": ["wildwood-mire","thonky-mire","collection-mire"]
+        },
+        "B2": {
+          "stops": [
+            {"id":"somaria-switch","kind":"switch","labels":{"en":"Switch held by a Somaria block","fr":"Interrupteur maintenu par un bloc de Somaria","es":"Interruptor sujeto con un bloque de Somaria","ja":"ソマリアのブロックで押すスイッチ","zh":"用索玛利亚方块压住的机关"},"step":"dark-rooms"},
+            {"id":"crystal-barriers","kind":"junction","labels":{"en":"Crystal-switch barriers","fr":"Barrières de l’interrupteur à cristal","es":"Barreras del interruptor de cristal","ja":"クリスタルスイッチの柵","zh":"水晶开关控制的障碍"},"step":"dark-rooms"},
+            {"id":"cracked-wall","kind":"room","labels":{"en":"Cracked north wall","fr":"Mur nord fissuré","es":"Muro norte agrietado","ja":"北のひび割れ壁","zh":"北侧裂墙"},"step":"dark-rooms"},
+            {"id":"return-stairs","kind":"exit","labels":{"en":"Stairs up toward Vitreous","fr":"Escalier vers Vitreous","es":"Escalera hacia Vitreous","ja":"ゲルドーガへ向かう階段","zh":"通往维特里乌斯的楼梯"},"step":"crystal"}
+          ],
+          "links": [
+            {"from":"somaria-switch","to":"crystal-barriers","kind":"sequence"},
+            {"from":"crystal-barriers","to":"cracked-wall","kind":"door","direction":"southwest"},
+            {"from":"cracked-wall","to":"return-stairs","kind":"sequence"},
+            {"from":"return-stairs","to":"boss-approach","kind":"stairs","otherFloor":"B1"}
+          ],
+          "sources": ["wildwood-mire","thonky-mire","collection-mire"]
+        }
+      }
+    },
+    "D7": {
+      "chapter": "turtle-rock",
+      "floors": {
+        "1F": {
+          "stops": [
+            {"id":"entrance","kind":"entry","labels":{"en":"Turtle Rock entrance","fr":"Entrée du Rocher de la Tortue","es":"Entrada de la Roca de la Tortuga","ja":"カメイワ入口","zh":"乌龟岩入口"},"step":"seal"},
+            {"id":"rails","kind":"junction","labels":{"en":"Somaria rail junction","fr":"Carrefour des rails de Somaria","es":"Cruce de raíles de Somaria","ja":"ソマリアの足場の分岐","zh":"索玛利亚平台轨道岔口"},"step":"platform"},
+            {"id":"torch-rails","kind":"switch","labels":{"en":"Four torches above the rails","fr":"Quatre torches au-dessus des rails","es":"Cuatro antorchas sobre los raíles","ja":"レール上の四本のたいまつ","zh":"轨道上的四支火把"},"step":"torches"},
+            {"id":"spike-chests","kind":"chest","labels":{"en":"Map and key past the rollers","fr":"Carte et clé après les rouleaux","es":"Mapa y llave tras los rodillos","ja":"トゲローラー先の地図とカギ","zh":"尖刺滚轮后的地图与钥匙"}},
+            {"id":"pokey-key","kind":"key","labels":{"en":"Key carried by a Pokey","fr":"Clé détenue par un cactus","es":"Llave de un Pokey","ja":"サンボが持つカギ","zh":"仙人掌怪持有的钥匙"},"step":"pipes"},
+            {"id":"chomp-key","kind":"key","labels":{"en":"Key in the Chain Chomp room","fr":"Clé de la salle aux Chomps","es":"Llave de la sala de Chomps","ja":"ワンワンの部屋のカギ","zh":"汪汪房的钥匙"},"step":"pipes"}
+          ],
+          "links": [
+            {"from":"entrance","to":"rails","kind":"door","direction":"north"},
+            {"from":"rails","to":"torch-rails","kind":"door","direction":"northeast"},
+            {"from":"torch-rails","to":"spike-chests","kind":"door","direction":"north"},
+            {"from":"rails","to":"pokey-key","kind":"door","direction":"northwest"},
+            {"from":"pokey-key","to":"chomp-key","kind":"door","direction":"north"},
+            {"from":"chomp-key","to":"arrival","kind":"stairs","otherFloor":"B1"}
+          ],
+          "sources": ["wildwood-turtle","thonky-turtle","collection-turtle"]
+        },
+        "B1": {
+          "stops": [
+            {"id":"arrival","kind":"entry","labels":{"en":"Stairs from the Chain Chomp room","fr":"Arrivée de l’escalier des Chomps","es":"Escalera desde la sala de Chomps","ja":"ワンワンの部屋からの階段","zh":"从汪汪房下来的楼梯"},"step":"pipes"},
+            {"id":"first-pipe","kind":"room","labels":{"en":"First pipe","fr":"Premier tuyau","es":"Primera tubería","ja":"最初の土管","zh":"第一条管道"},"step":"pipes"},
+            {"id":"lava-pipes","kind":"junction","labels":{"en":"Pipes above the lava","fr":"Tuyaux au-dessus de la lave","es":"Tuberías sobre la lava","ja":"溶岩の上の土管","zh":"熔岩上方的管道"},"step":"pipes"},
+            {"id":"big-key","kind":"key","labels":{"en":"Big Key on the lava island","fr":"Grande clé sur l’îlot de lave","es":"Gran llave en el islote de lava","ja":"溶岩の小島の大きなカギ","zh":"熔岩小岛上的大钥匙"},"step":"pipes"},
+            {"id":"ledge","kind":"exit","labels":{"en":"Outside ledge between entrances","fr":"Corniche extérieure entre deux entrées","es":"Cornisa exterior entre entradas","ja":"二つの入口を結ぶ屋外の崖道","zh":"连接两个入口的室外峭壁小径"},"step":"ledge"},
+            {"id":"shield","kind":"chest","labels":{"en":"Mirror Shield chest","fr":"Coffre du Bouclier Miroir","es":"Cofre del Escudo Espejo","ja":"ミラーシールドの宝箱","zh":"镜盾宝箱"},"step":"shield"},
+            {"id":"roller-key","kind":"key","labels":{"en":"Key by the crystal blocks and roller","fr":"Clé près des blocs à cristal et du rouleau","es":"Llave junto a los bloques de cristal y el rodillo","ja":"クリスタルブロックとローラーのそばのカギ","zh":"水晶障碍和滚轮旁的钥匙"}}
+          ],
+          "links": [
+            {"from":"arrival","to":"first-pipe","kind":"sequence"},
+            {"from":"first-pipe","to":"lava-pipes","kind":"sequence"},
+            {"from":"lava-pipes","to":"big-key","kind":"sequence"},
+            {"from":"lava-pipes","to":"ledge","kind":"sequence"},
+            {"from":"ledge","to":"shield","kind":"sequence"},
+            {"from":"shield","to":"roller-key","kind":"sequence"},
+            {"from":"roller-key","kind":"stairs","otherFloor":"B2"}
+          ],
+          "sources": ["wildwood-turtle","thonky-turtle","collection-turtle"]
+        },
+        "B2": {
+          "stops": [
+            {"id":"dark-rails","kind":"junction","labels":{"en":"Dark rail maze","fr":"Labyrinthe de rails dans le noir","es":"Laberinto oscuro de raíles","ja":"暗闇のレール迷路","zh":"黑暗轨道迷宫"},"step":"maze"},
+            {"id":"island-switch","kind":"switch","labels":{"en":"Switch on the central island","fr":"Interrupteur de l’îlot central","es":"Interruptor del islote central","ja":"中央の足場のスイッチ","zh":"中央小岛的机关"},"step":"maze"},
+            {"id":"laser-bridge","kind":"room","labels":{"en":"Laser bridge","fr":"Passerelle aux lasers","es":"Puente de los láseres","ja":"レーザーの橋","zh":"激光桥"},"step":"last-key"},
+            {"id":"last-key","kind":"key","labels":{"en":"Key in a laser-bridge chest","fr":"Clé d’un coffre aux lasers","es":"Llave en un cofre de los láseres","ja":"レーザーの橋の宝箱のカギ","zh":"激光桥宝箱里的钥匙"},"step":"last-key"},
+            {"id":"crystal-maze","kind":"junction","labels":{"en":"Final crystal-block maze","fr":"Dernier labyrinthe de blocs à cristal","es":"Último laberinto de bloques de cristal","ja":"最後のクリスタルブロック迷路","zh":"最后的水晶障碍迷宫"},"step":"last-key"}
+          ],
+          "links": [
+            {"from":"dark-rails","to":"island-switch","kind":"sequence"},
+            {"from":"island-switch","to":"laser-bridge","kind":"sequence"},
+            {"from":"laser-bridge","to":"last-key","kind":"sequence"},
+            {"from":"last-key","to":"crystal-maze","kind":"sequence"},
+            {"from":"crystal-maze","to":"supplies","kind":"stairs","otherFloor":"B3"}
+          ],
+          "sources": ["wildwood-turtle","thonky-turtle","collection-turtle"]
+        },
+        "B3": {
+          "stops": [
+            {"id":"supplies","kind":"entry","labels":{"en":"Heart and magic at the foot of the stairs","fr":"Cœur et magie au pied de l’escalier","es":"Corazón y magia al pie de la escalera","ja":"階段下のハートと魔法のツボ","zh":"楼梯底部的心与魔力瓶"},"step":"crystal"},
+            {"id":"final-platform","kind":"room","labels":{"en":"Final Somaria platform crossing","fr":"Dernière traversée en plateforme de Somaria","es":"Último cruce en plataforma de Somaria","ja":"最後のソマリアの足場","zh":"最后一段索玛利亚平台"},"step":"crystal"},
+            {"id":"trinexx","kind":"boss","labels":{"en":"Trinexx","fr":"Trinexx","es":"Trinexx","ja":"デグロック","zh":"三头岩兽"},"step":"crystal"}
+          ],
+          "links": [
+            {"from":"supplies","to":"final-platform","kind":"sequence"},
+            {"from":"final-platform","to":"trinexx","kind":"door","direction":"north"}
+          ],
+          "sources": ["wildwood-turtle","thonky-turtle","collection-turtle"]
+        }
+      }
+    }
+  }
+}

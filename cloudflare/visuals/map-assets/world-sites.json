@@ -1,0 +1,25 @@
+{
+  "light": [
+    ["item-sword", 37, 42, 66, 49, "start", ["Master Sword clearing", "Clairière d’Excalibur", "Claro de la Espada Maestra", "マスターソードの広場", "大师之剑林间空地"]],
+    ["quest-hera", 560, 30, 582, 50, "start", ["Tower of Hera", "Tour d’Héra", "Torre de Hera", "ヘラの塔", "赫拉之塔"]],
+    ["heart-11", 510, 88, 483, 161, "end", ["Spectacle Rock", "Rocher du Spectacle", "Roca del Espectáculo", "メガネ岩", "眼镜岩"]],
+    ["item-fairy", 900, 133, 875, 105, "end", ["Waterfall of Wishing", "Cascade des vœux", "Cascada de los Deseos", "願いの滝", "许愿瀑布"]],
+    ["item-cape", 590, 300, 615, 252, "start", ["Graveyard", "Cimetière", "Cementerio", "墓地", "墓地"]],
+    ["item-boots", 811, 453, 774, 474, "end", ["Sahasrahla’s hideout", "Refuge de Sahasrahla", "Refugio de Sahasrahla", "サハスラーラの隠れ家", "萨哈斯拉拉的住处"]],
+    ["bottle-bridge", 698, 695, 722, 673, "start", ["Under the bridge", "Sous le pont", "Bajo el puente", "橋の下", "桥下"]],
+    ["quest-desert", 74, 820, 91, 871, "start", ["Desert Palace", "Palais du Désert", "Palacio del Desierto", "砂漠の神殿", "沙漠神殿"]],
+    ["heart-5", 468, 940, 489, 916, "start", ["Floodgate", "Barrage", "Presa", "水門", "水闸"]],
+    ["item-capacity", 795, 845, 819, 898, "start", ["Pond of Happiness", "Fontaine du bonheur", "Fuente de la Felicidad", "幸せの泉", "幸福之泉"]]
+  ],
+  "dark": [
+    ["quest-tower", 560, 30, 582, 52, "start", ["Ganon’s Tower", "Tour de Ganon", "Torre de Ganon", "ガノンの塔", "加农之塔"]],
+    ["quest-turtle", 946, 68, 925, 72, "end", ["Turtle Rock", "Rocher de la Tortue", "Roca de la Tortuga", "カメイワ", "龟岩"]],
+    ["item-quake", 924, 124, 903, 123, "end", ["Circle of stones", "Cercle de pierres", "Círculo de piedras", "石の輪", "石环"]],
+    ["heart-18", 350, 185, 383, 237, "end", ["Bumper Cave", "Grotte du bumper", "Cueva del Rebote", "バンパーの洞窟", "反弹洞窟"]],
+    ["heart-19", 49, 460, 71, 435, "start", ["Chest game", "Jeu des coffres", "Juego de los cofres", "宝箱ゲーム", "宝箱游戏"]],
+    ["access-bottle-chest", 306, 527, 347, 568, "start", ["Ruined smithy", "Atelier en ruine", "Herrería en ruinas", "廃れた鍛冶屋", "废弃的铁匠铺"]],
+    ["heart-16", 50, 690, 72, 668, "start", ["Digging game", "Jeu de fouilles", "Juego de excavación", "穴掘りゲーム", "挖掘游戏"]],
+    ["heart-21", 39, 800, 64, 782, "start", ["Swamp hut", "Cabane du marais", "Cabaña del pantano", "沼の小屋", "沼泽小屋"]],
+    ["quest-swamp", 468, 935, 492, 916, "start", ["Swamp Palace", "Palais des Marécages", "Palacio de los Pantanos", "水のほこら", "沼泽宫殿"]]
+  ]
+}

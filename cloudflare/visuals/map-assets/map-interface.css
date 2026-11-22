@@ -99,6 +99,33 @@
   background-color: #dcc18a2c;
 }
 
+.atlas-plan-detail {
+  padding: 14px clamp(12px, 2.2vw, 26px) 19px;
+  color: #eae5d1;
+  background: #172820;
+  border: 1px solid #596b51;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  font-size: .95rem;
+  line-height: 1.58;
+  overflow-wrap: anywhere;
+}
+.atlas-floor-layout .alttp-floor { border-radius: 8px 8px 0 0; }
+.atlas-plan-detail summary {
+  min-height: 44px;
+  padding-block: 10px;
+  color: #f1d7a2;
+  cursor: pointer;
+  font-weight: 650;
+}
+.atlas-plan-stops, .atlas-plan-passages { margin-block: 10px 12px; padding-inline-start: 1.25rem; }
+.atlas-plan-stops { columns: 2 16rem; column-gap: 25px; }
+.atlas-plan-stops li { break-inside: avoid; }
+.atlas-plan-passages li { margin-block: 5px; }
+.atlas-plan-passages span { color: #c8d2b0; }
+.atlas-plan-detail a { color: #f1d7a2; text-underline-offset: 3px; }
+.atlas-plan-references { margin-block: 12px 0; font-size: .88rem; }
+
 .alttp-search-page li[id^="step-"] {
   scroll-margin-top: 6rem;
 }
