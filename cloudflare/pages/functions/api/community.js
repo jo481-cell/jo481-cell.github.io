@@ -29,15 +29,16 @@ export async function onRequest({ request, env }) {
     const response = await env.COMMUNITY.fetch(
       new Request('https://hyruleatlas.com/api/community?op=status')
     );
-    if (!response.ok) return unavailable();
     const info = await response.json();
-    if (info.configured !== true) return unavailable();
-    return new Response(request.method === 'HEAD' ? null : JSON.stringify({ configured: true }), {
+    if (typeof info?.configured !== 'boolean') return unavailable();
+    return new Response(request.method === 'HEAD' ? null : JSON.stringify({ configured: info.configured }), {
+      status: info.configured ? 200 : 503,
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'no-store',
         'X-Robots-Tag': 'noindex, nofollow',
         'X-Content-Type-Options': 'nosniff',
+        'X-Hyrule-Community': 'reached',
       },
     });
   } catch {

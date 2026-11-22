@@ -25,17 +25,45 @@ test('the stable project alias can only check the binding without a user session
     const response = await onRequest({ request, env });
     assert.equal(response.status, allowed ? 200 : 503);
     assert.equal(response.headers.has('set-cookie'), false);
+    assert.equal(response.headers.get('X-Hyrule-Community'), allowed ? 'reached' : null);
     if (allowed && method === 'GET') assert.deepEqual(await response.json(), { configured: true });
     if (allowed && method === 'HEAD') assert.equal(await response.text(), '');
   }
   const preview = new Request(`https://candidate.${stableHost}/api/community?op=status`);
-  assert.equal((await onRequest({ request: preview, env })).status, 503);
-  assert.equal((await onRequest({ request: preview, env: {} })).status, 503);
+  for (const bindings of [env, {}]) {
+    const response = await onRequest({ request: preview, env: bindings });
+    assert.equal(response.status, 503);
+    assert.equal(response.headers.has('X-Hyrule-Community'), false);
+  }
   assert.equal(sent.length, 2);
   for (const req of sent) {
     assert.equal(req.url, 'https://hyruleatlas.com/api/community?op=status');
     assert.equal(req.method, 'GET');
     assert.equal([...req.headers].length, 0);
+  }
+});
+
+test('the stable alias distinguishes a reachable unconfigured Worker from a broken binding', async () => {
+  for (const method of ['GET', 'HEAD']) {
+    const request = new Request(`https://${stableHost}/api/community?op=status`, { method });
+    const respond = async fetch => onRequest({ request, env: { PAGES_PROJECT_HOST: stableHost, COMMUNITY: { fetch } } });
+    for (const status of [200, 503]) {
+      const reachable = await respond(async () => Response.json({ configured: false, user: 'ignored' }, { status }));
+      assert.equal(reachable.status, 503);
+      assert.equal(reachable.headers.get('X-Hyrule-Community'), 'reached');
+      assert.equal(await reachable.text(), method === 'HEAD' ? '' : '{"configured":false}');
+    }
+    for (const makeResponse of [
+      () => { throw new Error('binding unavailable'); },
+      () => new Response('invalid JSON'),
+      () => Response.json({ configured: 'false' }),
+      () => Response.json(null),
+      () => Response.json({ error: 'bad gateway' }, { status: 502 }),
+    ]) {
+      const failed = await respond(makeResponse);
+      assert.equal(failed.status, 503);
+      assert.equal(failed.headers.has('X-Hyrule-Community'), false);
+    }
   }
 });
 

@@ -53,7 +53,11 @@ Les tests automatisés du Worker utilisent leurs propres fixtures.
    l’environnement de déploiement Pages. Il n’effectue aucun push Git.
 3. Vérifier sur l’hôte stable un guide, ses traductions, la 404, les redirections
    de jeux et de contact, le cache et l’en-tête `X-Robots-Tag`. Le GET anonyme
-   `/api/community?op=status` doit retourner 200 et `{"configured":true}`.
+   `/api/community?op=status` renvoie l’en-tête `X-Hyrule-Community: reached`
+   lorsque le Worker répond avec un statut de configuration valide. Avant la
+   saisie des secrets, la réponse attendue est 503 et `{"configured":false}`.
+   Après leur saisie, elle passe à 200 et `{"configured":true}`. Sans cet en-tête,
+   une réponse 503 ne permet pas de confirmer que le Worker a été atteint.
    Les autres appels y sont bloqués. Le statut confirme le raccordement et la
    présence des paramètres. Valider les parcours avec écriture dans un environnement
    dédié disposant d’une base et d’un transport de courriels de test.
