@@ -6,5 +6,8 @@
   "/assets/music/sources.json": "record-7",
   "/assets/original/living-atlas-provenance.json": "record-4",
   "/assets/original/provenance.json": "record-3",
-  "/assets/original/section-art-provenance.json": "record-3"
+  "/assets/original/section-art-provenance.json": "record-3",
+  "/assets/fonts/manrope-OFL.txt": "font-license-manrope",
+  "/assets/fonts/marcellus-OFL.txt": "font-license-marcellus",
+  "/assets/fonts/ibmplexmono-OFL.txt": "font-license-ibmplexmono"
 }

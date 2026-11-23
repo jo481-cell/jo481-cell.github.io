@@ -332,3 +332,26 @@
   .atlas-home--living #atlas-main .studio-atlas-link:hover,
   .atlas-home--living #atlas-main .atlas-game-shelf > a:hover .atlas-game-shelf__art img { transform: none; }
 }
+.archive-font-license {
+  margin-block: 0.8rem;
+}
+
+.archive-font-license summary {
+  cursor: pointer;
+  color: inherit;
+  font-weight: 600;
+}
+
+.archive-font-license summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.archive-font-license pre {
+  margin: 0.7rem 0 1.25rem;
+  padding-inline-start: 1rem;
+  font: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  scroll-margin-block-start: 6rem;
+}

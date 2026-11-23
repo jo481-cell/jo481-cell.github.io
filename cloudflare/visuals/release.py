@@ -14,6 +14,8 @@ EDITION_URL = re.compile(rf"/assets/{BUNDLE_STEM}-edition-[0-9a-f]{{16}}\.(?:js|
 STUDIO_STYLE = re.compile(r"studio-([0-9a-f]{16})\.css")
 STUDIO_LANDMARK = re.compile(r"(?:home-landmarks-([0-9a-f]{12})\.js|(?:castle|village|lake|compass)-([0-9a-f]{12})\.webp)")
 COMPANION_ASSET = re.compile(r"kuni-([0-9a-f]{16})\.webp")
+FONT_LICENSE_MODULE = re.compile(r"font-licenses-[0-9a-f]{16}\.js")
+BLOG_COVER = re.compile(r"blog-(?:music|reveal|secrets)-[0-9a-f]{12}\.webp")
 CHART_URL = re.compile(
     r"/assets/atlas-charts/(?:(?:terrain|plans(?:-v\d+)?|schematics)/(?:en|fr|es|ja|zh)/"
     r"(?:light(?:-labels)?|dark(?:-labels)?|places|dungeon-[A-Z]\d?-(?:B\d+|\d+F))\.svg|"
@@ -123,6 +125,18 @@ def retain_previous_assets(root: Path, previous: Path, *, retain_dotted=False) -
     _require_ordinary_path(studio)
     for path in studio.glob("*"):
         if STUDIO_STYLE.fullmatch(path.name) or STUDIO_LANDMARK.fullmatch(path.name):
+            paths.add(path.relative_to(previous).as_posix())
+
+    fonts = assets / "fonts"
+    _require_ordinary_path(fonts)
+    for path in fonts.glob("font-licenses-*.js"):
+        if FONT_LICENSE_MODULE.fullmatch(path.name):
+            paths.add(path.relative_to(previous).as_posix())
+
+    editorial = assets / "editorial"
+    _require_ordinary_path(editorial)
+    for path in editorial.glob("blog-*.webp"):
+        if BLOG_COVER.fullmatch(path.name):
             paths.add(path.relative_to(previous).as_posix())
 
     provenance = json.loads(_read_asset(previous / "assets/atlas-charts/provenance.json"))
