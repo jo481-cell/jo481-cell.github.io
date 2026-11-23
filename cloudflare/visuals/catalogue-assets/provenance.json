@@ -1,0 +1,239 @@
+{
+  "credit": "Hyrule Atlas",
+  "creation": "Built-in OpenAI ImageGen",
+  "created": "2026-11-23",
+  "method": "Original editorial illustrations generated from text. No source images supplied. Lanczos resize and WebP encoding for publication.",
+  "assets": {
+    "the-legend-of-zelda": {
+      "file": "the-legend-of-zelda.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 226484,
+      "sha256": "d041d6fd32d233a0f6460d517524e84ac44b45b87773aa99fa55b8972d439f87",
+      "original": "exec-d2acaaf5-51cb-4db2-a3b4-b8caba9b31f7.png",
+      "originalSha256": "531d23f9c93dd7815eef5c78231e599f1e59265d886048920aae2ae0a8ac397b",
+      "subject": "A weathered round wooden shield and a single oil lantern at the mouth of a natural cave.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A weathered round wooden shield and a single oil lantern at the mouth of a natural cave. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "adventure-of-link": {
+      "file": "adventure-of-link.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 273230,
+      "sha256": "fe4fb2e5f75f30c354e9fa7e1734d3d496dd89df2d0d3efd4e8219eb5445544f",
+      "original": "exec-b0abcf3f-cd5e-4185-9895-ea08f61b74eb.png",
+      "originalSha256": "9f6eba25bb59649264765e0bda67eb5afdb1f1502fd614de64348357922b2404",
+      "subject": "A steep stone stairway climbing past ruined fortress walls toward a high sunlit mountain pass.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A steep stone stairway climbing past ruined fortress walls toward a high sunlit mountain pass. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "a-link-to-the-past": {
+      "file": "a-link-to-the-past.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 182376,
+      "sha256": "220f570d375446cb1eaa45243207f92daf25d1c419e853ce234c6b0a1bdeede9",
+      "original": "exec-d30c93df-cb24-45ba-a6d5-15ab043a0892.png",
+      "originalSha256": "9ca9ecf7327e939936b88b5dd956143907d86bc64d32f1bd9b762056a38208db",
+      "subject": "An iron lantern lighting a wet cobblestone passage under a ruined castle on a rainy night.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: An iron lantern lighting a wet cobblestone passage under a ruined castle on a rainy night. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "links-awakening": {
+      "file": "links-awakening.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 132030,
+      "sha256": "2849f983ad5fa686835ec05d2b4ba19d39f2498ad7da74369c620b1928d1d6ab",
+      "original": "exec-8d1cf050-38df-4ad9-9a51-535a476383cb.png",
+      "originalSha256": "bc5917c4267026628fef8c40d8d82eb411db07b663d0d2ce9777da59c3cd717b",
+      "subject": "A spiral seashell and sea foam on a tropical island beach at first light.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A spiral seashell and sea foam on a tropical island beach at first light. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "ocarina-of-time": {
+      "file": "ocarina-of-time.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 201980,
+      "sha256": "630c9fde7a93fc2c5ad5b5aa4d65e2a8674644cf5d7bf7fb850b5a9cb914d525",
+      "original": "exec-dd95ed51-655c-4fca-8ca0-821519948fb3.png",
+      "originalSha256": "1d3d9bb416630744302b62aefca52046c910f4e131cad07069254fa71214b8af",
+      "subject": "A tall antique brass hourglass on the sill of a ruined woodland shrine, sunshine and drifting dust beyond.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A tall antique brass hourglass on the sill of a ruined woodland shrine, sunshine and drifting dust beyond. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "majoras-mask": {
+      "file": "majoras-mask.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 128946,
+      "sha256": "2793a96cd33aa7b6aa37bd2977561140e322fc6b7b4cda4f8fe6ae170e858de5",
+      "original": "exec-14ad6b1e-1009-419a-9285-4af2049cf2f4.png",
+      "originalSha256": "2d553cb5e410024ec57b0f08070a8d3cfec78bebc5002d128797f3905a76a48b",
+      "subject": "A restrained carved wooden theater mask on rust-colored fabric inside an old puppet workshop, lit by one candle.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A restrained carved wooden theater mask on rust-colored fabric inside an old puppet workshop, lit by one candle. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "oracle-of-seasons": {
+      "file": "oracle-of-seasons.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 151454,
+      "sha256": "98c3d4433cbc1566bff42420c38e6c64f08598e25614a0fee95c3a8d00082f80",
+      "original": "exec-041b9dcd-27d8-4298-a1c0-fdfc7f4fdc2d.png",
+      "originalSha256": "a8ee79717e6d146885d4ecbdd76b056ea8281108748ce4bb8d1f15cada32c90d",
+      "subject": "A copper leaf beside a spring bud and melting frost on the moss of an old forest stump.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A copper leaf beside a spring bud and melting frost on the moss of an old forest stump. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "oracle-of-ages": {
+      "file": "oracle-of-ages.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 215482,
+      "sha256": "5c6da09223d743ebd40cc28fd27f2b222908c466c3940a20ff90c4efca5c73f7",
+      "original": "exec-a5375687-2fff-4f88-815e-b080b4a2cef4.png",
+      "originalSha256": "2cef99906132340e011fb62177a41a99a8a8b6f946ff4c747799ab03018e3316",
+      "subject": "A weathered bronze sundial and its long shadow on stone in a quiet courtyard.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A weathered bronze sundial and its long shadow on stone in a quiet courtyard. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "four-swords": {
+      "file": "four-swords.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 190638,
+      "sha256": "baa0f474b2594ec01ff4c7581a002514da16d267dec0c86564eb2ba93a7c7def",
+      "original": "exec-0ecd000a-b5ed-44f0-b487-141f3723f7d2.png",
+      "originalSha256": "476dbfd98442412642cb7deb053e41a2b71d0c085d10d958b62b452018be7a24",
+      "subject": "Four narrow original iron sword blades in separate open slots on a worn wooden armory rack.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: Four narrow original iron sword blades in separate open slots on a worn wooden armory rack. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "the-wind-waker": {
+      "file": "the-wind-waker.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 126224,
+      "sha256": "d28e944a53287073e05e416d98b3fc20b9b22cfb31374bb0d80efc2e24826f48",
+      "original": "exec-34f42ec6-193d-4b8f-a8cc-5ac2943600e7.png",
+      "originalSha256": "ae8c759c85edc7ed671695ff771475e346e12288c12e582e8bb51a83ce187610",
+      "subject": "A small wooden sailboat with a deep red sail crossing an open sea, under large sunlight-filled clouds.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A small wooden sailboat with a deep red sail crossing an open sea, under large sunlight-filled clouds. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "four-swords-adventures": {
+      "file": "four-swords-adventures.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 154376,
+      "sha256": "86a9da4880f1ebe6510988c89fa9aad2727140703f9fe08da710eb0681449a64",
+      "original": "exec-7610fde0-4fe2-4a80-a379-9b797c47f235.png",
+      "originalSha256": "d508ce50fd0f25b781a61d0d9ffd9dc409b1d4269007b58ffb219602039066f7",
+      "subject": "Four mismatched brass lanterns illuminating a long stone hall, with warm light fading into blue shadow.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: Four mismatched brass lanterns illuminating a long stone hall, with warm light fading into blue shadow. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "the-minish-cap": {
+      "file": "the-minish-cap.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 169138,
+      "sha256": "cf334e4fdbd3066484444093d2be67dac95c832ba2f6f3e2b390633a6b2487b0",
+      "original": "exec-b9dfb1b6-223b-4e84-930d-a12f1837d173.png",
+      "originalSha256": "7f6aaf4cd2a2d722fb47c882e0e24f3858e844dc493cd96a2368eecce1253392",
+      "subject": "A tiny acorn cup along a dew-covered path between towering grass and fern at ground level.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A tiny acorn cup along a dew-covered path between towering grass and fern at ground level. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "twilight-princess": {
+      "file": "twilight-princess.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 128030,
+      "sha256": "6fd0b42216324003113fea5b701dd27fe9b6ed88012095fc450f6d6a4357f30d",
+      "original": "exec-9da10021-9dad-400f-970d-cdecb0a42270.png",
+      "originalSha256": "6a3ee52a7173844bec5cbb5492eaccfa56af7bc8852f24607a917a7d234e32f4",
+      "subject": "A grey wolf standing on a wooded ridge in late twilight, far hills and atmospheric blue shadow.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A grey wolf standing on a wooded ridge in late twilight, far hills and atmospheric blue shadow. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "phantom-hourglass": {
+      "file": "phantom-hourglass.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 160898,
+      "sha256": "60ca75a0a54d259dd072413ec0ba2aa925672e4aa92edb0c2a1d271fd813f811",
+      "original": "exec-e170d189-b307-441b-a6ea-d8dfb44671f8.png",
+      "originalSha256": "de4b0640758b90adee8677ee75c55c74c1c02917a0ed97da2c8a88f918487bd6",
+      "subject": "A brass shipboard hourglass beside heavy rope and salt-weathered planks on a foggy deck.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A brass shipboard hourglass beside heavy rope and salt-weathered planks on a foggy deck. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "spirit-tracks": {
+      "file": "spirit-tracks.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 242190,
+      "sha256": "00c5a64761179bf54bc5c63bbbb2da18fca925443b5a2042958a3f3f125baf9f",
+      "original": "exec-f8bd1df6-2f68-4a67-8332-6bc90e03f8bb.png",
+      "originalSha256": "86b28afe99923116c10f69003fe86bce15303ab236f31eaeea9ebe697c48d9de",
+      "subject": "An unbranded antique steam train on a rail bridge over a rolling river valley, golden late-day light.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: An unbranded antique steam train on a rail bridge over a rolling river valley, golden late-day light. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "skyward-sword": {
+      "file": "skyward-sword.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 63142,
+      "sha256": "5f83e1ec01fbdc53f39bf97a58ea5b589ae535d93d474cc0f657120ece7a7e93",
+      "original": "exec-4c5ddecc-11c0-4fc2-a4ca-fa09724425e3.png",
+      "originalSha256": "a86f27694fcfcfbb7a674eb6c58f4425005f5cd5c9f7a3ab51b314d8fb09ea4f",
+      "subject": "A bird of prey gliding above clouds at sunrise.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A red kite bird gliding over a cloud deck and distant cliffs, warm sunrise catching its wings. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "a-link-between-worlds": {
+      "file": "a-link-between-worlds.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 190656,
+      "sha256": "0ec73bd5368e0b3736df14a59f694e15cfe4e878ff6f4524905decb7df8bff90",
+      "original": "exec-cd392dd6-d791-43d4-92e5-04129c3d474e.png",
+      "originalSha256": "b37b5ec60ff3418841b418c3f657746bc977c3e89a84f65ac6f881cc4cebee34",
+      "subject": "An ancient painted fresco coming away from the wall in a quiet sunlit stone gallery.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: An ancient painted fresco coming away from the wall in a quiet sunlit stone gallery. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "tri-force-heroes": {
+      "file": "tri-force-heroes.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 198372,
+      "sha256": "6d3877ac0190d21fc9a7d587310c5846d45d0facd9f4cfb7a310900777b903b9",
+      "original": "exec-942de9b9-5a61-428b-892a-ec1666ae7084.png",
+      "originalSha256": "19bdbedb79513b35a3b7396f2a6d9694a3f24c9d5b903ec184fa8e637bac7e40",
+      "subject": "Three handmade embroidered traveling cloaks hanging side by side in a stone cloakroom.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: Three handmade embroidered traveling cloaks hanging side by side in a stone cloakroom. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "breath-of-the-wild": {
+      "file": "breath-of-the-wild.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 225642,
+      "sha256": "58e995a319b796a14f96e9da2c0c479520960c58a95ff7f57caf6682b8230568",
+      "original": "exec-91b8c02e-9e2f-431f-85b9-6ee50113f674.png",
+      "originalSha256": "fae9f71a7c711e029f79b80c949be34f00af4246adb30b8a4dd68490e976979a",
+      "subject": "An abandoned open stone watchtower overtaken by grass and wildflowers on a high sunlit hillside.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: An abandoned open stone watchtower overtaken by grass and wildflowers on a high sunlit hillside. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "tears-of-the-kingdom": {
+      "file": "tears-of-the-kingdom.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 183332,
+      "sha256": "49803e425d637bd59da463f64db49a6739458ef009d7110c8f9e4d1485267fa3",
+      "original": "exec-4006b623-7412-4aa4-bddc-0ef55a2d3263.png",
+      "originalSha256": "9ff369087d49edc489f915e739d311aa564971bc5ab2c98d52730885028127d5",
+      "subject": "A lone tree on a rocky terrace above a sea of clouds.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A small stone platform overlooking an immense band of clouds, a suspension bridge and peaks far beyond. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    },
+    "echoes-of-wisdom": {
+      "file": "echoes-of-wisdom.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 162382,
+      "sha256": "68d24822cb63a8b170ba43cd6053d96c8649fa2762330ac701f2dd0e2f1bf790",
+      "original": "exec-43fba3e3-e0d7-4402-8fd9-cda9c44b28ac.png",
+      "originalSha256": "6287502873bf073bd113a2bda2f03ce2afe11f9c10cbf40fc1b699f7a4424cfe",
+      "subject": "A single simple shepherd’s walking staff reflected in the still water of a shallow forest pool.",
+      "prompt": "Use case: photorealistic-natural. Create one original 3:2 photographic chapter cover for Hyrule Atlas, an independent fantasy games guide library. The image depicts a new photographed scene: A single simple shepherd’s walking staff reflected in the still water of a shallow forest pool. Strong readable silhouette and a single centered composition that works in a small catalogue card, with key parts entirely in the inner 60% and enough surrounding scene for a wide crop. Photo-real textures and natural exposure, subdued editorial color and carefully observed detail, evocative and visually distinct. These are abstract thematic companions using ordinary original objects, animals or locations. No actual game character, icon, logo, game prop replica, game geography, level, UI, screenshot, framing marks, labels or lettering."
+    }
+  }
+}

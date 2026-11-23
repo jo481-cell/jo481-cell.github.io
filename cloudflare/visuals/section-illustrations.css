@@ -1,0 +1,67 @@
+.atlas-section-art.atlas-lead-art > img {
+  object-position: center;
+}
+
+.remake-plates__images > img[data-section-art] {
+  object-fit: cover;
+}
+
+.atlas-shell .atlas-lead--compact:has(.atlas-section-art) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 25%);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+.atlas-lead--compact .atlas-section-art,
+.alttp-map-entry-intro .atlas-section-art {
+  margin: 0;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  position: relative;
+}
+
+.atlas-lead--compact .atlas-section-art > img,
+.alttp-map-entry-intro .atlas-section-art > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: static;
+}
+
+.atlas-lead--compact .atlas-section-art::after {
+  display: none;
+}
+
+.atlas-lead--compact .atlas-section-art > figcaption,
+.alttp-map-entry-intro .atlas-section-art > figcaption {
+  position: static;
+  padding: .3rem 0 0;
+  font-size: .75rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  max-width: none;
+}
+
+.alttp-map-entry-intro:has(.atlas-section-art) {
+  display: flow-root;
+}
+
+.alttp-map-entry-intro .atlas-section-art {
+  float: inline-end;
+  width: min(29%, 17rem);
+  margin-inline-start: 1rem;
+}
+
+@media (max-width: 650px) {
+  .atlas-shell .atlas-lead--compact:has(.atlas-section-art) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .atlas-lead--compact .atlas-section-art > img {
+    aspect-ratio: 12 / 5;
+    object-fit: cover;
+  }
+}

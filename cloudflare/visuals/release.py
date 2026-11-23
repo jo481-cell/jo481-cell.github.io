@@ -16,6 +16,8 @@ STUDIO_LANDMARK = re.compile(r"(?:home-landmarks-([0-9a-f]{12})\.js|(?:castle|vi
 COMPANION_ASSET = re.compile(r"kuni-([0-9a-f]{16})\.webp")
 FONT_LICENSE_MODULE = re.compile(r"font-licenses-[0-9a-f]{16}\.js")
 BLOG_COVER = re.compile(r"blog-(?:music|reveal|secrets)-[0-9a-f]{12}\.webp")
+SECTION_ART = re.compile(r"section-[a-z0-9-]+-([0-9a-f]{12})\.(?:webp|js|css)")
+GAME_ART = re.compile(r"(?:game-[a-z0-9-]+|catalogue-data)-([0-9a-f]{12})\.(?:webp|js)")
 CHART_URL = re.compile(
     r"/assets/atlas-charts/(?:(?:terrain|plans(?:-v\d+)?|schematics)/(?:en|fr|es|ja|zh)/"
     r"(?:light(?:-labels)?|dark(?:-labels)?|places|dungeon-[A-Z]\d?-(?:B\d+|\d+F))\.svg|"
@@ -135,8 +137,8 @@ def retain_previous_assets(root: Path, previous: Path, *, retain_dotted=False) -
 
     editorial = assets / "editorial"
     _require_ordinary_path(editorial)
-    for path in editorial.glob("blog-*.webp"):
-        if BLOG_COVER.fullmatch(path.name):
+    for path in editorial.iterdir():
+        if any(pattern.fullmatch(path.name) for pattern in (BLOG_COVER, SECTION_ART, GAME_ART)):
             paths.add(path.relative_to(previous).as_posix())
 
     provenance = json.loads(_read_asset(previous / "assets/atlas-charts/provenance.json"))
@@ -158,7 +160,8 @@ def retain_previous_assets(root: Path, previous: Path, *, retain_dotted=False) -
         data = _read_asset(previous / relative)
         digest = sha256(data).hexdigest()
         name = Path(relative).name
-        fingerprint = STUDIO_STYLE.fullmatch(name) or STUDIO_LANDMARK.fullmatch(name) or COMPANION_ASSET.fullmatch(name)
+        fingerprint = next((match for pattern in (STUDIO_STYLE, STUDIO_LANDMARK, COMPANION_ASSET, SECTION_ART, GAME_ART)
+                            if (match := pattern.fullmatch(name))), None)
         if fingerprint and not digest.startswith(next(group for group in fingerprint.groups() if group)):
             raise ValueError(f"Previous Pages asset fingerprint differs: {relative}")
         dest = root / relative

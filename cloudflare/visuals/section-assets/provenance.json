@@ -1,0 +1,283 @@
+{
+  "credit": "Hyrule Atlas",
+  "creation": "Built-in OpenAI ImageGen",
+  "created": "2026-11-23",
+  "method": "Original editorial illustrations generated from text. No source images supplied. Lanczos resize and WebP encoding for publication.",
+  "assets": {
+    "blog": {
+      "file": "blog.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 158444,
+      "sha256": "116bfd55599496a751f88fe6f002544e38b69ad1adec37a6913f3471f850cf3f",
+      "original": "exec-9c418fbf-3188-45d9-bf65-0666ae1d998f.png",
+      "originalSha256": "5358f2ed6899a02aff3a4ae7664e34171f31f91a3de03bab61d0bc72a224e3f9",
+      "subject": "A half-open essay manuscript with handwritten annotations too soft to read, an ink-stained fountain pen and reading spectacles on an oak desk, late-afternoon amber sidelight, very close and curved sheets in focus.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Independent essays and stories section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A half-open essay manuscript with handwritten annotations too soft to read, an ink-stained fountain pen and reading spectacles on an oak desk, late-afternoon amber sidelight, very close and curved sheets in focus. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "breath-of-the-wild": {
+      "file": "breath-of-the-wild.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 322114,
+      "sha256": "b5275ea565ba85fc8e19115f66fce65fb97bd39ccbff2ef0b60cc568bff81486",
+      "original": "exec-f61cbc15-91d5-41f2-98ea-9388c4eed6cc.png",
+      "originalSha256": "b40708cd89b72e8235a05948ecfb5f5e32958175d0c2c6f0337b3b8f8248c2be",
+      "subject": "A vast wind-bent grass plateau above river canyons, glimpses of weathered stone ruins and distant high mountains, morning sun grazing natural green hills, a wide cinematic photograph with tangible grass texture.",
+      "prompt": "Use case: photorealistic-natural. Create a single original 3:2 editorial photograph for the An open-world field guide section of Hyrule Atlas, an independent fantasy exploration archive. Scene: A vast wind-bent grass plateau above river canyons, glimpses of weathered stone ruins and distant high mountains, morning sun grazing natural green hills, a wide cinematic photograph with tangible grass texture. Premium location photography, believable physical scale, natural exposure, nuanced tactile details, editorial atmosphere. Center the essential subject with breathing room for cropping to 16:9 and smaller cards. Fill the entire frame. Original fictional location or unbranded real-world objects only. No official game assets or recreated game levels, iconic symbols, characters, text, logo, overlays, frames, watermarks or procedural graphics."
+    },
+    "community-rules": {
+      "file": "community-rules.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 195434,
+      "sha256": "4624cdd023dbd663831b94a511f7766f4a1cd4978fd43b933ed75805f5a5b3c8",
+      "original": "exec-22b1e5a2-4c27-40ae-a80b-79bbad09e129.png",
+      "originalSha256": "f161828003db0f34642f2fb182782c30eb13fdeee8f56e2d43d33b70ca5e42d3",
+      "subject": "An open guestbook and two clean quill pens on a wide communal table beside a shaft of warm light from a round stone arch, inviting and quiet, restrained wood-and-honey colors.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the A welcoming community charter section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: An open guestbook and two clean quill pens on a wide communal table beside a shaft of warm light from a round stone arch, inviting and quiet, restrained wood-and-honey colors. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "confirmed-details": {
+      "file": "confirmed-details.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 175178,
+      "sha256": "579f9133f11cbd4022a88438e3f84b2c203c58ce20272e463b686c4330d17428",
+      "original": "exec-0d8234c2-e07f-44de-85de-6dce372e63d6.png",
+      "originalSha256": "848a4e5d10b7cedd26141a1b2d757f11c29b5e4d8207a0bbe424e7bddf6e4cc7",
+      "subject": "A close photograph of a blunt brass ruler lining up the edge of a landscape study on a cream archaeology workbench, with a single small red archival tab, calm bright window light.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Evidence and confirmed information section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A close photograph of a blunt brass ruler lining up the edge of a landscape study on a cream archaeology workbench, with a single small red archival tab, calm bright window light. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "fan-art": {
+      "file": "fan-art.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 340808,
+      "sha256": "4990feea4d1f7ae3b13d97541c116c175ece89b09171103e8dec11cfc863522e",
+      "original": "exec-f12547e4-9a84-45d8-abff-76adc8d248ba.png",
+      "originalSha256": "8f4e4776038ed14c851d99a51bc6e68159cf5d16fbfa42884ec2c4acb5ee3555",
+      "subject": "Painter’s brushes and a handmade watercolor palette beside a clipped painting of mountains in dusty lilac and teal, interesting angled light, thick pigment, sunlit artist's workspace, focus on the painted paper and brushes.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the The community art gallery section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: Painter’s brushes and a handmade watercolor palette beside a clipped painting of mountains in dusty lilac and teal, interesting angled light, thick pigment, sunlit artist's workspace, focus on the painted paper and brushes. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "footage-log": {
+      "file": "footage-log.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 224364,
+      "sha256": "f3d7d0fd9a355b27398122128c173fcd0984d85fe037e94de56dd06a126d385a",
+      "original": "exec-8c0585bd-8253-4f24-a3b5-528c30e1d4fc.png",
+      "originalSha256": "b7fcac876ee55469b546e65c50502fbe703c116f28e022ecddc042628a1564b3",
+      "subject": "Three loosely spaced unbranded photographic contact prints of a ruined stone bridge on a dark slate light table, negative strip at the far edge and soft sidelight, the central bridge photograph readable, silver grey and amber.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the The illustrated record of visual observations section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: Three loosely spaced unbranded photographic contact prints of a ruined stone bridge on a dark slate light table, negative strip at the far edge and soft sidelight, the central bridge photograph readable, silver grey and amber. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "forum": {
+      "file": "forum.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 184232,
+      "sha256": "b6ba67047250e1a551d0485d406c70956c8b3f0e72c9f99c705bfe54b9b7ba3f",
+      "original": "exec-ea3ee6f9-8c3c-457b-89bb-e7fafaec6077.png",
+      "originalSha256": "0e23dae9e908b74bb37b05e67d29b0a8246f299e2fbbc92ddf7fa3637bd97f3a",
+      "subject": "A welcoming round table by a stone hearth, two distinct ceramic cups and a large hand-drawn chart loosely spread between them, sparks safely contained in the distant fireplace, warm intimate lodge, wide framing.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Discussions and player help section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A welcoming round table by a stone hearth, two distinct ceramic cups and a large hand-drawn chart loosely spread between them, sparks safely contained in the distant fireplace, warm intimate lodge, wide framing. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "games": {
+      "file": "games.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 274422,
+      "sha256": "f42c613e418170feafae57907ffe07e0757c5bba7c2003758b50252e278d01cb",
+      "original": "exec-9e63ae0e-c411-4cbf-9950-ed34b4a25d64.png",
+      "originalSha256": "c4c1f54445f96ec382b12bc6a0d05f0907ffb3d12595f85e13e6d25d0b6fcade",
+      "subject": "An oak archive cabinet with open drawers of illustrated field folios and linen volumes, a single open folio on the central reading table, afternoon light, warm woods and muted forest greens, intimate library.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the The complete collection of adventure guides section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: An oak archive cabinet with open drawers of illustrated field folios and linen volumes, a single open folio on the central reading table, afternoon light, warm woods and muted forest greens, intimate library. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "journal": {
+      "file": "journal.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 207864,
+      "sha256": "60eac070b3009ed6f74c42d3bb7ba94557573e93e8ddf15e76199090e7e6c7ae",
+      "original": "exec-b2b5ea9e-f9e5-4966-a707-045cf2333058.png",
+      "originalSha256": "0e51c4edcb5fb6aa06e71c1b975ec698cbd8135c2ac168087ecae85aad1a2be8",
+      "subject": "A pocket-sized weathered tan expedition journal on the ledge of a stone trail shelter, a graphite pencil beside it, mountain and morning fog far behind, shallow focus and cool sun.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the The adventure journal and practical guides section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A pocket-sized weathered tan expedition journal on the ledge of a stone trail shelter, a graphite pencil beside it, mountain and morning fog far behind, shallow focus and cool sun. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "my-adventure": {
+      "file": "my-adventure.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 214778,
+      "sha256": "6c4d894ad859f75d2578ab8941e2b0cf2be3ce88ab7b66cb6e86442bc0017c71",
+      "original": "exec-2a3b5392-3ab2-4a47-925b-d9212b3bbad9.png",
+      "originalSha256": "5f3c52788faefacee3520086719fdc107c163a7969b331b9a0ae2d73fc3d60b8",
+      "subject": "A moss-green ribbon bookmark between handwritten checklist pages of an open cloth notebook on a worn field table, a smooth copper token beside it, spring morning light, no readable words.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Saved checklists and personal progress section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A moss-green ribbon bookmark between handwritten checklist pages of an open cloth notebook on a worn field table, a smooth copper token beside it, spring morning light, no readable words. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "newsletter": {
+      "file": "newsletter.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 189834,
+      "sha256": "0d3b1abebe61608659432f4ea7fbe908e92612ed8c02584e393cf35a1c989c3b",
+      "original": "exec-ab414894-d8ea-40b8-a2ee-75b9201bb13f.png",
+      "originalSha256": "80dd816d8970d23ff8840b76a3ee607814d59cef29f639cfa3a944a434efd689",
+      "subject": "A folded cream envelope closed by a simple ochre wax seal on a slate windowsill, a single dry rosemary sprig to the side, the green hills after rain out of focus beyond the glass.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the A weekly letter from the archive section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A folded cream envelope closed by a simple ochre wax seal on a slate windowsill, a single dry rosemary sprig to the side, the green hills after rain out of focus beyond the glass. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "ocarina-of-time-remake": {
+      "file": "ocarina-of-time-remake.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 467300,
+      "sha256": "13d50bd32d4b88b5cfc948627c8c0ca345996d84ffecd33aebb82605303c0a84",
+      "original": "exec-f4da07a9-ad37-4aca-9ae2-bc3a765779d4.png",
+      "originalSha256": "1e64513987a7c5741c6e839f2844e2481c41b9942150402a95479458bd4e19eb",
+      "subject": "An original distinct ancient limestone gateway reopened by a shaft of amber dawn beyond a misty cobbled path under a high forest canopy, realistic monumental carved masonry weathering, olive greens and alabaster, no distinctive game architecture.",
+      "prompt": "Use case: photorealistic-natural. Create a single original 3:2 editorial photograph for the A fresh interpretation of the remade adventure section of Hyrule Atlas, an independent fantasy exploration archive. Scene: An original distinct ancient limestone gateway reopened by a shaft of amber dawn beyond a misty cobbled path under a high forest canopy, realistic monumental carved masonry weathering, olive greens and alabaster, no distinctive game architecture. Premium location photography, believable physical scale, natural exposure, nuanced tactile details, editorial atmosphere. Center the essential subject with breathing room for cropping to 16:9 and smaller cards. Fill the entire frame. Original fictional location or unbranded real-world objects only. No official game assets or recreated game levels, iconic symbols, characters, text, logo, overlays, frames, watermarks or procedural graphics."
+    },
+    "ocarina-of-time-switch-2": {
+      "file": "ocarina-of-time-switch-2.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 472146,
+      "sha256": "52fdfb0ce4dc9cbca698006543d5d2fba8b998e840459a9195947bf7ac19a236",
+      "original": "exec-2383af7e-2e48-4fde-a34c-d8fb09ad56df.png",
+      "originalSha256": "2f97e0240d7c5bf9a08041e84d06624c8ffe9fe99184bfab3375273efa78a402",
+      "subject": "A newly restored five-arch limestone aqueduct running across an autumn ravine towards a far meadow, a practical stone path underneath, copper leaves and bright gold midday light, expansive grounded cinema, architecture wholly original.",
+      "prompt": "Use case: photorealistic-natural. Create a single original 3:2 editorial photograph for the Modern-release walkthrough and observations section of Hyrule Atlas, an independent fantasy exploration archive. Scene: A newly restored five-arch limestone aqueduct running across an autumn ravine towards a far meadow, a practical stone path underneath, copper leaves and bright gold midday light, expansive grounded cinema, architecture wholly original. Premium location photography, believable physical scale, natural exposure, nuanced tactile details, editorial atmosphere. Center the essential subject with breathing room for cropping to 16:9 and smaller cards. Fill the entire frame. Original fictional location or unbranded real-world objects only. No official game assets or recreated game levels, iconic symbols, characters, text, logo, overlays, frames, watermarks or procedural graphics."
+    },
+    "privacy": {
+      "file": "privacy.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 198944,
+      "sha256": "42d202940dc1b6429082ea5e1338cb549010d20627eccc39f06e06f6e8f65222",
+      "original": "exec-c7b121fa-0192-44d0-adbe-30dcb81bc249.png",
+      "originalSha256": "45e87dbfaa6ab1fe45a7e1f4d49e3c4178e3fd371500bf35f58d1361c750ec2c",
+      "subject": "A small closed walnut cabinet with a discreet brass lock and key, a neatly folded linen document inside a partly open outer drawer, cool natural studio light with warm metal accents, composed simple close photograph.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Visitor privacy and stored progress section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A small closed walnut cabinet with a discreet brass lock and key, a neatly folded linen document inside a partly open outer drawer, cool natural studio light with warm metal accents, composed simple close photograph. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "release": {
+      "file": "release.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 179632,
+      "sha256": "9c866b21d0332ab94cf5d98402feeb8974e8f358b0a9734fb8e5a3070774ae57",
+      "original": "exec-bb073808-6599-4675-bf27-bc4145f28995.png",
+      "originalSha256": "715ebb522323f134c0c824840143f61d3a58071db898f9b14b595d23adee57b0",
+      "subject": "A compact antique mechanical calendar with blank ivory tiles next to a brass pocket watch on a textured desk, shallow focus with warm dawn shadows, no legible numbers or names, focus on physical objects.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the The release tracker and timeline section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A compact antique mechanical calendar with blank ivory tiles next to a brass pocket watch on a textured desk, shallow focus with warm dawn shadows, no legible numbers or names, focus on physical objects. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "remake-or-remaster": {
+      "file": "remake-or-remaster.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 263164,
+      "sha256": "bba505a8ae81290a9f57711316030a1eb8c674a87a6bb0b5f2512eaf43f165a1",
+      "original": "exec-3a5210be-9138-490b-a1b1-f10b63bc5fc2.png",
+      "originalSha256": "6d1bb9e9b8fae1c28e876077e62eca592a08106b44cedef172a2580daa6391b5",
+      "subject": "Two sample stones on a conservator's table, one dark and weathered with an eroded arch carving, the other pale with a freshly carved arch, raking light, finely visible dust and different toolmarks, bright restrained workshop.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the The difference between restoration and reconstruction section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: Two sample stones on a conservator's table, one dark and weathered with an eroded arch carving, the other pale with a freshly carved arch, raking light, finely visible dust and different toolmarks, bright restrained workshop. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "search": {
+      "file": "search.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 91926,
+      "sha256": "c329beb51877f5d8c57e61882abfd18bb8ebc2f6e78f8ba9e42c1dceba84afb6",
+      "original": "exec-95768743-49c3-4f28-a4b0-f731513f6aaf.png",
+      "originalSha256": "f8bc50893ed04c5f966cfae590676d8a847e29bd39c48b67eab8c6b2d1f8baa3",
+      "subject": "An archival card catalogue drawer open at the foreground, fingers absent, neat rows of ivory index cards with plain colored index tabs, small bronze handle, crisp narrow focus down the drawer, cool cream and chestnut.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Finding a clue in the collection section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: An archival card catalogue drawer open at the foreground, fingers absent, neat rows of ivory index cards with plain colored index tabs, small bronze handle, crisp narrow focus down the drawer, cool cream and chestnut. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "secrets": {
+      "file": "secrets.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 392536,
+      "sha256": "bc6e691038999d289b3a085084b743e5e1eb358cf6a257635799d7ba8afdeaf1",
+      "original": "exec-faa13b67-a674-4b72-bcbc-c1c56055d7a1.png",
+      "originalSha256": "4ea623ee6ca8c093e7571535ed30d4a5e2b245f9c7813eb66f2e3d1eb0778ca2",
+      "subject": "A quiet fern-lined footpath disappearing beneath heavy roots at the entrance to a small natural grotto, a hint of daylight catching the rock beyond, early morning mist, cool tones, no wooden door.",
+      "prompt": "Use case: photorealistic-natural. Create a single original 3:2 editorial photograph for the Unverified rumors and hidden places section of Hyrule Atlas, an independent fantasy exploration archive. Scene: A quiet fern-lined footpath disappearing beneath heavy roots at the entrance to a small natural grotto, a hint of daylight catching the rock beyond, early morning mist, cool tones, no wooden door. Premium location photography, believable physical scale, natural exposure, nuanced tactile details, editorial atmosphere. Center the essential subject with breathing room for cropping to 16:9 and smaller cards. Fill the entire frame. Original fictional location or unbranded real-world objects only. No official game assets or recreated game levels, iconic symbols, characters, text, logo, overlays, frames, watermarks or procedural graphics."
+    },
+    "sources": {
+      "file": "sources.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 184240,
+      "sha256": "1a8e27ba5fd03e51e2ac23dc6a5a04eb7f1a095c0e1700cc29a942e19d979e9f",
+      "original": "exec-b4f62640-aeb7-4d50-b043-069c0fe62c6b.png",
+      "originalSha256": "670281e1480c763f786ce5a8fa2873ed6e0f3b15d6251c705193bd0f96d85904",
+      "subject": "A flat archive box holding carefully ordered paper reference slips, with two book page markers and a glass paperweight resting on a wooden library desk, precise natural light, intellectual and clean.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the References, attribution and corrections section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A flat archive box holding carefully ordered paper reference slips, with two book page markers and a glass paperweight resting on a wooden library desk, precise natural light, intellectual and clean. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "tears-of-the-kingdom": {
+      "file": "tears-of-the-kingdom.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 280096,
+      "sha256": "80fcbb76762b4be084b016e5e8109afb272dae2d605cb51e02f656e2e596899f",
+      "original": "exec-e1bd30cc-1180-408a-943b-29b14aa43213.png",
+      "originalSha256": "64a77fb6c0e0b14de005df0fde7121564ab229d3f379b0ab702fcb2e76a287dc",
+      "subject": "A real-looking high escarpment of pale rugged rocks rising above a sea of morning cloud, distant layered peaks and a few hardy conifers, vast vertical depth, cinematic cool pale blue and amber, grounded physical mountains.",
+      "prompt": "Use case: photorealistic-natural. Create a single original 3:2 editorial photograph for the An adventure above and below the surface section of Hyrule Atlas, an independent fantasy exploration archive. Scene: A real-looking high escarpment of pale rugged rocks rising above a sea of morning cloud, distant layered peaks and a few hardy conifers, vast vertical depth, cinematic cool pale blue and amber, grounded physical mountains. Premium location photography, believable physical scale, natural exposure, nuanced tactile details, editorial atmosphere. Center the essential subject with breathing room for cropping to 16:9 and smaller cards. Fill the entire frame. Original fictional location or unbranded real-world objects only. No official game assets or recreated game levels, iconic symbols, characters, text, logo, overlays, frames, watermarks or procedural graphics."
+    },
+    "then-and-now": {
+      "file": "then-and-now.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 277154,
+      "sha256": "e00fa9bb619de07ec106889ccea3fddb23c6457bf5cb8bc9a50169f1cc41efa0",
+      "original": "exec-8bad3f4a-9d99-4e32-aaa2-9c6df86e95fe.png",
+      "originalSha256": "0b255cd1fbe43fa36c651f38b3314ce36682f279b7aacf2f257084a110889c34",
+      "subject": "Two actual unbranded printed photographs on a pale conservation worktable, one naturally faded showing a timber footbridge, one present-day color showing a stone bridge in the same river bend, visual time comparison, soft daylight.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Comparing places across time section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: Two actual unbranded printed photographs on a pale conservation worktable, one naturally faded showing a timber footbridge, one present-day color showing a stone bridge in the same river bend, visual time comparison, soft daylight. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "trailer-analysis": {
+      "file": "trailer-analysis.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 92030,
+      "sha256": "3d21b7b985645e09a36ebf5393b7c6b56ce642383415500ec253ed1afeca293b",
+      "original": "exec-a1747923-1236-4bc0-bf80-33d7cd526f08.png",
+      "originalSha256": "309ea28259af492234d9031d6a418b3475cb33d7cee58af0042fec85243ee292",
+      "subject": "A silent studio with an antique optical viewfinder in the foreground and an out-of-focus composition study of a hillside behind it, dusty light through louvres, muted petrol blue and ivory, no display or logos.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the An editorial study of framing and visible clues section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A silent studio with an antique optical viewfinder in the foreground and an out-of-focus composition study of a hillside behind it, dusty light through louvres, muted petrol blue and ivory, no display or logos. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "zelda-64": {
+      "file": "zelda-64.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 354846,
+      "sha256": "8e28199be95ec43b4e9a1b20c1f4a62dc0c22e9a4196b22f20f9f08fdf2f81f4",
+      "original": "exec-9a6d6e1d-6794-470e-858d-9c959cf88360.png",
+      "originalSha256": "2c4c3dfa9a88f2d8a450a91e5707f86cc876de6b0684cdeab80cdb872802082d",
+      "subject": "A carved weathered standing stone beside a mossy track deep in a grove in light rain, filtered silvery daylight and green moss, the trail leading toward a distant stone viaduct, original world, analogue film texture.",
+      "prompt": "Use case: photorealistic-natural. Create a single original 3:2 editorial photograph for the An archive of the classic adventure section of Hyrule Atlas, an independent fantasy exploration archive. Scene: A carved weathered standing stone beside a mossy track deep in a grove in light rain, filtered silvery daylight and green moss, the trail leading toward a distant stone viaduct, original world, analogue film texture. Premium location photography, believable physical scale, natural exposure, nuanced tactile details, editorial atmosphere. Center the essential subject with breathing room for cropping to 16:9 and smaller cards. Fill the entire frame. Original fictional location or unbranded real-world objects only. No official game assets or recreated game levels, iconic symbols, characters, text, logo, overlays, frames, watermarks or procedural graphics."
+    },
+    "map": {
+      "file": "map.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 230088,
+      "sha256": "4c20aab700ce3dae6f4a8cba8c4063366beef3fb126ec29079ad304b03ce9fd2",
+      "original": "exec-68c46a7e-ce34-432d-889f-e4df24e8ea6b.png",
+      "originalSha256": "13344da7bba3bbcaad95a66e57a8a7220eb907265eb8e41cf4e7dd323dd31798",
+      "subject": "A photoreal tabletop view of a cloth field map with sketched contour lines too soft to read, a small brass divider and a wooden ruler, weathered moss-green canvas gear near one edge, natural light from a cabin window, no accurate game map.",
+      "prompt": "Use case: photorealistic-natural. A single original 3:2 editorial photograph for the Field mapping and discoveries section of Hyrule Atlas, an independent historical-fantasy exploration archive. Scene: A photoreal tabletop view of a cloth field map with sketched contour lines too soft to read, a small brass divider and a wooden ruler, weathered moss-green canvas gear near one edge, natural light from a cabin window, no accurate game map. Thoughtful commissioned editorial photography, photographic not CGI, realistic materials and lighting, interesting well-defined main subject with clear separation. Center the relevant object or gesture, keep the essential subject inside the central 60 percent and allow margin for 16:9 crops. Fill frame. No legible text, game imagery, copyrighted franchise iconography, brands, intentional borders, watermark or diagram."
+    },
+    "ocarina": {
+      "file": "ocarina.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 185850,
+      "sha256": "e7f242fc58cc26eb31bf0ed4e74658ba16003111bf85b00f516fb868223cf136",
+      "original": "exec-492c070e-2101-4c13-ad26-5073ea03ed36.png",
+      "originalSha256": "0fef55dd4a0bc25c3cb90c9933fb8680404bc97b79454f28d6410a2af58c444d",
+      "subject": "A green glazed ceramic ocarina resting on folded linen.",
+      "prompt": "Create a single landscape 3:2 photorealistic editorial photograph for Hyrule Atlas, a fantasy exploration and preservation magazine. Section illustration for playing the ocarina and learning finger positions. Wide eye-level close photograph of a handcrafted deep celadon-green glazed ceramic ocarina resting on a folded ecru linen cloth on a dark oak instrument-maker’s bench. Carefully credible side mouthpiece on the rounded transverse instrument and clean dark open finger holes, slight glaze color variation, kiln patina, fine terracotta visible at the edge of the mouthpiece. A pair of barely seen ceramic tuning tools softened in the rear. Cool light slipping through a window, gentle green and parchment color palette, side light revealing the tactile object. Main instrument centered and fully inside the inner 60% region with room for wide and tight crops, genuinely photographic proportions and shadows, no hands, text, branding, logos, videogame imagery, trademark symbols or recreated in-game items. This is an atmospheric object photograph, not a fingering diagram."
+    }
+  }
+}
