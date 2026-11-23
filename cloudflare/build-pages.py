@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree.ElementTree import fromstring
-from visuals import editorial, identity, kuni, map_entry_links, maps, release, share_images, studio
+from visuals import credit_links, editorial, identity, kuni, map_entry_links, maps, release, share_images, studio
 
 
 HERE = Path(__file__).resolve().parent
@@ -207,6 +207,7 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False, retain_from=
         identity.apply(tmp)
         studio.apply(tmp)
         kuni.apply(tmp)
+        credit_links.apply(tmp)
         fix_route_retry(tmp)
         bundle_urls = release.rekey_bundles(tmp, before_visuals)
         retained = set()
@@ -231,7 +232,7 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False, retain_from=
             )
         (tmp / "_headers").write_text(headers, encoding="utf-8", newline="\n")
         (tmp / "_redirects").write_text("".join(f"{src} {dst}\n" for src, dst in redirects.items()), encoding="utf-8", newline="\n")
-        routes = {"version": 1, "include": ["/api/community", "/api/community/"], "exclude": []}
+        routes = {"version": 1, "include": ["/api/community", "/api/community/", *credit_links.SECTIONS], "exclude": []}
         (tmp / "_routes.json").write_text(json.dumps(routes) + "\n", encoding="utf-8")
         if dist.exists() and (dist.is_symlink() or dist.is_junction() or not (dist / "_routes.json").is_file()):
             raise ValueError("Destination is not the generated Pages distribution")

@@ -37,6 +37,9 @@ indique la provenance des fonds et du portrait de Kuni. Les schémas d’étage 
 dessinés sans échelle à partir des fichiers `map-assets/dungeon-facts*.json`.
 Ils montrent les salles, objets et passages documentés pour la Super NES.
 Les étages sans données suffisantes proposent les étapes clés de la soluce.
+Les liens de crédits s’ouvrent dans la section correspondante de la page
+Sources et crédits, dans la langue du guide. Les anciens liens vers les
+registres JSON suivent la même destination lors d’une navigation du navigateur.
 La bibliothèque
 utilise des illustrations éditoriales de l’Atlas. L’analyse comparative cite
 son article de référence par des liens dans le texte. Les fichiers JavaScript et

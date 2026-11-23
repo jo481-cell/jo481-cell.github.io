@@ -136,7 +136,7 @@
     const licence = node("a","","CC BY 4.0");
     licence.href = "https://creativecommons.org/licenses/by/4.0/";
     const details = node("a","","Hyrule Atlas (GLB)");
-    details.href = "/assets/models/ocarina-12-hole.provenance.json";
+    details.href = `${context().prefix}/sources/#record-8`;
     line.append(source," · ",licence," · ",details);
     return line;
   }
