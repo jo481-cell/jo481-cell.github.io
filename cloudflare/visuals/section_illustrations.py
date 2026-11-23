@@ -32,6 +32,10 @@ JS_LOOKUP = re.compile(
     r'\w+=\w+\.assets\.find\(\w+=>\w+\.src===\w+\);return )'
 )
 JS_META = re.compile(r'(function \w+\(\w+\)\{let (?P<path>\w+)=\w+\(new URL\(\w+,\w+\)\.pathname\)\.replace\(/\\/\+\$/,``\)\|\|`/`;return )')
+JS_ROUTE_HEAD = re.compile(
+    r'(?P<start>\(`(?P<route>/(?:journal|zelda-64|map/(?:instagram|tiktok)))/?`\)\(\{head:)'
+    r'(?P<head>.*?)(?=,component:)'
+)
 JS_REMAKE_LINK = re.compile(r'(href:)\w+\?\w+\.sourcePage:`[^`]+`')
 JS_MAP_HEADER = re.compile(r'(?P<multi>\w+)\(`header`,\{className:`alttp-map-entry-intro`,children:\[(?P<one>\w+)\(`p`,')
 JS_SOURCE_CREDIT = re.compile(r'heading:`(?:Original section illustrations|Original illustrations of the sections)`,paragraphs:\[[^\[\]{}]+(?=\]\})')
@@ -104,6 +108,7 @@ def prepare_public_files(root, covers):
         f"const directory={editorial.compact(DIRECTORY)};\n"
         f"const languages={editorial.compact(LANGUAGES)};\n"
         f"const credit={editorial.compact(CREDIT)};\n"
+        f"const host={editorial.compact(HOST)};\n"
         + (HERE / "section-illustrations.js").read_text(encoding="utf-8")
     ).encode("utf-8")
     filename = fingerprinted(assets, "section-art-data", "js", data)
@@ -112,7 +117,7 @@ def prepare_public_files(root, covers):
 
 
 def figure(cover, lang, *, map_entry=False):
-    css = "atlas-section-art" if map_entry else "atlas-lead-art atlas-section-art"
+    css = "atlas-section-art" if map_entry or cover["slug"] in COMPACT else "atlas-lead-art atlas-section-art"
     priority = 'decoding="async"' if map_entry else 'fetchPriority="high"'
     return (
         f'<figure class="{css}" data-plate="artwork" data-section-art="{cover["slug"]}">'
@@ -219,7 +224,7 @@ def section_header_bundle(text, path):
         'l=!o&&!a?Q(s,c.id,r):void 0': 'l=!a?Q(s,c.id,r):void 0',
         '!o&&(a??(l&&': '(!o||l?.slug)&&(a??(l&&',
         'className:`atlas-lead-art atlas-lead-art--official`,"data-plate":l.kind':
-            'className:l.slug?`atlas-lead-art atlas-section-art`:`atlas-lead-art atlas-lead-art--official`,"data-plate":l.kind,"data-section-art":l.slug',
+            'className:l.slug?(o?`atlas-section-art`:`atlas-lead-art atlas-section-art`):`atlas-lead-art atlas-lead-art--official`,"data-plate":l.kind,"data-section-art":l.slug',
         'alt:r===l.src?i??``:``': 'alt:l.slug?l.alt:r===l.src?i??``:``',
         'let t=Z(e.id);return': 'let t=sectionDirectoryCover(e.id)??Z(e.id);return',
     }
@@ -278,6 +283,15 @@ def patch_script(path, filename):
         imports += ",sectionDirectoryCover"
     elif name.startswith("site-metadata-") and JS_META.search(text):
         text = JS_META.sub(lambda match: match[0] + f'sectionCover({match["path"]})??', text, count=1)
+    elif name.startswith("index-") and JS_ROUTE_HEAD.search(text):
+        def route_head(match):
+            return f'{match["start"]}(...args)=>withSectionShare(({match["head"]})(...args),`{match["route"]}`)'
+
+        routes = [match["route"] for match in JS_ROUTE_HEAD.finditer(text)]
+        if len(routes) != len(set(routes)):
+            raise ValueError(f"A section route head is declared more than once in {path}")
+        text = JS_ROUTE_HEAD.sub(route_head, text)
+        imports = "withSectionShare"
     elif name.startswith("ocarina-of-time-remake-") and 'className:`remake-plates__old`' in text:
         text = remake_bundle(text, path)
     elif name.startswith("alttp-") and 'className:`alttp-map-entry-intro`' in text:
@@ -316,7 +330,7 @@ def apply(root: Path):
             raise ValueError(f"Missing unique document head in {page}")
         editorial.save(page, text.replace("</head>", stylesheet_tag + "</head>", 1))
 
-    prefixes = ("archive-shell-", "site-metadata-", "ocarina-of-time-remake-", "alttp-", "sources-")
+    prefixes = ("archive-shell-", "site-metadata-", "index-", "ocarina-of-time-remake-", "alttp-", "sources-")
     patched = {patch_script(path, filename) for path in (root / "assets").glob("*.js") if path.name.startswith(prefixes)}
-    if not {"archive", "site", "ocarina", "alttp", "sources"}.issubset(patched):
+    if not {"archive", "site", "index", "ocarina", "alttp", "sources"}.issubset(patched):
         raise ValueError(f"An illustration client renderer was not found: {patched}")

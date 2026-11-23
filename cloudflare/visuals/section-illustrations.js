@@ -33,3 +33,25 @@ export function sectionCover(path, preferred) {
 export function sectionDirectoryCover(section) {
   return imageFor(directory[section]);
 }
+
+export function withSectionShare(head, path) {
+  const image = sectionCover(path);
+  const address = host + image.src;
+  const openGraph = {
+    'og:image': address,
+    'og:image:width': String(image.width),
+    'og:image:height': String(image.height),
+    'og:image:type': image.type,
+    'og:image:alt': image.alt,
+  };
+  const twitter = { 'twitter:image': address, 'twitter:image:alt': image.alt };
+  const remaining = (head.meta ?? []).filter(entry => entry && !Object.hasOwn(openGraph, entry.property) && !Object.hasOwn(twitter, entry.name));
+  return {
+    ...head,
+    meta: [
+      ...remaining,
+      ...Object.entries(openGraph).map(([property, content]) => ({ property, content })),
+      ...Object.entries(twitter).map(([name, content]) => ({ name, content })),
+    ],
+  };
+}
