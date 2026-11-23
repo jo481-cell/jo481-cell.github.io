@@ -34,6 +34,10 @@ export function sectionDirectoryCover(section) {
   return imageFor(directory[section]);
 }
 
+export function lakeGuideCover(locale) {
+  return imageFor('alttp-lake', locale);
+}
+
 export function withSectionShare(head, path) {
   const image = sectionCover(path);
   const address = host + image.src;

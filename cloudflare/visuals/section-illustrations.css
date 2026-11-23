@@ -6,6 +6,12 @@
   object-fit: cover;
 }
 
+@media (850px < width <= 1240px) {
+  .alttp-hero > .alttp-world-plate[data-section-art="alttp-lake"] {
+    object-position: 78% 39%;
+  }
+}
+
 .atlas-shell .atlas-lead--compact:has(.atlas-section-art) {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(13rem, 25%);

@@ -19,6 +19,8 @@ HOST = "https://hyruleatlas.com"
 MAP_ENTRIES = ("/map/instagram/", "/map/tiktok/")
 REMAKE = "ocarina-of-time-remake"
 CLASSIC = "zelda-64"
+LAKE = "alttp-lake"
+ALTTP_GUIDE = "/series/a-link-to-the-past/"
 COMPACT = {"ocarina", "search"}
 DIRECTORY = {"guides": "games", "remake": REMAKE, "discover": "blog", "community": "forum"}
 SIZE = (1440, 960)
@@ -26,6 +28,14 @@ SIZE = (1440, 960)
 LEAD = re.compile(r'<header class="atlas-lead [^"]+"[^>]*>.*?</header>', re.S)
 LEAD_FIGURE = re.compile(r'<figure class="atlas-lead-art [^"]+"[^>]*>.*?</figure>', re.S)
 MAP_HEADER = '<header class="alttp-map-entry-intro">'
+LAKE_PLATE = re.compile(r'<img class="alttp-world-plate"[^>]*>')
+LAKE_CREDIT = re.compile(r'(<a class="alttp-lead-credit"[^>]*>)[^<]*(</a>)')
+JS_LAKE_IMAGE = 'className:`alttp-world-plate`,src:n.src,width:n.width,height:n.height,alt:``'
+JS_LAKE_CREDIT = 'className:`alttp-lead-credit`,href:n.source,target:`_blank`,rel:`noopener noreferrer`,children:n.credit'
+JS_ALTTP_LOCALE = re.compile(
+    r'function [\w$]+\(\{mapEntry:[\w$]+=!1\}=\{\}\)\{'
+    r'let\{locale:(?P<locale>[\w$]+),messages:[\w$]+\}=[\w$]+\(\),'
+)
 HTML_IMAGE = re.compile(r"<img\b[^>]*>")
 JS_LOOKUP = re.compile(
     r'(function \w+\(\w+,\w+,\w+\)\{let (?P<path>\w+)=\w+\(\w+\)\.replace\(/\\/\$/,``\),'
@@ -48,6 +58,8 @@ def source_url(lang):
 
 
 def cover_pages(slug):
+    if slug == LAKE:
+        return (ALTTP_GUIDE,)
     if slug == "map":
         return MAP_ENTRIES
     if slug == CLASSIC:
@@ -68,7 +80,7 @@ def publish_images(root):
         body = source.read_bytes()
         digest = sha256(body).hexdigest()
         width, height = editorial.webp_size(source)
-        if (source.name != record["file"] or (width, height) != SIZE or
+        if (source.name != record["file"] or (slug != LAKE and (width, height) != SIZE) or
                 (width, height, len(body), digest) != (record["width"], record["height"], record["bytes"], record["sha256"])):
             raise ValueError(f"Image metadata and file differ for {slug}")
         if digest in used or not re.fullmatch(r"[0-9a-f]{64}", record["originalSha256"]):
@@ -99,7 +111,7 @@ def fingerprinted(output, stem, ext, data):
 
 def prepare_public_files(root, covers):
     assets = root / ART_DIR.strip("/")
-    routes = {cover["page"].rstrip("/"): slug for slug, cover in covers.items()}
+    routes = {cover["page"].rstrip("/"): slug for slug, cover in covers.items() if slug != LAKE}
     routes[MAP_ENTRIES[1].rstrip("/")] = "map"
     public_covers = {slug: {key: row[key] for key in ("src", "alt", "width", "height")} for slug, row in covers.items()}
     data = (
@@ -185,9 +197,39 @@ def share_markup(source, cover, lang, preloads):
     return JSON_LD.sub(schema, head + "</head>" + rest)
 
 
+def lake_header(source, cover, lang, path):
+    images = LAKE_PLATE.findall(source)
+    if len(images) != 1:
+        raise ValueError(f"Could not find the ALttP guide banner in {path}")
+    original = banner = images[0]
+    previous_url = editorial.attribute(original, "src")
+    for name in ("src", "width", "height", "alt"):
+        value = cover["alt"][lang] if name == "alt" else cover[name]
+        banner = editorial.attr(banner, name, value)
+    banner = banner.replace("<img ", f'<img data-section-art="{LAKE}" ', 1)
+    source = source.replace(original, banner, 1)
+    source, count = LAKE_CREDIT.subn(
+        lambda match: editorial.attr(match[1], "href", source_url(lang)) + escape(CREDIT[lang]) + match[2], source,
+    )
+    if count != 1:
+        raise ValueError(f"Could not find the ALttP guide banner credit in {path}")
+
+    head, body = source.split("</head>", 1)
+
+    def preload(match):
+        tag = match[0]
+        if tag.startswith("<link") and editorial.attribute(tag, "as") == "image" and editorial.attribute(tag, "href") == previous_url:
+            return editorial.attr(tag, "href", cover["src"])
+        return tag
+
+    return editorial.IMAGE_TAG.sub(preload, head) + "</head>" + body
+
+
 def patch_page(path, covers, slug, lang):
     source = path.read_text(encoding="utf-8")
     cover = covers[slug]
+    if slug == LAKE:
+        return lake_header(source, cover, lang, path)
     if slug == "map":
         if source.count(MAP_HEADER) != 1:
             raise ValueError(f"Expected one social-map heading in {path}")
@@ -274,6 +316,18 @@ def map_header_bundle(text, path):
     return text
 
 
+def lake_header_bundle(text, path):
+    text, count = JS_ALTTP_LOCALE.subn(
+        lambda match: f'{match[0]}atlasLake=lakeGuideCover({match["locale"]}),', text,
+    )
+    if count != 1 or text.count(JS_LAKE_IMAGE) != 1 or text.count(JS_LAKE_CREDIT) != 1:
+        raise ValueError(f"Could not find the ALttP guide banner renderer in {path}")
+    image = (f'className:`alttp-world-plate`,"data-section-art":`{LAKE}`,'
+             'src:atlasLake.src,width:atlasLake.width,height:atlasLake.height,alt:atlasLake.alt')
+    credit = JS_LAKE_CREDIT.replace("n.source", "atlasLake.source").replace("n.credit", "atlasLake.credit")
+    return text.replace(JS_LAKE_IMAGE, image, 1).replace(JS_LAKE_CREDIT, credit, 1)
+
+
 def patch_script(path, filename):
     name = path.name
     text = path.read_text(encoding="utf-8")
@@ -296,6 +350,9 @@ def patch_script(path, filename):
         text = remake_bundle(text, path)
     elif name.startswith("alttp-") and 'className:`alttp-map-entry-intro`' in text:
         text = map_header_bundle(text, path)
+        if 'className:`alttp-world-plate`' in text:
+            text = lake_header_bundle(text, path)
+            imports += ",lakeGuideCover"
     elif name.startswith("sources-") and JS_SOURCE_CREDIT.search(text):
         text = JS_SOURCE_CREDIT.sub(lambda match: f'{match[0]},({localized(CREDIT_NOTE)})', text, count=1)
         editorial.save(path, text)
@@ -313,7 +370,7 @@ def apply(root: Path):
     for lang in LANGUAGES:
         localized_root = root if lang == "en" else root / lang
         for slug in covers.keys() - {"map"}:
-            page = localized_root / slug / "index.html"
+            page = localized_root / cover_pages(slug)[0].strip("/") / "index.html"
             markup = patch_page(page, covers, slug, lang)
             if slug == "sources":
                 markup, count = HTML_SOURCE_CREDIT.subn(lambda match: match[1] + f'<p>{escape(CREDIT_NOTE[lang])}</p>' + match[2], markup)

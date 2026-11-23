@@ -3,6 +3,13 @@
 LANGUAGES = ("en", "fr", "es", "ja", "zh")
 
 DESCRIPTIONS = {
+    "alttp-lake": (
+        "A fairy grotto glows in a mossy cliff beside the blue-green waters of Lake Hylia.",
+        "Une grotte de fée s’illumine dans une falaise moussue au bord des eaux turquoise du lac Hylia.",
+        "Una gruta de hadas se ilumina en un risco cubierto de musgo junto a las aguas turquesas del lago Hylia.",
+        "ハイリア湖の青緑の水辺で、苔むした崖に開く妖精の洞窟が光を放つ。",
+        "海利亚湖的碧绿水边，长满苔藓的岩壁间有一座发着微光的妖精洞窟。",
+    ),
     "blog": (
         "An annotated manuscript, spectacles and an ink pen on an oak table.",
         "Un manuscrit annoté, des lunettes et une plume sur une table en chêne.",

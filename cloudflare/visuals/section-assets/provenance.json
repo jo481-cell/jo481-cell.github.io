@@ -4,6 +4,17 @@
   "created": "2026-11-23",
   "method": "Original editorial illustrations generated from text. No source images supplied. Lanczos resize and WebP encoding for publication.",
   "assets": {
+    "alttp-lake": {
+      "file": "alttp-lake.webp",
+      "width": 1942,
+      "height": 809,
+      "bytes": 312978,
+      "sha256": "267080dc6a9847a0dc463521957ac25dcfd3a5e39b97ffa044dc9cc84667ed2c",
+      "original": "exec-9cb65a01-aba6-48c0-b9c6-d34389b79344.png",
+      "originalSha256": "e184eac2950be76a8854877ac4489b4f6650509f6e2c870ac4ea1f2f4a4dc358",
+      "subject": "An illuminated fairy grotto opening in a mossy lakeshore bluff, with ripples and an uneven path of flat stones.",
+      "prompt": "Create a single original cinematic landscape illustration for the wide hero banner of an independent fantasy adventure guide. It should evoke the warmth, discovery and natural colors of a classic 1990s fantasy adventure while using an entirely original environment. Wide horizontal 2.4:1 panoramic composition. View from just above a calm, deep turquoise freshwater lake toward a curved forested shore after a soft rain. On the far shore between the horizontal center and right third (around 62–66% from the left), make a clearly visible, HUMAN-SCALE natural opening into a fairy grotto at the foot of a mossy honey-gray rock bluff. An old irregular path of flat shore stones leads to the cave mouth. A soft pearly mint light from inside the cave and three or four very small warm fairy-like motes suggest that something lives there. No figure is necessary. Low blue-green hills, oak and cedar, tiny ferns in fissures, quiet ripples and reflected cave light, moss and wildflowers in the detail. Woodland green, teal water and soft late-afternoon touches of gold. The left 38% should feel naturally shaded and low-detail, with a dark wooded bank and quiet water suitable for overlaid ivory website typography. Keep the cave mouth in the middle vertical third so it survives a shallower desktop crop and a centered-right mobile crop. Use the grounded realism of an expertly lit landscape photo with painterly art direction and very deliberate textures, finish worthy of an adventure game art book. Evoke the feeling of finding a secret by the water. Invent the geography, architecture and composition from scratch. No words, logo, map grid, borders, characters, branded symbols, game screenshots, or recognizable recreation of existing game art or game geography."
+    },
     "blog": {
       "file": "blog.webp",
       "width": 1440,
