@@ -49,8 +49,8 @@
   display: flow-root;
 }
 
-.atlas-lead--compact .atlas-section-art > figcaption,
-.atlas-lead--compact .atlas-section-art > figcaption a {
+.atlas-lead--compact .atlas-section-art[data-section-art="ocarina"] > figcaption,
+.atlas-lead--compact .atlas-section-art[data-section-art="ocarina"] > figcaption a {
   color: var(--studio-paper, #f0e8d3);
 }
 
