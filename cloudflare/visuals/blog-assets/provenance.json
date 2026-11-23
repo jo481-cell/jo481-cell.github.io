@@ -1,0 +1,38 @@
+{
+  "credit": "Hyrule Atlas",
+  "creation": "Built-in OpenAI ImageGen",
+  "created": "2026-11-23",
+  "method": "Original editorial illustrations generated from text. Lanczos resize to 1440 × 960 and WebP encode. No source images were supplied.",
+  "assets": {
+    "music": {
+      "original": "exec-bdd80202-50cb-465f-8703-3dfa242614b5.png",
+      "originalSha256": "7879b3696f2be2febb8c21fc6c73ed0ffc3ef7f72b84adddc26c94d16368a308",
+      "file": "music.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 182286,
+      "sha256": "0a577458752520faca22a2b25ef35a988e3fcfba661537fabb0c84c16aa9c991",
+      "prompt": "Create one landscape 3:2 original photoreal editorial photograph for Hyrule Atlas, an independent gaming essay magazine with a warm archaeological archive aesthetic. Article: 'Why a few notes can take us back to Hyrule', a remembrance of musical motifs. Main object: a real-looking unbranded handmade terracotta transverse ocarina with a smooth warm clay body, a small integrated mouthpiece and clearly open dark finger holes, sitting alone across an aged cream sheet of handwritten music under warm late-afternoon window light on deep walnut. The sheet provides quiet contextual decoration, softly out of focus, with unidentifiable notation; focus is crisp on the clay ocarina and its tactile surface. Slightly overhead at 45 degrees, medium-close, center the instrument within the middle 55% of the frame with generous crop room for card and editorial hero. Distinct amber, brown and cream colors and a quiet nostalgic mood, natural photographic tonal range, believable shadow and grain, commissioned museum object photography. No logo, no typography, no fictional character, no branded clothing or proprietary game design, no blue replica or triangular emblems, no screenshot, no border, no watermarks. Fill the full image."
+    },
+    "reveal": {
+      "original": "exec-d9bbe5c8-b112-47be-8841-b28cd413abe4.png",
+      "originalSha256": "9c50f556fc054be301e5df8c21be819b45cfc36596b4f4954659fab09821b351",
+      "file": "reveal.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 231810,
+      "sha256": "3c63d00c3e22a6098174ee70931ca02e8a580a22b6e8d5fcfadb90d066d24808",
+      "prompt": "Landscape 3:2 original photoreal commissioned editorial image for Hyrule Atlas, an independent fantasy game essay magazine. Article: 'The art of looking closely at a new Hyrule', an essay about observing and separating evidence from speculation in new visuals. Medium-close oblique overhead photograph of a real brass jeweler's magnifying loupe with glass in focus, placed over a small unbranded watercolor environment study on textured paper. The painting depicts an original weathered stone arch with a footpath through a pine forest, nothing recognizable as a pre-existing franchise. The convex loupe genuinely magnifies a subtle crack and brush detail on the stone. Around the edge, two overlapping landscape studies are partially cropped and softly out of focus, with a graphite pencil on lightly weathered slate-grey drafting surface. Cool subdued cloudy daylight from a studio window, grey, restrained green and cream palette with a hint of aged brass. One strong central focal point in the central 55% safe area, visually distinct from a warm instrument still life and comfortably cropped to a wide article hero. Physical glass and paper, real shadow falloff, editorial photographic subtlety. No browser screen, no UI, no logos, no text, no identifiable game designs, no screenshot, no frames or borders."
+    },
+    "secrets": {
+      "original": "exec-2a9bd5fd-236c-4977-ab23-4ee898868250.png",
+      "originalSha256": "5e1a68ae10350f8a071d8a23fbb8a30ff8d7c5ef2fa6a2b8b1ec70f19c56e3e8",
+      "file": "secrets.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 397080,
+      "sha256": "5c9250b036869560f061ba047b51ec612a074f94fee59105298254ddbf7e0eab",
+      "prompt": "Landscape 3:2 original photoreal location photograph for Hyrule Atlas, an independent fantasy games essay magazine. Article: 'The lost art of a good Zelda secret', about the mystery of optional discoveries and fan folklore. Show one narrow half-open carved weathered oak door tucked beneath living ivy in a genuinely moss-covered medieval stone wall, hidden at the end of a quiet wooded footpath. A single soft honey-gold line of warm interior light leaks through the door and across the uneven stone threshold. The visual reads immediately as a small secret found outdoors, never a grand castle gate. Green-grey lichen and fern, blue hour shadow, muted deep teal and olive palette, tactile damp masonry, gentle cinematic contrast, believable real architectural photography, viewed from a few steps down the path at eye level. Keep the doorway centered and comfortably inside the middle 55% so it survives a wide hero crop and a mobile card. No people, no lantern as main object, no magic particles, no brand or game iconography, no text, no frame, no reproduced game screenshot."
+    }
+  }
+}

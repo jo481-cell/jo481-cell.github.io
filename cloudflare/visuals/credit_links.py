@@ -39,6 +39,7 @@ FONT_ROWS = '...[`manrope`,`marcellus`,`ibmplexmono`].map(e=>({href:`/assets/fon
 SECTION_PARAGRAPHS = 'n.paragraphs.map(t=>e(`p`,{children:t},t))'
 SOURCE_ANCHOR = 'href:n.href,rel:`noreferrer`,target:`_blank`,children:n.label'
 FONT_DATA = "atlasFontLicenses"
+FONT_NAVIGATION = Path(__file__).with_name("font-license-navigation.js")
 
 
 def font_licenses(root):
@@ -46,7 +47,7 @@ def font_licenses(root):
         {"id": SECTIONS[path], "name": name, "notice": (root / path[1:]).read_text(encoding="utf-8")}
         for path, name in FONTS.items()
     ]
-    payload = f"export default {json.dumps(licenses, ensure_ascii=False)};\n".encode("utf-8")
+    payload = f"export default {json.dumps(licenses, ensure_ascii=False)};\n".encode("utf-8") + FONT_NAVIGATION.read_bytes()
     filename = f"font-licenses-{sha256(payload).hexdigest()[:16]}.js"
     # Keep this resource's content hash independent of the release's bundle renaming.
     (root / "assets/fonts" / filename).write_bytes(payload)
@@ -73,18 +74,20 @@ def add_font_licenses_to_source(source, markup, path):
 
 def add_font_licenses_to_bundle(source, filename, path):
     if path.name.startswith("sources-") and FONT_ROWS in source:
-        source, sections = FONT_CREDIT.subn(lambda match: match[0] + f",fontLicenses:{FONT_DATA}", source)
+        credit_props = f",fontLicenses:{FONT_DATA},revealFontLicense:revealLinkedFontLicense"
+        source, sections = FONT_CREDIT.subn(lambda match: match[0] + credit_props, source)
         if sections != 1 or source.count(FONT_ROWS) != 1:
             raise ValueError(f"Could not update font credits in {path}")
         rows = f'{FONT_DATA}.map(license=>({{href:`#${{license.id}}`,label:license.name,note:`SIL Open Font License`}}))'
-        return f'import {FONT_DATA} from "./fonts/{filename}";\n' + source.replace(FONT_ROWS, "..." + rows)
+        return (f'import {FONT_DATA},{{revealLinkedFontLicense}} from "./fonts/{filename}";\n'
+                + source.replace(FONT_ROWS, "..." + rows))
     if path.name.startswith("archive-page-"):
         if source.count(SECTION_PARAGRAPHS) != 1 or source.count(SOURCE_ANCHOR) != 1:
             raise ValueError(f"Could not update archive rendering in {path}")
         details = (
             'n.fontLicenses?.map(license=>t(`details`,{className:`archive-font-license`,children:['
             'e(`summary`,{children:license.name+` · SIL Open Font License`}),'
-            'e(`pre`,{id:license.id,lang:`en`,children:license.notice})]},license.id))'
+            'e(`pre`,{id:license.id,lang:`en`,ref:n.revealFontLicense,children:license.notice})]},license.id))'
         )
         font_link = 'n.href.startsWith(`#font-license-`)'
         anchor = f'href:n.href,rel:{font_link}?void 0:`noreferrer`,target:{font_link}?void 0:`_blank`,children:n.label'

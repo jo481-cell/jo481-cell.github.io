@@ -334,6 +334,7 @@
 }
 .archive-font-license {
   margin-block: 0.8rem;
+  scroll-margin-block-start: 6rem;
 }
 
 .archive-font-license summary {
@@ -353,5 +354,4 @@
   font: inherit;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  scroll-margin-block-start: 6rem;
 }
