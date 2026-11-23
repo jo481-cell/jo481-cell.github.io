@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree.ElementTree import fromstring
-from visuals import editorial, identity, map_entry_links, maps, release, share_images, studio
+from visuals import editorial, identity, kuni, map_entry_links, maps, release, share_images, studio
 
 
 HERE = Path(__file__).resolve().parent
@@ -206,6 +206,7 @@ def build(source, adsense_publisher_id=None, adsense_ads_txt=False, retain_from=
         share_images.apply(tmp)
         identity.apply(tmp)
         studio.apply(tmp)
+        kuni.apply(tmp)
         fix_route_retry(tmp)
         bundle_urls = release.rekey_bundles(tmp, before_visuals)
         retained = set()

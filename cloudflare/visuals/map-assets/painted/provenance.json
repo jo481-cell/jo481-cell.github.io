@@ -1,0 +1,22 @@
+{
+  "credit": "Hyrule Atlas",
+  "process": "Original text-directed illustration from the approved Hyrule Atlas hybrid v2 prototypes. The dark relief was developed from the matching light relief. WebP exports preserve the square frame.",
+  "worlds": {
+    "light": {
+      "file": "light-64492cf4f01b1f18.webp",
+      "sha256": "64492cf4f01b1f18e088c80ca593d911910caecb86b7394c1a012d99cfa38061",
+      "width": 1024,
+      "height": 1024,
+      "source": "map-proto-painted-light-v2.jpg",
+      "source_sha256": "91edb7784cf07985f1a7b4c4f4595b789af9051d107ec94cfd300c8454bf5257"
+    },
+    "dark": {
+      "file": "dark-a67e36828ccec95b.webp",
+      "sha256": "a67e36828ccec95b5bb3db0a5d367e4d754b9a11fea3765271de8e486f66127b",
+      "width": 1024,
+      "height": 1024,
+      "source": "map-proto-painted-dark-v2.jpg",
+      "source_sha256": "047e868b308db794fb14dcb47f569891ae35ac13b8fcd0065032fbfca0adb697"
+    }
+  }
+}

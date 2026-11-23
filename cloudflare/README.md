@@ -30,8 +30,10 @@ sitemap demande une mise à jour de cette liste. Les fichiers de configuration,
 les sources du Worker et les tests restent hors de la distribution.
 
 Le build remplace les anciens visuels par les fichiers originaux de
-`cloudflare/visuals/`. Les cartes des deux mondes placent les repères aux
-coordonnées conservées sur un relief illustratif. Les schémas d’étage sont
+`cloudflare/visuals/`. Les cartes des deux mondes utilisent les fonds peints
+v2 et un calque de noms multilingue. Les repères gardent leurs coordonnées
+documentées dans la vue peinte et la vue schématique. Le registre cartographique
+indique la provenance des fonds et du portrait de Kuni. Les schémas d’étage sont
 dessinés sans échelle à partir des fichiers `map-assets/dungeon-facts*.json`.
 Ils montrent les salles, objets et passages documentés pour la Super NES.
 Les étages sans données suffisantes proposent les étapes clés de la soluce.
@@ -48,7 +50,7 @@ python cloudflare/build-pages.py --retain-from C:/chemin/vers/ancien/dist
 ```
 
 Utiliser le dossier généré à partir de la version publiée. Le build conserve
-les fichiers JS et CSS versionnés, la feuille de style Studio et les SVG
+les fichiers JS et CSS versionnés, la feuille de style Studio et les visuels
 originaux référencés par le registre cartographique, avec leurs URL et leurs
 octets d’origine. Si les octets d’une carte changent, donner une nouvelle URL à
 la nouvelle version pour conserver les deux. Pour inclure plusieurs versions,

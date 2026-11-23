@@ -7,12 +7,12 @@ from string import ascii_uppercase
 from functools import lru_cache
 from unicodedata import east_asian_width
 
-from . import dungeon_plans
+from . import dungeon_plans, painted_world
 
 ART = Path(__file__).with_name("map-assets")
 OLD = "/assets/alttp/"
 NEW = "/assets/atlas-charts/"
-SCHEMATIC_DIR = "plans"
+SCHEMATIC_DIR = "plans-v2"
 SCHEMATICS = NEW + SCHEMATIC_DIR + "/"
 NOTES = NEW + "provenance.json"
 LEGACY_SOURCE = "https://ian-albert.com/games/legend_of_zelda_a_link_to_the_past_maps/"
@@ -63,7 +63,7 @@ def _render(name, **values):
     return re.sub(r"\{\{(\w+)\}\}", lambda m:str(values[m[1]]), svg)
 
 
-def _world(world, language, regions, sites, places=False):
+def _world(world, language, regions, sites, places=False, overlay=False):
     coords = []
     for index, letter in enumerate(ascii_uppercase[:10]):
         offset = index * 100 + 50
@@ -100,8 +100,12 @@ def _world(world, language, regions, sites, places=False):
                         f'<circle fill="none" stroke="#708b72" r="39" stroke-dasharray="3 5"/><g fill="#295b50">{shape}</g>'
                         f'<text x="41" y="5" font-family="system-ui,sans-serif" font-weight="650" font-size="22" fill="#26584c">{label}</text></g>')
     light, dark, description = WORLD_DESCRIPTION[language]
+    title = f"{light if world == 'light' else dark} · Hyrule Atlas"
+    if overlay:
+        return _render("world-overlay", language=language, title=title,
+                       coordinates="".join(coords), labels="".join(labels), site_labels="".join(site_labels))
     return _render("world", **WORLD_COLORS[world], language=language,
-                   title=f"{light if world == 'light' else dark} · Hyrule Atlas",
+                   title=title,
                    description=description, coordinates="".join(coords),
                    terrain="".join(terrain), labels="".join(labels),
                    site_labels="".join(site_labels), focus="".join(pins))
@@ -195,6 +199,8 @@ def _image_files(root, manifest):
         }
         result[f"{language}/light.svg"] = _world("light", language, landmarks["light"], sites["light"])
         result[f"{language}/dark.svg"] = _world("dark", language, landmarks["dark"], sites["dark"])
+        for world in ("light", "dark"):
+            result[f"{language}/{world}-labels.svg"] = _world(world, language, landmarks[world], sites[world], overlay=True)
         result[f"{language}/places.svg"] = _world("light", language, landmarks["light"], sites["light"], places=True)
         for code, levels in groups.items():
             slug, references = routes[code]
@@ -267,6 +273,15 @@ def _floor_js(source, route_data):
 
 def _messages():
     texts=json.loads((ART/"messages.json").read_text(encoding="utf8"))
+    texts.update(json.loads((ART/"floor-copy.json").read_text(encoding="utf8")))
+    texts.update({
+        "% 轻": "% 光明世界",
+        "Antecedentes del Mundo Oscuro": "Fondo del Mundo Oscuro",
+        "Desliza para moverte; acérquese para leer los detalles.": "Desliza para moverte y amplía el mapa para ver los detalles.",
+        "ズームマップ": "地図を拡大",
+        "缩放地图": "放大地图",
+        "适合整个地图": "显示完整地图",
+    })
     # Static HTML attributes and rendered React text may both use entity escapes.
     for old,new in list(texts.items()):
         for quote in (False,True):
@@ -309,6 +324,7 @@ def apply(root: Path):
         path.write_text(svg,encoding="utf8")
         w,h=(800,480) if name.startswith("dungeon-") else (1000,1000)
         rows.append({"file":name,"locale":language,"url":SCHEMATICS+relative,"width":w,"height":h})
+    painted = painted_world.publish(root)
     doc={"source":NOTES,"credit":"Hyrule Atlas","permission":"Original editorial maps and walkthrough diagrams by Hyrule Atlas.",
          "method":{"en":"Terrain is illustrative. Guide pins retain the locations recorded over Ian Albert’s map. Dungeon plans use documented SNES rooms, items and passages without distances. Solid lines show direct passages and dotted lines show guide order. Floors without enough facts retain the walkthrough highlights.",
                    "fr":"Le relief est illustratif. Les repères gardent les positions relevées sur l’assemblage d’Ian Albert. Les schémas de donjon indiquent des salles, objets et passages documentés pour la Super NES, sans échelle. Les traits pleins montrent les passages directs et les pointillés l’ordre de la soluce. Les étages insuffisamment documentés gardent le récapitulatif de la soluce.",
@@ -316,8 +332,9 @@ def apply(root: Path):
                    "ja":"地形はイメージです。地点にはイアン・アルバートの地図に付けた既存の座標を使用しています。SFC版の部屋・アイテム・通路の確認済み情報を縮尺なしで示します。実線は直接の通路、点線は攻略順です。",
                    "zh":"地形为示意。标记沿用在 Ian Albert 地图上设定的位置。迷宫示意图标明有出处的 SFC 版房间、道具和通道，不按比例绘制。实线为直接通道，虚线为攻略顺序。"},
          "historical_reference":LEGACY_SOURCE,
+         "companion": {"name":"Kuni", "provenance":NEW+"kuni-provenance.json"},
          "dungeon_plans": {"edition":"SNES", "scale":"schematic",
-                           "sources":plan_sources, "dungeons":plans}, "assets":rows}
+                           "sources":plan_sources, "dungeons":plans}, "painted_relief":painted, "assets":rows}
     (out/"provenance.json").write_text(json.dumps(doc,indent=2,ensure_ascii=False)+"\n",encoding="utf8")
     # Keep the original manifest's presentation order: it also supplies the default selected
     # floor for the one tower whose published range starts above 1F.
@@ -359,8 +376,6 @@ def apply(root: Path):
             if 'className:`alttp-floor ' in s:
                 s = _floor_js(s, route_data)
             s=clean_floor_ext.sub(r'\1.svg\2',s)
-            s=re.sub(r"Le Miroir compare la géographie ; les repères restent ceux du \$\{[^}]+\}\.",
-                     "Le Miroir superpose les deux cartes. Les repères indiquent les accès du monde actif.",s)
         relevant=tuple(k for k in keys if k in s)
         if relevant:
             s=_pattern(relevant).sub(lambda m:mapping[m[0]],s)
@@ -375,7 +390,12 @@ def apply(root: Path):
         if p.suffix==".html":
             s=size.sub(lambda m:re.sub(r'\b(width|height)="\d+"',lambda a:'width="800"' if a[1]=='width' else 'height="480"',m[0]),s)
             locale = p.relative_to(root).parts[0]
-            s = _floor_html(s, locale if locale in LANGUAGES else "en", walkthroughs)
+            language = locale if locale in LANGUAGES else "en"
+            s = _floor_html(s, language, walkthroughs)
+            if 'class="alttp-world-image' in s:
+                s = painted_world.update_html(s, language, painted["worlds"])
+        elif p.suffix == ".js" and 'className:`alttp-world-image' in s:
+            s = painted_world.update_js(s, painted["worlds"])
         revised=s.encode("utf8")
         if content!=revised:
             p.write_bytes(revised)

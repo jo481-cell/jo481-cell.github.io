@@ -1,0 +1,19 @@
+{
+  "name": "Kuni",
+  "credit": "Hyrule Atlas",
+  "study": "Hyrule Atlas Antigravity prototype v2, 2026-11-22",
+  "concept": "Piste 3 · L’Éclaireuse",
+  "original": {
+    "file": "eclaireuse_atlas_mascot_1795388446757.jpg",
+    "sha256": "4e9a108cdac9a276f59cb3066ea93248a77f79882fe50030372da0b1e30ed927"
+  },
+  "source": {
+    "file": "fee-proto-3-synthese-transparent.png",
+    "sha256": "484f16a99965c6c895162a876990b5756848e0bd5ce6f77b69c8e8dcec65c3fb"
+  },
+  "derivative": {
+    "format": "WebP with alpha",
+    "dimensions": [320, 429],
+    "sha256": "8da0c75182a1564af740200b303de47fcc3ded22004389dfc1fbc6405cd933b0"
+  }
+}

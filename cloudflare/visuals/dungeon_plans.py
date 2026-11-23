@@ -1,5 +1,6 @@
 """Draw editorial circulation plans from documented SNES room and passage facts."""
 
+from collections import defaultdict, deque
 from html import escape
 import json
 import math
@@ -24,7 +25,21 @@ DIRECTIONS = {
     "northeast": ("northeast", "nord-est", "noreste", "北東", "东北"), "northwest": ("northwest", "nord-ouest", "noroeste", "北西", "西北"),
     "southeast": ("southeast", "sud-est", "sureste", "南東", "东南"), "southwest": ("southwest", "sud-ouest", "suroeste", "南西", "西南"),
 }
-SYMBOLS = {"entry": "→", "room": "·", "chest": "◇", "key": "⌑", "boss": "✦", "exit": "↗", "switch": "□", "junction": "○"}
+BEARINGS = {
+    "north": (0, -1), "south": (0, 1), "east": (1, 0), "west": (-1, 0),
+    "northeast": (1, -1), "northwest": (-1, -1), "southeast": (1, 1), "southwest": (-1, 1),
+}
+ROOM_STYLE = {
+    # Field, accent and icon in a 16-by-16 coordinate system.
+    "entry": ("#1d3731", "#a2d2ad", "M3 8h10m-4-4 4 4-4 4"),
+    "room": ("#1d3432", "#a8c4b6", "M3 4h10v8H3z"),
+    "chest": ("#3c3422", "#f3d38a", "M2 7h12v6H2zM3 7V5l2-2h6l2 2v2M7 7v3h2V7"),
+    "key": ("#3d2e24", "#edba8b", "M7 7h7m-2 0v3m-2-3v2M7 7a2.5 2.5 0 1 1-5 0 2.5 2.5 0 1 1 5 0"),
+    "boss": ("#3b2729", "#f8ab95", "M8 2l1.5 4.5L14 8l-4.5 1.5L8 14 6.5 9.5 2 8l4.5-1.5z"),
+    "exit": ("#20383b", "#a9d2e0", "M3 12l9-9M6 3h6v6"),
+    "switch": ("#233733", "#b6ceaa", "M3 3h10v10H3zM6 8h4m-2-2v4"),
+    "junction": ("#1d3432", "#a8c4b6", "M2 8h10M8 4v8m2-6 2 2-2 2"),
+}
 IDENTIFIER = re.compile(r"[a-z0-9][a-z0-9-]*\Z")
 
 
@@ -94,8 +109,48 @@ def _edge(start, end, width, height):
             end[0] - dx * clip, end[1] - dy * clip)
 
 
-def _positions(stops):
+def _directional_cells(stops, links):
+    """Use compass positions only when documented doors determine every room."""
+    local_links = [link for link in links if not link.get("otherFloor")]
+    if len(stops) < 2 or any(link["kind"] != "door" or "direction" not in link for link in local_links):
+        return {}
+    neighbors = defaultdict(list)
+    for link in local_links:
+        a, b = link["from"], link["to"]
+        dx, dy = BEARINGS[link["direction"]]
+        neighbors[a].append((b, dx, dy))
+        neighbors[b].append((a, -dx, -dy))
+
+    first = stops[0]["id"]
+    pending, cells = deque([first]), {first: (0, 0)}
+    while pending:
+        key = pending.popleft()
+        x, y = cells[key]
+        for target, dx, dy in neighbors[key]:
+            position = (x + dx, y + dy)
+            if target not in cells:
+                cells[target] = position
+                pending.append(target)
+            elif cells[target] != position:
+                return {}
+    if len(set(cells.values())) != len(stops):
+        return {}
+    xs, ys = zip(*cells.values())
+    columns, rows = max(xs) - min(xs) + 1, max(ys) - min(ys) + 1
+    if columns > 4 or rows > 4:
+        return {}
+    return {key: (x - (min(xs) + max(xs)) / 2, y - (min(ys) + max(ys)) / 2)
+            for key, (x, y) in cells.items()}
+
+
+def _positions(stops, bearings):
     count = len(stops)
+    if bearings:
+        xs, ys = zip(*bearings.values())
+        columns, rows = int(max(xs) - min(xs) + 1), int(max(ys) - min(ys) + 1)
+        cell_width, cell_height = 736 / columns, 326 / rows
+        points = {stop: (400 + x * cell_width, 231 + y * cell_height) for stop, (x, y) in bearings.items()}
+        return points, min(286, cell_width - 44), min(73, cell_height - 23)
     columns = min(count, 2 if count <= 6 else 3 if count <= 12 else 4)
     rows = math.ceil(count / columns)
     cell_width = 736 / columns
@@ -116,37 +171,45 @@ def _positions(stops):
 def drawing(title, floor, language, facts):
     heading, _, connected, order, *_ = WORDS[language]
     stops, links = facts["stops"], facts["links"]
-    points, width, height = _positions(stops)
-    arrows, bearings, cards = [], [], []
+    bearing_cells = _directional_cells(stops, links)
+    points, width, height = _positions(stops, bearing_cells)
+    corridors, arrows, bearings, cards = [], [], [], []
     for link in links:
         if link.get("otherFloor") is not None:
             continue
         x1, y1, x2, y2 = _edge(points[link["from"]], points[link["to"]], width, height)
         planned = link["kind"] == "sequence"
-        dash = ' stroke-dasharray="4 5"' if planned else ""
-        color = "#879d88" if planned else "#daca9a"
-        arrows.append(f'<path d="M{x1:.1f} {y1:.1f}L{x2:.1f} {y2:.1f}" stroke="{color}"{dash} marker-end="url(#arrow)"/>')
+        path = f"M{x1:.1f} {y1:.1f}L{x2:.1f} {y2:.1f}"
+        dash = ' stroke-dasharray="5 5"' if planned else ""
+        color = "#c4a974" if planned else "#f0d297"
+        if link["kind"] == "door":
+            corridors.append(f'<path d="{path}" stroke="#476d61" stroke-width="9"/>')
+        arrow = "sequence" if planned else "arrow"
+        arrows.append(f'<path d="{path}" stroke="{color}"{dash} marker-end="url(#{arrow})"/>')
         direction = link.get("direction")
-        if direction:
+        if direction and bearing_cells:
             label = DIRECTIONS[direction][LANGUAGES.index(language)]
             x, y = (x1 + x2) / 2, (y1 + y2) / 2
+            if y1 == y2:
+                y -= 14
             half = 5 + _units(label) * 3.6
-            bearings.append(f'<rect x="{x-half:.1f}" y="{y-10:.1f}" width="{half*2:.1f}" height="20" rx="3" fill="#182a23"/>'
+            bearings.append(f'<rect x="{x-half:.1f}" y="{y-10:.1f}" width="{half*2:.1f}" height="20" rx="3" fill="#122624"/>'
                             f'<text x="{x:.1f}" y="{y+4:.1f}" text-anchor="middle" font-size="13" fill="#f1d5a1">{escape(label)}</text>')
     for stop in stops:
         x, y = points[stop["id"]]
         label = stop["labels"][language]
         floors = sorted({link["otherFloor"] for link in links if link["from"] == stop["id"] and link.get("otherFloor")})
-        fill = "#49362c" if stop["kind"] == "boss" else "#374d3f"
+        fill, accent, icon = ROOM_STYLE[stop["kind"]]
         lines = _lines(label, int((width - 26) / 10))
         level = ' · '.join(floors)
         left = x - width / 2
-        text_x = left + 30
-        cards.append(f'<g><title>{escape(label)}</title><rect x="{left:.1f}" y="{y-height/2:.1f}" width="{width:.1f}" height="{height:.1f}" rx="5" fill="{fill}" stroke="#9ba480"/>')
-        cards.append(f'<text x="{left+10:.1f}" y="{y+5:.1f}" fill="#e9c989" font-size="17">{SYMBOLS[stop["kind"]]}</text>')
+        top = y - height / 2
+        text_x = left + 35
+        cards.append(f'<g><title>{escape(label)}</title><rect x="{left:.1f}" y="{top:.1f}" width="{width:.1f}" height="{height:.1f}" rx="5" fill="{fill}" stroke="{accent}" stroke-opacity=".8"/>')
+        cards.append(f'<path d="{icon}" transform="translate({left+11:.1f} {y-8:.1f})" fill="none" stroke="{accent}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>')
         for index, line in enumerate(lines):
             baseline = y + (13 if not level else 5) + (index - len(lines) + 1) * 19
-            sizing = f' textLength="{width-40:.1f}" lengthAdjust="spacingAndGlyphs"' if _units(line) * 9 > width - 40 else ""
+            sizing = f' textLength="{width-44:.1f}" lengthAdjust="spacingAndGlyphs"' if _units(line) * 9 > width - 44 else ""
             cards.append(f'<text x="{text_x:.1f}" y="{baseline:.1f}"{sizing}>{escape(line)}</text>')
         if level:
             cards.append(f'<text x="{text_x:.1f}" y="{y+21:.1f}" fill="#e9c989" font-size="13">↕ {escape(level)}</text>')
@@ -154,16 +217,17 @@ def drawing(title, floor, language, facts):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" xml:lang="{language}">'
             f'<title>{escape(title)} · {floor} · {escape(heading)}</title>'
             f'<desc>{escape("; ".join(stop["labels"][language] for stop in stops))}</desc>'
-            '<defs><pattern id="paper" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M26 0H0V26" fill="none" stroke="#899574" stroke-opacity=".13"/></pattern>'
-            '<marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1l6 3-6 3" fill="none" stroke="#dac79a" stroke-width="1.3"/></marker></defs>'
-            '<rect width="800" height="480" fill="#182a23"/><rect x="16" y="16" width="768" height="448" fill="url(#paper)" stroke="#52694e"/>'
-            '<path d="M30 70H770M30 415H770" stroke="#52694e"/>'
+            '<defs><pattern id="paper" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M26 0H0V26" fill="none" stroke="#729483" stroke-opacity=".17"/></pattern>'
+            '<marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1l6 3-6 3" fill="none" stroke="#f0d297" stroke-width="1.3"/></marker>'
+            '<marker id="sequence" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1l6 3-6 3" fill="none" stroke="#c4a974" stroke-width="1.3"/></marker></defs>'
+            '<rect width="800" height="480" fill="#122624"/><rect x="16" y="16" width="768" height="448" fill="url(#paper)" stroke="#527166"/>'
+            '<path d="M30 70H770M30 415H770" stroke="#527166"/>'
             '<g font-family="system-ui,sans-serif" fill="#f2ecd9" font-size="17" font-weight="600">'
-            f'<text x="37" y="50" font-size="26" fill="#e9c989">{floor}</text><text x="111" y="49" font-size="22">{escape(heading)}</text>'
-            f'<g fill="none" stroke-width="2">{"".join(arrows)}</g>{"".join(cards)}{"".join(bearings)}'
-            '<path d="M42 442H88" stroke="#daca9a" stroke-width="2" marker-end="url(#arrow)"/>'
+            f'<text x="37" y="50" font-size="26" fill="#e9c989">{floor}</text><text x="111" y="49" font-family="Georgia,serif" font-size="25">{escape(heading)}</text>'
+            f'<g fill="none" stroke-width="2">{"".join(corridors)}{"".join(arrows)}</g>{"".join(cards)}{"".join(bearings)}'
+            '<path d="M42 442H88" stroke="#476d61" stroke-width="9"/><path d="M42 442H88" stroke="#f0d297" stroke-width="2" marker-end="url(#arrow)"/>'
             f'<text x="103" y="449" fill="#cbd6c1">{escape(connected)}</text>'
-            '<path d="M414 442H460" stroke="#879d88" stroke-width="2" stroke-dasharray="4 5" marker-end="url(#arrow)"/>'
+            '<path d="M414 442H460" stroke="#c4a974" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#sequence)"/>'
             f'<text x="475" y="449" fill="#cbd6c1">{escape(order)}</text></g></svg>')
 
 

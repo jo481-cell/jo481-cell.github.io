@@ -12,9 +12,11 @@ FINGERPRINTED_BUNDLE = re.compile(rf"{BUNDLE_STEM}-[A-Za-z0-9_-]{{8,}}\.(?:js|cs
 BUNDLE_REFERENCE = re.compile(rf"(?<![.\w-]){BUNDLE_STEM}\.(?:js|css)(?![.\w-])".encode("ascii"))
 EDITION_URL = re.compile(rf"/assets/{BUNDLE_STEM}-edition-[0-9a-f]{{16}}\.(?:js|css)")
 STUDIO_STYLE = re.compile(r"studio-([0-9a-f]{16})\.css")
+COMPANION_ASSET = re.compile(r"kuni-([0-9a-f]{16})\.webp")
 CHART_URL = re.compile(
-    r"/assets/atlas-charts/(?:terrain|plans|schematics)/(?:en|fr|es|ja|zh)/"
-    r"(?:light|dark|places|dungeon-[A-Z]\d?-(?:B\d+|\d+F))\.svg"
+    r"/assets/atlas-charts/(?:(?:terrain|plans(?:-v\d+)?|schematics)/(?:en|fr|es|ja|zh)/"
+    r"(?:light(?:-labels)?|dark(?:-labels)?|places|dungeon-[A-Z]\d?-(?:B\d+|\d+F))\.svg|"
+    r"painted/(?:light|dark)-[0-9a-f]{16}\.webp)"
 )
 CHART_CREDIT = "Original editorial maps and walkthrough diagrams by Hyrule Atlas."
 MAX_ASSET_SIZE = 25 * 1024 * 1024
@@ -129,14 +131,22 @@ def retain_previous_assets(root: Path, previous: Path, *, retain_dotted=False) -
     for chart in provenance["assets"]:
         if CHART_URL.fullmatch(chart["url"]):
             paths.add(chart["url"][1:])
+    for chart in provenance.get("painted_relief", {}).get("worlds", {}).values():
+        if CHART_URL.fullmatch(chart["url"]):
+            paths.add(chart["url"][1:])
+
+    for path in (previous / "assets/atlas-charts").glob("kuni-*.webp"):
+        if COMPANION_ASSET.fullmatch(path.name):
+            paths.add(path.relative_to(previous).as_posix())
 
     copied = []
     for relative in sorted(paths):
         data = _read_asset(previous / relative)
         digest = sha256(data).hexdigest()
         studio_digest = STUDIO_STYLE.fullmatch(Path(relative).name)
-        if studio_digest and not digest.startswith(studio_digest[1]):
-            raise ValueError(f"Previous Pages stylesheet fingerprint differs: {relative}")
+        fingerprint = studio_digest or COMPANION_ASSET.fullmatch(Path(relative).name)
+        if fingerprint and not digest.startswith(fingerprint[1]):
+            raise ValueError(f"Previous Pages asset fingerprint differs: {relative}")
         dest = root / relative
         _require_ordinary_path(dest)
         if dest.exists():
