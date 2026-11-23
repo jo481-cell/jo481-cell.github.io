@@ -55,11 +55,13 @@ def font_licenses(root):
 
 
 def font_license_markup(licenses):
-    return "".join(
+    notices = "".join(
         f'<details class="archive-font-license"><summary>{entry["name"]} · SIL Open Font License</summary>'
         f'<pre id="{entry["id"]}" lang="en">{escape(entry["notice"], quote=False)}</pre></details>'
         for entry in licenses
     )
+    # Preserve the exact copyright notices while Cloudflare protects emails elsewhere.
+    return "<!--email_off-->" + notices + "<!--/email_off-->"
 
 
 def add_font_licenses_to_source(source, markup, path):
