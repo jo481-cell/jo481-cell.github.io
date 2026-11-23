@@ -49,6 +49,11 @@
   display: flow-root;
 }
 
+.atlas-lead--compact .atlas-section-art > figcaption,
+.atlas-lead--compact .atlas-section-art > figcaption a {
+  color: var(--studio-paper, #f0e8d3);
+}
+
 .alttp-map-entry-intro .atlas-section-art {
   float: inline-end;
   width: min(29%, 17rem);
