@@ -1,0 +1,35 @@
+{
+  "credit": "Hyrule Atlas",
+  "method": "Original photorealistic editorial illustrations generated with built-in OpenAI ImageGen from text prompts. Masters converted to WebP with Lanczos downsampling.",
+  "role": "Fictional locations and a field compass illustrated for the home page",
+  "assets": [
+    {
+      "file": "castle.webp",
+      "subject": "Medieval stone castle, arched bridge, wooded river valley",
+      "master": "exec-c8e6acc6-d48e-4776-9338-d32c0c00fd2e.png",
+      "masterSha256": "92b4f1b4227b93eb3612b410adb98c36694096909d1ea74348f5426ccd443b6e",
+      "sha256": "e67e3aae56b41f8501fdd23884145b721149b48b98f4549150a045eb921998d7"
+    },
+    {
+      "file": "village.webp",
+      "subject": "Small hillside village, cobbled lane, stone well and orchards",
+      "master": "exec-b458753d-93a5-407d-a716-720ea4633f17.png",
+      "masterSha256": "e575addac4622da397cbba8b23f76695285933ddf18d9ce52c0902e693d8d693",
+      "sha256": "93cbf9b98f0d015eca22c16886f05db9d7b229cb3e4177d60e82098fcd4d5371"
+    },
+    {
+      "file": "lake.webp",
+      "subject": "Freshwater lake with a wooded island and stone landing",
+      "master": "exec-47c85fc7-e577-476b-a948-2ed1d21da634.png",
+      "masterSha256": "d01e86b189a84edcd32cd696cec8f89de5b11c96cc1cf4cb026ba39423a7cb81",
+      "sha256": "53307bc44c02851900b3ff68394bfefa76da3516cb6ad5a683cd2f8c06dfc7a8"
+    },
+    {
+      "file": "compass.webp",
+      "subject": "Antique open brass compass on dark green wool",
+      "master": "exec-a9a6fdaa-1e97-4388-bbb8-1074bc54a8b2.png",
+      "masterSha256": "534e37117985b03fb2872a4cef759f18037881e3ebdf1d0873bf4fb1b197b177",
+      "sha256": "3eb6893dfcda49b50d74b7596c073f00e91342d25d9d199bae3ca473e454554f"
+    }
+  ]
+}

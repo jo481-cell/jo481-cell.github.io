@@ -1,0 +1,47 @@
+{
+  "en": {
+    "places": ["Hyrule Castle", "Kakariko", "Lake Hylia"],
+    "alt": ["A stone fortress rising over a green river valley", "A village of timber houses and orchards at the foot of a hill", "A still lake between green hills and distant mountains"],
+    "choose": "Choose a place to view",
+    "map": "Open the interactive map",
+    "compass": "A brass field compass",
+    "credit": "Illustration credits",
+    "creditEntry": ["Homepage illustrations", "The castle, village, lake and brass compass are original Hyrule Atlas illustrations created with generative AI. The landscapes are imaginative interpretations of fictional places."]
+  },
+  "fr": {
+    "places": ["Château d’Hyrule", "Cocorico", "Lac Hylia"],
+    "alt": ["Une forteresse de pierre qui domine une vallée verdoyante", "Un village de maisons à colombages et de vergers au pied d’une colline", "Un lac paisible entre des collines vertes et des montagnes au loin"],
+    "choose": "Choisir un lieu à voir",
+    "map": "Ouvrir la carte interactive",
+    "compass": "Une boussole de terrain en laiton",
+    "credit": "Crédits de l’illustration",
+    "creditEntry": ["Illustrations de l’accueil", "Le château, le village, le lac et la boussole de laiton sont des illustrations originales de Hyrule Atlas réalisées avec l’IA générative. Les paysages interprètent librement des lieux fictifs."]
+  },
+  "es": {
+    "places": ["Castillo de Hyrule", "Kakariko", "Lago Hylia"],
+    "alt": ["Una fortaleza de piedra que domina un valle verde", "Una aldea con casas de entramado de madera y huertos al pie de una colina", "Un lago tranquilo entre colinas verdes y montañas lejanas"],
+    "choose": "Elegir un lugar para ver",
+    "map": "Abrir el mapa interactivo",
+    "compass": "Una brújula de campo de latón",
+    "credit": "Créditos de la ilustración",
+    "creditEntry": ["Ilustraciones de la portada", "El castillo, la aldea, el lago y la brújula de latón son ilustraciones originales de Hyrule Atlas creadas con IA generativa. Los paisajes interpretan libremente lugares ficticios."]
+  },
+  "ja": {
+    "places": ["ハイラル城", "カカリコ村", "ハイリア湖"],
+    "alt": ["緑の渓谷を見渡す石造りの要塞", "丘のふもとに木造の家々と果樹園が並ぶ村", "緑の丘と遠くの山々に囲まれた静かな湖"],
+    "choose": "表示する場所を選ぶ",
+    "map": "インタラクティブ地図を開く",
+    "compass": "真鍮製の野外用コンパス",
+    "credit": "イラストのクレジット",
+    "creditEntry": ["トップページのイラスト", "城、村、湖、真鍮のコンパスは、Hyrule Atlasが生成AIを使って制作したオリジナルイラストです。風景は架空の場所を自由に解釈したものです。"]
+  },
+  "zh": {
+    "places": ["海拉鲁城堡", "卡卡利科村", "海利亚湖"],
+    "alt": ["一座俯瞰青翠河谷的石砌城堡", "山脚下有木结构房屋与果园的村庄", "一片静卧于绿色丘陵与远山之间的湖泊"],
+    "choose": "选择要查看的地点",
+    "map": "打开交互地图",
+    "compass": "一只黄铜野外指南针",
+    "credit": "插画署名",
+    "creditEntry": ["首页插画", "城堡、村庄、湖泊和黄铜指南针是 Hyrule Atlas 使用生成式人工智能制作的原创插画。风景是对虚构地点的自由诠释。"]
+  }
+}

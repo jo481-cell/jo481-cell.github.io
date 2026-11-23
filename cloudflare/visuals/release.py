@@ -12,6 +12,7 @@ FINGERPRINTED_BUNDLE = re.compile(rf"{BUNDLE_STEM}-[A-Za-z0-9_-]{{8,}}\.(?:js|cs
 BUNDLE_REFERENCE = re.compile(rf"(?<![.\w-]){BUNDLE_STEM}\.(?:js|css)(?![.\w-])".encode("ascii"))
 EDITION_URL = re.compile(rf"/assets/{BUNDLE_STEM}-edition-[0-9a-f]{{16}}\.(?:js|css)")
 STUDIO_STYLE = re.compile(r"studio-([0-9a-f]{16})\.css")
+STUDIO_LANDMARK = re.compile(r"(?:home-landmarks-([0-9a-f]{12})\.js|(?:castle|village|lake|compass)-([0-9a-f]{12})\.webp)")
 COMPANION_ASSET = re.compile(r"kuni-([0-9a-f]{16})\.webp")
 CHART_URL = re.compile(
     r"/assets/atlas-charts/(?:(?:terrain|plans(?:-v\d+)?|schematics)/(?:en|fr|es|ja|zh)/"
@@ -120,9 +121,8 @@ def retain_previous_assets(root: Path, previous: Path, *, retain_dotted=False) -
 
     studio = assets / "studio"
     _require_ordinary_path(studio)
-    for path in studio.glob("studio-*.css"):
-        match = STUDIO_STYLE.fullmatch(path.name)
-        if match:
+    for path in studio.glob("*"):
+        if STUDIO_STYLE.fullmatch(path.name) or STUDIO_LANDMARK.fullmatch(path.name):
             paths.add(path.relative_to(previous).as_posix())
 
     provenance = json.loads(_read_asset(previous / "assets/atlas-charts/provenance.json"))
@@ -143,9 +143,9 @@ def retain_previous_assets(root: Path, previous: Path, *, retain_dotted=False) -
     for relative in sorted(paths):
         data = _read_asset(previous / relative)
         digest = sha256(data).hexdigest()
-        studio_digest = STUDIO_STYLE.fullmatch(Path(relative).name)
-        fingerprint = studio_digest or COMPANION_ASSET.fullmatch(Path(relative).name)
-        if fingerprint and not digest.startswith(fingerprint[1]):
+        name = Path(relative).name
+        fingerprint = STUDIO_STYLE.fullmatch(name) or STUDIO_LANDMARK.fullmatch(name) or COMPANION_ASSET.fullmatch(name)
+        if fingerprint and not digest.startswith(next(group for group in fingerprint.groups() if group)):
             raise ValueError(f"Previous Pages asset fingerprint differs: {relative}")
         dest = root / relative
         _require_ordinary_path(dest)
