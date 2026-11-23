@@ -141,6 +141,10 @@ def apply(root: Path):
             title, description = home_copy[lang]["creditEntry"]
             credits.update({html.unescape(old[2]): title, html.unescape(old[4]): description})
             source = source[:old.start()] + old[1] + html.escape(title) + old[3] + html.escape(description) + old[5] + source[old.end():]
+            source = source.replace(
+                f'<a href="#record-6"><b>06</b> <!-- -->{old[2]}</a>',
+                f'<a href="#record-6"><b>06</b> <!-- -->{html.escape(title)}</a>',
+            )
         if "</head>" not in source:
             raise ValueError(f"Missing head in {path}")
         path.write_bytes(source.replace("</head>", link + "</head>", 1).encode("utf-8"))
