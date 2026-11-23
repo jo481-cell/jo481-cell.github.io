@@ -20,7 +20,9 @@ MAP_ENTRIES = ("/map/instagram/", "/map/tiktok/")
 REMAKE = "ocarina-of-time-remake"
 CLASSIC = "zelda-64"
 LAKE = "alttp-lake"
+DARK_WORLD = "alttp-dark-world"
 ALTTP_GUIDE = "/series/a-link-to-the-past/"
+SUPPLEMENTAL_COVERS = {LAKE: ALTTP_GUIDE, DARK_WORLD: "/games/"}
 COMPACT = {"ocarina", "search"}
 DIRECTORY = {"guides": "games", "remake": REMAKE, "discover": "blog", "community": "forum"}
 SIZE = (1440, 960)
@@ -58,8 +60,8 @@ def source_url(lang):
 
 
 def cover_pages(slug):
-    if slug == LAKE:
-        return (ALTTP_GUIDE,)
+    if slug in SUPPLEMENTAL_COVERS:
+        return (SUPPLEMENTAL_COVERS[slug],)
     if slug == "map":
         return MAP_ENTRIES
     if slug == CLASSIC:
@@ -80,7 +82,7 @@ def publish_images(root):
         body = source.read_bytes()
         digest = sha256(body).hexdigest()
         width, height = editorial.webp_size(source)
-        if (source.name != record["file"] or (slug != LAKE and (width, height) != SIZE) or
+        if (source.name != record["file"] or (slug not in SUPPLEMENTAL_COVERS and (width, height) != SIZE) or
                 (width, height, len(body), digest) != (record["width"], record["height"], record["bytes"], record["sha256"])):
             raise ValueError(f"Image metadata and file differ for {slug}")
         if digest in used or not re.fullmatch(r"[0-9a-f]{64}", record["originalSha256"]):
@@ -111,9 +113,10 @@ def fingerprinted(output, stem, ext, data):
 
 def prepare_public_files(root, covers):
     assets = root / ART_DIR.strip("/")
-    routes = {cover["page"].rstrip("/"): slug for slug, cover in covers.items() if slug != LAKE}
+    routes = {cover["page"].rstrip("/"): slug for slug, cover in covers.items() if slug not in SUPPLEMENTAL_COVERS}
     routes[MAP_ENTRIES[1].rstrip("/")] = "map"
-    public_covers = {slug: {key: row[key] for key in ("src", "alt", "width", "height")} for slug, row in covers.items()}
+    public_covers = {slug: {key: row[key] for key in ("src", "alt", "width", "height")}
+                     for slug, row in covers.items() if slug != DARK_WORLD}
     data = (
         f"const covers={editorial.compact(public_covers)};\n"
         f"const routes={editorial.compact(routes)};\n"
@@ -369,7 +372,7 @@ def apply(root: Path):
     stylesheet_tag = f'<link rel="stylesheet" href="{ART_DIR}{stylesheet}"/>'
     for lang in LANGUAGES:
         localized_root = root if lang == "en" else root / lang
-        for slug in covers.keys() - {"map"}:
+        for slug in covers.keys() - {"map", DARK_WORLD}:
             page = localized_root / cover_pages(slug)[0].strip("/") / "index.html"
             markup = patch_page(page, covers, slug, lang)
             if slug == "sources":
@@ -391,3 +394,4 @@ def apply(root: Path):
     patched = {patch_script(path, filename) for path in (root / "assets").glob("*.js") if path.name.startswith(prefixes)}
     if not {"archive", "site", "index", "ocarina", "alttp", "sources"}.issubset(patched):
         raise ValueError(f"An illustration client renderer was not found: {patched}")
+    return covers[DARK_WORLD]

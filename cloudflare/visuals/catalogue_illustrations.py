@@ -45,15 +45,27 @@ CREDITS = {
     "zh": "目录中的 21 张插画由生成式人工智能为 Hyrule Atlas 创作，描绘想象中的场景与物件。",
 }
 FEATURE_CREDIT = {
-    "en": "Original map and illustration · Hyrule Atlas",
-    "fr": "Carte et illustration originales · Hyrule Atlas",
-    "es": "Mapa e ilustración originales · Hyrule Atlas",
-    "ja": "オリジナルの地図とイラスト · Hyrule Atlas",
-    "zh": "原创地图与插画 · Hyrule Atlas",
+    "en": "Original illustration · Hyrule Atlas",
+    "fr": "Illustration originale · Hyrule Atlas",
+    "es": "Ilustración original · Hyrule Atlas",
+    "ja": "オリジナルイラスト · Hyrule Atlas",
+    "zh": "原创插画 · Hyrule Atlas",
 }
+FEATURE_PLATE = re.compile(
+    r'(?:(?P<picture><picture>\s*<source\b[^>]*>\s*))?'
+    r'<img class="alttp-featured__original"[^>]*>(?(picture)\s*</picture>)'
+)
+FEATURE_THUMB = re.compile(r'<img class="alttp-featured__thumbnail"[^>]*>')
 FEATURE_CAPTION = re.compile(r'(<figure class="alttp-featured__art"[^>]*>.*?<figcaption>)[^<]+(</figcaption>)', re.S)
+FEATURE_BUNDLE_PLATE = re.compile(
+    r'(?P<picture>[\w$]+\(`picture`,\{children:\[[\w$]+\(`source`,\{[^{}]*\}\),)?'
+    r'(?P<img>[\w$]+)\(`img`,\{className:`alttp-featured__original`,src:`[^`]+`,[^{}]+\}\)'
+    r'(?(picture)\]\}\))'
+)
+FEATURE_BUNDLE_THUMB = re.compile(r'[\w$]+\(`img`,\{className:`alttp-featured__thumbnail`,[^{}]+\}\),')
 FEATURE_BUNDLE_CAPTION = re.compile(
-    r'(?P<lead>className:`alttp-featured__art`.{0,1400}?`figcaption`,\{children:)(?:`[^`]+`|"[^\"]+")'
+    r'(?P<lead>className:`alttp-featured__art`.{0,900}?`figcaption`,\{children:)'
+    r'(?:`[^`]+`|"[^"]+"|[\w$]+\.credit)'
 )
 CATALOGUE_CREDIT_SECTION = re.compile(r'(<section id="record-5">.*?</h2><p>)[^<]+(</p>)', re.S)
 CATALOGUE_CREDIT_BUNDLE = re.compile(r'(heading:`Editorial catalogue`,paragraphs:\[)(?:`[^`]+`|"[^\"]+")')
@@ -134,7 +146,7 @@ def game_metadata_route(parts, covers):
     return None
 
 
-def patch_page(source, locale, route, covers):
+def patch_page(source, locale, route, covers, feature):
     game = game_metadata_route(route, covers)
     images = {}
     if game and f'property="og:image" content="{SITE}/assets/original/forest-fairy.png"' in source:
@@ -163,7 +175,13 @@ def patch_page(source, locale, route, covers):
     source = COVER_URI.sub(lambda m: covers[m["slug"]]["src"], source)
     source = SRCSET_WIDTH.sub(lambda m: f"{m[1]} {SIZE[0]}w", source)
     if route == ("games",):
-        source = FEATURE_CAPTION.sub(lambda m: m[1] + escape(FEATURE_CREDIT[locale]) + m[2], source)
+        banner = (f'<img class="alttp-featured__original" src="{feature["src"]}" '
+                  f'width="{feature["width"]}" height="{feature["height"]}" alt="" loading="lazy"/>')
+        source, images = FEATURE_PLATE.subn(banner, source)
+        source, thumbnails = FEATURE_THUMB.subn("", source)
+        source, captions = FEATURE_CAPTION.subn(lambda m: m[1] + escape(FEATURE_CREDIT[locale]) + m[2], source)
+        if (images, thumbnails, captions) != (1, 1, 1):
+            raise ValueError(f"Could not update the ALttP catalogue feature for {locale}")
     elif route == ("sources",):
         source, count = CATALOGUE_CREDIT_SECTION.subn(
             lambda m: m[1] + escape(CREDITS[locale]) + m[2], source,
@@ -173,7 +191,20 @@ def patch_page(source, locale, route, covers):
     return source
 
 
-def patch_bundles(root, covers, module_name):
+def patch_feature_bundle(source, feature, path):
+    def image(match):
+        return (f'{match["img"]}(`img`,{{className:`alttp-featured__original`,src:{editorial.compact(feature["src"])},'
+                f'width:{feature["width"]},height:{feature["height"]},alt:``,loading:`lazy`}})')
+
+    source, images = FEATURE_BUNDLE_PLATE.subn(image, source)
+    source, thumbnails = FEATURE_BUNDLE_THUMB.subn("", source)
+    source, captions = FEATURE_BUNDLE_CAPTION.subn(lambda m: m["lead"] + f"({locale_value(FEATURE_CREDIT)})", source)
+    if (images, thumbnails, captions) != (1, 1, 1):
+        raise ValueError(f"Could not update the ALttP catalogue feature in {path.name}")
+    return source
+
+
+def patch_bundles(root, covers, module_name, feature):
     assets = root / "assets"
     metadata = {route: slug for slug in covers for route in
                 ([f"/{slug}", f"/series/{slug}"] if slug in ROOT_GAME_ROUTES else [f"/series/{slug}"])}
@@ -207,8 +238,8 @@ def patch_bundles(root, covers, module_name):
             if "catalogue-${(" in updated or COVER_URI.search(updated):
                 raise ValueError(f"Unreplaced game cover in {bundle.name}")
 
-        if bundle.name.startswith("series-"):
-            updated = FEATURE_BUNDLE_CAPTION.sub(lambda m: m["lead"] + f"({locale_value(FEATURE_CREDIT)})", updated)
+        if bundle.name.startswith("series-") and 'className:`alttp-featured__original`' in updated:
+            updated = patch_feature_bundle(updated, feature, bundle)
         if bundle.name.startswith("sources-"):
             updated = CATALOGUE_CREDIT_BUNDLE.sub(lambda m: m[1] + f"({locale_value(CREDITS)})", updated)
         if bundle.name.startswith("site-metadata-") and META_START.search(updated):
@@ -228,14 +259,14 @@ def patch_bundles(root, covers, module_name):
             editorial.save(bundle, updated)
 
 
-def apply(root):
+def apply(root, feature):
     """Run after section covers and the existing editorial replacement pass."""
     covers = stage_covers(root)
     module_name = stage_catalogue_module(root, covers)
     for page in root.rglob("*.html"):
         source = page.read_text(encoding="utf-8")
         locale, route = page_identity(root, page)
-        revised = patch_page(source, locale, route, covers)
+        revised = patch_page(source, locale, route, covers, feature)
         if revised != source:
             editorial.save(page, revised)
-    patch_bundles(root, covers, module_name)
+    patch_bundles(root, covers, module_name, feature)

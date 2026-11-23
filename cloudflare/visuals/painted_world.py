@@ -26,6 +26,23 @@ LAYER_JS = re.compile(r'(?P<jsx>\w+)\(`img`,(?=\{className:`alttp-world-image(?:
 CONTROLS_JS = re.compile(r'(?P<jsxs>\w+)\(`div`,\{className:`alttp-map-controls`')
 OPTIONS_HTML = '<div class="atlas-atmosphere">'
 OPTIONS_JS = re.compile(r'(?P<tag>\w+\(`div`,\{className:`atlas-atmosphere`)')
+PREVIEW_IMAGE = re.compile(r'<img class="atlas-living-map__world atlas-living-map__world--(?P<world>light|dark)"[^>]*>')
+PREVIEW_CREDIT = re.compile(r'(<footer class="atlas-living-map__footer"><a\b[^>]*>.*?</a><a\b[^>]*>)[^<]+(</a>)', re.S)
+PREVIEW_DATA_JS = re.compile(r'\{light:`/assets/alttp/light-world-preview\.webp`,dark:`/assets/alttp/dark-world-preview\.webp`\}')
+PREVIEW_IMAGE_JS = re.compile(
+    r'(?P<props>className:`atlas-living-map__world atlas-living-map__world--(?P<world>light|dark)`,'
+    r'src:[\w$]+\.(?P=world)),width:\d+,height:\d+',
+)
+PREVIEW_CREDIT_JS = re.compile(
+    r'(?P<credit>className:`atlas-living-map__footer`[^\n]{0,700}?rel:`noopener noreferrer`,children:)`[^`]+`',
+)
+PREVIEW_CREDITS = {
+    "en": "Painted maps · Hyrule Atlas",
+    "fr": "Cartes peintes · Hyrule Atlas",
+    "es": "Mapas pintados · Hyrule Atlas",
+    "ja": "地形イラスト · Hyrule Atlas",
+    "zh": "绘制地图 · Hyrule Atlas",
+}
 
 
 def publish(root):
@@ -45,6 +62,37 @@ def publish(root):
 
 def _src(worlds, world):
     return worlds[world]["url"]
+
+
+def update_preview_html(source, language, worlds):
+    def image(match):
+        world = match["world"]
+        row = worlds[world]
+        return (f'<img class="atlas-living-map__world atlas-living-map__world--{world}" '
+                f'src="{row["url"]}" width="{row["width"]}" height="{row["height"]}" alt="" loading="lazy"/>')
+
+    source, images = PREVIEW_IMAGE.subn(image, source)
+    source, credits = PREVIEW_CREDIT.subn(lambda m: m[1] + html.escape(PREVIEW_CREDITS[language]) + m[2], source)
+    if (images, credits) != (2, 1):
+        raise ValueError(f"Could not update the illustrated home map in {language}")
+    return source
+
+
+def update_preview_js(source, worlds, path):
+    urls = ",".join(f'{world}:`{row["url"]}`' for world, row in worlds.items())
+    source, data = PREVIEW_DATA_JS.subn("{" + urls + "}", source)
+
+    def size(match):
+        row = worlds[match["world"]]
+        return f'{match["props"]},width:{row["width"]},height:{row["height"]}'
+
+    source, images = PREVIEW_IMAGE_JS.subn(size, source)
+    copy = json.dumps(PREVIEW_CREDITS, ensure_ascii=False, separators=(",", ":"))
+    credit = f'(({copy})[document.documentElement.lang.split("-")[0]]??"{PREVIEW_CREDITS["en"]}")'
+    source, credits = PREVIEW_CREDIT_JS.subn(lambda m: m["credit"] + credit, source)
+    if (data, images, credits) != (1, 2, 1):
+        raise ValueError(f"Could not update the illustrated home map in {path.name}")
+    return source
 
 
 def update_html(source, language, worlds):

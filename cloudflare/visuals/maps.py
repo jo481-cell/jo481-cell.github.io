@@ -375,6 +375,8 @@ def apply(root: Path):
         if p.suffix==".js":
             if 'className:`alttp-floor ' in s:
                 s = _floor_js(s, route_data)
+            if 'className:`atlas-living-map__world atlas-living-map__world--light`' in s:
+                s = painted_world.update_preview_js(s, painted["worlds"], p)
             s=clean_floor_ext.sub(r'\1.svg\2',s)
         relevant=tuple(k for k in keys if k in s)
         if relevant:
@@ -392,6 +394,8 @@ def apply(root: Path):
             locale = p.relative_to(root).parts[0]
             language = locale if locale in LANGUAGES else "en"
             s = _floor_html(s, language, walkthroughs)
+            if 'class="atlas-living-map__surface"' in s:
+                s = painted_world.update_preview_html(s, language, painted["worlds"])
             if 'class="alttp-world-image' in s:
                 s = painted_world.update_html(s, language, painted["worlds"])
         elif p.suffix == ".js" and 'className:`alttp-world-image' in s:

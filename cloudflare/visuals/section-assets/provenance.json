@@ -4,6 +4,17 @@
   "created": "2026-11-23",
   "method": "Original editorial illustrations generated from text. No source images supplied. Lanczos resize and WebP encoding for publication.",
   "assets": {
+    "alttp-dark-world": {
+      "file": "alttp-dark-world.webp",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 281804,
+      "sha256": "f3f239d8c256fb0de9c2b4e7ae6d4797505ac973ecc11aee6fb08c4a07e72383",
+      "original": "exec-4951e82d-29bd-449f-b4bf-ebea4826c9e6.png",
+      "originalSha256": "40a99d5100c772a130a39218e323b4203c0a05d649cd8ab35fd768f726c8626a",
+      "subject": "An ancient stepped woodland sanctuary above a still marsh at blue hour.",
+      "prompt": "One square, original cinematic landscape illustration for a fantasy adventure guide. An ancient stepped stone sanctuary rises across a dark, still marsh, as seen from slightly above the bank at blue hour. Its silhouette is distinct and substantial, weathered stone blocks overgrown with roots and cliffs, with a few small amber openings. Wooded ridges recede behind it, with forested hills and low banks of mist. In the foreground, still teal water and reedbeds catch faint copper reflections, with a little exposed stone on the left. Place the main sanctuary a little left of center in the upper middle, and keep the lower-right quadrant as visually quieter dark water. This is grounded landscape photography with a carefully art-directed fantasy world, faithful materials, dense natural detail, and restrained natural lighting. A streak of warm dusk on the horizon and some visible details in the shadows. Evoke the mysterious parallel world of a classic 1990s adventure without copying any existing environmental artwork, levels, or buildings. A strong visual counterpoint to a sunny wooded lake. Invent the whole geography and architecture. No people, trademarks, recognizable game assets, map grid, text, interface, logos, or watermark."
+    },
     "alttp-lake": {
       "file": "alttp-lake.webp",
       "width": 1942,

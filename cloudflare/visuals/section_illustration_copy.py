@@ -3,6 +3,13 @@
 LANGUAGES = ("en", "fr", "es", "ja", "zh")
 
 DESCRIPTIONS = {
+    "alttp-dark-world": (
+        "A weathered stone sanctuary rises from a shadowy marsh at dusk.",
+        "Un sanctuaire de pierre se dresse au bord d’un marais sombre au crépuscule.",
+        "Un santuario de piedra se alza junto a un pantano oscuro al anochecer.",
+        "夕暮れの薄暗い湿地に、風化した石造りの神殿がそびえる。",
+        "暮色中，一座风化的石砌神殿矗立在幽暗的沼泽边。",
+    ),
     "alttp-lake": (
         "A fairy grotto glows in a mossy cliff beside the blue-green waters of Lake Hylia.",
         "Une grotte de fée s’illumine dans une falaise moussue au bord des eaux turquoise du lac Hylia.",
